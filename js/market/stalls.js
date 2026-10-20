@@ -1,13 +1,14 @@
 import * as THREE from 'three';
 import { assetUrl } from '../data/products.js';
 import { loadPreparedModel } from '../core/loader.js';
+import { marketMaterial } from '../core/textures.js';
 import { stallTransform } from './layout.js';
 
 const STALL_SIZE = 2.9;
 const PICK_HALF_WIDTH = 118;
 const PICK_HALF_HEIGHT = 104;
 
-const plankMaterial = new THREE.MeshStandardMaterial({ color: '#8a6a45', roughness: 0.92, metalness: 0 });
+const plankMaterial = marketMaterial('#8a6a45');
 
 function createBase() {
   const base = new THREE.Mesh(new THREE.CylinderGeometry(1.56, 1.64, 0.1, 22), plankMaterial);
@@ -44,6 +45,18 @@ export async function createStalls(group, phase) {
 
       holder.add(createBase());
       const model = await loadPreparedModel(assetUrl(stall.model), { targetSize: STALL_SIZE });
+      model.traverse((node) => {
+        if (!node.isMesh) return;
+        const harmonize = (original) => {
+          const material = original.clone();
+          material.roughness = Math.max(material.roughness ?? 0.85, 0.82);
+          material.metalness = Math.min(material.metalness ?? 0, 0.12);
+          material.color?.multiply(new THREE.Color('#f4e9d8'));
+          return material;
+        };
+        node.material = Array.isArray(node.material) ? node.material.map(harmonize) : harmonize(node.material);
+        node.receiveShadow = true;
+      });
       holder.add(model);
 
       const ring = createHighlight();
@@ -76,7 +89,7 @@ export function pickStall(entries, camera, pointer, viewport) {
 
   for (const entry of entries) {
     projected.copy(entry.anchor).project(camera);
-    if (projected.z > 1) continue;
+    if (projected.z > 1 || projected.z < -1) continue;
     const screenX = (projected.x * 0.5 + 0.5) * viewport.width;
     const screenY = (-projected.y * 0.5 + 0.5) * viewport.height;
     const dx = Math.abs(screenX - pointer.x) / PICK_HALF_WIDTH;

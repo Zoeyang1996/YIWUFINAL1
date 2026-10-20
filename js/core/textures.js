@@ -163,3 +163,41 @@ export function lanternTexture() {
 
   return toTexture(canvas);
 }
+
+// 中性纹理与材质色相分离，让木、麻布、灰墙在三个时段保持统一。
+const surfaceCache = new Map();
+export function surfaceTexture(kind = 'wood') {
+  if (surfaceCache.has(kind)) return surfaceCache.get(kind);
+  const canvas = makeCanvas(256), ctx = canvas.getContext('2d');
+  let seed = 419;
+  const random = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
+  ctx.fillStyle = '#d7d2c7';
+  ctx.fillRect(0, 0, 256, 256);
+  for (let i = 0; i < 3800; i++) {
+    ctx.fillStyle = `rgba(${random() > 0.5 ? '255,255,255' : '52,42,30'},${0.03 + random() * 0.09})`;
+    ctx.fillRect(random() * 256, random() * 256, 1, kind === 'wood' ? 12 + random() * 55 : 1.5);
+  }
+  if (kind === 'wood') {
+    for (let x = 0; x < 256; x += 5) {
+      ctx.beginPath(); ctx.moveTo(x, 0);
+      ctx.bezierCurveTo(x + 8, 85, x - 7, 170, x, 256);
+      ctx.strokeStyle = 'rgba(69,48,31,.14)'; ctx.lineWidth = 0.7; ctx.stroke();
+    }
+  } else if (kind === 'cloth') {
+    ctx.strokeStyle = 'rgba(65,54,39,.13)'; ctx.lineWidth = 1;
+    for (let i = 0; i < 256; i += 4) {
+      ctx.beginPath(); ctx.moveTo(i, 0); ctx.lineTo(i, 256);
+      ctx.moveTo(0, i); ctx.lineTo(256, i); ctx.stroke();
+    }
+  }
+  const texture = toTexture(canvas);
+  texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+  surfaceCache.set(kind, texture);
+  return texture;
+}
+
+export function marketMaterial(color, kind = 'wood') {
+  const map = surfaceTexture(kind);
+  return new THREE.MeshStandardMaterial({ color, map, bumpMap: map,
+    bumpScale: kind === 'plaster' ? 0.025 : 0.012, roughness: kind === 'wood' ? 0.86 : 0.94 });
+}

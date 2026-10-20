@@ -52,12 +52,15 @@ export function createPanel({ onAdd, onOpen }) {
     keeperEl.textContent = stall.keeper;
     lineEl.textContent = `「${stall.line}」`;
     renderProducts(stall);
+    root.inert = false;
     root.classList.add('is-open');
+    closeButton.focus({ preventScroll: true });
     root.setAttribute('aria-hidden', 'false');
     open = true;
   }
 
   function hide() {
+    root.inert = true;
     root.classList.remove('is-open');
     root.setAttribute('aria-hidden', 'true');
     open = false;

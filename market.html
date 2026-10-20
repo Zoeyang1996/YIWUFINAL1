@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>入市 · 义犹未尽</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/cart.css">
+<link rel="stylesheet" href="css/market.css">
+</head>
+<body class="market">
+<main id="marketStage" aria-label="三维市集游览"></main>
+<header class="market-header"><a href="index.html" aria-label="返回市集总览">← 归市图</a><span id="marketTitle">义犹未尽</span></header>
+<div class="grain-layer"></div>
+<p id="walkHint" class="walk-hint">WASD / 方向键漫游 · 走近摊位，点击停留</p>
+<button id="visitStall" class="visit-stall" type="button" hidden></button>
+<nav class="walk-pad" aria-label="游览方向"><button data-move="up" aria-label="前进">↑</button><button data-move="left" aria-label="左移">←</button><button data-move="down" aria-label="后退">↓</button><button data-move="right" aria-label="右移">→</button></nav>
+<aside id="stallPanel" class="stall-panel" aria-hidden="true" aria-label="摊位商品" inert>
+<button class="panel-close" type="button" aria-label="返回游览">← 继续逛逛</button>
+<p class="panel-keeper"></p><h1 class="panel-name"></h1><p class="panel-line"></p><div class="panel-list"></div>
+</aside>
+<div id="marketLoading" class="market-loading" role="status"><span>义</span><p>正在支摊子</p></div>
+<script type="importmap">{"imports":{"three":"./vendor/three/three.module.js","three/addons/":"./vendor/three/addons/"}}</script>
+<script type="module" src="js/market/main.js"></script>
+</body>
+</html>

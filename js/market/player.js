@@ -57,7 +57,7 @@ function buildFigure() {
 
   const rightArm = new THREE.Mesh(armGeometry, robeLight);
   rightArm.position.set(0.22, 0.86, 0);
-  rightArm.geometry.translate(0, -0.22, 0);
+
   rightArm.castShadow = true;
   root.add(rightArm);
 
@@ -71,7 +71,7 @@ function buildFigure() {
 
   const rightLeg = new THREE.Mesh(legGeometry, dark);
   rightLeg.position.set(0.1, 0.46, 0);
-  rightLeg.geometry.translate(0, -0.23, 0);
+
   rightLeg.castShadow = true;
   root.add(rightLeg);
 
@@ -120,7 +120,7 @@ export function createPlayer() {
    */
   function update(delta, input, cameraYaw) {
     forward.set(Math.sin(cameraYaw), 0, Math.cos(cameraYaw)).normalize();
-    right.set(forward.z, 0, -forward.x);
+    right.set(-forward.z, 0, forward.x);
 
     desire.set(0, 0, 0);
     desire.addScaledVector(forward, input.y);

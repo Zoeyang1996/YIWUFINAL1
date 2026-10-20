@@ -1,15 +1,15 @@
 import * as THREE from 'three';
-import { stoneTexture, tileTexture } from '../core/textures.js';
+import { stoneTexture, tileTexture, marketMaterial } from '../core/textures.js';
 import { STREET } from './layout.js';
 
 /** 一条江南直街：青石板、两侧檐廊、粉墙、街口牌楼 */
 
 function plasterMaterial() {
-  return new THREE.MeshStandardMaterial({ color: '#ece4d4', roughness: 0.96, metalness: 0 });
+  return marketMaterial('#ece4d4', 'plaster');
 }
 
 function woodMaterial(color = '#8a5f3c') {
-  return new THREE.MeshStandardMaterial({ color, roughness: 0.86, metalness: 0 });
+  return marketMaterial(color);
 }
 
 function tileMaterial() {
@@ -36,10 +36,12 @@ function createGround(group) {
   ground.receiveShadow = true;
   group.add(ground);
 
+  const paving = stoneTexture();
+  paving.repeat.set(1.5, 10);
   // 街心一条更亮的石板带
   const spine = new THREE.Mesh(
     new THREE.PlaneGeometry(4.2, 30),
-    new THREE.MeshStandardMaterial({ color: '#cfc4ac', roughness: 0.92 })
+    new THREE.MeshStandardMaterial({ color: '#eee4ce', map: paving, bumpMap: paving, bumpScale: 0.035, roughness: 0.92 })
   );
   spine.rotation.x = -Math.PI / 2;
   spine.position.y = 0.012;
@@ -61,6 +63,17 @@ function createCorridor(group, side) {
   // 墙头压顶
   addBox(group, { w: 0.6, h: 0.18, d: 27, x: wallX, y: 3.56, z: 0, material: tile });
 
+  // 墙裙、窗框与透空木棂，形成平视镜头里的层次。
+  addBox(group, { w: 0.4, h: 0.48, d: 27, x: wallX, y: 0.24, z: 0, material: woodDark });
+  for (let z = -10; z <= 10; z += 4) {
+    const x = wallX - sign * 0.23;
+    addBox(group, { w: 0.08, h: 1.45, d: 2.2, x, y: 1.9, z, material: woodDark });
+    addBox(group, { w: 0.09, h: 1.22, d: 1.98, x: x - sign * 0.06, y: 1.9, z, material: plaster });
+    for (let j = -0.8; j <= 0.81; j += 0.4)
+      addBox(group, { w: 0.14, h: 1.24, d: 0.045, x: x - sign * 0.12, y: 1.9, z: z + j, material: wood });
+    for (const y of [1.5, 1.9, 2.3])
+      addBox(group, { w: 0.14, h: 0.045, d: 2, x: x - sign * 0.12, y, z, material: wood });
+  }
   // 檐柱
   for (let z = -12; z <= 12; z += 4) {
     addBox(group, { w: 0.2, h: 3.0, d: 0.2, x: postX, y: 1.5, z, material: wood });
@@ -124,8 +137,8 @@ function createGate(group) {
 }
 
 function createProps(group) {
-  const basket = new THREE.MeshStandardMaterial({ color: '#b0894f', roughness: 0.9 });
-  const barrel = new THREE.MeshStandardMaterial({ color: '#7a5233', roughness: 0.88 });
+  const basket = marketMaterial('#b0894f', 'cloth');
+  const barrel = marketMaterial('#7a5233');
 
   const spots = [
     { x: -3.9, z: 9.4, kind: 'basket' },
