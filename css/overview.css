@@ -420,3 +420,8 @@ body.overview[data-phase="night"] .enter-hint {
     display: none;
   }
 }
+
+/* 让微缩模型成为唯一主角，保留时间切换与购物车入口。 */
+.overview .brand-sub, .overview .colophon, .overview .phase-caption .tag { display: none; }
+.overview .brand-title { font-size: 22px; }
+.overview .enter-hint { font-size: 12px; letter-spacing: .25em; }

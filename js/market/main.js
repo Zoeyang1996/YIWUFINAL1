@@ -3,10 +3,8 @@ import { getPhase, phaseFromQuery } from '../data/phases.js';
 import { assetUrl } from '../data/products.js';
 import { mountCart, showToast } from '../cart/ui.js';
 import { addToCart } from '../cart/store.js';
-import { buildArchitecture } from './architecture.js';
-import { buildDecor } from './decor.js';
-import { buildStreetDetails } from './details.js';
-import { createStalls, pickStall, updateStalls } from './stalls.js';
+import { loadMarketMap } from './map.js';
+import { pickStall, updateStalls } from './stalls.js';
 import { createPlayer } from './player.js';
 import { createCameraRig } from './camera-rig.js';
 import { createPanel } from './panel.js';
@@ -24,7 +22,7 @@ const touchKeys = new Set();
 let entries = [], nearest = null, hovered = null, selected = null, ready = false;
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(phase.palette.sky);
-scene.fog = new THREE.Fog(phase.palette.fog, 25, 65);
+scene.fog = new THREE.Fog(phase.palette.fog, 42, 100);
 const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
 renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));
 renderer.shadowMap.enabled = true;
@@ -34,15 +32,13 @@ renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = phase.id === 'night' ? 1.15 : 1.05;
 stage.appendChild(renderer.domElement);
 const world = new THREE.Group(); scene.add(world);
-buildArchitecture(world);
-buildStreetDetails(world, phase);
-const decor = buildDecor(world, phase.stalls); decor.applyPhase(phase.id);
+let marketMap = null;
 const night = phase.id === 'night';
 scene.add(new THREE.HemisphereLight(night ? '#9cacd1' : '#fff1dc', '#8c7960', night ? 1.15 : 1.9));
 const sun = new THREE.DirectionalLight(night ? '#b7c8ec' : '#fff0d3', night ? 1.6 : 2.6);
-sun.position.set(-8, 18, 8); sun.castShadow = true;
+sun.position.set(-18, 35, 15); sun.castShadow = true;
 sun.shadow.mapSize.set(2048, 2048);
-Object.assign(sun.shadow.camera, { left: -19, right: 19, top: 19, bottom: -19, near: 1, far: 60 });
+Object.assign(sun.shadow.camera, { left: -36, right: 36, top: 36, bottom: -36, near: 1, far: 100 });
 sun.shadow.bias = -0.0004; sun.shadow.normalBias = 0.035;
 scene.add(sun);
 const fill = new THREE.DirectionalLight('#b4c6d3', 0.65); fill.position.set(10, 7, -12); scene.add(fill);
@@ -58,7 +54,9 @@ function leaveStall() {
   visit.focus({ preventScroll: true });
 }
 function nearby(entry) {
-  return Math.hypot(player.position.x - entry.position.x, player.position.z - entry.position.z) <= 6.3;
+  return Math.hypot(player.position.x - entry.position.x, player.position.z - entry.position.z) <= 6.5
+    && Math.abs(player.position.y - entry.position.y) < 1.5
+    && new THREE.Vector3().subVectors(player.position, entry.position).dot(entry.normal) > 0.5;
 }
 function enterStall(entry) {
   if (!ready || !entry || !nearby(entry) || rig.isTransitioning) return;
@@ -106,12 +104,16 @@ renderer.setAnimationLoop(() => {
   visit.hidden = !ready || Boolean(selected) || rig.isTransitioning || !nearest;
   if (nearest) visit.textContent = `逛逛${nearest.stall.name} · E`;
   updateStalls(entries, delta, (selected ?? hovered ?? nearest)?.stall.id);
-  decor.sway(clock.elapsedTime);
+  marketMap?.updateOcclusion(rig.camera, selected?.focusTarget ?? player.position, delta);
   renderer.render(scene, rig.camera);
 });
 try {
-  entries = await createStalls(world, phase);
-  ready = true; loading.classList.add('is-done');
+  marketMap = await loadMarketMap(world, phase);
+  entries = marketMap.entries;
+  player.setMap(marketMap.navigator, marketMap.spawn);
+  rig.reset();
+  showToast(phase.intro);
+  ready = true; loading.classList.add('is-done'); loading.setAttribute('aria-hidden', 'true');
 } catch (error) {
   console.error('市集模型加载失败', error);
   loading.querySelector('p').textContent = '摊位加载失败，请重试';

@@ -45,3 +45,15 @@ test('reversing an unfinished transition preserves position and orientation', ()
   assert.ok(rig.camera.position.distanceTo(before) < 0.01);
   assert.ok(rig.camera.quaternion.angleTo(rotation) < 0.01);
 });
+
+test('authored hill-shop elevation and arbitrary shop facing are respected', () => {
+  const rig = createCameraRig();
+  const player = { position: new THREE.Vector3(-10, 5, -8) };
+  rig.update(1 / 60, player, 1.6);
+  const shop = { position: new THREE.Vector3(-10, 5, -12), focusTarget: new THREE.Vector3(-10, 6.45, -12), normal: new THREE.Vector3(0, 0, 1) };
+  rig.focusOn(shop);
+  for (let i = 0; i < 110; i++) rig.update(1 / 60, player, 1.6);
+  assert.ok(Math.abs(rig.camera.position.y - 6.45) < 1e-9);
+  const facing = rig.camera.getWorldDirection(new THREE.Vector3());
+  assert.ok(facing.distanceTo(new THREE.Vector3(0, 0, -1)) < 1e-9);
+});

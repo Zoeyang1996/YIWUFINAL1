@@ -125,25 +125,36 @@ export function createOverviewStage(container, { onEnter, onModelReady } = {}) {
   }
 
   let firstShown = false;
+  let requestId = 0;
+  let requestedPhase = null;
+  const loadingGroups = new Map();
+  let cancelTransitions = [];
 
   async function setPhase(phaseId) {
-    if (state.currentId === phaseId) return;
+    if (requestedPhase === phaseId) return;
+    requestedPhase = phaseId;
+    const request = ++requestId;
     const previousId = state.currentId;
     const previous = previousId ? groups.get(previousId) : null;
 
     let next = groups.get(phaseId);
     if (!next) {
-      next = await loadPreparedModel(assetUrl(PHASES[phaseId].overviewModel), { targetSize: MODEL_FOOTPRINT });
+      if (!loadingGroups.has(phaseId)) loadingGroups.set(phaseId, loadPreparedModel(assetUrl(PHASES[phaseId].overviewModel), { targetSize: MODEL_FOOTPRINT }));
+      next = await loadingGroups.get(phaseId);
       prepareGroup(next);
       groups.set(phaseId, next);
       pivot.add(next);
       onModelReady?.(phaseId);
     }
 
+    if (request !== requestId) return;
+    cancelTransitions.forEach((cancel) => cancel());
+    cancelTransitions = [];
+    groups.forEach((group, id) => { if (id !== previousId && id !== phaseId) setGroupOpacity(group, 0); });
     state.currentId = phaseId;
     lights.apply(phaseId, { immediate: !firstShown });
 
-    tween({
+    cancelTransitions.push(tween({
       duration: 700,
       from: 0,
       to: 1,
@@ -151,10 +162,10 @@ export function createOverviewStage(container, { onEnter, onModelReady } = {}) {
         shadow.material.opacity = (GROUND_SHADOW_OPACITY[phaseId] ?? 0.45) * value;
         ring.material.opacity = (RING_OPACITY[phaseId] ?? 0.5) * value;
       },
-    });
+    }));
 
     if (previous && previous !== next) {
-      tween({
+      cancelTransitions.push(tween({
         duration: 340,
         from: 1,
         to: 0,
@@ -167,11 +178,11 @@ export function createOverviewStage(container, { onEnter, onModelReady } = {}) {
           previous.visible = false;
           previous.scale.setScalar(1);
         },
-      });
+      }));
     }
 
     next.scale.setScalar(0.93);
-    tween({
+    cancelTransitions.push(tween({
       duration: 760,
       from: 0,
       to: 1,
@@ -180,14 +191,14 @@ export function createOverviewStage(container, { onEnter, onModelReady } = {}) {
         setGroupOpacity(next, value);
         next.scale.setScalar(0.93 + 0.07 * value);
       },
-    });
+    }));
 
     firstShown = true;
   }
 
   /** 点一下模型：涟漪 + 轻微前推，然后交给外层跳转 */
   function enter() {
-    if (state.entering) return;
+    if (state.entering || !state.currentId || state.currentId !== requestedPhase) return;
     state.entering = true;
 
     ripple.visible = true;
@@ -239,7 +250,7 @@ export function createOverviewStage(container, { onEnter, onModelReady } = {}) {
       },
     });
 
-    window.setTimeout(() => onEnter?.(), 780);
+    window.setTimeout(() => onEnter?.(state.currentId), 780);
   }
 
   // ---- 交互 ----
@@ -265,14 +276,22 @@ export function createOverviewStage(container, { onEnter, onModelReady } = {}) {
     state.pitchTarget = Math.max(-0.24, Math.min(0.26, state.pitchTarget + dy * 0.0016));
   });
 
-  const endDrag = () => {
+  const raycaster = new THREE.Raycaster();
+  const pointer = new THREE.Vector2();
+  const endDrag = (event) => {
     if (!state.dragging) return;
     state.dragging = false;
     if (state.pointerId !== null && canvas.hasPointerCapture?.(state.pointerId)) {
       canvas.releasePointerCapture(state.pointerId);
     }
     state.pointerId = null;
-    if (state.travel < 8) enter();
+    if (state.travel < 8) {
+      const rect = canvas.getBoundingClientRect();
+      pointer.set((event.clientX - rect.left) / rect.width * 2 - 1, -(event.clientY - rect.top) / rect.height * 2 + 1);
+      raycaster.setFromCamera(pointer, camera);
+      const active = groups.get(state.currentId);
+      if (active && raycaster.intersectObject(active, true).length) enter();
+    }
   };
 
   canvas.addEventListener('pointerup', endDrag);

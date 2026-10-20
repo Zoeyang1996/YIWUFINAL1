@@ -62,17 +62,17 @@ async function goTo(nextIndex) {
   paintActive();
   paintCaption();
   wheelLockedUntil = performance.now() + WHEEL_LOCK_MS;
-  await stage.setPhase(PHASE_ORDER[index]);
+  try { await stage.setPhase(PHASE_ORDER[index]); } catch (error) { showLoadError(error); }
 }
 
-function leaveToMarket() {
+function leaveToMarket(phaseId) {
   if (leaving) return;
   leaving = true;
   hintEl.classList.add('is-entering');
   hintEl.textContent = '入 市';
   wipeEl.classList.add('is-active');
   window.setTimeout(() => {
-    location.href = `market.html?phase=${PHASE_ORDER[index]}`;
+    location.href = `market.html?phase=${phaseId}`;
   }, 560);
 }
 
@@ -90,7 +90,7 @@ buildButtons();
 paintActive();
 hourEl.textContent = `${PHASES[PHASE_ORDER[0]].name} · ${PHASES[PHASE_ORDER[0]].hourLabel}`;
 tagEl.textContent = PHASES[PHASE_ORDER[0]].tagline;
-stage.setPhase(PHASE_ORDER[0]);
+stage.setPhase(PHASE_ORDER[0]).catch(showLoadError);
 
 // ---- 滚轮换时 ----
 window.addEventListener(
@@ -138,3 +138,9 @@ window.setTimeout(() => {
   link.href = 'market.html';
   document.head.appendChild(link);
 }, 1600);
+
+function showLoadError(error) {
+  console.error(error);
+  curtainEl.classList.remove('is-done');
+  curtainEl.querySelector('.curtain-text').textContent = '模型加载失败，请刷新重试';
+}

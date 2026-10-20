@@ -23,12 +23,14 @@ export function createCameraRig() {
   function update(delta, player, aspect) {
     const dt = Math.min(Math.max(delta, 0), 0.05);
     const focusing = mode === 'focus' && focus;
-    desiredTarget.copy(player.position).setY(0.85);
+    desiredTarget.copy(player.position);
+    desiredTarget.y += 0.85;
     destination.setFromVector3(FOLLOW_OFFSET);
     let desiredHeight = FOLLOW_HEIGHT;
     if (focusing) {
-      desiredTarget.set(focus.position.x, 1.4, focus.position.z);
-      destination.set(7, Math.PI / 2, focus.side === 'left' ? Math.PI / 2 : -Math.PI / 2);
+      if (focus.focusTarget) desiredTarget.copy(focus.focusTarget);
+      else desiredTarget.set(focus.position.x, (focus.position.y ?? 0) + 1.4, focus.position.z);
+      destination.set(7, Math.PI / 2, focus.normal ? Math.atan2(focus.normal.x, focus.normal.z) : (focus.side === 'left' ? Math.PI / 2 : -Math.PI / 2));
       desiredHeight = aspect < 0.85 ? 7.8 : 5.4;
     }
     if (!initialized) {
@@ -69,6 +71,7 @@ export function createCameraRig() {
 
   return {
     camera, update,
+    reset() { initialized = false; transition = null; },
     focusOn(stall) { if (focus === stall) return; focus = stall; mode = 'focus'; begin(); },
     release() { if (mode === 'follow') return; mode = 'follow'; focus = null; begin(); },
     getYaw() { return Math.atan2(target.x - camera.position.x, target.z - camera.position.z); },

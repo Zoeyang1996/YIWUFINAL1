@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { clampToStreet, PLAYER_START } from './layout.js';
+
 
 /** 一个戴竹笠、提小灯的小小人 —— 用基本体搭出来的 */
 const WALK_SPEED = 2.55;
@@ -97,9 +97,11 @@ function buildFigure() {
 }
 
 export function createPlayer() {
+  let navigation = null;
+  let groundHeight = 0;
   const parts = buildFigure();
   const root = parts.root;
-  root.position.set(PLAYER_START.x, 0, PLAYER_START.z);
+  root.position.set(0, 0, 0);
 
   const state = {
     yaw: Math.PI,
@@ -139,7 +141,8 @@ export function createPlayer() {
       const step = state.speed * delta;
       const nextX = root.position.x + Math.sin(state.yaw) * step;
       const nextZ = root.position.z + Math.cos(state.yaw) * step;
-      const clamped = clampToStreet(nextX, nextZ);
+      const clamped = navigation?.move({ x: root.position.x, y: groundHeight, z: root.position.z }, nextX, nextZ) ?? { x: root.position.x, y: groundHeight, z: root.position.z };
+      groundHeight = clamped.y;
       root.position.x = clamped.x;
       root.position.z = clamped.z;
     }
@@ -160,7 +163,7 @@ export function createPlayer() {
     parts.leftArm.rotation.x = -swing * 0.8;
     parts.rightArm.rotation.x = swing * 0.55;
 
-    root.position.y = Math.abs(Math.sin(state.phase)) * 0.045 * stride;
+    root.position.y += (groundHeight + Math.abs(Math.sin(state.phase)) * 0.045 * stride - root.position.y) * (1 - Math.exp(-16 * delta));
     parts.head.rotation.z = Math.sin(state.phase * 0.5) * 0.03;
   }
 
@@ -173,6 +176,12 @@ export function createPlayer() {
     object: root,
     update,
     setPhaseMood,
+    setMap(navigator, spawn) {
+      navigation = navigator;
+      groundHeight = navigator.sample(spawn.x, spawn.z) ?? spawn.y;
+      root.position.set(spawn.x, groundHeight, spawn.z);
+      state.speed = 0;
+    },
     get position() {
       return root.position;
     },
