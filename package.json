@@ -1,0 +1,15 @@
+{
+  "name": "yiwu-three-times-market",
+  "version": "1.0.0",
+  "private": true,
+  "description": "义犹未尽 · 义乌三时市集 —— Three.js 国风三维市集交互网页",
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes serve . -l 5173 --no-clipboard",
+    "start": "npx --yes serve . -l 5173 --no-clipboard"
+  },
+  "devDependencies": {
+    "serve": "^14.2.4",
+    "three": "0.160.0"
+  }
+}

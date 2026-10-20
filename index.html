@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>义犹未尽 · 义乌三时市集</title>
+<meta name="description" content="早、午、夜三时市集，一座可进入、可漫游、可选购的国风三维市集。">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/cart.css">
+<link rel="stylesheet" href="css/overview.css">
+</head>
+<body class="overview" data-phase="morning">
+
+<div id="stage"></div>
+<div class="enter-hint" id="enterHint">点 击 入 市</div>
+
+<div class="sky-glow"></div>
+<div class="vignette"></div>
+<div class="grain-layer"></div>
+
+<header class="brand">
+  <div class="brand-seal">义</div>
+  <div>
+    <h1 class="brand-title">义犹未尽</h1>
+    <p class="brand-sub">义 乌 三 时 市 集</p>
+  </div>
+</header>
+
+<div class="phase-rail">
+  <div class="phase-caption" id="phaseCaption">
+    <span class="hour" id="phaseHour">早市 · 卯时</span>
+    <span class="tag" id="phaseTag">天光初开，蒸汽先醒</span>
+  </div>
+  <div class="phase-buttons" id="phaseButtons"></div>
+</div>
+
+<div class="scroll-hint"><span>滚 轮 换 时</span><i></i></div>
+
+<div class="colophon">义乌 · 三时市集<br>一 日 三 市 · 各 有 各 的 热 闹</div>
+
+<div class="page-wipe" id="pageWipe"></div>
+
+<div class="curtain" id="curtain">
+  <div class="curtain-inner">
+    <div class="curtain-mark">义</div>
+    <p class="curtain-text">正 在 支 摊 子</p>
+  </div>
+</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "./vendor/three/three.module.js",
+    "three/addons/": "./vendor/three/addons/"
+  }
+}
+</script>
+<script type="module" src="js/overview/main.js"></script>
+</body>
+</html>

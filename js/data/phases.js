@@ -1,0 +1,205 @@
+/**
+ * 三个时段：总览模型、氛围配色、以及各自市集里的摊位布点。
+ * slot 决定摊位在街上的位置，见 js/market/layout.js
+ */
+const STALL_ROOT = {
+  morning: '资产包/首页/早/二级场景/三级店铺',
+  noon: '资产包/首页/午/二级场景/三级店铺',
+  night: '资产包/首页/夜/二级场景/三级店铺',
+};
+
+export const PHASE_ORDER = ['morning', 'noon', 'night'];
+
+export const PHASES = {
+  morning: {
+    id: 'morning',
+    name: '早市',
+    glyph: '早',
+    hourLabel: '卯时',
+    tagline: '天光初开，蒸汽先醒',
+    intro: '辰光刚爬上瓦檐，第一笼点心已经出屉。',
+    overviewModel: '资产包/首页/早/zao.glb',
+    palette: {
+      sky: '#e8dcc5',
+      skyDeep: '#c3b195',
+      fog: '#d9ccb4',
+      ink: '#3b2f22',
+      accent: '#b1622f',
+      glow: '#ffd8a0',
+    },
+    stalls: [
+      {
+        id: 'breakfast',
+        name: '早餐摊',
+        keeper: '阿婆',
+        line: '刚出屉的，趁热拿。',
+        model: `${STALL_ROOT.morning}/早餐摊/早餐摊贩.glb`,
+        side: 'left',
+        slot: 0,
+        products: ['toastFigure'],
+      },
+      {
+        id: 'tea',
+        name: '茶水摊',
+        keeper: '老周',
+        line: '坐一坐，喝完再走。',
+        model: `${STALL_ROOT.morning}/茶水摊/茶水摊贩.glb`,
+        side: 'right',
+        slot: 0,
+        products: ['milkCupMorning'],
+      },
+      {
+        id: 'toys',
+        name: '玩具摊',
+        keeper: '小满',
+        line: '挑一个吧，会转的那种。',
+        model: `${STALL_ROOT.morning}/玩具摊/玩具摊贩.glb`,
+        side: 'left',
+        slot: 1,
+        products: ['acornString'],
+      },
+      {
+        id: 'sundries',
+        name: '杂物摊',
+        keeper: '无名',
+        line: '针头线脑，样样都有。',
+        model: `${STALL_ROOT.morning}/杂物摊/杂物摊贩.glb`,
+        side: 'right',
+        slot: 1,
+        products: [],
+        decor: true,
+      },
+    ],
+  },
+
+  noon: {
+    id: 'noon',
+    name: '午市',
+    glyph: '午',
+    hourLabel: '午时',
+    tagline: '日正当中，市声最盛',
+    intro: '日头把青石板晒得发烫，叫卖声一层压一层。',
+    overviewModel: '资产包/首页/午/noon.glb',
+    palette: {
+      sky: '#f1e3c4',
+      skyDeep: '#d2b787',
+      fog: '#e7d5ac',
+      ink: '#43301c',
+      accent: '#a8452a',
+      glow: '#fff0c8',
+    },
+    stalls: [
+      {
+        id: 'fans',
+        name: '扇子摊',
+        keeper: '沈娘',
+        line: '题一句吧，题了就是你的。',
+        model: `${STALL_ROOT.noon}/扇子摊/扇子摊.glb`,
+        side: 'left',
+        slot: 0,
+        products: ['milkCupNoon'],
+      },
+      {
+        id: 'grocery',
+        name: '杂货摊',
+        keeper: '八景先生',
+        line: '八件一套，缺一件就不成景了。',
+        model: `${STALL_ROOT.noon}/杂货摊/杂物摊贩.glb`,
+        side: 'right',
+        slot: 0,
+        products: ['cloudEight'],
+      },
+      {
+        id: 'daily',
+        name: '日用小摊',
+        keeper: '阿绣',
+        line: '袜子上的花，是我一朵一朵画的。',
+        model: `${STALL_ROOT.noon}/日用小摊/日用小摊贩.glb`,
+        side: 'left',
+        slot: 1,
+        products: ['flowerSock'],
+      },
+      {
+        id: 'sundries-noon',
+        name: '杂物摊',
+        keeper: '无名',
+        line: '看一看，不买也行。',
+        model: `${STALL_ROOT.noon}/杂货摊/杂物摊贩.glb`,
+        side: 'right',
+        slot: 1,
+        products: [],
+        decor: true,
+      },
+    ],
+  },
+
+  night: {
+    id: 'night',
+    name: '夜市',
+    glyph: '夜',
+    hourLabel: '戌时',
+    tagline: '灯火初上，人影被拉长',
+    intro: '灯笼一盏一盏亮起来，整条街忽然有了温度。',
+    overviewModel: '资产包/首页/夜/evening.glb',
+    palette: {
+      sky: '#10141f',
+      skyDeep: '#070911',
+      fog: '#121828',
+      ink: '#e8dcc6',
+      accent: '#d9642c',
+      glow: '#ffb457',
+    },
+    stalls: [
+      {
+        id: 'lanterns',
+        name: '花灯摊',
+        keeper: '灯姐',
+        line: '挑一盏吧，会一直亮到天亮。',
+        model: `${STALL_ROOT.night}/花灯摊/ye3.glb`,
+        side: 'left',
+        slot: 0,
+        products: ['hatLamp', 'boneCandle'],
+      },
+      {
+        id: 'antiques',
+        name: '古董摊',
+        keeper: '裴掌柜',
+        line: '这件东西，比我年纪大。',
+        model: `${STALL_ROOT.night}/古董摊/古董铺.glb`,
+        side: 'right',
+        slot: 0,
+        products: ['hundredClocks'],
+      },
+      {
+        id: 'brew',
+        name: '酿酒杂货摊',
+        keeper: '酒翁',
+        line: '喝一口，暖到手指头。',
+        model: `${STALL_ROOT.night}/酿酒杂货摊/ye4.glb`,
+        side: 'left',
+        slot: 1,
+        products: ['starGoblet'],
+      },
+      {
+        id: 'craft',
+        name: '手作摊',
+        keeper: '阿木',
+        line: '今天还没做出满意的。',
+        model: `${STALL_ROOT.night}/手作摊/ye1.glb`,
+        side: 'right',
+        slot: 1,
+        products: [],
+        decor: true,
+      },
+    ],
+  },
+};
+
+export function getPhase(id) {
+  return PHASES[id] ?? PHASES.morning;
+}
+
+export function phaseFromQuery() {
+  const value = new URLSearchParams(location.search).get('phase');
+  return PHASE_ORDER.includes(value) ? value : 'morning';
+}

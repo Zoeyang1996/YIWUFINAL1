@@ -1,0 +1,422 @@
+/* 一级页面：三维市集总览 */
+
+body.overview {
+  --sky: #e8dcc5;
+  --sky-deep: #c3b195;
+  --accent: #b1622f;
+  --ink: #2b2117;
+  --ink-soft: rgba(43, 33, 23, 0.6);
+  --ink-faint: rgba(43, 33, 23, 0.3);
+  background: radial-gradient(ellipse 90% 80% at 50% 42%, var(--sky) 0%, var(--sky-deep) 62%, #9b8a70 100%);
+  transition: background 1.1s var(--ease-soft);
+}
+
+body.overview[data-phase="night"] {
+  --sky: #1b2334;
+  --sky-deep: #080b12;
+  --accent: #e08a4a;
+  --ink: #ece0ca;
+  --ink-soft: rgba(236, 224, 202, 0.66);
+  --ink-faint: rgba(236, 224, 202, 0.34);
+  background: radial-gradient(ellipse 92% 82% at 50% 42%, var(--sky) 0%, var(--sky-deep) 68%, #04060a 100%);
+}
+
+#stage {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+}
+
+#stage canvas {
+  display: block;
+  cursor: grab;
+  transition: opacity 0.4s;
+}
+
+#stage canvas:active {
+  cursor: grabbing;
+}
+
+#stage.is-loaded canvas {
+  cursor: pointer;
+}
+
+/* 光与雾，让模型像被一束天光托住 */
+.sky-glow {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 34% 30% at 50% 62%, rgba(255, 250, 236, 0.55), transparent 70%),
+    radial-gradient(ellipse 70% 46% at 50% 8%, rgba(255, 246, 226, 0.42), transparent 76%);
+  mix-blend-mode: soft-light;
+}
+
+body.overview[data-phase="night"] .sky-glow {
+  background:
+    radial-gradient(ellipse 30% 24% at 50% 66%, rgba(255, 168, 76, 0.16), transparent 72%),
+    radial-gradient(ellipse 66% 40% at 50% 6%, rgba(74, 98, 160, 0.14), transparent 78%);
+  mix-blend-mode: screen;
+}
+
+.vignette {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: radial-gradient(ellipse 74% 72% at 50% 46%, transparent 42%, rgba(60, 44, 26, 0.16) 78%, rgba(44, 32, 18, 0.34) 100%);
+}
+
+body.overview[data-phase="night"] .vignette {
+  background: radial-gradient(ellipse 74% 72% at 50% 46%, transparent 34%, rgba(4, 6, 12, 0.42) 78%, rgba(2, 3, 8, 0.72) 100%);
+}
+
+/* ===== 品牌 ===== */
+.brand {
+  position: fixed;
+  left: 44px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 12;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  writing-mode: vertical-rl;
+  pointer-events: none;
+}
+
+.brand-seal {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  font-family: var(--font-kai);
+  font-size: 19px;
+  line-height: 1;
+  letter-spacing: 0;
+  color: #fdf2e0;
+  background: linear-gradient(155deg, #b8452c, #8a2c18);
+  border: 1px solid rgba(250, 222, 196, 0.42);
+  box-shadow: 0 0 30px -8px rgba(184, 69, 44, 0.72);
+}
+
+.brand-title {
+  font-family: var(--font-kai);
+  font-size: 25px;
+  letter-spacing: 0.34em;
+  color: var(--ink);
+  text-shadow: 0 1px 14px rgba(255, 244, 224, 0.5);
+}
+
+body.overview[data-phase="night"] .brand-title {
+  text-shadow: 0 1px 20px rgba(0, 0, 0, 0.8);
+}
+
+.brand-sub {
+  margin-top: 16px;
+  font-family: var(--font-kai);
+  font-size: 11px;
+  letter-spacing: 0.42em;
+  color: var(--ink-faint);
+}
+
+/* ===== 时段切换 ===== */
+.phase-rail {
+  position: fixed;
+  left: 50%;
+  bottom: 46px;
+  transform: translateX(-50%);
+  z-index: 14;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  --rail-scrim: rgba(240, 229, 208, 0.94);
+}
+
+body.overview[data-phase="night"] .phase-rail {
+  --rail-scrim: rgba(8, 11, 18, 0.94);
+}
+
+/* 文字压住模型时，用一层柔光把字托出来 */
+.phase-rail::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -60px;
+  width: 640px;
+  height: 250px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse 52% 50% at 50% 72%, var(--rail-scrim) 0%, rgba(0, 0, 0, 0) 76%);
+  filter: blur(6px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.phase-caption {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  text-align: center;
+  transition: opacity 0.4s;
+}
+
+.phase-caption .hour {
+  font-family: var(--font-kai);
+  font-size: 11.5px;
+  letter-spacing: 0.5em;
+  color: var(--accent);
+  padding-left: 0.5em;
+}
+
+.phase-caption .tag {
+  font-family: var(--font-kai);
+  font-size: 14px;
+  letter-spacing: 0.3em;
+  color: var(--ink-soft);
+  padding-left: 0.3em;
+}
+
+.phase-caption.is-swapping {
+  opacity: 0;
+}
+
+.phase-buttons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border-top: 1px solid var(--ink-faint);
+  border-bottom: 1px solid var(--ink-faint);
+}
+
+.phase-button {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 62px;
+  padding: 10px 0 9px;
+  font-family: var(--font-kai);
+  font-size: 17px;
+  letter-spacing: 0.2em;
+  color: var(--ink-faint);
+  transition: color 0.35s, letter-spacing 0.35s;
+}
+
+.phase-button small {
+  display: block;
+  margin-top: 3px;
+  font-family: var(--font-song);
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  color: var(--ink-faint);
+  opacity: 0.8;
+}
+
+.phase-button.is-active {
+  color: var(--ink);
+  letter-spacing: 0.34em;
+}
+
+.phase-button.is-active::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -5px;
+  width: 5px;
+  height: 5px;
+  transform: translateX(-50%) rotate(45deg);
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+}
+
+.phase-button:hover {
+  color: var(--ink-soft);
+}
+
+.phase-button.is-active:hover {
+  color: var(--ink);
+}
+
+/* ===== 中央提示 ===== */
+.enter-hint {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 13;
+  transform: translate(-50%, 96px);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 22px;
+  font-family: var(--font-kai);
+  font-size: 13px;
+  letter-spacing: 0.34em;
+  color: var(--ink);
+  background: rgba(252, 246, 234, 0.72);
+  border: 1px solid var(--ink-faint);
+  backdrop-filter: blur(5px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s var(--ease-soft), transform 0.5s var(--ease-rise);
+  white-space: nowrap;
+}
+
+body.overview[data-phase="night"] .enter-hint {
+  color: var(--ink);
+  background: rgba(20, 26, 40, 0.66);
+  border-color: rgba(236, 224, 202, 0.34);
+}
+
+#stage:hover + .enter-hint,
+#stage.is-hovering + .enter-hint {
+  opacity: 1;
+  transform: translate(-50%, 84px);
+}
+
+.enter-hint.is-entering {
+  opacity: 1;
+  transform: translate(-50%, 60px);
+  letter-spacing: 0.5em;
+}
+
+/* ===== 右下滚轮提示 ===== */
+.scroll-hint {
+  position: fixed;
+  right: 40px;
+  bottom: 46px;
+  z-index: 12;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-kai);
+  font-size: 10.5px;
+  letter-spacing: 0.3em;
+  color: var(--ink-faint);
+  pointer-events: none;
+}
+
+.scroll-hint i {
+  display: block;
+  width: 1px;
+  height: 30px;
+  background: linear-gradient(180deg, transparent, var(--ink-faint));
+  animation: scrollPulse 2.4s var(--ease-soft) infinite;
+}
+
+@keyframes scrollPulse {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scaleY(0.6);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+/* ===== 载入幕布 ===== */
+.curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  background: #efe4cf;
+  transition: opacity 0.9s var(--ease-soft), visibility 0.9s;
+}
+
+.curtain.is-done {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.curtain-inner {
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+}
+
+.curtain-mark {
+  width: 46px;
+  height: 46px;
+  border: 2px solid rgba(168, 57, 42, 0.5);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-kai);
+  font-size: 20px;
+  color: #8a2c18;
+  animation: markBreath 2.2s var(--ease-soft) infinite;
+}
+
+.curtain-text {
+  font-family: var(--font-kai);
+  font-size: 11.5px;
+  letter-spacing: 0.44em;
+  color: rgba(60, 44, 26, 0.44);
+}
+
+@keyframes markBreath {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.66;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
+/* ===== 转场 ===== */
+.page-wipe {
+  position: fixed;
+  inset: 0;
+  z-index: 88;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, rgba(28, 20, 12, 0.96), rgba(12, 9, 6, 0.99));
+  clip-path: circle(0% at 50% 50%);
+  transition: clip-path 0.62s var(--ease-rise);
+}
+
+.page-wipe.is-active {
+  clip-path: circle(140% at 50% 50%);
+  pointer-events: auto;
+}
+
+@media (max-width: 900px) {
+  .brand {
+    left: 20px;
+    top: 88px;
+    transform: none;
+  }
+
+  .brand-title {
+    font-size: 20px;
+  }
+
+  .phase-rail {
+    bottom: 26px;
+  }
+
+  .phase-rail::before {
+    width: 420px;
+    height: 210px;
+    bottom: -46px;
+  }
+
+  .phase-button {
+    width: 54px;
+    font-size: 15px;
+  }
+
+  .phase-caption .tag {
+    font-size: 12.5px;
+  }
+
+  .scroll-hint {
+    display: none;
+  }
+}
