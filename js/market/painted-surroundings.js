@@ -17,17 +17,17 @@ export function createPaintedSurroundings(scene, market) {
   let seed = 417;
   const random = () => { seed = (1664525 * seed + 1013904223) >>> 0; return seed / 4294967296; };
   const canvas = document.createElement('canvas'); canvas.width = canvas.height = 256;
-  const context = canvas.getContext('2d'); context.fillStyle = '#e4d4ae'; context.fillRect(0, 0, 256, 256);
+  const context = canvas.getContext('2d'); context.fillStyle = '#f4f1e7'; context.fillRect(0, 0, 256, 256);
   for (let i = 0; i < 1800; i++) {
     context.fillStyle = `rgba(90,76,48,${0.015 + random() * 0.035})`;
     context.fillRect(random() * 256, random() * 256, 2 + random() * 18, 1 + random() * 5);
   }
   const texture = new THREE.CanvasTexture(canvas); texture.colorSpace = THREE.SRGBColorSpace;
-  const wall = new THREE.MeshStandardMaterial({ color: '#d9c9a1', map: texture, roughness: 1 });
-  const wallDark = new THREE.MeshStandardMaterial({ color: '#b9a884', map: texture, roughness: 1 });
-  const roof = new THREE.MeshStandardMaterial({ color: '#55594e', roughness: 1 });
-  const timber = new THREE.MeshStandardMaterial({ color: '#75664b', roughness: 1 });
-  const ink = new THREE.MeshStandardMaterial({ color: '#45473d', roughness: 1 });
+  const wall = new THREE.MeshStandardMaterial({ color: '#fffdf4', map: texture, roughness: 1 });
+  const wallDark = new THREE.MeshStandardMaterial({ color: '#ece9dd', map: texture, roughness: 1 });
+  const roof = new THREE.MeshStandardMaterial({ color: '#777d76', roughness: 1 });
+  const timber = new THREE.MeshStandardMaterial({ color: '#9b927e', roughness: 1 });
+  const ink = new THREE.MeshStandardMaterial({ color: '#686d62', roughness: 1 });
   const root = new THREE.Group(); root.name = '水墨民居远景';
   function box(parent, w, h, d, x, y, z, material) {
     const mesh = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), material);
@@ -35,6 +35,7 @@ export function createPaintedSurroundings(scene, market) {
   }
   function house(x, z, yaw, size = 1) {
     const group = new THREE.Group(); group.position.set(x, 1.17, z); group.rotation.y = yaw;
+    group.scale.y = .72;
     const w = (4.8 + random() * 2.2) * size, d = (4.5 + random() * 2) * size;
     const twoFloors = random() > 0.45, h = (twoFloors ? 7.2 : 4.8) * size;
     box(group, w, h, d, 0, h / 2, 0, random() > 0.5 ? wall : wallDark);
@@ -64,34 +65,35 @@ export function createPaintedSurroundings(scene, market) {
   }
   // Staggered rows leave an irregular village roofline instead of a repeated wall.
   for (let i = 0; i < 8; i++) {
-    house(-32 + i * 8.6, -29 - random() * 7, (random() - .5) * .22);
-    house(-33 + i * 8.5, 33 + random() * 6, Math.PI + (random() - .5) * .2);
+    house(-25 + i * 6.6, -22.5 - random() * 2.5, (random() - .5) * .22);
+    house(-25 + i * 6.6, 26 + random() * 2.5, Math.PI + (random() - .5) * .2);
   }
   for (let i = 0; i < 6; i++) {
-    house(-31 - random() * 5, -21 + i * 8.5, Math.PI / 2 + random() * .15);
-    house(26 + random() * 7, -20 + i * 8.4, -Math.PI / 2 + random() * .15);
+    house(-26 - random() * 2, -16 + i * 7, Math.PI / 2 + random() * .15);
+    house(20 + random() * 2, -16 + i * 7, -Math.PI / 2 + random() * .15);
   }
   for (let i = 0; i < 16; i++) {
-    const angle = i * Math.PI / 8, radius = 51 + random() * 7;
+    const angle = i * Math.PI / 8, radius = 40 + random() * 6;
     house(-3 + Math.cos(angle) * radius, Math.sin(angle) * radius, -angle + Math.PI / 2, 1.05 + random() * .25);
   }
-  // Merge static background geometry by material: five draw calls for the entire village.
+  // Batch each house separately so a nearby roof can fade without hiding the village.
   root.updateMatrixWorld(true);
-  const batches = new Map();
-  root.traverse(node => {
-    if (!node.isMesh) return;
-    const geometry = node.geometry.clone().applyMatrix4(node.matrixWorld);
-    geometry.deleteAttribute('uv');
-    // Keep UVs for the plaster's paper wash.
-    if (node.geometry.attributes.uv) geometry.setAttribute('uv', node.geometry.attributes.uv.clone());
-    if (!batches.has(node.material)) batches.set(node.material, []);
-    batches.get(node.material).push(geometry.index ? geometry.toNonIndexed() : geometry);
-  });
   const village = new THREE.Group(); village.name = root.name;
-  for (const [material, geometries] of batches) {
-    const mesh = new THREE.Mesh(mergeGeometries(geometries), material);
-    mesh.receiveShadow = false; village.add(mesh);
-    geometries.forEach(g => g.dispose());
+  for (const building of root.children) {
+    const batches = new Map();
+    building.traverse(node => {
+      if (!node.isMesh) return;
+      const transformed = node.geometry.clone().applyMatrix4(node.matrixWorld);
+      const geometry = transformed.index ? transformed.toNonIndexed() : transformed;
+      if (geometry !== transformed) transformed.dispose();
+      if (!batches.has(node.material)) batches.set(node.material, []);
+      batches.get(node.material).push(geometry);
+    });
+    for (const [material, geometries] of batches) {
+      const mesh = new THREE.Mesh(mergeGeometries(geometries), material);
+      mesh.receiveShadow = false; village.add(mesh);
+      geometries.forEach(g => g.dispose());
+    }
   }
   root.traverse(node => node.geometry?.dispose());
   scene.add(village);
@@ -111,8 +113,8 @@ export function createPaintedSurroundings(scene, market) {
   for (let i = 0; i < 14; i++) {
     const angle = i * Math.PI * 2 / 14;
     const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ map: wash, transparent: true, opacity: .7, depthWrite: false, fog: true, toneMapped: false }));
-    sprite.position.set(-3 + Math.cos(angle) * 76, 9, Math.sin(angle) * 76);
-    sprite.scale.set(40, 20, 1); scene.add(sprite);
+    sprite.position.set(-3 + Math.cos(angle) * 65, 6.5, Math.sin(angle) * 65);
+    sprite.scale.set(35, 14.4, 1); scene.add(sprite);
   }
   return village;
 }

@@ -19,6 +19,8 @@ mountCart();
 const stage = document.getElementById('marketStage');
 const loading = document.getElementById('marketLoading');
 const visit = document.getElementById('visitStall');
+const boundaryHint = document.getElementById('marketBoundaryHint');
+let nearBoundary = false;
 const keys = new Set();
 const touchKeys = new Set();
 let entries = [], nearest = null, hovered = null, selected = null, ready = false;
@@ -36,7 +38,8 @@ stage.appendChild(renderer.domElement);
 const world = new THREE.Group(); scene.add(world);
 let marketMap = null;
 const night = phase.id === 'night';
-if (phase.id !== 'morning') {
+// Morning and night both carry authored Blender lighting; only noon still needs a fallback rig.
+if (phase.id === 'noon') {
 scene.add(new THREE.HemisphereLight(night ? '#9cacd1' : '#fff1dc', '#8c7960', night ? 1.15 : 1.9));
 const sun = new THREE.DirectionalLight(night ? '#b7c8ec' : '#fff0d3', night ? 1.6 : 2.6);
 sun.position.set(-18, 35, 15); sun.castShadow = true;
@@ -106,6 +109,9 @@ renderer.setAnimationLoop(() => {
   const blocked = !ready || selected || rig.isTransitioning || document.querySelector('.cart-drawer.is-open');
   const pressed = (direction) => !blocked && (keys.has(direction) || touchKeys.has(direction)) ? 1 : 0;
   player.update(delta, { x: pressed('right') - pressed('left'), y: pressed('up') - pressed('down') }, rig.getYaw());
+  const boundaryDistance = marketMap?.navigator.boundaryDistance(player.position.x, player.position.z) ?? Infinity;
+  nearBoundary = boundaryDistance < (nearBoundary ? 2.6 : 2);
+  boundaryHint.hidden = !ready || Boolean(selected) || !nearBoundary || Boolean(document.querySelector('.cart-drawer.is-open'));
   rig.update(delta, player, stage.clientWidth / stage.clientHeight);
   nearest = entries.filter(nearby).sort((a, b) => player.position.distanceToSquared(a.anchor) - player.position.distanceToSquared(b.anchor))[0] ?? null;
   visit.hidden = !ready || Boolean(selected) || rig.isTransitioning || !nearest;

@@ -62,7 +62,8 @@ test('starts behind the character in perspective and rotates movement with the v
   const rig = createCameraRig(), player = { position: new THREE.Vector3(0, 0, 0) };
   rig.update(1 / 60, player, 1.6);
   assert.ok(rig.camera.isPerspectiveCamera);
-  assert.ok(rig.camera.position.y < 3, 'initial view stays near shoulder height');
+  assert.ok(rig.camera.position.y > 4 && rig.camera.position.y < 5, 'entry view is raised and oblique');
+  assert.ok(rig.camera.position.distanceTo(new THREE.Vector3(0, 1.15, 0)) > 7, 'comfortable follow distance');
   assert.ok(rig.camera.position.z > 0, 'entry view looks into the street');
   rig.rotate(180, 0);
   for (let i = 0; i < 120; i++) rig.update(1 / 60, player, 1.6);
@@ -76,20 +77,17 @@ test('starts behind the character in perspective and rotates movement with the v
   assert.ok(rig.camera.position.distanceTo(position) < 1e-6, 'shop exit restores the chosen orbit');
 });
 
-test('zoom and pitch are bounded; collision retracts immediately and recovers smoothly', () => {
+test('zoom stays comfortably distant and camera orbit is unrestricted by obstacles', () => {
   const rig = createCameraRig(), player = { position: new THREE.Vector3() };
   const target = new THREE.Vector3(0, 1.15, 0);
   rig.update(1 / 60, player, 0.6);
   rig.zoom(1e6); rig.rotate(0, 1e6);
   for (let i = 0; i < 120; i++) rig.update(1 / 60, player, 0.6);
-  assert.ok(rig.camera.position.distanceTo(target) <= 8.001);
+  assert.ok(rig.camera.position.distanceTo(target) <= 12.001);
   assert.ok(rig.camera.position.y > 1.15);
-  rig.setCollisionResolver(() => 1.2); rig.update(1 / 60, player, 0.6);
-  assert.ok(rig.camera.position.distanceTo(target) <= 1.20001);
-  rig.setCollisionResolver(() => 8); rig.update(1 / 60, player, 0.6);
-  assert.ok(rig.camera.position.distanceTo(target) < 3, 'camera does not pop outward');
+  assert.equal(rig.setCollisionResolver, undefined, 'camera has no collision binding');
   rig.zoom(-1e6); rig.rotate(0, -1e6);
   for (let i = 0; i < 180; i++) rig.update(1 / 60, player, 0.6);
-  assert.ok(Math.abs(rig.camera.position.distanceTo(target) - 2.3) < 1e-6);
+  assert.ok(Math.abs(rig.camera.position.distanceTo(target) - 4.5) < 1e-6);
   assert.ok(rig.camera.position.y > 1.15, 'cannot orbit under the ground');
 });

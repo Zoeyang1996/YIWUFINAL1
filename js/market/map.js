@@ -13,16 +13,12 @@ export async function loadMarketMap(group, phase) {
   const data = await response.json();
   const map = gltf.scene;
   const occluders = [];
+  map.updateMatrixWorld(true);
   map.traverse((node) => {
     if (!node.isMesh) return;
     node.castShadow = !node.userData.water;
     node.receiveShadow = true;
-    if (node.userData.occluder) {
-      node.material = Array.isArray(node.material) ? node.material.map((m) => m.clone()) : node.material.clone();
-      const materials = Array.isArray(node.material) ? node.material : [node.material];
-      materials.forEach((m) => { m.userData.authored = { opacity: m.opacity, transparent: m.transparent, depthWrite: m.depthWrite }; });
-      occluders.push(node);
-    }
+    if (!node.userData.water) occluders.push({ mesh: node, box: new THREE.Box3().setFromObject(node) });
   });
   group.add(map);
   const entries = data.stalls.map((placement) => {
@@ -46,14 +42,37 @@ export async function loadMarketMap(group, phase) {
   });
   const ray = new THREE.Raycaster();
   const direction = new THREE.Vector3();
+  const aim = new THREE.Vector3();
+  const fadingMeshes = new Set();
+  function prepareFade(mesh) {
+    if (fadingMeshes.has(mesh)) return;
+    if (!mesh.userData.fadePrepared) {
+      mesh.material = Array.isArray(mesh.material) ? mesh.material.map(m => m.clone()) : mesh.material.clone();
+      for (const m of Array.isArray(mesh.material) ? mesh.material : [mesh.material]) {
+        m.userData.authored = { opacity: m.opacity, transparent: m.transparent, depthWrite: m.depthWrite };
+      }
+      mesh.userData.fadePrepared = true;
+    }
+    fadingMeshes.add(mesh);
+  }
   function updateOcclusion(camera, target, delta) {
     const hidden = new Set();
     if (target) {
-      direction.copy(target).sub(camera.position);
-      ray.set(camera.position, direction.clone().normalize());ray.far = direction.length() - 0.6;
-      ray.intersectObjects(occluders, false).forEach((hit) => hidden.add(hit.object));
+      // A small sight corridor also catches furniture beside the exact center ray.
+      for (const item of occluders) {
+        if (item.box.distanceToPoint(camera.position) < .8) hidden.add(item.mesh);
+      }
+      for (const [x, y, z] of [[0,0,0], [1.3,1,0], [-1.3,1,0], [0,1,1.3], [0,1,-1.3]]) {
+        aim.copy(target).add(new THREE.Vector3(x,y,z));
+        direction.copy(aim).sub(camera.position);
+        ray.far = direction.length() - .6;
+        ray.set(camera.position, direction.normalize());
+        const candidates = occluders.filter(item => ray.ray.intersectsBox(item.box)).map(item => item.mesh);
+        ray.intersectObjects(candidates, false).forEach(hit => hidden.add(hit.object));
+      }
     }
-    for (const mesh of occluders) {
+    hidden.forEach(prepareFade);
+    for (const mesh of fadingMeshes) {
       const materials = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
       for (const material of materials) {
         const original = material.userData.authored;
@@ -65,9 +84,17 @@ export async function loadMarketMap(group, phase) {
         if (material.transparent !== transparent) { material.transparent = transparent; material.needsUpdate = true; }
         material.depthWrite = original.depthWrite && !fading;
       }
+      if (!hidden.has(mesh) && materials.every(m => m.opacity === m.userData.authored.opacity)) fadingMeshes.delete(mesh);
     }
   }
   return { entries, navigator: createNavigator(data), spawn: new THREE.Vector3(...data.spawn), updateOcclusion,
     lighting: data.lighting,
-    addSurroundings(scene) { if (phase.id === 'morning') createPaintedSurroundings(scene, map); } };
+    addSurroundings(scene) {
+      if (phase.id !== 'morning') return;
+      const village = createPaintedSurroundings(scene, map);
+      village.updateMatrixWorld(true);
+      village.traverse(mesh => {
+        if (mesh.isMesh) occluders.push({mesh, box:new THREE.Box3().setFromObject(mesh)});
+      });
+    } };
 }

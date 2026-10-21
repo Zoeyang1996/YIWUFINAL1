@@ -2,6 +2,17 @@
  * keeps terrain queries local instead of scanning the full map every frame. */
 export function createNavigator(data) {
   const collision = data.collision;
+  const radius = collision?.radius ?? .34;
+  // Keep the player's whole body inside the authored market, before the scenery edge.
+  const vertices = data.navigation.flat();
+  const boundary = data.boundary ?? (data.phase ? {
+    min: [Math.min(...vertices.map(v => v[0])) + .4, Math.min(...vertices.map(v => v[2])) + .4],
+    max: [Math.max(...vertices.map(v => v[0])) - .4, Math.max(...vertices.map(v => v[2])) - .4],
+  } : null);
+  function boundaryDistance(x, z) {
+    if (!boundary) return Infinity;
+    return Math.min(x - boundary.min[0], boundary.max[0] - x, z - boundary.min[1], boundary.max[1] - z) - radius;
+  }
   const occupied = collision ? new Uint8Array(collision.width * collision.height) : null;
   collision?.occupied.forEach((index) => { occupied[index] = 1; });
   function intersectsBody(x, z) {
@@ -39,6 +50,7 @@ export function createNavigator(data) {
     return u * a[1] + v * b[1] + (1 - u - v) * c[1];
   }
   function sample(x, z, previousHeight = null) {
+    if (boundaryDistance(x, z) < 0) return null;
     const heights = (cells.get(key(x, z)) ?? []).map((t) => heightOn(t, x, z))
       .filter((h) => h !== null && (previousHeight === null || Math.abs(h - previousHeight) <= 0.55));
     if (!heights.length) return null;
@@ -68,5 +80,5 @@ export function createNavigator(data) {
     for (let i = 0; i < count; i++) next = stepMove(next, next.x + dx, next.z + dz);
     return next;
   }
-  return { sample, move };
+  return { sample, move, boundaryDistance };
 }

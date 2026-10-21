@@ -142,9 +142,9 @@ export const PHASES = {
     intro: '灯笼一盏一盏亮起来，整条街忽然有了温度。',
     overviewModel: '资产包/首页/夜/evening.glb',
     palette: {
-      sky: '#10141f',
-      skyDeep: '#070911',
-      fog: '#121828',
+      sky: '#0a1220',
+      skyDeep: '#05080f',
+      fog: '#0a1220',
       ink: '#e8dcc6',
       accent: '#d9642c',
       glow: '#ffb457',

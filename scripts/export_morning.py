@@ -8,8 +8,10 @@ from mathutils import Vector, Matrix
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'scripts'))
 from bake_authored_materials import capture_generated_coordinates,bake_materials
+from build_morning_collision import build_collision
 SOURCE=ROOT/'资产包/首页/早/二级场景/早晨确定版.blend1'
 SCALE=5.0
+collision=build_collision(SOURCE)
 bpy.ops.wm.open_mainfile(filepath=str(SOURCE))
 scene=bpy.context.scene
 bpy.context.view_layer.update()
@@ -105,7 +107,7 @@ for o in scene.objects:
   while p:p.select_set(True);p=p.parent
 out=ROOT/'assets/markets'
 bpy.ops.export_scene.gltf(filepath=str(out/'morning.glb'),export_format='GLB',use_selection=True,export_extras=True,export_cameras=False,export_lights=False,export_apply=True)
-meta={'phase':'morning','source':SOURCE.relative_to(ROOT).as_posix(),'sourceSha256':hashlib.sha256(SOURCE.read_bytes()).hexdigest(),'artRevision':'user-authored-materials-02','lighting':lighting,'scale':SCALE,'spawn':[-9.1,1.293133,16.1],'stalls':placements,'navigation':nav,'water':[],'blockers':blockers}
+meta={'phase':'morning','source':SOURCE.relative_to(ROOT).as_posix(),'sourceSha256':hashlib.sha256(SOURCE.read_bytes()).hexdigest(),'artRevision':'user-authored-materials-02','lighting':lighting,'scale':SCALE,'spawn':[-8.4,1.293133,16.1],'stalls':placements,'navigation':nav,'water':[],'blockers':blockers,'collision':collision}
 (out/'morning.json').write_text(json.dumps(meta,ensure_ascii=False,separators=(',',':')),encoding='utf8')
 print('EXPORTED',len(objects),'objects;',len(batches),'batches;',len(nav),'nav triangles;',len(blockers),'blockers',flush=True)
 
