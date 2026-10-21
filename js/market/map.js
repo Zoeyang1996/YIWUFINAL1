@@ -13,11 +13,19 @@ export async function loadMarketMap(group, phase) {
   const data = await response.json();
   const map = gltf.scene;
   const occluders = [];
+  // Meshes sharing a name prefix (one authored building exports as many parts)
+  // fade together, otherwise the walls go see-through while the lit window
+  // panels stay opaque and appear to float in mid-air.
+  const fadeGroups = new Map();
   map.updateMatrixWorld(true);
   map.traverse((node) => {
     if (!node.isMesh) return;
     node.castShadow = !node.userData.water;
     node.receiveShadow = true;
+    const groupId = node.name.includes('#') ? node.name.split('#')[0] : `mesh:${node.uuid}`;
+    node.userData.fadeGroup = groupId;
+    if (!fadeGroups.has(groupId)) fadeGroups.set(groupId, []);
+    fadeGroups.get(groupId).push(node);
     if (!node.userData.water) occluders.push({ mesh: node, box: new THREE.Box3().setFromObject(node) });
   });
   group.add(map);
@@ -71,20 +79,26 @@ export async function loadMarketMap(group, phase) {
         ray.intersectObjects(candidates, false).forEach(hit => hidden.add(hit.object));
       }
     }
-    hidden.forEach(prepareFade);
+    const fading = new Set();
+    for (const mesh of hidden) {
+      const siblings = fadeGroups.get(mesh.userData.fadeGroup);
+      if (siblings) siblings.forEach(sibling => fading.add(sibling));
+      else fading.add(mesh);
+    }
+    fading.forEach(prepareFade);
     for (const mesh of fadingMeshes) {
       const materials = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
       for (const material of materials) {
         const original = material.userData.authored;
-        const opacity = hidden.has(mesh) ? original.opacity * 0.16 : original.opacity;
-        material.opacity = THREE.MathUtils.lerp(material.opacity, opacity, 1 - Math.exp(-7 * delta));
-        const fading = Math.abs(material.opacity - original.opacity) > 0.005;
-        if (!fading) material.opacity = original.opacity;
-        const transparent = original.transparent || fading;
+        const targetOpacity = fading.has(mesh) ? original.opacity * 0.16 : original.opacity;
+        material.opacity = THREE.MathUtils.lerp(material.opacity, targetOpacity, 1 - Math.exp(-7 * delta));
+        const isFading = Math.abs(material.opacity - original.opacity) > 0.005;
+        if (!isFading) material.opacity = original.opacity;
+        const transparent = original.transparent || isFading;
         if (material.transparent !== transparent) { material.transparent = transparent; material.needsUpdate = true; }
-        material.depthWrite = original.depthWrite && !fading;
+        material.depthWrite = original.depthWrite && !isFading;
       }
-      if (!hidden.has(mesh) && materials.every(m => m.opacity === m.userData.authored.opacity)) fadingMeshes.delete(mesh);
+      if (!fading.has(mesh) && materials.every(m => m.opacity === m.userData.authored.opacity)) fadingMeshes.delete(mesh);
     }
   }
   return { entries, navigator: createNavigator(data), spawn: new THREE.Vector3(...data.spawn), updateOcclusion,

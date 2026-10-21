@@ -1,0 +1,60 @@
+street_camera.data.type = 'PERSP'
+street_camera.data.lens = 30
+street_camera.location = (-9.5, -19.4, 3.2)
+street_camera.rotation_euler = (Vector((-10.5, 2.5, 4.2)) - street_camera.location).to_track_quat('-Z', 'Y').to_euler()
+
+print('SCENE READY objects', len(scene.objects), flush=True)
+# ---------------------------------------------------------------- metadata + export
+import hashlib
+
+
+def web_box(lo, hi, label):
+    corners = [(x, y, z) for x in (lo.x, hi.x) for y in (lo.y, hi.y) for z in (lo.z, hi.z)]
+    points = [web(c) for c in corners]
+    return {'min': [round(min(p[i] for p in points), 4) for i in range(3)],
+            'max': [round(max(p[i] for p in points), 4) for i in range(3)],
+            'collection': label}
+
+
+blockers = list(baseline.get('blockers', []))
+for house in house_records:
+    pieces = [o for o in NEW.objects if o.name.startswith(house['name'])]
+    if pieces:
+        lo, hi = bounds(pieces)
+        blockers.append(web_box(lo, hi, house['name']))
+for lamp in lamp_positions:
+    blockers.append({'min': [round(lamp.x - .3, 4), 0.0, round(-lamp.y - .3, 4)],
+                     'max': [round(lamp.x + .3, 4), 3.0, round(-lamp.y + .3, 4)],
+                     'collection': '石灯'})
+print('BLOCKERS', len(blockers), flush=True)
+
+looks = [item.name for item in scene.view_settings.bl_rna.properties['look'].enum_items]
+preferred = 'AgX - Medium High Contrast'
+scene.view_settings.look = preferred if preferred in looks else 'None'
+
+moon_direction = moon.rotation_euler.to_quaternion() @ Vector((0, 0, -1))
+web_lamps = [lamp for lamp in LAMP_DATA if any(k in lamp['name'] for k in ('石灯', '桥灯', '铺前 · 暖光'))]
+web_lamps = web_lamps[:26]
+
+meta = dict(baseline)
+meta['source'] = TARGET.relative_to(ROOT).as_posix()
+meta['sourceSha256'] = hashlib.sha256(BASE.read_bytes()).hexdigest()
+meta['artRevision'] = 'night-lantern-lane-01'
+meta['blockers'] = blockers
+meta['lighting'] = {
+    'viewTransform': 'AgX',
+    'look': scene.view_settings.look,
+    'exposure': .3,
+    'world': {'color': [.035, .052, .09], 'strength': 1.0},
+    'suns': [{'color': [.56, .70, 1.0], 'energy': 3.0,
+              'direction': [round(moon_direction.x, 4), round(moon_direction.z, 4), round(-moon_direction.y, 4)]}],
+    'lamps': web_lamps,
+    'fog': {'color': '#0a1220', 'near': 26, 'far': 92},
+    'background': '#0a1220',
+}
+
+bpy.ops.file.pack_all()
+bpy.context.preferences.filepaths.save_version = 0
+bpy.ops.wm.save_as_mainfile(filepath=str(TARGET))
+print('SAVED BLEND', flush=True)
+

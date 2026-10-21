@@ -111,12 +111,12 @@ def night_material(name, low, high, kind, roughness=.9, bump=.32, size=512,
 # Albedo stays physically plausible: the night mood comes from light, not from
 # crushing every colour. Surfaces are slightly cooler and less saturated.
 M = {
-    'earth': night_material('夜 · 苔土', (.085, .11, .062), (.27, .30, .16), 'plaster', .96, .18, 512, 11),
-    'stone': night_material('夜 · 湿石板', (.20, .205, .195), (.56, .55, .50), 'stone', .5, .22, 512, 12, wet=.7),
-    'rock': night_material('夜 · 溪岸山石', (.14, .15, .14), (.36, .36, .33), 'stone', .8, .3, 512, 13),
+    'earth': night_material('夜 · 苔土', (.062, .072, .05), (.20, .215, .13), 'plaster', .96, .18, 512, 11),
+    'stone': night_material('夜 · 湿石板', (.16, .165, .16), (.42, .41, .38), 'stone', .58, .22, 512, 12, wet=.7),
+    'rock': night_material('夜 · 溪岸山石', (.10, .11, .105), (.27, .27, .25), 'stone', .8, .3, 512, 13),
     'wood': night_material('夜 · 旧榆木', (.11, .07, .042), (.33, .22, .13), 'wood', .82, .3, 512, 14),
     'wall': night_material('夜 · 月光粉墙', (.44, .42, .38), (.76, .73, .65), 'plaster', .92, .3, 512, 15),
-    'tile': night_material('夜 · 青灰瓦', (.055, .065, .075), (.21, .24, .26), 'tile', .66, .34, 512, 16),
+    'tile': night_material('夜 · 青灰瓦', (.055, .065, .075), (.21, .24, .27), 'tile', .66, .34, 512, 16),
     'cloth': night_material('夜 · 赭色麻布', (.13, .055, .03), (.40, .17, .09), 'cloth', .94, .2, 256, 17),
     'indigo': night_material('夜 · 靛蓝布', (.02, .035, .065), (.10, .14, .21), 'cloth', .94, .2, 256, 18),
     'leaf': night_material('夜 · 树叶', (.028, .05, .028), (.13, .18, .09), 'leaf', .88, .25, 256, 19),
@@ -125,9 +125,9 @@ M = {
     'bamboo': night_material('夜 · 青竹', (.07, .085, .045), (.26, .28, .14), 'wood', .8, .2, 256, 22),
     'soot': night_material('夜 · 灶灰', (.02, .02, .02), (.09, .085, .08), 'plaster', 1.0, .3, 256, 23),
     'paper': night_material('夜 · 暖纸灯', (.55, .24, .07), (1.0, .62, .26), 'paper', .8, .1, 256, 24,
-                            emission=(1.0, .52, .22), strength=1.25),
+                            emission=(1.0, .46, .16), strength=.6),
     'window': night_material('夜 · 窗内暖光', (.9, .55, .22), (1.0, .78, .42), 'paper', .9, .05, 128, 25,
-                             emission=(1.0, .62, .28), strength=.75),
+                             emission=(1.0, .58, .24), strength=.48),
     'ember': night_material('夜 · 炭火', (.6, .15, .03), (1.0, .5, .12), 'paper', .95, .1, 128, 26,
                             emission=(1.0, .42, .10), strength=1.6),
     'fabric_red': night_material('夜 · 朱灯纱', (.32, .05, .04), (.85, .18, .1), 'paper', .85, .1, 256, 27,
@@ -248,6 +248,21 @@ def ground_height(x, y):
 
 ROAD_KEYWORDS = ('石阶', '石路', '连续路面', '平台面', '转角接续平台', '木桥桥面板')
 road_objects = [o for o in scene.objects if o.type == 'MESH' and any(k in o.name for k in ROAD_KEYWORDS)]
+
+# Every scatter pass consults the paving footprints, not just the sampled lane
+# points: a wide terrace has vertices only at its corners, so distance to the
+# nearest station happily leaves boulders in the middle of the walkway.
+ROAD_FOOTPRINTS = []
+for road in road_objects:
+    lo, hi = bounds([road])
+    ROAD_FOOTPRINTS.append((lo.x - .3, lo.y - .3, hi.x + .3, hi.y + .3))
+
+
+def on_paving(x, y):
+    for x0, y0, x1, y1 in ROAD_FOOTPRINTS:
+        if x0 < x < x1 and y0 < y < y1:
+            return True
+    return False
 
 path_points = []
 seen = set()
@@ -536,7 +551,7 @@ def build_stone_lamp(name, x, y, rotation, ground):
                                (x, y, ground + 1.78), (x - .3, y + .3, ground + 1.55),
                                (x - .3, y - .3, ground + 1.55)],
              [(0, 1, 2), (1, 3, 2), (3, 4, 2), (4, 0, 2), (0, 4, 3, 1)], M['tile'], 1.0)
-    add_point_lamp(f'{name} · 暖光', (x, y, ground + 1.36), 60, radius=.22, web=12.0)
+    add_point_lamp(f'{name} · 暖光', (x, y, ground + 1.36), 115, radius=.26, web=14.0)
 
 
 def nearest_path_distance(x, y):
@@ -701,7 +716,7 @@ for index in range(2, len(stations), 4):
             add_firewood(site.x, site.y, site.z, angle)
         elif kind == 'brazier':
             add_brazier(site.x, site.y, site.z)
-            add_point_lamp('陈设 · 炭火光', (site.x, site.y, site.z + .4), 26, (1.0, .42, .16), .4, 6.0)
+            add_point_lamp('陈设 · 炭火光', (site.x, site.y, site.z + .4), 42, (1.0, .42, .16), .4, 8.0)
         else:
             add_rack(site.x, site.y, site.z, angle)
         placed_props.append(Vector((site.x, site.y)))
@@ -724,21 +739,24 @@ for stall in baseline['stalls']:
         add_sphere('铺前 · 灯笼', (spot.x, spot.y, base_z + 2.4), .21, M['paper'], (1, 1, .85))
         add_cylinder('铺前 · 灯盖', (spot.x, spot.y, base_z + 2.6), .08, .05, M['wood'], 8)
         add_cylinder('铺前 · 灯坠', (spot.x, spot.y, base_z + 2.16), .03, .12, M['wood'], 6)
-        add_point_lamp('铺前 · 暖光', (spot.x, spot.y, base_z + 2.4), 75, radius=.35, web=14.0)
-    valance = Vector((x, y, base_z)) + front*.5
-    add_box('铺前 · 布檐', (valance.x, valance.y, base_z + 2.72), (3.5, 1.15, .06), M['cloth'], (0, 0, math.atan2(nx, -ny)) if (nx or ny) else (0, 0, 0), 1.2)
+        add_point_lamp('铺前 · 暖光', (spot.x, spot.y, base_z + 2.4), 130, radius=.35, web=16.0)
+    valance = Vector((x, y, base_z)) + front*.42
+    add_box('铺前 · 布檐', (valance.x, valance.y, base_z + 2.34), (2.35, .78, .05), M['cloth'], (0, 0, math.atan2(nx, -ny)) if (nx or ny) else (0, 0, 0), 1.2)
+    for sign in (-1, 1):
+        post = Vector((x, y, base_z)) + tangent*(1.12*sign) + front*.42
+        add_cylinder('铺前 · 檐柱', (post.x, post.y, base_z + 1.16), .045, 2.32, M['wood'], 6)
     for sign in (-1, 1):
         crate_spot = Vector((x, y, base_z)) + tangent*(2.2*sign) + front*.35
         add_crate(crate_spot.x, crate_spot.y, base_z, random.uniform(0, TAU), 1.05)
         add_jar(crate_spot.x + .5, crate_spot.y - .1, base_z, random.uniform(0, TAU))
     brazier_spot = Vector((x, y, base_z)) + tangent*.9 + front*.5
     add_brazier(brazier_spot.x, brazier_spot.y, base_z)
-    add_point_lamp('铺前 · 炭火光', (brazier_spot.x, brazier_spot.y, base_z + .45), 32, (1.0, .45, .18), .45, 7.0)
+    add_point_lamp('铺前 · 炭火光', (brazier_spot.x, brazier_spot.y, base_z + .45), 48, (1.0, .45, .18), .45, 9.0)
 print('SHOP FRONTAGE', len(baseline['stalls']), flush=True)
 # ---------------------------------------------------------------- ground cover
-M['grass_a'] = night_material('夜 · 野草浅', (.035, .055, .028), (.15, .19, .09), 'leaf', .92, .2, 256, 31)
-M['grass_b'] = night_material('夜 · 野草深', (.018, .03, .018), (.09, .13, .06), 'leaf', .94, .2, 256, 32)
-M['grass_c'] = night_material('夜 · 枯草', (.06, .055, .03), (.20, .17, .10), 'leaf', .94, .2, 256, 33)
+M['grass_a'] = night_material('夜 · 野草浅', (.045, .058, .035), (.17, .18, .10), 'leaf', .92, .2, 256, 31)
+M['grass_b'] = night_material('夜 · 野草深', (.026, .034, .022), (.11, .12, .07), 'leaf', .94, .2, 256, 32)
+M['grass_c'] = night_material('夜 · 枯草', (.065, .06, .035), (.21, .18, .11), 'leaf', .94, .2, 256, 33)
 
 water_zone = (-2.4 < 0 < 2.4)     # the creek runs near x = 0
 houses_xy = [Vector((h['x'], h['y'])) for h in house_records]
@@ -747,12 +765,12 @@ house_radius = [max(h['w'], h['d'])/2 + .5 for h in house_records]
 blades_verts = []
 blades_faces = []
 blades_material = []
-for attempt in range(5200):
+for attempt in range(6800):
     x = random.uniform(-26, 26)
     y = random.uniform(-23, 25)
     if abs(x) < 3.2 and -23.5 < y < 23.5:
         continue
-    if nearest_path_distance(x, y) < 1.5:
+    if nearest_path_distance(x, y) < 1.8 or on_paving(x, y):
         continue
     if blocked(x, y, .7):
         continue
@@ -843,27 +861,151 @@ if bridge_meshes:
             add_point_lamp(f'桥灯 · 暖光{side}{lamp_y:.1f}', (x, lamp_y, deck + 1.95), 45, radius=.25, web=9.0)
 
 # ---------------------------------------------------------------- distant silhouettes
-for i in range(15):
-    angle = i*TAU/15 + .18
-    radius = 23.5 + random.uniform(0, 4.5)
+for i in range(20):
+    angle = i*TAU/20 + .18
+    radius = 24.5 + random.uniform(0, 5.5)
     x = math.cos(angle)*radius
     y = math.sin(angle)*radius
     g = ground_height(x, y)
-    if g is None or g < 1.5:
+    if g is None or g < .6:
         continue
     w = random.uniform(3.6, 5.4)
     d = random.uniform(3.2, 4.4)
     h = random.uniform(3.2, 5.4)
+    R = Matrix.Rotation(angle, 3, 'Z')
+    base = Vector((x, y, g + h))
+
+    def far(local):
+        return base + R @ Vector(local)
+
     add_box('远村 · 屋身', (x, y, g + h/2), (w, d, h), M['wall'], (0, 0, angle), 2.4, occluder=True)
-    add_box('远村 · 檐口', (x, y, g + h + .1), (w + .7, d + .7, .16), M['tile'], (0, 0, angle), 1.4)
-    roof = [Vector((x + math.cos(angle)*sx*(w/2 + .5), y + math.sin(angle)*sx*(d/2 + .5), g + h + 1.1))
-            for sx in (-1, 1)]
-    add_poly('远村 · 坡顶', [tuple(roof[0]), tuple(roof[1]),
-                            (x + math.cos(angle)*0, y + math.sin(angle)*0, g + h + 1.1)],
-             [(0, 1, 2), (2, 1, 0)], M['tile'], 1.6, occluder=True)
-    add_box('远村 · 烟囱', (x + math.cos(angle + .6)*w*.3, y + math.sin(angle + .6)*w*.3, g + h + .8),
-            (.34, .34, 1.0), M['rock'], (0, 0, angle), 1.2)
+    add_box('远村 · 檐口', (x, y, g + h + .1), (w + .6, d + .6, .16), M['tile'], (0, 0, angle), 1.4)
+    # Two pitched tile slopes over a gable, not a flat lid.
+    rise = d*.44
+    overhang = .55
+    for side in (-1, 1):
+        quad = [far((w/2 + overhang, side*(d/2 + overhang), .12)),
+                far((-w/2 - overhang, side*(d/2 + overhang), .12)),
+                far((-w/2 - overhang, 0, rise)),
+                far((w/2 + overhang, 0, rise))]
+        add_poly('远村 · 坡顶', quad, [(0, 3, 2, 1)] if side > 0 else [(1, 2, 3, 0)],
+                 M['tile'], 1.6, occluder=True)
+        add_box('远村 · 檐板', far((0, side*(d/2 + overhang), .06)), (w + overhang*2, .12, .14),
+                M['wood'], (0, 0, angle), 1.2)
+    for side in (-1, 1):
+        add_poly('远村 · 山墙', [far((side*(w/2), -d/2, .1)), far((side*(w/2), d/2, .1)),
+                                far((side*(w/2), 0, rise))],
+                 [(0, 1, 2), (2, 1, 0)], M['wall'], 1.8, occluder=True)
+    add_box('远村 · 屋脊', far((0, 0, rise + .12)), (w + overhang*2, .18, .16), M['tile'], (0, 0, angle), 1.2)
+    for sx in (-0.24, 0.24):
+        add_box('远村 · 窗光', far((sx*w, -d/2 - .06, h*.55)), (w*.2, .06, h*.24),
+                M['window'], (0, 0, angle), 1.0)
+    add_box('远村 · 烟囱', far((w*.3, d*.2, h + rise*.7)), (.34, .34, 1.0), M['rock'], (0, 0, angle), 1.2)
 print('DISTANT VILLAGE', flush=True)
+
+# ---------------------------------------------------------------- slope dressing
+# Smooth terrain and rock normals so the hillside reads as ground, not facets.
+for polygon in terrain.data.polygons:
+    polygon.use_smooth = True
+for rock in [o for o in scene.objects if o.type == 'MESH' and ('岩' in o.name or '卵岩' in o.name)]:
+    for polygon in rock.data.polygons:
+        polygon.use_smooth = True
+
+# Loose stones flank every flight so the steps sit inside the hillside.
+edge_stones = 0
+stair_objects = [o for o in scene.objects if o.type == 'MESH' and '石阶' in o.name]
+for stair in stair_objects:
+    lo, hi = bounds([stair])
+    centre = (lo + hi)*.5
+    for side in (-1, 1):
+        x = centre.x + side*(hi.x - lo.x)*.5
+        y = centre.y
+        g = ground_height(x, y)
+        if g is None or abs(g - centre.z) > .6 or on_paving(x, y):
+            continue
+        add_sphere(f'阶旁 · 石{edge_stones:03d}', (x, y, g + .1), random.uniform(.2, .4), M['rock'],
+                   (1.2, 1.0, .6))
+        edge_stones += 1
+print('STAIR EDGES', edge_stones, flush=True)
+
+# Mossy boulders and low shrubs break up the open slopes.
+moss_rock = night_material('夜 · 苔石', (.045, .052, .045), (.14, .15, .135), 'stone', .9, .3, 256, 42)
+slope_rocks = 0
+for i in range(110):
+    x = random.uniform(-25, 25)
+    y = random.uniform(-22, 24)
+    if nearest_path_distance(x, y) < 3.05 or blocked(x, y, .8) or on_paving(x, y):
+        continue
+    g = ground_height(x, y)
+    if g is None or g < -.4:
+        continue
+    size = random.uniform(.35, 1.15)
+    add_sphere(f'坡地 · 山石{slope_rocks:02d}', (x, y, g + size*.3), size, moss_rock,
+               (random.uniform(1.0, 1.8), random.uniform(1.0, 1.6), random.uniform(.5, .9)))
+    for bush in range(random.randint(1, 4)):
+        add_sphere(f'坡地 · 灌木{slope_rocks:02d}_{bush}',
+                   (x + random.uniform(-size, size), y + random.uniform(-size, size), g + .2),
+                   random.uniform(.18, .3), M['grass_b'], (1, 1, .8))
+    slope_rocks += 1
+print('SLOPE ROCKS', slope_rocks, flush=True)
+
+# A lit threshold where the lane starts, and lamps under the bridge heads.
+for index, (spot, rotation) in enumerate([((-10.4, -16.6), .2), ((-6.2, -14.6), 1.1),
+                                          ((-3.6, -18.2), 2.3), ((-12.6, -13.4), .7)]):
+    g = ground_height(spot[0], spot[1])
+    if g is not None:
+        build_stone_lamp(f'入口灯 · {index:02d}', spot[0], spot[1], rotation, g)
+        lamp_positions.append(Vector(spot))
+
+# The valley floor stays dark so the village reads as a lit island in the hills.
+valley = night_material('夜 · 谷地', (.012, .016, .022), (.045, .05, .062), 'plaster', 1.0, .06, 128, 43)
+add_cylinder('山谷 · 谷底', (0, 0, -6.0), 110, 2.0, valley, 64, uv=10.0)
+
+# A continuous mountain silhouette closes the horizon: an inner slope rising to
+# an undulating crest, then falling away. A ring mesh reads as distant hills,
+# where separate volumes only ever looked like boulders.
+ridge_material = night_material('夜 · 远山', (.018, .024, .036), (.062, .072, .10), 'plaster', 1.0, .08, 128, 41)
+segments = 132
+crest = []
+for i in range(segments):
+    angle = i*TAU/segments
+    wave = (math.sin(angle*3.1 + .7)*.55 + math.sin(angle*7.3 + 2.1)*.32
+            + math.sin(angle*13.7)*.18 + random.uniform(-.35, .35))
+    crest.append(wave)
+ridge_verts = []
+for i in range(segments):
+    angle = i*TAU/segments
+    crest_radius = 40 + crest[i]*3.4
+    height = 6.4 + crest[i]*3.2
+    ridge_verts.append((math.cos(angle)*30.5, math.sin(angle)*30.5, -2.2))
+    ridge_verts.append((math.cos(angle)*crest_radius, math.sin(angle)*crest_radius, height))
+    ridge_verts.append((math.cos(angle)*74, math.sin(angle)*74, -4.6))
+ridge_faces = []
+for i in range(segments):
+    a = i*3
+    b = ((i + 1) % segments)*3
+    ridge_faces.append((a, b, b + 1, a + 1))
+    ridge_faces.append((a + 1, b + 1, b + 2, a + 2))
+ridge = add_poly('远山 · 山脊环', ridge_verts, ridge_faces, ridge_material, uv=9.0)
+for polygon in ridge.data.polygons:
+    polygon.use_smooth = True
+
+# A dark tree line along the inner slope gives the ridge some grain. Sizes,
+# heights and radii are deliberately uneven so it never reads as one hedge.
+deep_leaf = night_material('夜 · 深林', (.016, .026, .018), (.075, .10, .055), 'leaf', .92, .2, 128, 44)
+for i in range(72):
+    angle = i*TAU/72 + random.uniform(-.03, .03)
+    radius = 29.5 + random.uniform(0, 7.5)
+    cluster = Vector((math.cos(angle)*radius, math.sin(angle)*radius,
+                      -.4 + random.uniform(0, 3.6)))
+    crown = random.uniform(1.2, 3.0)
+    for tree in range(random.randint(2, 5)):
+        offset = Vector((random.uniform(-2.0, 2.0), random.uniform(-2.0, 2.0), random.uniform(-.4, 2.4)))
+        add_sphere(f'远山 · 林{i:02d}_{tree}',
+                   (cluster.x + offset.x, cluster.y + offset.y, cluster.z + offset.z),
+                   crown*random.uniform(.55, 1.05), deep_leaf if random.random() > .45 else M['leaf'],
+                   (random.uniform(.8, 1.2), random.uniform(.8, 1.2), random.uniform(.85, 1.6)))
+print('RIDGES', flush=True)
 
 # ---------------------------------------------------------------- night lighting
 for obj in list(scene.objects):
@@ -871,7 +1013,7 @@ for obj in list(scene.objects):
         bpy.data.objects.remove(obj, do_unlink=True)
 
 moon_data = bpy.data.lights.new('月光', 'SUN')
-moon_data.energy = 2.5
+moon_data.energy = 3.0
 moon_data.color = (.56, .70, 1.0)
 moon_data.angle = .28
 moon = bpy.data.objects.new('月光', moon_data)
@@ -883,7 +1025,7 @@ scene.world = world
 world.use_nodes = True
 background = world.node_tree.nodes['Background']
 background.inputs[0].default_value = (.035, .052, .09, 1)
-background.inputs[1].default_value = .9
+background.inputs[1].default_value = 1.0
 
 scene.render.engine = 'CYCLES'
 scene.cycles.samples = 28
@@ -893,7 +1035,7 @@ scene.render.resolution_x = 1200
 scene.render.resolution_y = 1000
 scene.render.resolution_percentage = 100
 scene.view_settings.view_transform = 'AgX'
-scene.view_settings.exposure = 0.2
+scene.view_settings.exposure = 0.3
 scene.render.image_settings.file_format = 'PNG'
 scene.render.film_transparent = False
 scene.render.image_settings.color_mode = 'RGB'
@@ -957,9 +1099,9 @@ meta['blockers'] = blockers
 meta['lighting'] = {
     'viewTransform': 'AgX',
     'look': scene.view_settings.look,
-    'exposure': .2,
-    'world': {'color': [.035, .052, .09], 'strength': .9},
-    'suns': [{'color': [.56, .70, 1.0], 'energy': 2.5,
+    'exposure': .3,
+    'world': {'color': [.035, .052, .09], 'strength': 1.0},
+    'suns': [{'color': [.56, .70, 1.0], 'energy': 3.0,
               'direction': [round(moon_direction.x, 4), round(moon_direction.z, 4), round(-moon_direction.y, 4)]}],
     'lamps': web_lamps,
     'fog': {'color': '#0a1220', 'near': 26, 'far': 92},
@@ -989,12 +1131,16 @@ if convertible:
     bpy.context.view_layer.objects.active = convertible[0]
     bpy.ops.object.convert(target='MESH')
 
+# Merge by building, never by material alone: the runtime fades any mesh that
+# blocks the camera, so one batch holding every wall in the village would
+# hollow out the whole street the moment one house got in the way.
 batches = {}
 for obj in scene.objects:
     if obj.type != 'MESH' or obj.get('stallId'):
         continue
+    group = ' · '.join(obj.name.split(' · ')[:2])
     key = (tuple(m.name if m else '' for m in obj.data.materials), bool(obj.get('occluder')),
-           bool(obj.get('water')))
+           bool(obj.get('water')), group)
     batches.setdefault(key, []).append(obj)
 for index, (key, objects) in enumerate(batches.items()):
     bpy.ops.object.select_all(action='DESELECT')
@@ -1004,7 +1150,7 @@ for index, (key, objects) in enumerate(batches.items()):
     if len(objects) > 1:
         bpy.ops.object.join()
     joined = bpy.context.object
-    joined.name = f'Night_{index:03d}_{key[0][0] if key[0] else "plain"}'
+    joined.name = f'{key[3]}#{index:03d}'
     joined['occluder'] = key[1]
     joined['water'] = key[2]
 print('BATCHES', len(batches), flush=True)

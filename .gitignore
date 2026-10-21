@@ -14,3 +14,7 @@ previews/markets/*-browser-dom.html
 previews/markets/*-source.json
 previews/markets/*-structure.json
 previews/markets/*-before.png
+
+# Superseded noon draft and local authoring recovery copies (final source is in the asset pack).
+previews/markets/noon-authoring/
+previews/markets/noon-authoring-v2/*.blend
