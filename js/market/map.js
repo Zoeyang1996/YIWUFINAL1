@@ -1,11 +1,13 @@
 import * as THREE from 'three';
 import { loadGltf } from '../core/loader.js';
 import { createNavigator } from './navigation.js';
+import { createPaintedSurroundings } from './painted-surroundings.js';
 
 /** Load the fully assembled Blender export at its authored scale and origin. */
 export async function loadMarketMap(group, phase) {
+  const revision = phase.id === 'morning' ? '?v=painted-village-03' : '';
   const [gltf, response] = await Promise.all([
-    loadGltf(`assets/markets/${phase.id}.glb`), fetch(`assets/markets/${phase.id}.json`),
+    loadGltf(`assets/markets/${phase.id}.glb${revision}`), fetch(`assets/markets/${phase.id}.json${revision}`),
   ]);
   if (!response.ok) throw new Error(`地图导航加载失败：${response.status}`);
   const data = await response.json();
@@ -18,7 +20,7 @@ export async function loadMarketMap(group, phase) {
     if (node.userData.occluder) {
       node.material = Array.isArray(node.material) ? node.material.map((m) => m.clone()) : node.material.clone();
       const materials = Array.isArray(node.material) ? node.material : [node.material];
-      materials.forEach((m) => { m.transparent = true; });
+      materials.forEach((m) => { m.userData.authored = { opacity: m.opacity, transparent: m.transparent, depthWrite: m.depthWrite }; });
       occluders.push(node);
     }
   });
@@ -45,16 +47,27 @@ export async function loadMarketMap(group, phase) {
   const ray = new THREE.Raycaster();
   const direction = new THREE.Vector3();
   function updateOcclusion(camera, target, delta) {
-    direction.copy(target).sub(camera.position);
-    ray.set(camera.position, direction.clone().normalize());ray.far = direction.length() - 0.6;
-    const hidden = new Set(ray.intersectObjects(occluders, false).map((hit) => hit.object));
+    const hidden = new Set();
+    if (target) {
+      direction.copy(target).sub(camera.position);
+      ray.set(camera.position, direction.clone().normalize());ray.far = direction.length() - 0.6;
+      ray.intersectObjects(occluders, false).forEach((hit) => hidden.add(hit.object));
+    }
     for (const mesh of occluders) {
       const materials = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
       for (const material of materials) {
-        material.opacity = THREE.MathUtils.lerp(material.opacity, hidden.has(mesh) ? 0.16 : 1, 1 - Math.exp(-7 * delta));
-        material.depthWrite = material.opacity > 0.95;
+        const original = material.userData.authored;
+        const opacity = hidden.has(mesh) ? original.opacity * 0.16 : original.opacity;
+        material.opacity = THREE.MathUtils.lerp(material.opacity, opacity, 1 - Math.exp(-7 * delta));
+        const fading = Math.abs(material.opacity - original.opacity) > 0.005;
+        if (!fading) material.opacity = original.opacity;
+        const transparent = original.transparent || fading;
+        if (material.transparent !== transparent) { material.transparent = transparent; material.needsUpdate = true; }
+        material.depthWrite = original.depthWrite && !fading;
       }
     }
   }
-  return { entries, navigator: createNavigator(data), spawn: new THREE.Vector3(...data.spawn), updateOcclusion };
+  return { entries, navigator: createNavigator(data), spawn: new THREE.Vector3(...data.spawn), updateOcclusion,
+    lighting: data.lighting,
+    addSurroundings(scene) { if (phase.id === 'morning') createPaintedSurroundings(scene, map); } };
 }

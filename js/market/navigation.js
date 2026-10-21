@@ -1,6 +1,22 @@
 /** Blender Z-up triangles are exported as Three.js Y-up. A small spatial grid
  * keeps terrain queries local instead of scanning the full map every frame. */
 export function createNavigator(data) {
+  const collision = data.collision;
+  const occupied = collision ? new Uint8Array(collision.width * collision.height) : null;
+  collision?.occupied.forEach((index) => { occupied[index] = 1; });
+  function intersectsBody(x, z) {
+    if (!collision) return false;
+    const { cellSize: step, origin: [ox, oz], radius, width, height } = collision;
+    for (let iz = Math.max(0, Math.floor((z - radius - oz) / step)); iz <= Math.min(height - 1, Math.floor((z + radius - oz) / step)); iz++) {
+      for (let ix = Math.max(0, Math.floor((x - radius - ox) / step)); ix <= Math.min(width - 1, Math.floor((x + radius - ox) / step)); ix++) {
+        if (!occupied[iz * width + ix]) continue;
+        const dx = x - Math.max(ox + ix * step, Math.min(x, ox + (ix + 1) * step));
+        const dz = z - Math.max(oz + iz * step, Math.min(z, oz + (iz + 1) * step));
+        if (dx * dx + dz * dz < radius * radius) return true;
+      }
+    }
+    return false;
+  }
   const cells = new Map();
   const cellSize = 2;
   const key = (x, z) => `${Math.floor(x / cellSize)},${Math.floor(z / cellSize)}`;
@@ -28,13 +44,14 @@ export function createNavigator(data) {
     if (!heights.length) return null;
     const y = Math.max(...heights);
     if (data.water.some((t) => heightOn(t, x, z) !== null) && y < 0.18) return null;
-    for (const box of data.blockers) {
+    if (intersectsBody(x, z)) return null;
+    for (const box of collision ? [] : data.blockers) {
       if (x > box.min[0] - 0.15 && x < box.max[0] + 0.15 && z > box.min[2] - 0.15 && z < box.max[2] + 0.15
         && y < box.max[1] && y + 1.3 > box.min[1]) return null;
     }
     return y;
   }
-  function move(current, x, z) {
+  function stepMove(current, x, z) {
     const direct = sample(x, z, current.y);
     if (direct !== null) return { x, y: direct, z };
     const slideX = sample(x, current.z, current.y);
@@ -42,6 +59,14 @@ export function createNavigator(data) {
     const slideZ = sample(current.x, z, current.y);
     if (slideZ !== null) return { x: current.x, y: slideZ, z };
     return { x: current.x, y: current.y, z: current.z };
+  }
+  function move(current, x, z) {
+    // Sweep even large frame steps so thin posts and furniture cannot be skipped.
+    const count = Math.max(1, Math.ceil(Math.hypot(x - current.x, z - current.z) / 0.1));
+    const dx = (x - current.x) / count, dz = (z - current.z) / count;
+    let next = { x: current.x, y: current.y, z: current.z };
+    for (let i = 0; i < count; i++) next = stepMove(next, next.x + dx, next.z + dz);
+    return next;
   }
   return { sample, move };
 }

@@ -57,3 +57,39 @@ test('authored hill-shop elevation and arbitrary shop facing are respected', () 
   const facing = rig.camera.getWorldDirection(new THREE.Vector3());
   assert.ok(facing.distanceTo(new THREE.Vector3(0, 0, -1)) < 1e-9);
 });
+
+test('starts behind the character in perspective and rotates movement with the view', () => {
+  const rig = createCameraRig(), player = { position: new THREE.Vector3(0, 0, 0) };
+  rig.update(1 / 60, player, 1.6);
+  assert.ok(rig.camera.isPerspectiveCamera);
+  assert.ok(rig.camera.position.y < 3, 'initial view stays near shoulder height');
+  assert.ok(rig.camera.position.z > 0, 'entry view looks into the street');
+  rig.rotate(180, 0);
+  for (let i = 0; i < 120; i++) rig.update(1 / 60, player, 1.6);
+  const direction = rig.camera.getWorldDirection(new THREE.Vector3()); direction.y = 0; direction.normalize();
+  assert.ok(direction.distanceTo(new THREE.Vector3(Math.sin(rig.getYaw()), 0, Math.cos(rig.getYaw()))) < 1e-8);
+  const position = rig.camera.position.clone();
+  rig.focusOn({ side: 'left', position: { x: -5, z: 0 } });
+  for (let i = 0; i < 120; i++) rig.update(1 / 60, player, 1.6);
+  rig.release();
+  for (let i = 0; i < 180; i++) rig.update(1 / 60, player, 1.6);
+  assert.ok(rig.camera.position.distanceTo(position) < 1e-6, 'shop exit restores the chosen orbit');
+});
+
+test('zoom and pitch are bounded; collision retracts immediately and recovers smoothly', () => {
+  const rig = createCameraRig(), player = { position: new THREE.Vector3() };
+  const target = new THREE.Vector3(0, 1.15, 0);
+  rig.update(1 / 60, player, 0.6);
+  rig.zoom(1e6); rig.rotate(0, 1e6);
+  for (let i = 0; i < 120; i++) rig.update(1 / 60, player, 0.6);
+  assert.ok(rig.camera.position.distanceTo(target) <= 8.001);
+  assert.ok(rig.camera.position.y > 1.15);
+  rig.setCollisionResolver(() => 1.2); rig.update(1 / 60, player, 0.6);
+  assert.ok(rig.camera.position.distanceTo(target) <= 1.20001);
+  rig.setCollisionResolver(() => 8); rig.update(1 / 60, player, 0.6);
+  assert.ok(rig.camera.position.distanceTo(target) < 3, 'camera does not pop outward');
+  rig.zoom(-1e6); rig.rotate(0, -1e6);
+  for (let i = 0; i < 180; i++) rig.update(1 / 60, player, 0.6);
+  assert.ok(Math.abs(rig.camera.position.distanceTo(target) - 2.3) < 1e-6);
+  assert.ok(rig.camera.position.y > 1.15, 'cannot orbit under the ground');
+});

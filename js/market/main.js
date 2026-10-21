@@ -8,6 +8,8 @@ import { pickStall, updateStalls } from './stalls.js';
 import { createPlayer } from './player.js';
 import { createCameraRig } from './camera-rig.js';
 import { createPanel } from './panel.js';
+import { createAuthoredLighting } from './lighting.js';
+import { bindCameraInput } from './camera-input.js';
 
 const phase = getPhase(phaseFromQuery());
 document.body.dataset.phase = phase.id;
@@ -34,6 +36,7 @@ stage.appendChild(renderer.domElement);
 const world = new THREE.Group(); scene.add(world);
 let marketMap = null;
 const night = phase.id === 'night';
+if (phase.id !== 'morning') {
 scene.add(new THREE.HemisphereLight(night ? '#9cacd1' : '#fff1dc', '#8c7960', night ? 1.15 : 1.9));
 const sun = new THREE.DirectionalLight(night ? '#b7c8ec' : '#fff0d3', night ? 1.6 : 2.6);
 sun.position.set(-18, 35, 15); sun.castShadow = true;
@@ -42,6 +45,7 @@ Object.assign(sun.shadow.camera, { left: -36, right: 36, top: 36, bottom: -36, n
 sun.shadow.bias = -0.0004; sun.shadow.normalBias = 0.035;
 scene.add(sun);
 const fill = new THREE.DirectionalLight('#b4c6d3', 0.65); fill.position.set(10, 7, -12); scene.add(fill);
+}
 const player = createPlayer(); player.setPhaseMood(phase.id); scene.add(player.object);
 const rig = createCameraRig();
 const panel = createPanel({
@@ -85,12 +89,15 @@ function pick(event) {
   const rect = renderer.domElement.getBoundingClientRect();
   return pickStall(entries.filter(nearby), rig.camera, { x: event.clientX - rect.left, y: event.clientY - rect.top }, rect);
 }
-renderer.domElement.addEventListener('pointermove', (event) => {
-  hovered = selected ? null : pick(event);
-  renderer.domElement.style.cursor = hovered ? 'pointer' : 'default';
+bindCameraInput(renderer.domElement, rig, {
+  enabled: () => ready && !selected && !rig.isTransitioning && !document.querySelector('.cart-drawer.is-open'),
+  onTap: (event) => enterStall(pick(event)),
+  onHover: (event) => {
+    hovered = selected ? null : pick(event);
+    renderer.domElement.style.cursor = hovered ? 'pointer' : 'grab';
+  },
 });
 renderer.domElement.addEventListener('pointerleave', () => { hovered = null; });
-renderer.domElement.addEventListener('click', (event) => { if (!selected) enterStall(pick(event)); });
 function resize() { renderer.setSize(stage.clientWidth, stage.clientHeight); }
 window.addEventListener('resize', resize); resize();
 const clock = new THREE.Clock();
@@ -109,6 +116,8 @@ renderer.setAnimationLoop(() => {
 });
 try {
   marketMap = await loadMarketMap(world, phase);
+  if (marketMap.lighting) createAuthoredLighting(scene, renderer, marketMap.lighting);
+  marketMap.addSurroundings(scene);
   entries = marketMap.entries;
   player.setMap(marketMap.navigator, marketMap.spawn);
   rig.reset();

@@ -15,3 +15,4 @@ button:focus-visible,a:focus-visible{outline:2px solid #ad6c35;outline-offset:5p
 @media(pointer:coarse){.walk-pad{display:grid}.walk-hint{display:none}}
 @media(max-aspect-ratio: 85/100){.stall-panel{top:auto;bottom:0;left:0;right:0;width:100%;max-height:35vh;padding:18px 24px;border-radius:14px 14px 0 0;transform:translateY(30px)}.panel-close{float:right;margin-bottom:10px}.panel-name{font-size:27px;margin:8px 0}.panel-line{margin-bottom:12px}.panel-card{padding:12px 0}.card-glyph{display:none}.market-header{left:18px;top:26px;gap:12px}.market-header span{font-size:17px}}
 @media(prefers-reduced-motion:reduce){.stall-panel{transition:none}}
+body[data-phase=morning] .grain-layer{display:none}
