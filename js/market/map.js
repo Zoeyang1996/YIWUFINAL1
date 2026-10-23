@@ -1,17 +1,21 @@
 import * as THREE from 'three';
 import { loadGltf } from '../core/loader.js';
 import { createNavigator } from './navigation.js';
+import { createMarketSurroundings } from './market-surroundings.js';
 import { createPaintedSurroundings } from './painted-surroundings.js';
 
 /** Load the fully assembled Blender export at its authored scale and origin. */
 export async function loadMarketMap(group, phase) {
-  const revision = phase.id === 'morning' ? '?v=painted-village-03' : '';
+  const revision = phase.id === 'morning' ? '?v=painted-village-03' : '?v=authored-web-20261022';
   const [gltf, response] = await Promise.all([
     loadGltf(`assets/markets/${phase.id}.glb${revision}`), fetch(`assets/markets/${phase.id}.json${revision}`),
   ]);
   if (!response.ok) throw new Error(`地图导航加载失败：${response.status}`);
   const data = await response.json();
   const map = gltf.scene;
+  // Replace the old export's distant backdrop with the continuous web village.
+  const backdrop = []; map.traverse(node => { if (node.userData.backdrop) backdrop.push(node); });
+  backdrop.forEach(node => node.removeFromParent());
   const occluders = [];
   // Meshes sharing a name prefix (one authored building exports as many parts)
   // fade together, otherwise the walls go see-through while the lit window
@@ -20,13 +24,13 @@ export async function loadMarketMap(group, phase) {
   map.updateMatrixWorld(true);
   map.traverse((node) => {
     if (!node.isMesh) return;
-    node.castShadow = !node.userData.water;
+    node.castShadow = !node.userData.water && !node.userData.ground;
     node.receiveShadow = true;
     const groupId = node.name.includes('#') ? node.name.split('#')[0] : `mesh:${node.uuid}`;
     node.userData.fadeGroup = groupId;
     if (!fadeGroups.has(groupId)) fadeGroups.set(groupId, []);
     fadeGroups.get(groupId).push(node);
-    if (!node.userData.water) occluders.push({ mesh: node, box: new THREE.Box3().setFromObject(node) });
+    if (!node.userData.water && (phase.id === 'morning' || node.userData.occluder)) occluders.push({ mesh: node, box: new THREE.Box3().setFromObject(node) });
   });
   group.add(map);
   const entries = data.stalls.map((placement) => {
@@ -44,10 +48,6 @@ export async function loadMarketMap(group, phase) {
       focusTarget: new THREE.Vector3(...placement.focus), normal: new THREE.Vector3(...placement.normal),
       approach: new THREE.Vector3(...placement.approach), glow: 0 };
   });
-  if (phase.id === 'night') entries.forEach((entry) => {
-    const light = new THREE.PointLight('#ffb66d', 8, 9, 2);
-    light.position.copy(entry.position).addScaledVector(entry.normal, 2.1);light.position.y += 2.4;group.add(light);
-  });
   const ray = new THREE.Raycaster();
   const direction = new THREE.Vector3();
   const aim = new THREE.Vector3();
@@ -63,26 +63,36 @@ export async function loadMarketMap(group, phase) {
     }
     fadingMeshes.add(mesh);
   }
-  function updateOcclusion(camera, target, delta) {
-    const hidden = new Set();
+  let occlusionElapsed = 1, hidden = new Set(), protectedHolder = null;
+  const protectedMeshes = new Set();
+  function updateOcclusion(camera, target, delta, activeShop = null) {
+    if (protectedHolder !== activeShop?.holder) {
+      protectedHolder = activeShop?.holder; protectedMeshes.clear();
+      protectedHolder?.traverse(node => { if (node.isMesh) protectedMeshes.add(node); });
+      occlusionElapsed = 1;
+    }
+    occlusionElapsed += delta;
+    if (occlusionElapsed >= .1) {
+      occlusionElapsed = 0; hidden = new Set();
     if (target) {
       // A small sight corridor also catches furniture beside the exact center ray.
       for (const item of occluders) {
-        if (item.box.distanceToPoint(camera.position) < .8) hidden.add(item.mesh);
+        if (!protectedMeshes.has(item.mesh) && item.box.distanceToPoint(camera.position) < .8) hidden.add(item.mesh);
       }
       for (const [x, y, z] of [[0,0,0], [1.3,1,0], [-1.3,1,0], [0,1,1.3], [0,1,-1.3]]) {
         aim.copy(target).add(new THREE.Vector3(x,y,z));
         direction.copy(aim).sub(camera.position);
         ray.far = direction.length() - .6;
         ray.set(camera.position, direction.normalize());
-        const candidates = occluders.filter(item => ray.ray.intersectsBox(item.box)).map(item => item.mesh);
+        const candidates = occluders.filter(item => !protectedMeshes.has(item.mesh) && ray.ray.intersectsBox(item.box)).map(item => item.mesh);
         ray.intersectObjects(candidates, false).forEach(hit => hidden.add(hit.object));
       }
+    }
     }
     const fading = new Set();
     for (const mesh of hidden) {
       const siblings = fadeGroups.get(mesh.userData.fadeGroup);
-      if (siblings) siblings.forEach(sibling => fading.add(sibling));
+      if (siblings) siblings.forEach(sibling => { if (!protectedMeshes.has(sibling)) fading.add(sibling); });
       else fading.add(mesh);
     }
     fading.forEach(prepareFade);
@@ -104,7 +114,7 @@ export async function loadMarketMap(group, phase) {
   return { entries, navigator: createNavigator(data), spawn: new THREE.Vector3(...data.spawn), updateOcclusion,
     lighting: data.lighting,
     addSurroundings(scene) {
-      if (phase.id !== 'morning') return;
+      if (phase.id !== 'morning') { createMarketSurroundings(scene, phase); return; }
       const village = createPaintedSurroundings(scene, map);
       village.updateMatrixWorld(true);
       village.traverse(mesh => {

@@ -6,9 +6,22 @@ import { groundShadowTexture, inkRingTexture } from '../core/textures.js';
 import { createLightRig } from './lighting.js';
 import { tween, updateTweens, easeOutCubic, easeInOutQuart } from '../core/tween.js';
 
-const MODEL_FOOTPRINT = 3.55;
+/** 每个时段模型的占位边长：高一点的模型收小些，画面留白才一致 */
+const MODEL_FOOTPRINT = {
+  morning: 3.55,
+  noon: 3.15,
+  night: 3.6,
+};
 const CAMERA_HOME_Z = 6.05;
 const CAMERA_HOME_Y = 1.92;
+/** 每个时段模型的固定起始角度（弧度）：让墙面招牌对着镜头，字看得清 */
+const HOME_SPIN = {
+  morning: 0,
+  noon: -Math.PI / 2,
+  night: Math.PI,
+};
+const SPIN_SMOOTHING = 6.5;
+const PITCH_LIMIT = 0.24;
 const GROUND_SHADOW_OPACITY = { morning: 0.52, noon: 0.44, night: 0.34 };
 const RING_OPACITY = { morning: 0.62, noon: 0.5, night: 0.24 };
 
@@ -82,10 +95,13 @@ export function createOverviewStage(container, { onEnter, onModelReady } = {}) {
   const pivot = new THREE.Group();
   scene.add(pivot);
 
+  const homeSpinFor = (phaseId) => HOME_SPIN[phaseId] ?? 0;
+  const firstSpin = homeSpinFor(PHASE_ORDER[0]);
+
   const groups = new Map();
   const state = {
-    spin: -0.35,
-    spinTarget: -0.35,
+    spin: firstSpin,
+    spinTarget: firstSpin,
     pitch: 0,
     pitchTarget: 0,
     dragging: false,
@@ -139,7 +155,10 @@ export function createOverviewStage(container, { onEnter, onModelReady } = {}) {
 
     let next = groups.get(phaseId);
     if (!next) {
-      if (!loadingGroups.has(phaseId)) loadingGroups.set(phaseId, loadPreparedModel(assetUrl(PHASES[phaseId].overviewModel), { targetSize: MODEL_FOOTPRINT }));
+      if (!loadingGroups.has(phaseId)) {
+        const targetSize = MODEL_FOOTPRINT[phaseId] ?? 3.55;
+        loadingGroups.set(phaseId, loadPreparedModel(assetUrl(PHASES[phaseId].overviewModel), { targetSize }));
+      }
       next = await loadingGroups.get(phaseId);
       prepareGroup(next);
       groups.set(phaseId, next);
@@ -152,6 +171,8 @@ export function createOverviewStage(container, { onEnter, onModelReady } = {}) {
     cancelTransitions = [];
     groups.forEach((group, id) => { if (id !== previousId && id !== phaseId) setGroupOpacity(group, 0); });
     state.currentId = phaseId;
+    state.spinTarget = homeSpinFor(phaseId);
+    state.pitchTarget = 0;
     lights.apply(phaseId, { immediate: !firstShown });
 
     cancelTransitions.push(tween({
@@ -273,7 +294,7 @@ export function createOverviewStage(container, { onEnter, onModelReady } = {}) {
     state.lastY = event.clientY;
     state.travel += Math.abs(dx) + Math.abs(dy);
     state.spinTarget += dx * 0.0062;
-    state.pitchTarget = Math.max(-0.24, Math.min(0.26, state.pitchTarget + dy * 0.0016));
+    state.pitchTarget = Math.max(-PITCH_LIMIT, Math.min(0.26, state.pitchTarget + dy * 0.0016));
   });
 
   const raycaster = new THREE.Raycaster();
@@ -311,9 +332,8 @@ export function createOverviewStage(container, { onEnter, onModelReady } = {}) {
 
     updateTweens();
 
-    if (!state.dragging && !state.entering) state.spinTarget += delta * 0.13;
-    state.spin += (state.spinTarget - state.spin) * Math.min(1, delta * 6.5);
-    state.pitch += (state.pitchTarget - state.pitch) * Math.min(1, delta * 6.5);
+    state.spin += (state.spinTarget - state.spin) * Math.min(1, delta * SPIN_SMOOTHING);
+    state.pitch += (state.pitchTarget - state.pitch) * Math.min(1, delta * SPIN_SMOOTHING);
     pivot.rotation.y = state.spin;
     pivot.rotation.x = state.pitch;
 

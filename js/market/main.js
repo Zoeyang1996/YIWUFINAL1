@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { getPhase, phaseFromQuery } from '../data/phases.js';
 import { assetUrl } from '../data/products.js';
+import { withShare } from '../core/nav.js';
 import { mountCart, showToast } from '../cart/ui.js';
 import { addToCart } from '../cart/store.js';
 import { loadMarketMap } from './map.js';
@@ -9,6 +10,7 @@ import { createPlayer } from './player.js';
 import { createCameraRig } from './camera-rig.js';
 import { createPanel } from './panel.js';
 import { createAuthoredLighting } from './lighting.js';
+import { shopUrl, requestedShop } from './shop-route.js';
 import { bindCameraInput } from './camera-input.js';
 
 const phase = getPhase(phaseFromQuery());
@@ -37,39 +39,52 @@ renderer.toneMappingExposure = phase.id === 'night' ? 1.15 : 1.05;
 stage.appendChild(renderer.domElement);
 const world = new THREE.Group(); scene.add(world);
 let marketMap = null;
-const night = phase.id === 'night';
-// Morning and night both carry authored Blender lighting; only noon still needs a fallback rig.
-if (phase.id === 'noon') {
-scene.add(new THREE.HemisphereLight(night ? '#9cacd1' : '#fff1dc', '#8c7960', night ? 1.15 : 1.9));
-const sun = new THREE.DirectionalLight(night ? '#b7c8ec' : '#fff0d3', night ? 1.6 : 2.6);
-sun.position.set(-18, 35, 15); sun.castShadow = true;
-sun.shadow.mapSize.set(2048, 2048);
-Object.assign(sun.shadow.camera, { left: -36, right: 36, top: 36, bottom: -36, near: 1, far: 100 });
-sun.shadow.bias = -0.0004; sun.shadow.normalBias = 0.035;
-scene.add(sun);
-const fill = new THREE.DirectionalLight('#b4c6d3', 0.65); fill.position.set(10, 7, -12); scene.add(fill);
-}
 const player = createPlayer(); player.setPhaseMood(phase.id); scene.add(player.object);
 const rig = createCameraRig();
 const panel = createPanel({
+  phase: phase.id,
   onAdd(product) { addToCart(product.id); showToast('已放入市集篮'); },
-  onOpen(product) { if (product) location.href = assetUrl(product.href); else leaveStall(); },
+  onOpen(product) { if (product) location.href = withShare(assetUrl(product.href)); else leaveStall(); },
 });
-function leaveStall() {
-  selected = null; panel.hide(); rig.release(); keys.clear(); touchKeys.clear();
+let revealShop = false;
+const directory = document.getElementById('shopDirectory');
+const marketBack = document.getElementById('marketBack');
+function closeShop() {
+  selected = null; revealShop = false; panel.hide(); rig.release(); keys.clear(); touchKeys.clear();
+  player.object.visible = true;
   document.body.classList.remove('is-focused');
-  visit.focus({ preventScroll: true });
+  document.getElementById('marketTitle').textContent = `${phase.name} · ${phase.hourLabel}`;
+  document.title = `${phase.name} · 义犹未尽`;
+  marketBack.href = withShare('index.html'); marketBack.textContent = '← 归市图';
 }
+function leaveStall() {
+  if (history.state?.fromMarket) history.back();
+  else { history.replaceState(null, '', shopUrl(phase.id)); closeShop(); }
+  directory.querySelector('summary').focus({ preventScroll: true });
+}
+marketBack.addEventListener('click', event => { if (selected) { event.preventDefault(); leaveStall(); } });
+window.addEventListener('popstate', () => {
+  if (!ready) return;
+  const id = requestedShop(location.search, phase.stalls);
+  const entry = entries.find(item => item.stall.id === id);
+  if (entry) enterStall(entry, { remote: true, navigate: false });
+  else closeShop();
+});
 function nearby(entry) {
   return Math.hypot(player.position.x - entry.position.x, player.position.z - entry.position.z) <= 6.5
     && Math.abs(player.position.y - entry.position.y) < 1.5
     && new THREE.Vector3().subVectors(player.position, entry.position).dot(entry.normal) > 0.5;
 }
-function enterStall(entry) {
-  if (!ready || !entry || !nearby(entry) || rig.isTransitioning) return;
-  selected = entry; keys.clear(); touchKeys.clear(); rig.focusOn(entry);
-  panel.show(entry.stall); visit.hidden = true;
+function enterStall(entry, { remote = false, navigate = true } = {}) {
+  if (!ready || !entry || (!remote && (!nearby(entry) || rig.isTransitioning))) return;
+  if (selected === entry) return;
+  if (navigate) history.pushState({ fromMarket: true }, '', shopUrl(phase.id, entry.stall.id));
+  selected = entry; keys.clear(); touchKeys.clear(); panel.hide(); rig.focusOn(entry);
+  revealShop = true; visit.hidden = true; directory.open = false;
   document.body.classList.add('is-focused');
+  document.getElementById('marketTitle').textContent = `${phase.name} / ${entry.stall.name}`;
+  document.title = `${entry.stall.name} · ${phase.name} · 义犹未尽`;
+  marketBack.href = shopUrl(phase.id); marketBack.textContent = `← 回${phase.name}`;
 }
 visit.addEventListener('click', () => enterStall(nearest));
 const movement = { w: 'up', arrowup: 'up', s: 'down', arrowdown: 'down', a: 'left', arrowleft: 'left', d: 'right', arrowright: 'right' };
@@ -113,11 +128,15 @@ renderer.setAnimationLoop(() => {
   nearBoundary = boundaryDistance < (nearBoundary ? 2.6 : 2);
   boundaryHint.hidden = !ready || Boolean(selected) || !nearBoundary || Boolean(document.querySelector('.cart-drawer.is-open'));
   rig.update(delta, player, stage.clientWidth / stage.clientHeight);
+  if (revealShop && !rig.isTransitioning && selected) {
+    revealShop = false; player.object.visible = false; panel.show(selected.stall);
+  }
   nearest = entries.filter(nearby).sort((a, b) => player.position.distanceToSquared(a.anchor) - player.position.distanceToSquared(b.anchor))[0] ?? null;
   visit.hidden = !ready || Boolean(selected) || rig.isTransitioning || !nearest;
   if (nearest) visit.textContent = `逛逛${nearest.stall.name} · E`;
   updateStalls(entries, delta, (selected ?? hovered ?? nearest)?.stall.id);
-  marketMap?.updateOcclusion(rig.camera, selected?.focusTarget ?? player.position, delta);
+  if (selected) selected.ring.material.opacity = 0;
+  marketMap?.updateOcclusion(rig.camera, selected?.focusTarget ?? player.position, delta, selected);
   renderer.render(scene, rig.camera);
 });
 try {
@@ -127,8 +146,21 @@ try {
   entries = marketMap.entries;
   player.setMap(marketMap.navigator, marketMap.spawn);
   rig.reset();
+  rig.update(0, player, stage.clientWidth / stage.clientHeight);
+  const list = directory.querySelector('.directory-list');
+  for (const entry of entries) {
+    const button = document.createElement('button'); button.type = 'button'; button.textContent = entry.stall.name;
+    button.addEventListener('click', () => enterStall(entry, { remote: true })); list.append(button);
+  }
+  directory.querySelector('.directory-count').textContent = `${entries.length} 间可访`;
+  const phaseNav = document.getElementById('phaseNav');
+  phaseNav.querySelector(`[data-phase="${phase.id}"]`).setAttribute('aria-current', 'page');
   showToast(phase.intro);
-  ready = true; loading.classList.add('is-done'); loading.setAttribute('aria-hidden', 'true');
+  ready = true;
+  const directShop = requestedShop(location.search, phase.stalls);
+  if (directShop) enterStall(entries.find(entry => entry.stall.id === directShop), { remote: true, navigate: false });
+  else if (new URLSearchParams(location.search).has('shop')) history.replaceState(null, '', shopUrl(phase.id));
+  loading.classList.add('is-done'); loading.setAttribute('aria-hidden', 'true');
 } catch (error) {
   console.error('市集模型加载失败', error);
   loading.querySelector('p').textContent = '摊位加载失败，请重试';

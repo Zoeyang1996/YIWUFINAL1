@@ -1,8 +1,9 @@
+import { catalogueFor, productLink } from '../data/shop-catalogues.js';
 import { formatPrice, getProduct } from '../data/products.js';
 
 /** 右侧的商品展示栏：点开摊位后滑出 */
 
-export function createPanel({ onAdd, onOpen }) {
+export function createPanel({ onAdd, onOpen, phase }) {
   const root = document.getElementById('stallPanel');
   const keeperEl = root.querySelector('.panel-keeper');
   const nameEl = root.querySelector('.panel-name');
@@ -13,6 +14,24 @@ export function createPanel({ onAdd, onOpen }) {
   let open = false;
 
   function renderProducts(stall) {
+    const catalogue = catalogueFor(phase, stall.id);
+    if (catalogue.length) {
+      listEl.replaceChildren();
+      const heading = document.createElement('p'); heading.className = 'catalogue-heading'; heading.textContent = '铺 中 好 物'; listEl.append(heading);
+      catalogue.forEach((item, index) => {
+        const card = document.createElement('article'); card.className = 'panel-card catalogue-card';
+        const glyph = document.createElement('div'); glyph.className = 'card-glyph'; glyph.textContent = item.glyph;
+        const number = document.createElement('small'); number.className = 'catalogue-number'; number.textContent = String(index + 1).padStart(2, '0');
+        const title = document.createElement('h4'); title.textContent = item.name;
+        const description = document.createElement('p'); description.className = 'card-blurb'; description.textContent = item.description;
+        const href = productLink(item.href);
+        const link = document.createElement(href ? 'a' : 'span'); link.className = href ? 'catalogue-link' : 'catalogue-pending';
+        link.textContent = href ? '查看商品 ↗' : '商品详情 · 敬请期待';
+        if (href) link.href = href;
+        card.append(number, glyph, title, description, link); listEl.append(card);
+      });
+      return;
+    }
     if (!stall.products.length) {
       listEl.innerHTML = `
         <div class="panel-empty">

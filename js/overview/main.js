@@ -1,5 +1,6 @@
 import { mountCart } from '../cart/ui.js';
 import { PHASES, PHASE_ORDER } from '../data/phases.js';
+import { withShare } from '../core/nav.js';
 import { createOverviewStage } from './stage.js';
 
 const stageEl = document.getElementById('stage');
@@ -72,7 +73,7 @@ function leaveToMarket(phaseId) {
   hintEl.textContent = '入 市';
   wipeEl.classList.add('is-active');
   window.setTimeout(() => {
-    location.href = `market.html?phase=${phaseId}`;
+    location.href = withShare(`market.html?phase=${phaseId}`);
   }, 560);
 }
 
@@ -135,7 +136,7 @@ stageEl.addEventListener('pointerleave', () => stageEl.classList.remove('is-hove
 window.setTimeout(() => {
   const link = document.createElement('link');
   link.rel = 'prefetch';
-  link.href = 'market.html';
+  link.href = withShare('market.html');
   document.head.appendChild(link);
 }, 1600);
 

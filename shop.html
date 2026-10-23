@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>店中小憩 · 义犹未尽</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/cart.css">
+<link rel="stylesheet" href="css/market.css">
+</head>
+<body class="market">
+<main id="marketStage" aria-label="三维市集游览"></main>
+<header class="market-header"><a id="marketBack" href="index.html">← 归市图</a><span id="marketTitle">义犹未尽</span></header>
+<nav id="phaseNav" class="phase-nav" aria-label="切换时辰"><a data-phase="morning" href="market.html?phase=morning">早</a><a data-phase="noon" href="market.html?phase=noon">午</a><a data-phase="night" href="market.html?phase=night">夜</a></nav>
+<details id="shopDirectory" class="shop-directory"><summary>本市店簿 <span class="directory-count"></span></summary><p>选一间铺子，停步看一看。</p><div class="directory-list"></div></details>
+<div class="grain-layer"></div>
+<p id="walkHint" class="walk-hint">WASD / 方向键移动 · 拖拽环绕视角 · 滚轮缩放 · 走近摊位按 E</p>
+<button id="visitStall" class="visit-stall" type="button" hidden></button>
+<div id="marketBoundaryHint" class="market-boundary-hint" role="status" aria-live="polite" hidden><strong>已到市集尽头</strong><span>前方已是市集之外，回身再逛逛吧。</span></div>
+<nav class="walk-pad" aria-label="游览方向"><button data-move="up" aria-label="前进">↑</button><button data-move="left" aria-label="左移">←</button><button data-move="down" aria-label="后退">↓</button><button data-move="right" aria-label="右移">→</button></nav>
+<aside id="stallPanel" class="stall-panel" aria-hidden="true" aria-label="摊位商品" inert>
+<button class="panel-close" type="button" aria-label="返回游览">← 继续逛逛</button>
+<p class="panel-keeper"></p><h1 class="panel-name"></h1><p class="panel-line"></p><div class="panel-list"></div>
+</aside>
+<div id="marketLoading" class="market-loading" role="status"><span>义</span><p>正在支摊子</p></div>
+<script type="importmap">{"imports":{"three":"./vendor/three/three.module.js","three/addons/":"./vendor/three/addons/"}}</script>
+<script type="module" src="js/market/main.js"></script>
+</body>
+</html>

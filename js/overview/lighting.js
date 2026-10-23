@@ -26,15 +26,15 @@ const RIGS = {
     warmIntensity: 0,
   },
   night: {
-    hemiSky: '#43537d',
-    hemiGround: '#1a2030',
-    hemiIntensity: 1.35,
-    keyColor: '#c8d5f4',
-    keyIntensity: 1.45,
+    hemiSky: '#5f72a6',
+    hemiGround: '#262e42',
+    hemiIntensity: 2.15,
+    keyColor: '#dde6fb',
+    keyIntensity: 2.75,
     keyPosition: [3.4, 6.2, 3.8],
-    rimColor: '#7f9ce0',
-    rimIntensity: 0.85,
-    warmIntensity: 3.6,
+    rimColor: '#9db5ee',
+    rimIntensity: 1.25,
+    warmIntensity: 5,
   },
 };
 

@@ -61,6 +61,9 @@ export function normalizeModel(root, targetSize) {
 export async function loadPreparedModel(url, { targetSize = 2.6 } = {}) {
   const gltf = await loadGltf(url);
   const root = gltf.scene.clone(true);
+  const backdrop = [];
+  root.traverse(node => { if (node.userData.backdrop) backdrop.push(node); });
+  backdrop.forEach(node => node.removeFromParent());
   prepareMaterials(root);
   normalizeModel(root, targetSize);
 
