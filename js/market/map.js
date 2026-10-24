@@ -3,16 +3,31 @@ import { loadGltf } from '../core/loader.js';
 import { createNavigator } from './navigation.js';
 import { createMarketSurroundings } from './market-surroundings.js';
 import { createPaintedSurroundings } from './painted-surroundings.js';
+import { createFanKeeper } from './fan-keeper.js';
 
 /** Load the fully assembled Blender export at its authored scale and origin. */
 export async function loadMarketMap(group, phase) {
-  const revision = phase.id === 'morning' ? '?v=painted-village-03' : '?v=authored-web-20261022';
-  const [gltf, response] = await Promise.all([
-    loadGltf(`assets/markets/${phase.id}.glb${revision}`), fetch(`assets/markets/${phase.id}.json${revision}`),
+  const revision = phase.id === 'morning' ? '?v=fan-keeper-01' : '?v=authored-web-20261022';
+  const [gltf, response, metadata] = await Promise.all([
+    loadGltf(`assets/markets/${phase.id === 'morning' ? 'morning2' : phase.id}.glb${revision}`), fetch(`assets/markets/${phase.id}.json${revision}`),
+    phase.id === 'morning' ? fetch('assets/markets/morning-metadata.json').then(r => { if (!r.ok) throw new Error('早市场景标记加载失败'); return r.json(); }) : null,
   ]);
   if (!response.ok) throw new Error(`地图导航加载失败：${response.status}`);
   const data = await response.json();
   const map = gltf.scene;
+  // The new Blender export omitted custom properties; retain ground/water/backdrop behavior.
+  if (metadata) map.traverse(node => Object.assign(node.userData, metadata[node.userData.name ?? node.name] ?? {}));
+  const fanKeeper = phase.id === 'morning' ? createFanKeeper(map) : null;
+  if (phase.id === 'morning') {
+    const holder = new THREE.Group(); holder.name = 'Shop_fans'; map.add(holder);
+    const parts = [];
+    map.traverse(node => { if ((node.userData.name ?? node.name).includes('05 扇铺摊铺') && node.parent === map) parts.push(node); });
+    parts.forEach(node => holder.attach(node));
+    const keeper = map.getObjectByName('Armature');
+    if (keeper) holder.attach(keeper);
+    data.stalls.push({ id: 'fans', node: 'Shop_fans', position: [-4.46, 1.29313, 1.58],
+      focus: [-4.46, 2.85, 1.58], normal: [-1, 0, 0], approach: [-7.2, 1.29313, 1.58], cameraDistance: 4.3 });
+  }
   // Replace the old export's distant backdrop with the continuous web village.
   const backdrop = []; map.traverse(node => { if (node.userData.backdrop) backdrop.push(node); });
   backdrop.forEach(node => node.removeFromParent());
@@ -30,7 +45,7 @@ export async function loadMarketMap(group, phase) {
     node.userData.fadeGroup = groupId;
     if (!fadeGroups.has(groupId)) fadeGroups.set(groupId, []);
     fadeGroups.get(groupId).push(node);
-    if (!node.userData.water && (phase.id === 'morning' || node.userData.occluder)) occluders.push({ mesh: node, box: new THREE.Box3().setFromObject(node) });
+    if (!node.isSkinnedMesh && !node.userData.water && (phase.id === 'morning' || node.userData.occluder)) occluders.push({ mesh: node, box: new THREE.Box3().setFromObject(node) });
   });
   group.add(map);
   const entries = data.stalls.map((placement) => {
@@ -44,7 +59,7 @@ export async function loadMarketMap(group, phase) {
     }));
     ring.rotation.x = -Math.PI / 2;
     ring.position.copy(position); ring.position.y += 0.035; group.add(ring);
-    return { stall, holder, ring, position, anchor: new THREE.Vector3(...placement.focus),
+    return { stall, holder, ring, position, cameraDistance: placement.cameraDistance, anchor: new THREE.Vector3(...placement.focus),
       focusTarget: new THREE.Vector3(...placement.focus), normal: new THREE.Vector3(...placement.normal),
       approach: new THREE.Vector3(...placement.approach), glow: 0 };
   });
@@ -112,6 +127,8 @@ export async function loadMarketMap(group, phase) {
     }
   }
   return { entries, navigator: createNavigator(data), spawn: new THREE.Vector3(...data.spawn), updateOcclusion,
+    greet(stallId) { if (stallId === 'fans') fanKeeper?.greet(); },
+    update(delta) { fanKeeper?.update(delta); },
     lighting: data.lighting,
     addSurroundings(scene) {
       if (phase.id !== 'morning') { createMarketSurroundings(scene, phase); return; }

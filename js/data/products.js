@@ -5,6 +5,16 @@
 const BASE = '资产包/首页';
 
 export const PRODUCTS = {
+  morningFan: {
+    id: 'morningFan', name: '清风红扇', glyph: '扇',
+    subtitle: '一 扇 清 风 · 早 市 好 物', shop: '清风扇铺',
+    price: 68, // 演示价格，正式售卖前替换为实际定价。
+    blurb: '展开一面雅致扇影，把早市的悠闲与清风带在身边。',
+    description: '绯红与米白相映，细密纹理铺满舒展的扇面。转到侧面，可以细看扇缘、环形握柄和垂落的绳饰。轻轻摇动，为日常添一份闲适；随身纳凉、案头陈设，都能留住一缕市集清风。',
+    details: [['款式', '红色手持扇 / 环形握柄'], ['用途', '纳凉 / 陈设 / 赠礼'], ['养护', '避水防潮，轻拭收存']],
+    model: 'assets/商品/扇子.glb', thumbnail: 'assets/商品/扇子-preview.png',
+    preview: { resetMeshRotation: true, rotation: [Math.PI / 2, 0, -Math.PI / 2] },
+  },
   toastFigure: {
     id: 'toastFigure',
     name: '吐司小人',

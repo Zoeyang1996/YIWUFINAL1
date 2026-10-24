@@ -23,7 +23,7 @@ export function createCameraRig() {
     if (focusing) {
       if (focus.focusTarget) desiredTarget.copy(focus.focusTarget);
       else desiredTarget.set(focus.position.x, (focus.position.y ?? 0) + 1.4, focus.position.z);
-      destination.set(aspect < 0.85 ? 7.5 : 6, Math.PI / 2,
+      destination.set(focus.cameraDistance ? focus.cameraDistance * (aspect < .85 ? 1.25 : 1) : (aspect < 0.85 ? 7.5 : 6), Math.PI / 2,
         focus.normal ? Math.atan2(focus.normal.x, focus.normal.z) : (focus.side === 'left' ? Math.PI / 2 : -Math.PI / 2));
     }
     if (!initialized) { target.copy(desiredTarget); orbit.copy(destination); initialized = true; }

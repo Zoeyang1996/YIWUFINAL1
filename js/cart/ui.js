@@ -115,7 +115,9 @@ export function mountCart() {
   });
 
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') close();
+    if (event.key === 'Escape' && drawer.classList.contains('is-open')) {
+      event.stopPropagation(); close();
+    }
   });
 
   subscribe((lines) => {

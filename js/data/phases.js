@@ -29,6 +29,11 @@ export const PHASES = {
     },
     stalls: [
       {
+        id: 'fans', name: '清风扇铺', keeper: '扇铺掌柜',
+        line: '客官来啦，挑一把扇子，把清风带回家。',
+        products: ['morningFan'],
+      },
+      {
         id: 'breakfast',
         name: '早餐摊',
         keeper: '阿婆',

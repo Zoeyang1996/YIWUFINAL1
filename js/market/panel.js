@@ -14,6 +14,21 @@ export function createPanel({ onAdd, onOpen, phase }) {
   let open = false;
 
   function renderProducts(stall) {
+    const models = stall.products.map(getProduct).filter(product => product?.model);
+    if (models.length) {
+      listEl.replaceChildren();
+      const heading = document.createElement('p'); heading.className = 'catalogue-heading'; heading.textContent = '铺 中 好 物'; listEl.append(heading);
+      for (const product of models) {
+        const card = document.createElement('button'); card.type = 'button'; card.className = 'panel-model-card';
+        card.dataset.act = 'open'; card.dataset.id = product.id;
+        const image = document.createElement('img'); image.src = product.thumbnail; image.alt = product.name;
+        const title = document.createElement('h3'); title.textContent = product.name;
+        const description = document.createElement('p'); description.textContent = product.blurb;
+        const footer = document.createElement('span'); footer.textContent = `¥${formatPrice(product.price)}　·　拿起看看 ↗`;
+        card.append(image, title, description, footer); listEl.append(card);
+      }
+      return;
+    }
     const catalogue = catalogueFor(phase, stall.id);
     if (catalogue.length) {
       listEl.replaceChildren();
@@ -91,7 +106,7 @@ export function createPanel({ onAdd, onOpen, phase }) {
     const product = getProduct(button.dataset.id);
     if (!product) return;
     if (button.dataset.act === 'add') onAdd?.(product);
-    if (button.dataset.act === 'open') onOpen?.(product);
+    if (button.dataset.act === 'open') onOpen?.(product, button);
   });
 
   closeButton.addEventListener('click', () => onOpen?.(null));

@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { getPhase, phaseFromQuery } from '../data/phases.js';
-import { assetUrl } from '../data/products.js';
+import { assetUrl, getProduct } from '../data/products.js';
 import { withShare } from '../core/nav.js';
 import { mountCart, showToast } from '../cart/ui.js';
 import { addToCart } from '../cart/store.js';
@@ -12,6 +12,7 @@ import { createPanel } from './panel.js';
 import { createAuthoredLighting } from './lighting.js';
 import { shopUrl, requestedShop } from './shop-route.js';
 import { bindCameraInput } from './camera-input.js';
+import { createProductViewer } from './product-viewer.js';
 
 const phase = getPhase(phaseFromQuery());
 document.body.dataset.phase = phase.id;
@@ -41,18 +42,24 @@ const world = new THREE.Group(); scene.add(world);
 let marketMap = null;
 const player = createPlayer(); player.setPhaseMood(phase.id); scene.add(player.object);
 const rig = createCameraRig();
+const productViewer = createProductViewer();
 const panel = createPanel({
   phase: phase.id,
   onAdd(product) { addToCart(product.id); showToast('已放入市集篮'); },
-  onOpen(product) { if (product) location.href = withShare(assetUrl(product.href)); else leaveStall(); },
+  onOpen(product, opener) {
+    if (product?.model) productViewer.open(product, opener);
+    else if (product) location.href = withShare(assetUrl(product.href));
+    else leaveStall();
+  },
 });
 let revealShop = false;
 const directory = document.getElementById('shopDirectory');
 const marketBack = document.getElementById('marketBack');
 function closeShop() {
+  productViewer.close({ restoreFocus: false });
   selected = null; revealShop = false; panel.hide(); rig.release(); keys.clear(); touchKeys.clear();
   player.object.visible = true;
-  document.body.classList.remove('is-focused');
+  document.body.classList.remove('is-focused', 'has-model-stall');
   document.getElementById('marketTitle').textContent = `${phase.name} · ${phase.hourLabel}`;
   document.title = `${phase.name} · 义犹未尽`;
   marketBack.href = withShare('index.html'); marketBack.textContent = '← 归市图';
@@ -78,10 +85,12 @@ function nearby(entry) {
 function enterStall(entry, { remote = false, navigate = true } = {}) {
   if (!ready || !entry || (!remote && (!nearby(entry) || rig.isTransitioning))) return;
   if (selected === entry) return;
+  productViewer.close({ restoreFocus: false });
   if (navigate) history.pushState({ fromMarket: true }, '', shopUrl(phase.id, entry.stall.id));
   selected = entry; keys.clear(); touchKeys.clear(); panel.hide(); rig.focusOn(entry);
   revealShop = true; visit.hidden = true; directory.open = false;
   document.body.classList.add('is-focused');
+  document.body.classList.toggle('has-model-stall', entry.stall.products.some(id => getProduct(id)?.model));
   document.getElementById('marketTitle').textContent = `${phase.name} / ${entry.stall.name}`;
   document.title = `${entry.stall.name} · ${phase.name} · 义犹未尽`;
   marketBack.href = shopUrl(phase.id); marketBack.textContent = `← 回${phase.name}`;
@@ -89,6 +98,7 @@ function enterStall(entry, { remote = false, navigate = true } = {}) {
 visit.addEventListener('click', () => enterStall(nearest));
 const movement = { w: 'up', arrowup: 'up', s: 'down', arrowdown: 'down', a: 'left', arrowleft: 'left', d: 'right', arrowright: 'right' };
 window.addEventListener('keydown', (event) => {
+  if (productViewer.isOpen || document.querySelector('.cart-drawer.is-open')) return;
   if (event.key === 'Escape') { if (selected) leaveStall(); return; }
   if (event.target.closest('input,textarea,[contenteditable=true]') || document.querySelector('.cart-drawer.is-open')) return;
   const direction = movement[event.key.toLowerCase()];
@@ -116,11 +126,20 @@ bindCameraInput(renderer.domElement, rig, {
   },
 });
 renderer.domElement.addEventListener('pointerleave', () => { hovered = null; });
-function resize() { renderer.setSize(stage.clientWidth, stage.clientHeight); }
+let marketNeedsRender = true;
+function resize() { renderer.setSize(stage.clientWidth, stage.clientHeight); marketNeedsRender = true; }
 window.addEventListener('resize', resize); resize();
 const clock = new THREE.Clock();
 renderer.setAnimationLoop(() => {
   const delta = Math.min(clock.getDelta(), 0.05);
+  // Keep the market's last frame behind the dialog; only the product needs to render.
+  if (productViewer.isOpen) {
+    if (marketNeedsRender) {
+      rig.update(0, player, stage.clientWidth / stage.clientHeight);
+      renderer.render(scene, rig.camera); marketNeedsRender = false;
+    }
+    return;
+  }
   const blocked = !ready || selected || rig.isTransitioning || document.querySelector('.cart-drawer.is-open');
   const pressed = (direction) => !blocked && (keys.has(direction) || touchKeys.has(direction)) ? 1 : 0;
   player.update(delta, { x: pressed('right') - pressed('left'), y: pressed('up') - pressed('down') }, rig.getYaw());
@@ -130,7 +149,9 @@ renderer.setAnimationLoop(() => {
   rig.update(delta, player, stage.clientWidth / stage.clientHeight);
   if (revealShop && !rig.isTransitioning && selected) {
     revealShop = false; player.object.visible = false; panel.show(selected.stall);
+    marketMap?.greet(selected.stall.id);
   }
+  marketMap?.update(delta);
   nearest = entries.filter(nearby).sort((a, b) => player.position.distanceToSquared(a.anchor) - player.position.distanceToSquared(b.anchor))[0] ?? null;
   visit.hidden = !ready || Boolean(selected) || rig.isTransitioning || !nearest;
   if (nearest) visit.textContent = `逛逛${nearest.stall.name} · E`;
@@ -138,6 +159,7 @@ renderer.setAnimationLoop(() => {
   if (selected) selected.ring.material.opacity = 0;
   marketMap?.updateOcclusion(rig.camera, selected?.focusTarget ?? player.position, delta, selected);
   renderer.render(scene, rig.camera);
+  marketNeedsRender = false;
 });
 try {
   marketMap = await loadMarketMap(world, phase);

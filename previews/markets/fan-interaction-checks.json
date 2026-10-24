@@ -1,0 +1,77 @@
+{
+  "viewport": [
+    "1200x800",
+    "390x844"
+  ],
+  "checks": [
+    {
+      "name": "product loaded",
+      "passed": true
+    },
+    {
+      "name": "pointer drag rotates rendered model",
+      "passed": true
+    },
+    {
+      "name": "one cart addition while animation active",
+      "passed": true
+    },
+    {
+      "name": "flight completes and purchase button recovers",
+      "passed": true
+    },
+    {
+      "name": "detail cart icon opens existing cart",
+      "passed": true
+    },
+    {
+      "name": "Escape closes cart first, keeps product",
+      "passed": true
+    },
+    {
+      "name": "mobile dialog stays within viewport",
+      "passed": true
+    },
+    {
+      "name": "final product model loads",
+      "passed": true
+    },
+    {
+      "name": "Escape restores product card keyboard focus",
+      "passed": true
+    },
+    {
+      "name": "mobile purchase remains visible and copy scrolls",
+      "passed": true
+    },
+    {
+      "name": "reduced motion purchase skips flight and adds once",
+      "passed": true
+    },
+    {
+      "name": "outside click preserves stall close-up",
+      "passed": true
+    },
+    {
+      "name": "leaving stall restores market route",
+      "passed": true
+    },
+    {
+      "name": "directory can re-enter fan stall",
+      "passed": true
+    },
+    {
+      "name": "standalone shop reload has thumbnail and bottom-right cart",
+      "passed": true
+    },
+    {
+      "name": "standalone shop product opens without navigation",
+      "passed": true
+    },
+    {
+      "name": "final mobile purchase stays inside dialog after resize",
+      "passed": true
+    }
+  ],
+  "runtimeExceptions": 0
+}
