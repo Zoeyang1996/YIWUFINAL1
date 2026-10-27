@@ -12,16 +12,16 @@ export function createProductViewer() {
   root.innerHTML = `
     <section class="product-window" role="dialog" aria-modal="true" aria-labelledby="productTitle" tabindex="-1">
       <div class="product-stage">
-        <span class="product-eyebrow">掌 中 清 风 / 360°</span>
+        <span class="product-eyebrow">市 集 好 物 / 360°</span>
         <div class="product-canvas" aria-label="商品三维预览"></div>
-        <p class="product-loading" role="status">正在展开扇面…</p>
+        <p class="product-loading" role="status">正在呈上好物…</p>
         <div class="product-view-tools"><span>拖拽旋转 · 滚轮缩放</span><button type="button" class="product-reset">重置视角</button></div>
       </div>
       <aside class="product-info">
         <button type="button" class="product-close" aria-label="关闭商品详情">×</button>
         <div class="product-copy"><p class="product-shop"></p><h2 id="productTitle"></h2><p class="product-subtitle"></p>
         <p class="product-description"></p><dl class="product-specs"></dl></div>
-        <div class="product-purchase"><span class="product-price"></span><small>每把 · 展示价格</small>
+        <div class="product-purchase"><span class="product-price"></span><small>每件 · 展示价格</small>
           <div class="product-actions"><button type="button" class="product-buy">购买 · 放入购物车</button>
           <button type="button" class="product-cart" aria-label="查看购物车"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 4h2l2.4 12h11L20 8H6"/><circle cx="9" cy="20" r="1"/><circle cx="17" cy="20" r="1"/></svg></button></div>
         </div>
@@ -58,7 +58,7 @@ export function createProductViewer() {
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.25;
     renderer.domElement.tabIndex = 0;
-    renderer.domElement.setAttribute('aria-label', '拖拽旋转扇子，方向键旋转，Home 重置视角');
+    renderer.domElement.setAttribute('aria-label', '拖拽旋转商品，方向键旋转，Home 重置视角');
     mount.append(renderer.domElement);
     scene = new THREE.Scene();
     scene.add(new THREE.HemisphereLight(0xfff5e2, 0x857865, 2.5));
@@ -91,14 +91,14 @@ export function createProductViewer() {
     root.hidden = false; document.body.classList.add('is-product-open');
     document.getElementById('stallPanel').inert = true;
     root.querySelector('#productTitle').textContent = product.name;
-    root.querySelector('.product-shop').textContent = `${product.shop} / 早市精选`;
+    root.querySelector('.product-shop').textContent = `${product.shop} / ${product.phaseName}精选`;
     root.querySelector('.product-subtitle').textContent = product.subtitle;
     root.querySelector('.product-description').textContent = product.description ?? product.blurb;
     root.querySelector('.product-price').textContent = `¥${formatPrice(product.price)}`;
     root.querySelector('.product-specs').replaceChildren(...(product.details ?? []).flatMap(([label, value]) => {
       const dt = document.createElement('dt'), dd = document.createElement('dd'); dt.textContent = label; dd.textContent = value; return [dt, dd];
     }));
-    buy.disabled = true; status.hidden = false; status.textContent = '正在展开扇面…';
+    buy.disabled = true; status.hidden = false; status.textContent = '正在呈上好物…';
     root.querySelector('.product-close').focus({ preventScroll: true });
     try {
       initialize();

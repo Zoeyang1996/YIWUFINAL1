@@ -3,31 +3,21 @@ import { loadGltf } from '../core/loader.js';
 import { createNavigator } from './navigation.js';
 import { createMarketSurroundings } from './market-surroundings.js';
 import { createPaintedSurroundings } from './painted-surroundings.js';
-import { createFanKeeper } from './fan-keeper.js';
+import { createCharacters } from './characters.js';
+import { MARKET_PLACEMENTS, authoredNode } from './market-placements.js';
+import { frameShop } from './shop-camera.js';
 
 /** Load the fully assembled Blender export at its authored scale and origin. */
 export async function loadMarketMap(group, phase) {
-  const revision = phase.id === 'morning' ? '?v=fan-keeper-01' : '?v=authored-web-20261022';
+  const revision = '?v=markets-20261027';
   const [gltf, response, metadata] = await Promise.all([
-    loadGltf(`assets/markets/${phase.id === 'morning' ? 'morning2' : phase.id}.glb${revision}`), fetch(`assets/markets/${phase.id}.json${revision}`),
-    phase.id === 'morning' ? fetch('assets/markets/morning-metadata.json').then(r => { if (!r.ok) throw new Error('早市场景标记加载失败'); return r.json(); }) : null,
+    loadGltf(`assets/markets/${phase.id}.glb${revision}`), fetch(`assets/markets/${phase.id}.json${revision}`),
+    phase.id === 'morning' ? fetch('assets/markets/morning-metadata.json').then(r => r.ok ? r.json() : {}) : null,
   ]);
   if (!response.ok) throw new Error(`地图导航加载失败：${response.status}`);
   const data = await response.json();
   const map = gltf.scene;
-  // The new Blender export omitted custom properties; retain ground/water/backdrop behavior.
   if (metadata) map.traverse(node => Object.assign(node.userData, metadata[node.userData.name ?? node.name] ?? {}));
-  const fanKeeper = phase.id === 'morning' ? createFanKeeper(map) : null;
-  if (phase.id === 'morning') {
-    const holder = new THREE.Group(); holder.name = 'Shop_fans'; map.add(holder);
-    const parts = [];
-    map.traverse(node => { if ((node.userData.name ?? node.name).includes('05 扇铺摊铺') && node.parent === map) parts.push(node); });
-    parts.forEach(node => holder.attach(node));
-    const keeper = map.getObjectByName('Armature');
-    if (keeper) holder.attach(keeper);
-    data.stalls.push({ id: 'fans', node: 'Shop_fans', position: [-4.46, 1.29313, 1.58],
-      focus: [-4.46, 2.85, 1.58], normal: [-1, 0, 0], approach: [-7.2, 1.29313, 1.58], cameraDistance: 4.3 });
-  }
   // Replace the old export's distant backdrop with the continuous web village.
   const backdrop = []; map.traverse(node => { if (node.userData.backdrop) backdrop.push(node); });
   backdrop.forEach(node => node.removeFromParent());
@@ -45,23 +35,30 @@ export async function loadMarketMap(group, phase) {
     node.userData.fadeGroup = groupId;
     if (!fadeGroups.has(groupId)) fadeGroups.set(groupId, []);
     fadeGroups.get(groupId).push(node);
-    if (!node.isSkinnedMesh && !node.userData.water && (phase.id === 'morning' || node.userData.occluder)) occluders.push({ mesh: node, box: new THREE.Box3().setFromObject(node) });
+    if (!node.isSkinnedMesh && !node.userData.water && !node.userData.ground) occluders.push({ mesh: node, box: new THREE.Box3().setFromObject(node) });
   });
   group.add(map);
-  const entries = data.stalls.map((placement) => {
-    const stall = phase.stalls.find((item) => item.id === placement.id);
-    if (!stall) throw new Error(`未匹配的商铺：${placement.id}`);
-    const holder = map.getObjectByName(placement.node);
+  const entries = phase.stalls.map(stall => {
+    const placement = MARKET_PLACEMENTS[phase.id][stall.id];
+    const holder = authoredNode(map, placement.node);
     if (!holder) throw new Error(`缺少商铺节点：${placement.node}`);
-    const position = new THREE.Vector3(...placement.position);
-    const ring = new THREE.Mesh(new THREE.RingGeometry(1.9, 2.05, 48), new THREE.MeshBasicMaterial({
+    const position = new THREE.Vector3(...placement.position), normal = new THREE.Vector3(...placement.normal).normalize();
+    const ring = new THREE.Mesh(new THREE.RingGeometry(1.1, 1.2, 48), new THREE.MeshBasicMaterial({
       color: '#e3b56d', transparent: true, opacity: 0, side: THREE.DoubleSide, depthWrite: false,
     }));
+    const approach = position.clone().addScaledVector(normal, 2.6);
     ring.rotation.x = -Math.PI / 2;
-    ring.position.copy(position); ring.position.y += 0.035; group.add(ring);
-    return { stall, holder, ring, position, cameraDistance: placement.cameraDistance, anchor: new THREE.Vector3(...placement.focus),
-      focusTarget: new THREE.Vector3(...placement.focus), normal: new THREE.Vector3(...placement.normal),
-      approach: new THREE.Vector3(...placement.approach), glow: 0 };
+    ring.position.copy(approach); ring.position.y += .035; group.add(ring);
+    const focus = position.clone(); focus.y += 1.4;
+    return { stall, holder, ring, position, normal, approach, keeperPosition: placement.keeper,
+      cameraDistance: placement.distance, anchor: focus.clone(), focusTarget: focus, glow: 0 };
+  });
+  const navigator = createNavigator(data);
+  const characters = await createCharacters(map, phase, entries, navigator);
+  map.updateMatrixWorld(true);
+  entries.forEach(entry => {
+    frameShop(entry, occluders);
+    characters.faceShop(entry);
   });
   const ray = new THREE.Raycaster();
   const direction = new THREE.Vector3();
@@ -94,8 +91,10 @@ export async function loadMarketMap(group, phase) {
       for (const item of occluders) {
         if (!protectedMeshes.has(item.mesh) && item.box.distanceToPoint(camera.position) < .8) hidden.add(item.mesh);
       }
-      for (const [x, y, z] of [[0,0,0], [1.3,1,0], [-1.3,1,0], [0,1,1.3], [0,1,-1.3]]) {
-        aim.copy(target).add(new THREE.Vector3(x,y,z));
+      const targets = activeShop?.sightTargets ?? [[0,0,0], [1.3,1,0], [-1.3,1,0], [0,1,1.3], [0,1,-1.3]]
+        .map(offset => target.clone().add(new THREE.Vector3(...offset)));
+      for (const point of targets) {
+        aim.copy(point);
         direction.copy(aim).sub(camera.position);
         ray.far = direction.length() - .6;
         ray.set(camera.position, direction.normalize());
@@ -126,9 +125,10 @@ export async function loadMarketMap(group, phase) {
       if (!fading.has(mesh) && materials.every(m => m.opacity === m.userData.authored.opacity)) fadingMeshes.delete(mesh);
     }
   }
-  return { entries, navigator: createNavigator(data), spawn: new THREE.Vector3(...data.spawn), updateOcclusion,
-    greet(stallId) { if (stallId === 'fans') fanKeeper?.greet(); },
-    update(delta) { fanKeeper?.update(delta); },
+  return { entries, navigator, spawn: new THREE.Vector3(...data.spawn), updateOcclusion,
+    greet(stallId) { characters.greet(stallId); },
+    focus(stallId) { characters.focus(stallId); },
+    update(delta) { characters.update(delta); },
     lighting: data.lighting,
     addSurroundings(scene) {
       if (phase.id !== 'morning') { createMarketSurroundings(scene, phase); return; }

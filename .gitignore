@@ -6,6 +6,7 @@ node_modules/
 *.log
 __pycache__/
 .preview-browser/
+.preview-check/
 previews/markets/*-browser-dom.html
 
 # Blender recovery copies and inspection intermediates

@@ -16,11 +16,13 @@ const CAMERA_HOME_Z = 6.05;
 const CAMERA_HOME_Y = 1.92;
 /** 每个时段模型的固定起始角度（弧度）：让墙面招牌对着镜头，字看得清 */
 const HOME_SPIN = {
-  morning: 0,
+  morning: -2.35,
   noon: -Math.PI / 2,
   night: Math.PI,
 };
 const SPIN_SMOOTHING = 6.5;
+// Match the reference: tree/flag left, breakfast facade centered, tea stall right.
+const HOME_PITCH = { morning: 0.14, noon: 0, night: 0 };
 const PITCH_LIMIT = 0.24;
 const GROUND_SHADOW_OPACITY = { morning: 0.52, noon: 0.44, night: 0.34 };
 const RING_OPACITY = { morning: 0.62, noon: 0.5, night: 0.24 };
@@ -102,8 +104,8 @@ export function createOverviewStage(container, { onEnter, onModelReady } = {}) {
   const state = {
     spin: firstSpin,
     spinTarget: firstSpin,
-    pitch: 0,
-    pitchTarget: 0,
+    pitch: HOME_PITCH[PHASE_ORDER[0]],
+    pitchTarget: HOME_PITCH[PHASE_ORDER[0]],
     dragging: false,
     pointerId: null,
     lastX: 0,
@@ -172,7 +174,7 @@ export function createOverviewStage(container, { onEnter, onModelReady } = {}) {
     groups.forEach((group, id) => { if (id !== previousId && id !== phaseId) setGroupOpacity(group, 0); });
     state.currentId = phaseId;
     state.spinTarget = homeSpinFor(phaseId);
-    state.pitchTarget = 0;
+    state.pitchTarget = HOME_PITCH[phaseId] ?? 0;
     lights.apply(phaseId, { immediate: !firstShown });
 
     cancelTransitions.push(tween({

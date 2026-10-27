@@ -8,7 +8,7 @@ body.has-model-stall .stall-panel{bottom:90px}
 .product-overlay[hidden]{display:none}
 .product-window{position:relative;width:min(1100px,100%);height:min(660px,calc(100dvh - 176px));min-height:380px;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(290px,1fr);border:1px solid #c1aa87;border-radius:8px;box-shadow:0 30px 100px #1e140d55;background:#f2e8d5;overflow:hidden;animation:product-in .4s var(--ease-soft)}
 .product-stage{position:relative;min-height:0;background:radial-gradient(ellipse at 50% 45%,#fffcf3 0%,#efe4cd 65%,#dfccac 100%);overflow:hidden}
-.product-stage::after{content:'清 风 徐 来';position:absolute;right:30px;top:72px;writing-mode:vertical-rl;letter-spacing:.5em;font:25px var(--font-kai);color:#ac8a5b55;pointer-events:none}
+.product-stage::after{content:'市 井 拾 珍';position:absolute;right:30px;top:72px;writing-mode:vertical-rl;letter-spacing:.5em;font:25px var(--font-kai);color:#ac8a5b55;pointer-events:none}
 .product-eyebrow{position:absolute;left:28px;top:27px;font-size:10px;letter-spacing:.22em;color:#8f7759;pointer-events:none}
 .product-canvas{position:absolute;inset:55px 12px 62px;touch-action:none;cursor:grab}.product-canvas:active{cursor:grabbing}.product-canvas canvas{width:100%;height:100%;display:block;touch-action:none}
 .product-loading{position:absolute;inset:40% 20px auto;text-align:center;font-size:13px;color:#8e7456;line-height:2}.product-loading[hidden]{display:none}.product-loading button{display:block;margin:12px auto;padding:4px 16px;border:1px solid #ac8866}

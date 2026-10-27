@@ -58,6 +58,7 @@ const marketBack = document.getElementById('marketBack');
 function closeShop() {
   productViewer.close({ restoreFocus: false });
   selected = null; revealShop = false; panel.hide(); rig.release(); keys.clear(); touchKeys.clear();
+  marketMap?.focus(null);
   player.object.visible = true;
   document.body.classList.remove('is-focused', 'has-model-stall');
   document.getElementById('marketTitle').textContent = `${phase.name} · ${phase.hourLabel}`;
@@ -88,6 +89,7 @@ function enterStall(entry, { remote = false, navigate = true } = {}) {
   productViewer.close({ restoreFocus: false });
   if (navigate) history.pushState({ fromMarket: true }, '', shopUrl(phase.id, entry.stall.id));
   selected = entry; keys.clear(); touchKeys.clear(); panel.hide(); rig.focusOn(entry);
+  marketMap?.focus(entry.stall.id);
   revealShop = true; visit.hidden = true; directory.open = false;
   document.body.classList.add('is-focused');
   document.body.classList.toggle('has-model-stall', entry.stall.products.some(id => getProduct(id)?.model));
