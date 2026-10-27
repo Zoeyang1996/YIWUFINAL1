@@ -13,6 +13,7 @@ import { createAuthoredLighting } from './lighting.js';
 import { shopUrl, requestedShop } from './shop-route.js';
 import { bindCameraInput } from './camera-input.js';
 import { createProductViewer } from './product-viewer.js';
+import { createStallHold } from './stall-hold.js';
 
 const phase = getPhase(phaseFromQuery());
 document.body.dataset.phase = phase.id;
@@ -26,6 +27,7 @@ const boundaryHint = document.getElementById('marketBoundaryHint');
 let nearBoundary = false;
 const keys = new Set();
 const touchKeys = new Set();
+const stallHold = createStallHold();
 let entries = [], nearest = null, hovered = null, selected = null, ready = false;
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(phase.palette.sky);
@@ -56,6 +58,7 @@ let revealShop = false;
 const directory = document.getElementById('shopDirectory');
 const marketBack = document.getElementById('marketBack');
 function closeShop() {
+  stallHold.cancel();
   productViewer.close({ restoreFocus: false });
   selected = null; revealShop = false; panel.hide(); rig.release(); keys.clear(); touchKeys.clear();
   marketMap?.focus(null);
@@ -66,6 +69,7 @@ function closeShop() {
   marketBack.href = withShare('index.html'); marketBack.textContent = '← 归市图';
 }
 function leaveStall() {
+  stallHold.cancel();
   if (history.state?.fromMarket) history.back();
   else { history.replaceState(null, '', shopUrl(phase.id)); closeShop(); }
   directory.querySelector('summary').focus({ preventScroll: true });
@@ -86,6 +90,7 @@ function nearby(entry) {
 function enterStall(entry, { remote = false, navigate = true } = {}) {
   if (!ready || !entry || (!remote && (!nearby(entry) || rig.isTransitioning))) return;
   if (selected === entry) return;
+  stallHold.cancel();
   productViewer.close({ restoreFocus: false });
   if (navigate) history.pushState({ fromMarket: true }, '', shopUrl(phase.id, entry.stall.id));
   selected = entry; keys.clear(); touchKeys.clear(); panel.hide(); rig.focusOn(entry);
@@ -97,18 +102,33 @@ function enterStall(entry, { remote = false, navigate = true } = {}) {
   document.title = `${entry.stall.name} · ${phase.name} · 义犹未尽`;
   marketBack.href = shopUrl(phase.id); marketBack.textContent = `← 回${phase.name}`;
 }
-visit.addEventListener('click', () => enterStall(nearest));
+visit.addEventListener('click', () => { if (selected) leaveStall(); else enterStall(nearest); });
+const isEditing = target => target?.closest?.('input,textarea,select,[contenteditable]:not([contenteditable="false"])');
+function holdTarget() {
+  if (!ready || rig.isTransitioning || productViewer.isOpen || document.hidden
+    || document.querySelector('.cart-drawer.is-open') || isEditing(document.activeElement)) return null;
+  if (selected) return `exit:${selected.stall.id}`;
+  return nearest && nearby(nearest) ? `enter:${nearest.stall.id}` : null;
+}
+function resetInput() { keys.clear(); touchKeys.clear(); stallHold.release(); }
 const movement = { w: 'up', arrowup: 'up', s: 'down', arrowdown: 'down', a: 'left', arrowleft: 'left', d: 'right', arrowright: 'right' };
 window.addEventListener('keydown', (event) => {
   if (productViewer.isOpen || document.querySelector('.cart-drawer.is-open')) return;
   if (event.key === 'Escape') { if (selected) leaveStall(); return; }
-  if (event.target.closest('input,textarea,[contenteditable=true]') || document.querySelector('.cart-drawer.is-open')) return;
+  if (isEditing(event.target) || event.isComposing) return;
   const direction = movement[event.key.toLowerCase()];
   if (direction) { event.preventDefault(); keys.add(direction); }
-  if (event.key.toLowerCase() === 'e') enterStall(nearest);
+  if (event.key.toLowerCase() === 'e' && !event.ctrlKey && !event.altKey && !event.metaKey) {
+    event.preventDefault();
+    if (!event.repeat) stallHold.press(holdTarget(), performance.now());
+  }
 });
-window.addEventListener('keyup', (event) => keys.delete(movement[event.key.toLowerCase()]));
-window.addEventListener('blur', () => { keys.clear(); touchKeys.clear(); });
+window.addEventListener('keyup', (event) => {
+  keys.delete(movement[event.key.toLowerCase()]);
+  if (event.key.toLowerCase() === 'e') stallHold.release();
+});
+window.addEventListener('blur', resetInput);
+document.addEventListener('visibilitychange', () => { if (document.hidden) resetInput(); });
 document.querySelectorAll('[data-move]').forEach((button) => {
   button.addEventListener('pointerdown', (event) => {
     button.setPointerCapture(event.pointerId); touchKeys.add(button.dataset.move); event.preventDefault();
@@ -136,6 +156,7 @@ renderer.setAnimationLoop(() => {
   const delta = Math.min(clock.getDelta(), 0.05);
   // Keep the market's last frame behind the dialog; only the product needs to render.
   if (productViewer.isOpen) {
+    stallHold.cancel(); visit.hidden = true;
     if (marketNeedsRender) {
       rig.update(0, player, stage.clientWidth / stage.clientHeight);
       renderer.render(scene, rig.camera); marketNeedsRender = false;
@@ -155,8 +176,17 @@ renderer.setAnimationLoop(() => {
   }
   marketMap?.update(delta);
   nearest = entries.filter(nearby).sort((a, b) => player.position.distanceToSquared(a.anchor) - player.position.distanceToSquared(b.anchor))[0] ?? null;
-  visit.hidden = !ready || Boolean(selected) || rig.isTransitioning || !nearest;
-  if (nearest) visit.textContent = `逛逛${nearest.stall.name} · E`;
+  const interactionTarget = holdTarget();
+  if (stallHold.update(interactionTarget, performance.now())) {
+    if (selected) leaveStall();
+    else enterStall(nearest);
+  }
+  visit.hidden = !interactionTarget || rig.isTransitioning;
+  visit.style.setProperty('--hold-progress', `${stallHold.progress * 100}%`);
+  visit.classList.toggle('is-holding', stallHold.progress > 0);
+  const action = selected ? `离开${selected.stall.name}` : nearest ? `进入${nearest.stall.name}` : '';
+  visit.textContent = `长按 E · ${action}`;
+  visit.setAttribute('aria-label', `点击${action}，或长按 E 键`);
   updateStalls(entries, delta, (selected ?? hovered ?? nearest)?.stall.id);
   if (selected) selected.ring.material.opacity = 0;
   marketMap?.updateOcclusion(rig.camera, selected?.focusTarget ?? player.position, delta, selected);

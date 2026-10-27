@@ -1,5 +1,7 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { MODEL_ASSETS } from '../data/asset-manifest.js';
+import { downloadModel } from './model-download.js';
 
 const loader = new GLTFLoader();
 const cache = new Map();
@@ -10,13 +12,21 @@ export function loadGltf(url) {
   if (!cache.has(key)) {
     cache.set(
       key,
-      loader.loadAsync(url).catch((error) => {
+      loadModel(url).catch((error) => {
         cache.delete(key);
         throw error;
       })
     );
   }
   return cache.get(key);
+}
+
+async function loadModel(url) {
+  const absolute = new URL(url, document.baseURI);
+  const entry = MODEL_ASSETS[decodeURI(absolute.pathname).replace(/^\//, '')];
+  if (!entry) return loader.loadAsync(url);
+  const buffer = await downloadModel(entry, document.baseURI);
+  return loader.parseAsync(buffer, new URL('.', absolute).href);
 }
 
 /** 让模型的贴图进 sRGB、开阴影 */
