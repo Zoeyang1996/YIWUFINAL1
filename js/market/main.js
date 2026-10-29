@@ -15,6 +15,7 @@ import { shopUrl, requestedShop } from './shop-route.js';
 import { bindCameraInput } from './camera-input.js';
 import { createProductViewer } from './product-viewer.js';
 import { createStallHold } from './stall-hold.js';
+import { createEndPrompt } from './end-prompt.js';
 
 const phase = getPhase(phaseFromQuery());
 document.body.dataset.phase = phase.id;
@@ -58,6 +59,12 @@ const panel = createPanel({
 });
 let revealShop = false;
 const directory = document.getElementById('shopDirectory');
+const endPrompt = createEndPrompt({
+  phase,
+  onOpen() { resetInput(); directory.open = false; hovered = null; },
+  onClose: resetInput,
+  onReturn() { location.href = withShare('index.html'); },
+});
 const marketBack = document.getElementById('marketBack');
 function closeShop() {
   if (selected) sound.play('close');
@@ -92,7 +99,7 @@ function nearby(entry) {
     && new THREE.Vector3().subVectors(player.position, entry.position).dot(entry.normal) > 0.5;
 }
 function enterStall(entry, { remote = false, navigate = true } = {}) {
-  if (!ready || !entry || (!remote && (!nearby(entry) || rig.isTransitioning))) return;
+  if (!ready || endPrompt.isOpen || !entry || (!remote && (!nearby(entry) || rig.isTransitioning))) return;
   if (selected === entry) return;
   stallHold.cancel();
   productViewer.close({ restoreFocus: false });
@@ -110,7 +117,7 @@ function enterStall(entry, { remote = false, navigate = true } = {}) {
 visit.addEventListener('click', () => { if (selected) leaveStall(); else enterStall(nearest); });
 const isEditing = target => target?.closest?.('input,textarea,select,.sound-controls,[contenteditable]:not([contenteditable="false"])');
 function holdTarget() {
-  if (!ready || rig.isTransitioning || productViewer.isOpen || document.hidden
+  if (!ready || endPrompt.isOpen || rig.isTransitioning || productViewer.isOpen || document.hidden
     || document.querySelector('.cart-drawer.is-open') || isEditing(document.activeElement)) return null;
   if (selected) return `exit:${selected.stall.id}`;
   return nearest && nearby(nearest) ? `enter:${nearest.stall.id}` : null;
@@ -119,7 +126,7 @@ function resetInput() { keys.clear(); touchKeys.clear(); stallHold.release(); }
 const movement = { w: 'up', arrowup: 'up', s: 'down', arrowdown: 'down', a: 'left', arrowleft: 'left', d: 'right', arrowright: 'right' };
 window.addEventListener('keydown', (event) => {
   if (isEditing(event.target) || event.isComposing || event.ctrlKey || event.metaKey || event.altKey) return;
-  if (productViewer.isOpen || document.querySelector('.cart-drawer.is-open')) return;
+  if (endPrompt.isOpen || productViewer.isOpen || document.querySelector('.cart-drawer.is-open')) return;
   if (event.key === 'Escape') { if (selected) leaveStall(); return; }
   const direction = movement[event.key.toLowerCase()];
   if (direction) { event.preventDefault(); keys.add(direction); }
@@ -140,6 +147,7 @@ window.addEventListener('blur', resetInput);
 document.addEventListener('visibilitychange', () => { if (document.hidden) resetInput(); });
 document.querySelectorAll('[data-move]').forEach((button) => {
   button.addEventListener('pointerdown', (event) => {
+    if (endPrompt.isOpen) return;
     button.setPointerCapture(event.pointerId); touchKeys.add(button.dataset.move); event.preventDefault();
   });
   for (const name of ['pointerup', 'pointercancel', 'lostpointercapture']) button.addEventListener(name, () => touchKeys.delete(button.dataset.move));
@@ -149,7 +157,7 @@ function pick(event) {
   return pickStall(entries.filter(nearby), rig.camera, { x: event.clientX - rect.left, y: event.clientY - rect.top }, rect);
 }
 bindCameraInput(renderer.domElement, rig, {
-  enabled: () => ready && !selected && !rig.isTransitioning && !document.querySelector('.cart-drawer.is-open'),
+  enabled: () => ready && !selected && !endPrompt.isOpen && !productViewer.isOpen && !rig.isTransitioning && !document.querySelector('.cart-drawer.is-open'),
   onTap: (event) => enterStall(pick(event)),
   onHover: (event) => {
     hovered = selected ? null : pick(event);
@@ -173,15 +181,16 @@ renderer.setAnimationLoop(() => {
     }
     return;
   }
-  const blocked = !ready || selected || rig.isTransitioning || document.querySelector('.cart-drawer.is-open');
+  const blocked = !ready || selected || endPrompt.isOpen || rig.isTransitioning || document.querySelector('.cart-drawer.is-open');
   const pressed = (direction) => !blocked && (keys.has(direction) || touchKeys.has(direction)) ? 1 : 0;
   const previousX = player.position.x, previousZ = player.position.z;
   player.update(delta, { x: pressed('right') - pressed('left'), y: pressed('up') - pressed('down') }, rig.getYaw());
+  endPrompt.update(player.position, !blocked);
   sound.walk(blocked ? 0 : Math.hypot(player.position.x - previousX, player.position.z - previousZ));
-  sound.setFocus(Boolean(selected || document.querySelector('.cart-drawer.is-open')));
+  sound.setFocus(Boolean(selected || endPrompt.isOpen || document.querySelector('.cart-drawer.is-open')));
   const boundaryDistance = marketMap?.navigator.boundaryDistance(player.position.x, player.position.z) ?? Infinity;
   nearBoundary = boundaryDistance < (nearBoundary ? 2.6 : 2);
-  boundaryHint.hidden = !ready || Boolean(selected) || !nearBoundary || Boolean(document.querySelector('.cart-drawer.is-open'));
+  boundaryHint.hidden = !ready || endPrompt.isOpen || Boolean(selected) || !nearBoundary || Boolean(document.querySelector('.cart-drawer.is-open'));
   rig.update(delta, player, stage.clientWidth / stage.clientHeight);
   if (revealShop && !rig.isTransitioning && selected) {
     revealShop = false; player.object.visible = false; panel.show(selected.stall);

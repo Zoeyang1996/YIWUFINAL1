@@ -6,8 +6,10 @@ import { assetUrl, formatPrice } from '../data/products.js';
 import { addToCart } from '../cart/store.js';
 import { showToast } from '../cart/ui.js';
 
+let sharedViewer;
 /** One reusable viewer: scene focus stays untouched while the fourth level is open. */
 export function createProductViewer() {
+  if (sharedViewer) return sharedViewer;
   const root = document.createElement('div');
   root.className = 'product-overlay'; root.hidden = true;
   root.innerHTML = `
@@ -15,15 +17,16 @@ export function createProductViewer() {
       <div class="product-stage">
         <span class="product-eyebrow">市 集 好 物 / 360°</span>
         <div class="product-canvas" aria-label="商品三维预览"></div>
+        <span class="product-stage-seal" aria-hidden="true">手作<br>拾珍</span>
         <p class="product-loading" role="status">正在呈上好物…</p>
         <div class="product-view-tools"><span>拖拽旋转 · 滚轮缩放</span><button type="button" class="product-reset">重置视角</button></div>
       </div>
       <aside class="product-info">
         <button type="button" class="product-close" aria-label="关闭商品详情">×</button>
-        <div class="product-copy"><p class="product-shop"></p><h2 id="productTitle"></h2><p class="product-subtitle"></p>
+        <div class="product-copy" tabindex="0" aria-label="商品介绍与规格"><p class="product-shop"></p><h2 id="productTitle"></h2><p class="product-subtitle"></p>
         <p class="product-description"></p><dl class="product-specs"></dl></div>
-        <div class="product-purchase"><span class="product-price"></span><small>每件 · 展示价格</small>
-          <div class="product-actions"><button type="button" class="product-buy">购买 · 放入购物车</button>
+        <div class="product-purchase"><span class="product-price"></span><small>每件 · 市集价</small>
+          <div class="product-actions"><button type="button" class="product-buy">收入市集篮</button>
           <button type="button" class="product-cart" aria-label="查看购物车"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 4h2l2.4 12h11L20 8H6"/><circle cx="9" cy="20" r="1"/><circle cx="17" cy="20" r="1"/></svg></button></div>
         </div>
       </aside>
@@ -34,7 +37,7 @@ export function createProductViewer() {
   const status = root.querySelector('.product-loading');
   const buy = root.querySelector('.product-buy');
   let renderer, scene, camera, controls, model, current, returnFocus, request = 0;
-  let isOpen = false, flying = false;
+  let isOpen = false, flying = false, afterClose = null, panelWasInert = true;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 
   function resize() {
@@ -78,21 +81,28 @@ export function createProductViewer() {
       }
     });
   }
-  function close({ restoreFocus = true } = {}) {
+  function close({ restoreFocus = true, notify = true } = {}) {
     if (!isOpen) return;
     sound.play('close');
     isOpen = false; ++request; root.hidden = true;
     renderer?.setAnimationLoop(null);
     document.body.classList.remove('is-product-open');
-    document.getElementById('stallPanel').inert = false;
+    const panel = document.getElementById('stallPanel');
+    if (panel) panel.inert = panelWasInert;
+    const callback = afterClose; afterClose = null;
     if (restoreFocus && returnFocus?.isConnected) returnFocus.focus({ preventScroll: true });
+    if (notify) callback?.();
   }
-  async function open(product, opener = document.activeElement) {
+  async function open(product, opener = document.activeElement, { onClose = null } = {}) {
     sound.play('open');
-    current = product; returnFocus = opener; isOpen = true;
+    const panel = document.getElementById('stallPanel');
+    if (!isOpen) panelWasInert = panel?.inert ?? true;
+    current = product; returnFocus = opener; isOpen = true; afterClose = onClose;
     const token = ++request;
     root.hidden = false; document.body.classList.add('is-product-open');
-    document.getElementById('stallPanel').inert = true;
+    if (panel) panel.inert = true;
+    root.dataset.texture = product.texture ?? 'ceramic';
+    root.dataset.product = product.id;
     root.querySelector('#productTitle').textContent = product.name;
     root.querySelector('.product-shop').textContent = `${product.shop} / ${product.phaseName}精选`;
     root.querySelector('.product-subtitle').textContent = product.subtitle;
@@ -108,7 +118,7 @@ export function createProductViewer() {
       if (model) { scene.remove(model); model = null; }
       resize(); resetView();
       renderer.setAnimationLoop(() => { controls.update(); renderer.render(scene, camera); });
-      const gltf = await loadGltf(assetUrl(product.model));
+      const gltf = await loadGltf(assetUrl(product.model) + `?v=${product.assetRevision ?? '20261030'}`);
       if (!isOpen || token !== request) return;
       model = new THREE.Group();
       const object = gltf.scene.clone(true);
@@ -125,7 +135,7 @@ export function createProductViewer() {
       console.error('商品预览加载失败', error);
       status.textContent = '模型暂时未能加载。';
       const retry = document.createElement('button'); retry.type = 'button'; retry.textContent = '重试';
-      retry.addEventListener('click', () => open(product, returnFocus)); status.append(retry);
+      retry.addEventListener('click', () => open(product, returnFocus, { onClose: afterClose })); status.append(retry);
     }
   }
   async function purchase() {
@@ -157,7 +167,10 @@ export function createProductViewer() {
     } finally { ghost?.remove(); flying = false; buy.disabled = !isOpen || !model; }
   }
   buy.addEventListener('click', purchase);
-  root.querySelector('.product-cart').addEventListener('click', () => document.querySelector('.cart-trigger').click());
+  root.querySelector('.product-cart').addEventListener('click', () => {
+    close({ restoreFocus: false, notify: false });
+    document.querySelector('.cart-trigger')?.click();
+  });
   root.querySelector('.product-close').addEventListener('click', () => close());
   root.querySelector('.product-reset').addEventListener('click', () => { if (model) model.rotation.set(0, 0, 0); resetView(); });
   let outsideDown = false;
@@ -167,12 +180,13 @@ export function createProductViewer() {
     if (!isOpen || document.querySelector('.cart-drawer.is-open')) return;
     if (e.key === 'Escape') { e.preventDefault(); e.stopImmediatePropagation(); close(); }
     if (e.key === 'Tab') {
-      const focusable = [...dialog.querySelectorAll('button:not(:disabled),canvas[tabindex]')];
+      const focusable = [...dialog.querySelectorAll('button:not(:disabled),[tabindex="0"]')];
       const first = focusable[0], last = focusable.at(-1);
       if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
       else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     }
   }, true);
   new ResizeObserver(resize).observe(mount);
-  return { open, close, get isOpen() { return isOpen; } };
+  sharedViewer = { open, close, get isOpen() { return isOpen; } };
+  return sharedViewer;
 }

@@ -14,7 +14,7 @@ const output = path.resolve(root, 'sites/yiwu-three-markets/dist');
 if (path.relative(root, output) !== path.join('sites', 'yiwu-three-markets', 'dist')) throw new Error('Unsafe output path');
 await fs.rm(output, { recursive: true, force: true });
 await fs.mkdir(output, { recursive: true });
-for (const name of ['index.html', 'market.html', 'shop.html', 'favicon.svg', 'css', 'js', 'vendor']) {
+for (const name of ['index.html', 'market.html', 'shop.html', 'checkout.html', 'favicon.svg', 'css', 'js', 'vendor']) {
   await fs.cp(path.join(root, name), path.join(output, name), { recursive: true });
 }
 const models = new Set([PLAYER_MODEL]);

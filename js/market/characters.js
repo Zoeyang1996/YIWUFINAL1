@@ -1,6 +1,4 @@
 import * as THREE from 'three';
-import { loadGltf } from '../core/loader.js';
-import { assetUrl } from '../data/products.js';
 
 const UP = new THREE.Vector3(0, 1, 0);
 function boneOf(root, name) {
@@ -25,13 +23,6 @@ function turnTo(root, direction) {
   root.rotateOnWorldAxis(UP, Math.atan2(direction.x, direction.z) - Math.atan2(f.x, f.z));
   root.updateWorldMatrix(true, true);
 }
-function place(root, position, normal) {
-  turnTo(root, normal);
-  refresh(root);
-  const bounds = new THREE.Box3().setFromObject(root), center = bounds.getCenter(new THREE.Vector3());
-  root.position.add(new THREE.Vector3(position[0] - center.x, position[1] - bounds.min.y, position[2] - center.z));
-  refresh(root);
-}
 
 /** Animate each independent skeleton from its own rest pose; never accumulate rotations. */
 export function animateCharacter(root, seed = 0) {
@@ -40,15 +31,26 @@ export function animateCharacter(root, seed = 0) {
   const worldQ = new THREE.Quaternion(), parentQ = new THREE.Quaternion(), deltaQ = new THREE.Quaternion();
   const from = new THREE.Vector3(), to = new THREE.Vector3(), pointA = new THREE.Vector3();
   let time = seed, greeting = -10;
-  function point(name, childName, direction, weight = 1) {
+  function point(name, childName, direction) {
     const bone = bones.get(name), child = bones.get(childName);
     if (!bone || !child) return;
     from.copy(child.getWorldPosition(pointA)).sub(bone.getWorldPosition(to)).normalize();
     bone.getWorldQuaternion(worldQ);
+    // Shortest-arc swing keeps the newly authored twist and bind offsets intact.
     deltaQ.setFromUnitVectors(from, direction.normalize());
     worldQ.premultiply(deltaQ);
     bone.parent.getWorldQuaternion(parentQ).invert();
-    bone.quaternion.slerp(worldQ.premultiply(parentQ), weight);
+    bone.quaternion.copy(worldQ.premultiply(parentQ));
+    bone.updateWorldMatrix(false, true);
+  }
+  function rotate(name, axis, angle) {
+    const bone = bones.get(name);
+    if (!bone || !angle) return;
+    bone.getWorldQuaternion(worldQ);
+    deltaQ.setFromAxisAngle(axis, angle);
+    worldQ.premultiply(deltaQ);
+    bone.parent.getWorldQuaternion(parentQ).invert();
+    bone.quaternion.copy(worldQ.premultiply(parentQ));
     bone.updateWorldMatrix(false, true);
   }
   return {
@@ -58,14 +60,18 @@ export function animateCharacter(root, seed = 0) {
       rest.forEach((q, b) => b.quaternion.copy(q));
       root.updateWorldMatrix(true, true);
       const forward = facing(root), side = new THREE.Vector3().crossVectors(forward, UP).normalize();
-      const direction = (x, y, z) => side.clone().multiplyScalar(x).addScaledVector(UP, y).addScaledVector(forward, z);
       const stride = walking && !reduced ? Math.sin(time * 5.4) : 0;
+      const direction = (x, y, z) => side.clone().multiplyScalar(x).addScaledVector(UP, y).addScaledVector(forward, z);
+      // Relax every shoulder from its own bind pose: arms hang beside the torso,
+      // with a small outward clearance and soft forward elbow bend, never a T-pose.
       for (const [prefix, sign] of [['L', -1], ['R', 1]]) {
-        point(`${prefix}_Upperarm`, `${prefix}_Forearm`, direction(sign * .14, -1, stride * sign * .28));
-        point(`${prefix}_Forearm`, `${prefix}_Hand`, direction(sign * .12, -1, .16 + stride * sign * .2));
-        if (walking) {
-          point(`${prefix}_Thigh`, `${prefix}_Calf`, direction(0, -1, -stride * sign * .32));
-          point(`${prefix}_Calf`, `${prefix}_Foot`, direction(0, -1, Math.max(0, stride * sign) * -.4));
+        point(`${prefix}_Upperarm`, `${prefix}_Forearm`, direction(sign * .18, -1, .02));
+        point(`${prefix}_Forearm`, `${prefix}_Hand`, direction(sign * .11, -1, .18));
+        if (walking && !reduced) {
+          rotate(`${prefix}_Upperarm`, side, stride * sign * .14);
+          rotate(`${prefix}_Forearm`, side, Math.max(0, stride * sign) * .05);
+          rotate(`${prefix}_Thigh`, side, -stride * sign * .22);
+          rotate(`${prefix}_Calf`, side, Math.max(0, stride * sign) * .24);
         }
       }
       if (!reduced) {
@@ -107,18 +113,11 @@ export async function createCharacters(map, phase, entries, navigator) {
   const keepers = new Map(), actors = [];
   for (const [index, entry] of entries.entries()) {
     const stall = entry.stall;
-    let root = map.children.find(n => (n.userData.name ?? n.name) === stall.rig);
-    if (!root || stall.replaceNpc) {
-      root?.removeFromParent();
-      const gltf = await loadGltf(assetUrl(stall.npc));
-      // Each file is used once per page: use its original skeleton, never Object3D.clone().
-      root = gltf.scene;
-      root.name = `Keeper_${stall.id}`; map.add(root);
-      refresh(root);
-      const height = new THREE.Box3().setFromObject(root).getSize(new THREE.Vector3()).y;
-      root.scale.multiplyScalar(2.15 / height);
-    }
-    place(root, entry.keeperPosition, entry.normal);
+    const root = map.children.find(n => (n.userData.name ?? n.name) === stall.rig);
+    if (!root) throw new Error(`新版场景缺少摊主：${phase.id}/${stall.rig}`);
+    // Keep the updated mesh, weights, rest pose, scale and authored placement.
+    // A missing or deleted character must not silently reappear from an old NPC file.
+    refresh(root);
     root.traverse(n => { if (n.isMesh) { n.castShadow = true; n.receiveShadow = true; n.frustumCulled = false; n.userData.character = true; } });
     const animation = animateCharacter(root, index * 2.3);
     animation.update(0);

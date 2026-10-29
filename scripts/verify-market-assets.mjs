@@ -70,6 +70,7 @@ for (const product of Object.values(PRODUCTS)) {
 }
 const results = [];
 const cameraAudit = {};
+const poseAudit = [], poseMeshes = [];
 try {
   const player = createPlayer();
   await player.load();
@@ -120,6 +121,31 @@ try {
     const world = new THREE.Group(), market = await loadMarketMap(world, phase);
     assert.equal(market.entries.length, 3);
     world.updateMatrixWorld(true);
+    const actors = world.children[0].children.filter(n => /^Armature/.test(n.name));
+    assert.equal(actors.length, 5, `${phase.id}: only the five characters in the new export`);
+    for (const actor of actors) {
+      const bones = new Map(); actor.traverse(b => { if (b.isBone) bones.set(b.userData.name ?? b.name, b); });
+      const getPoint = name => bones.get(name).getWorldPosition(new THREE.Vector3());
+      const arms = ['L','R'].map(side => {
+        const shoulder = getPoint(`${side}_Upperarm`), elbow = getPoint(`${side}_Forearm`), hand = getPoint(`${side}_Hand`);
+        const upperDown = (shoulder.y - elbow.y) / shoulder.distanceTo(elbow);
+        const lowerDown = (elbow.y - hand.y) / elbow.distanceTo(hand);
+        assert.ok(upperDown > .9 && lowerDown > .9, `${phase.id}/${actor.name}/${side}: both arms must hang naturally`);
+        return { side, upperDown, lowerDown };
+      });
+      poseAudit.push({ phase: phase.id, actor: actor.name, arms });
+      if (process.argv.includes('--pose-preview')) {
+        const parts = []; actor.traverse(mesh => {
+          if (!mesh.isMesh) return;
+          const position = [], v = new THREE.Vector3();
+          for (let i=0; i<mesh.geometry.attributes.position.count; i++) {
+            mesh.getVertexPosition(i, v).applyMatrix4(mesh.matrixWorld); position.push(...v.toArray());
+          }
+          parts.push({ position, indices: mesh.geometry.index ? Array.from(mesh.geometry.index.array) : Array.from({ length: position.length / 3 }, (_, i) => i) });
+        });
+        poseMeshes.push({ phase: phase.id, actor: actor.name, forward: getPoint('L_ToeBase').sub(getPoint('L_Foot')).normalize().toArray(), parts });
+      }
+    }
     const rawBuffer = await fs.readFile(path.join(root, `assets/markets/${phase.id}.glb`));
     const raw = JSON.parse(rawBuffer.toString('utf8', 20, 20 + rawBuffer.readUInt32LE(12)));
     cameraAudit[phase.id] = market.entries.map(entry => {
@@ -177,6 +203,8 @@ try {
   }
   await fs.writeFile(path.join(root, '.preview-check/verification.json'), JSON.stringify({ products: productFiles.length, results }, null, 2));
   await fs.writeFile(path.join(root, '.preview-check/cameras.json'), JSON.stringify(cameraAudit, null, 2));
+  await fs.writeFile(path.join(root, '.preview-check/character-arms.json'), JSON.stringify(poseAudit, null, 2));
+  if (poseMeshes.length) await fs.writeFile(path.join(root, '.preview-check/character-posed-meshes.json'), JSON.stringify(poseMeshes));
   console.log(JSON.stringify({ player: { height: PLAYER_HEIGHT, maxLegMotion, maxOffset, movementAndIdle: 'pass' }, products: productFiles.length, results }, null, 2));
 } finally {
   globalThis.fetch = nativeFetch;

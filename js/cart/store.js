@@ -23,7 +23,7 @@ export function getCartLines() {
   const lines = [];
   for (const [id, qty] of Object.entries(raw)) {
     const product = PRODUCTS[id];
-    const quantity = Math.floor(Number(qty));
+    const quantity = Math.min(99, Math.floor(Number(qty)));
     if (!product || !Number.isFinite(quantity) || quantity <= 0) continue;
     lines.push({ product, quantity });
   }
@@ -39,6 +39,7 @@ export function addToCart(productId, quantity = 1) {
 }
 
 export function setQuantity(productId, quantity) {
+  if (!PRODUCTS[productId]) return;
   const items = readRaw();
   const next = Math.floor(Number(quantity) || 0);
   if (next <= 0) delete items[productId];
@@ -49,6 +50,17 @@ export function setQuantity(productId, quantity) {
 export function removeFromCart(productId) {
   const items = readRaw();
   delete items[productId];
+  writeRaw(items);
+}
+
+/** Remove only quantities included in this demo order, preserving later additions. */
+export function consumeCartLines(lines) {
+  const items = readRaw();
+  for (const { product, quantity } of lines) {
+    const remaining = Math.floor(Number(items[product.id]) || 0) - quantity;
+    if (remaining > 0) items[product.id] = remaining;
+    else delete items[product.id];
+  }
   writeRaw(items);
 }
 

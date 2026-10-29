@@ -8,7 +8,7 @@ export const PHASES = {
     "hourLabel": "卯时",
     "tagline": "天光初开，蒸汽先醒",
     "intro": "辰光刚爬上瓦檐，第一笼点心已经出屉。",
-    "overviewModel": "资产包/首页/早/zao.glb",
+    "overviewModel": "资产包/首页/早/zao.glb?v=restored-20261030",
     "palette": {
       "sky": "#e8dcc5",
       "skyDeep": "#c3b195",
@@ -61,7 +61,7 @@ export const PHASES = {
     "hourLabel": "午时",
     "tagline": "日正当中，市声最盛",
     "intro": "日头把青石板晒得发烫，叫卖声一层压一层。",
-    "overviewModel": "资产包/首页/午/noon.glb?v=overview-20261022",
+    "overviewModel": "资产包/首页/午/noon.glb?v=restored-20261030",
     "palette": {
       "sky": "#f1e3c4",
       "skyDeep": "#d2b787",
@@ -115,7 +115,7 @@ export const PHASES = {
     "hourLabel": "戌时",
     "tagline": "灯火初上，人影被拉长",
     "intro": "灯笼一盏一盏亮起来，整条街忽然有了温度。",
-    "overviewModel": "资产包/首页/夜/evening.glb?v=overview-20261022",
+    "overviewModel": "资产包/首页/夜/evening.glb?v=restored-20261030",
     "palette": {
       "sky": "#0a1220",
       "skyDeep": "#05080f",
@@ -146,8 +146,7 @@ export const PHASES = {
           "hatLamp"
         ],
         "npc": "assets/NPCcharacter/夜市/灯笼摊主（夜市）.glb",
-        "rig": "Armature.002",
-        "replaceNpc": true
+        "rig": "Armature.002"
       },
       {
         "id": "brew",
@@ -158,8 +157,7 @@ export const PHASES = {
           "starGoblet"
         ],
         "npc": "assets/NPCcharacter/夜市/买酒摊主（夜市.glb",
-        "rig": "Armature",
-        "replaceNpc": true
+        "rig": "Armature"
       }
     ]
   }

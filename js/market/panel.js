@@ -21,7 +21,7 @@ export function createPanel({ onAdd, onOpen, phase }) {
       for (const product of models) {
         const card = document.createElement('button'); card.type = 'button'; card.className = 'panel-model-card';
         card.dataset.act = 'open'; card.dataset.id = product.id;
-        const image = document.createElement('img'); image.src = product.thumbnail; image.alt = product.name;
+        const image = document.createElement('img'); image.src = `${product.thumbnail}?v=20261030`; image.alt = product.name;
         const title = document.createElement('h3'); title.textContent = product.name;
         const description = document.createElement('p'); description.textContent = product.blurb;
         const footer = document.createElement('span'); footer.textContent = `¥${formatPrice(product.price)}　·　拿起看看 ↗`;

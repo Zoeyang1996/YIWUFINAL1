@@ -29,33 +29,25 @@ test('switching phase replaces its ambience without accumulating loops', async (
   const h = harness(); h.engine.resume(); await flush(); h.engine.resume(); await flush();
   assert.equal(h.sources.length, 1); assert.equal(h.sources[0].loopEnd, 48);
   h.engine.setPhase('noon'); await flush();
-  assert.equal(h.sources[0].stopped, true); assert.match(h.sources[1].buffer.file, /noon.wav$/);
+  assert.equal(h.sources[0].stopped, true); assert.match(h.sources[1].buffer.file, /noon-field.mp3$/);
   h.engine.setPhase('night'); await flush();
-  assert.equal(h.sources.filter(s => !s.stopped).length, 1); assert.match(h.sources.at(-1).buffer.file, /night.wav$/);
+  assert.equal(h.sources.filter(s => !s.stopped).length, 1); assert.match(h.sources.at(-1).buffer.file, /night-field.mp3$/);
+  assert.ok(h.requests.every(file => !file.includes('/voices/')), 'NPC speech is never fetched');
 });
 test('late scene downloads cannot restore a previous time of day', async () => {
   const h = harness({ delayed: true }); h.engine.resume(); h.engine.setPhase('night');
   for (const resolve of h.pending.values()) resolve(); await flush();
-  assert.equal(h.sources.length, 1); assert.match(h.sources[0].buffer.file, /night.wav$/);
+  assert.equal(h.sources.length, 1); assert.match(h.sources[0].buffer.file, /night-field.mp3$/);
 });
-test('all three ambience files retain their distinct loudness and clean loops', async () => {
-  const rms = {};
+test('all three ambience files are compact local MP3 field recordings', async () => {
   for (const [id, entry] of Object.entries(AMBIENCES)) {
-    const wav = await readFile(new URL(`../${entry.file}`, import.meta.url));
-    assert.equal(wav.toString('ascii', 0, 4), 'RIFF');
-    const channels = wav.readUInt16LE(22), rate = wav.readUInt32LE(24), bytes = wav.readUInt32LE(40);
-    const duration = bytes / (channels * rate * 2);
-    assert.ok(Math.abs(duration - entry.duration) < .002, id);
-    assert.ok(duration === 48 && channels === 2);
-    let energy=0, peak=0;
-    for (let i=44;i<wav.length;i+=2) { const x=wav.readInt16LE(i)/32768; energy+=x*x; peak=Math.max(peak,Math.abs(x)); }
-    assert.ok(peak > .01 && peak < .85, `${id}: audible, not clipped`);
-    rms[id] = Math.sqrt(energy / (bytes/2));
-    for (let channel=0;channel<channels;channel++) {
-      assert.equal(wav.readInt16LE(44+channel*2), 0);
-      assert.equal(wav.readInt16LE(wav.length-channels*2+channel*2), 0);
-    }
+    const mp3 = await readFile(new URL(`../${entry.file}`, import.meta.url));
+    assert.match(entry.file, /-field\.mp3$/);
+    assert.equal(mp3.toString('ascii', 0, 3), 'ID3');
+    assert.ok(mp3.length > 100000 && mp3.length < 750000, `${id}: lightweight recording`);
+    assert.equal(entry.duration, 48);
   }
-  assert.ok(rms.noon > rms.morning * 1.3, 'noon is livelier');
-  assert.ok(rms.night < rms.morning * .5, 'night is substantially quieter');
+  const credits = await readFile(new URL('../assets/audio/ambience/SOURCES.md', import.meta.url), 'utf8');
+  assert.equal((credits.match(/https:\/\/freesound.org\/people\//g) ?? []).length, 3);
+  assert.match(credits, /CC0/);
 });

@@ -9,7 +9,7 @@ import { frameShop } from './shop-camera.js';
 
 /** Load the fully assembled Blender export at its authored scale and origin. */
 export async function loadMarketMap(group, phase) {
-  const revision = '?v=markets-20261027';
+  const revision = '?v=markets-20261030-fortune-v2';
   const [gltf, response, metadata] = await Promise.all([
     loadGltf(`assets/markets/${phase.id}.glb${revision}`), fetch(`assets/markets/${phase.id}.json${revision}`),
     phase.id === 'morning' ? fetch('assets/markets/morning-metadata.json').then(r => r.ok ? r.json() : {}) : null,

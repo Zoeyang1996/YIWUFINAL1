@@ -1,0 +1,13 @@
+.market-end { width:min(460px,calc(100vw - 40px)); max-height:calc(100dvh - 40px); overflow:auto; box-sizing:border-box; padding:32px; border:1px solid #b7965d; border-radius:20px; color:#483723; text-align:center; background:radial-gradient(ellipse at top,#fff9e9,#eadcc2); box-shadow:0 24px 90px #0007,inset 0 0 0 6px #fff5; }
+.market-end::backdrop { background:#18201cc2; backdrop-filter:blur(5px); }
+.market-end__seal { margin:0 auto 16px; width:48px; height:48px; display:grid; place-items:center; border:1px solid #a77b43; border-radius:50%; font-size:24px; color:#8c6235; }
+.market-end__eyebrow { font-size:12px; letter-spacing:.15em; color:#8b6c43; }
+.market-end h2 { font-size:24px; margin:16px 0; }
+.market-end p { line-height:1.8; }
+.market-end button { display:block; width:100%; padding:15px 12px; border-radius:10px; cursor:pointer; font:inherit; touch-action:none; }
+.market-end__return { position:relative; overflow:hidden; isolation:isolate; margin-top:24px; border:1px solid #8e693b; color:#fff7df; background:#745235; user-select:none; }
+.market-end__return::before { content:''; position:absolute; inset:0; width:var(--return-progress,0%); z-index:-1; background:#a37c40; }
+.market-end__return small { display:block; margin-top:7px; font-size:11px; opacity:.8; }
+.market-end__continue { margin-top:12px; border:1px solid #ad957052; color:#655034; background:#fff7e680; }
+.market-end button:focus-visible { outline:3px solid #ac813f; outline-offset:4px; }
+@media(max-width:480px) { .market-end { padding:24px 20px; } .market-end h2 { font-size:21px; } }

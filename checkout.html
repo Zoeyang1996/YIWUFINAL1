@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>市集收银台 · 义犹未尽</title><link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/base.css"><link rel="stylesheet" href="css/cart.css">
+<link rel="stylesheet" href="css/product-viewer.css"><link rel="stylesheet" href="css/treasures.css">
+<link rel="stylesheet" href="css/audio.css"><link rel="stylesheet" href="css/checkout.css">
+</head>
+<body class="checkout-page">
+<header class="checkout-header"><a href="index.html">← 返回市集</a><span>义 犹 未 尽</span><small>三 时 市 集 · 藏 珍 账 簿</small></header>
+<main class="checkout-layout">
+  <section class="checkout-order" aria-labelledby="checkoutTitle"><p class="checkout-eyebrow">一 路 拾 珍 / 带 回 日 常</p><h1 id="checkoutTitle">市集收银台</h1><p class="checkout-intro">核对这一篮欢喜，给今天的闲逛留个纪念。</p><div id="checkoutItems"></div></section>
+  <aside class="checkout-bill" aria-labelledby="billTitle"><span class="bill-seal" aria-hidden="true">义</span><p class="checkout-eyebrow">收 藏 清 单</p><h2 id="billTitle">今日账单</h2><dl><dt>商品件数</dt><dd id="checkoutCount">0 件</dd><dt>商品金额</dt><dd id="checkoutSubtotal">¥0</dd><dt>配送费用</dt><dd>¥0</dd></dl><div class="checkout-total"><span>合计</span><strong id="checkoutTotal">¥0</strong></div><div class="demo-payment"><span aria-hidden="true">◈</span><div><b>市集钱包 · 模拟支付</b><p>无需银行卡或付款码，不会产生真实扣款。</p></div></div><button id="payButton" type="button" disabled>确认模拟付款</button><p id="paymentStatus" role="status" aria-live="polite"></p><a class="checkout-continue" href="index.html">再去逛逛</a></aside>
+</main>
+<script type="importmap">{"imports":{"three":"./vendor/three/three.module.js","three/addons/":"./vendor/three/addons/"}}</script>
+<script type="module" src="js/cart/checkout.js"></script>
+</body></html>
