@@ -1,0 +1,21 @@
+<presentation id="BsXPsxj5hl3nJzdoQI7cNqblnyh" xmlns="https://www.larkoffice.com/sml/2.0" width="960" height="540">
+  <title>义乌市集·义犹未尽 AIGC三维国风市集线上展陈</title>
+  <theme>
+    <background>
+      <fillColor color="rgba(255, 255, 255, 1)"/>
+    </background>
+    <textStyles>
+      <headline fontColor="rgba(31, 35, 41, 1)"/>
+      <sub-headline fontColor="rgba(31, 35, 41, 1)"/>
+      <body fontColor="rgba(31, 35, 41, 1)"/>
+      <caption fontColor="rgba(155, 158, 162, 1)" fontSize="14"/>
+    </textStyles>
+  </theme>
+  <slide id="pYh">
+    <style/>
+    <data/>
+    <note id="bbm">
+      <content/>
+    </note>
+  </slide>
+</presentation>

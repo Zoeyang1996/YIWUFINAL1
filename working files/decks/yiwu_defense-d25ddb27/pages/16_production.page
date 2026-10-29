@@ -1,0 +1,175 @@
+pageType: content
+background:
+  type: solid
+  color: $paper
+elements:
+- elementId: meta
+  elementType: text
+  bounds:
+  - 48
+  - 24
+  - 450
+  - 18
+  content:
+    text: 16  /  场景与角色制作
+    fontSize: 10
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 1.5
+    wrap: false
+- elementId: brand
+  elementType: text
+  bounds:
+  - 690
+  - 24
+  - 222
+  - 18
+  content:
+    text: 义犹未尽 · 义乌三时市集
+    fontSize: 10
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - right
+    - top
+    lineHeight: 1.15
+    letterSpacing: 1.0
+    wrap: false
+- elementId: title
+  elementType: text
+  bounds:
+  - 48
+  - 54
+  - 600
+  - 58
+  content:
+    text: 把白模，变成街市
+    fontSize: 44
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: white
+  elementType: image
+  bounds:
+  - 48
+  - 138
+  - 410
+  - 236
+  src: media/scene-white.png
+  fit:
+    mode: cover
+- elementId: color
+  elementType: image
+  bounds:
+  - 478
+  - 112
+  - 434
+  - 262
+  src: media/scene-color.png
+  fit:
+    mode: cover
+- elementId: before
+  elementType: text
+  bounds:
+  - 52
+  - 384
+  - 300
+  - 24
+  content:
+    text: 白模 / 空间结构
+    fontSize: 16
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: after
+  elementType: text
+  bounds:
+  - 484
+  - 384
+  - 300
+  - 24
+  content:
+    text: 着色 / 材质与氛围
+    fontSize: 16
+    fontFamily: MiSans
+    color: $red
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: bottom
+  elementType: line
+  bounds:
+  - 48
+  - 428
+  - 864
+  - 2
+  viewBox:
+  - 1
+  - 1
+  points: 0,0 1,0
+  curve: sharp
+  border:
+    style: solid
+    width: 2
+    color: $ink
+- elementId: npc
+  elementType: image
+  bounds:
+  - 48
+  - 444
+  - 176
+  - 74
+  src: media/npc-girl.png
+  fit:
+    mode: cover
+- elementId: npc2
+  elementType: image
+  bounds:
+  - 238
+  - 444
+  - 176
+  - 74
+  src: media/npc-hat.png
+  fit:
+    mode: cover
+- elementId: steps
+  elementType: text
+  bounds:
+  - 446
+  - 458
+  - 466
+  - 34
+  content:
+    text: 场景搭建   ·   材质统一   ·   灯光调试   ·   角色放入
+    fontSize: 21
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - right
+    - middle
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false

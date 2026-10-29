@@ -1,3 +1,4 @@
+import { sound } from '../core/audio.js';
 import * as THREE from 'three';
 import { getPhase, phaseFromQuery } from '../data/phases.js';
 import { assetUrl, getProduct } from '../data/products.js';
@@ -20,6 +21,7 @@ document.body.dataset.phase = phase.id;
 document.getElementById('marketTitle').textContent = `${phase.name} · ${phase.hourLabel}`;
 document.title = `${phase.name} · 义犹未尽`;
 mountCart();
+sound.mount(phase.id);
 const stage = document.getElementById('marketStage');
 const loading = document.getElementById('marketLoading');
 const visit = document.getElementById('visitStall');
@@ -42,12 +44,12 @@ renderer.toneMappingExposure = phase.id === 'night' ? 1.15 : 1.05;
 stage.appendChild(renderer.domElement);
 const world = new THREE.Group(); scene.add(world);
 let marketMap = null;
-const player = createPlayer(); player.setPhaseMood(phase.id); scene.add(player.object);
+const player = createPlayer(); scene.add(player.object);
 const rig = createCameraRig();
 const productViewer = createProductViewer();
 const panel = createPanel({
   phase: phase.id,
-  onAdd(product) { addToCart(product.id); showToast('已放入市集篮'); },
+  onAdd(product) { addToCart(product.id); sound.play('success'); showToast('已放入市集篮'); },
   onOpen(product, opener) {
     if (product?.model) productViewer.open(product, opener);
     else if (product) location.href = withShare(assetUrl(product.href));
@@ -58,6 +60,7 @@ let revealShop = false;
 const directory = document.getElementById('shopDirectory');
 const marketBack = document.getElementById('marketBack');
 function closeShop() {
+  if (selected) sound.play('close');
   stallHold.cancel();
   productViewer.close({ restoreFocus: false });
   selected = null; revealShop = false; panel.hide(); rig.release(); keys.clear(); touchKeys.clear();
@@ -74,7 +77,8 @@ function leaveStall() {
   else { history.replaceState(null, '', shopUrl(phase.id)); closeShop(); }
   directory.querySelector('summary').focus({ preventScroll: true });
 }
-marketBack.addEventListener('click', event => { if (selected) { event.preventDefault(); leaveStall(); } });
+marketBack.addEventListener('click', event => { if (selected) { event.preventDefault(); leaveStall(); } else sound.play('close'); });
+document.getElementById('phaseNav').addEventListener('click', event => { if (event.target.closest('a')) sound.play('select'); });
 window.addEventListener('popstate', () => {
   if (!ready) return;
   const id = requestedShop(location.search, phase.stalls);
@@ -93,6 +97,7 @@ function enterStall(entry, { remote = false, navigate = true } = {}) {
   stallHold.cancel();
   productViewer.close({ restoreFocus: false });
   if (navigate) history.pushState({ fromMarket: true }, '', shopUrl(phase.id, entry.stall.id));
+  sound.play('enter');
   selected = entry; keys.clear(); touchKeys.clear(); panel.hide(); rig.focusOn(entry);
   marketMap?.focus(entry.stall.id);
   revealShop = true; visit.hidden = true; directory.open = false;
@@ -103,7 +108,7 @@ function enterStall(entry, { remote = false, navigate = true } = {}) {
   marketBack.href = shopUrl(phase.id); marketBack.textContent = `← 回${phase.name}`;
 }
 visit.addEventListener('click', () => { if (selected) leaveStall(); else enterStall(nearest); });
-const isEditing = target => target?.closest?.('input,textarea,select,[contenteditable]:not([contenteditable="false"])');
+const isEditing = target => target?.closest?.('input,textarea,select,.sound-controls,[contenteditable]:not([contenteditable="false"])');
 function holdTarget() {
   if (!ready || rig.isTransitioning || productViewer.isOpen || document.hidden
     || document.querySelector('.cart-drawer.is-open') || isEditing(document.activeElement)) return null;
@@ -113,14 +118,18 @@ function holdTarget() {
 function resetInput() { keys.clear(); touchKeys.clear(); stallHold.release(); }
 const movement = { w: 'up', arrowup: 'up', s: 'down', arrowdown: 'down', a: 'left', arrowleft: 'left', d: 'right', arrowright: 'right' };
 window.addEventListener('keydown', (event) => {
+  if (isEditing(event.target) || event.isComposing || event.ctrlKey || event.metaKey || event.altKey) return;
   if (productViewer.isOpen || document.querySelector('.cart-drawer.is-open')) return;
   if (event.key === 'Escape') { if (selected) leaveStall(); return; }
-  if (isEditing(event.target) || event.isComposing) return;
   const direction = movement[event.key.toLowerCase()];
   if (direction) { event.preventDefault(); keys.add(direction); }
   if (event.key.toLowerCase() === 'e' && !event.ctrlKey && !event.altKey && !event.metaKey) {
     event.preventDefault();
-    if (!event.repeat) stallHold.press(holdTarget(), performance.now());
+    if (!event.repeat) {
+      const target = holdTarget();
+      stallHold.press(target, performance.now());
+      sound.play(target ? 'hold' : 'key');
+    }
   }
 });
 window.addEventListener('keyup', (event) => {
@@ -156,6 +165,7 @@ renderer.setAnimationLoop(() => {
   const delta = Math.min(clock.getDelta(), 0.05);
   // Keep the market's last frame behind the dialog; only the product needs to render.
   if (productViewer.isOpen) {
+    sound.setFocus(true); sound.walk(0);
     stallHold.cancel(); visit.hidden = true;
     if (marketNeedsRender) {
       rig.update(0, player, stage.clientWidth / stage.clientHeight);
@@ -165,7 +175,10 @@ renderer.setAnimationLoop(() => {
   }
   const blocked = !ready || selected || rig.isTransitioning || document.querySelector('.cart-drawer.is-open');
   const pressed = (direction) => !blocked && (keys.has(direction) || touchKeys.has(direction)) ? 1 : 0;
+  const previousX = player.position.x, previousZ = player.position.z;
   player.update(delta, { x: pressed('right') - pressed('left'), y: pressed('up') - pressed('down') }, rig.getYaw());
+  sound.walk(blocked ? 0 : Math.hypot(player.position.x - previousX, player.position.z - previousZ));
+  sound.setFocus(Boolean(selected || document.querySelector('.cart-drawer.is-open')));
   const boundaryDistance = marketMap?.navigator.boundaryDistance(player.position.x, player.position.z) ?? Infinity;
   nearBoundary = boundaryDistance < (nearBoundary ? 2.6 : 2);
   boundaryHint.hidden = !ready || Boolean(selected) || !nearBoundary || Boolean(document.querySelector('.cart-drawer.is-open'));
@@ -194,7 +207,7 @@ renderer.setAnimationLoop(() => {
   marketNeedsRender = false;
 });
 try {
-  marketMap = await loadMarketMap(world, phase);
+  [marketMap] = await Promise.all([loadMarketMap(world, phase), player.load()]);
   if (marketMap.lighting) createAuthoredLighting(scene, renderer, marketMap.lighting);
   marketMap.addSurroundings(scene);
   entries = marketMap.entries;

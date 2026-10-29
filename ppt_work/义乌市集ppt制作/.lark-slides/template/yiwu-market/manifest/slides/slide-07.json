@@ -1,0 +1,77 @@
+{
+  "slide_num": 7,
+  "role": "content",
+  "slide_id": "pYZ",
+  "local_xml_path": "source-slides/slide-07.xml",
+  "shell_shapes": [
+    {
+      "id": 5,
+      "type": "PICTURE",
+      "left": 4.0729,
+      "top": 1.7708,
+      "width": 8.8333,
+      "height": 5.5208,
+      "text": ""
+    }
+  ],
+  "content_shapes": [
+    {
+      "id": 2,
+      "type": "AUTO_SHAPE",
+      "left": 0.5,
+      "top": 0.3333,
+      "width": 11.4583,
+      "height": 0.3333,
+      "text": "06   /   灯光氛围"
+    },
+    {
+      "id": 3,
+      "type": "AUTO_SHAPE",
+      "left": 12.2083,
+      "top": 6.8854,
+      "width": 0.625,
+      "height": 0.3125,
+      "text": "07"
+    },
+    {
+      "id": 4,
+      "type": "AUTO_SHAPE",
+      "left": 0.5,
+      "top": 0.9896,
+      "width": 11.4583,
+      "height": 1.1979,
+      "text": "灯火入夜"
+    },
+    {
+      "id": 6,
+      "type": "AUTO_SHAPE",
+      "left": 0.5729,
+      "top": 3.2812,
+      "width": 4.7917,
+      "height": 0.8333,
+      "text": "冷环境"
+    },
+    {
+      "id": 7,
+      "type": "AUTO_SHAPE",
+      "left": 0.5729,
+      "top": 4.3125,
+      "width": 4.7917,
+      "height": 0.8333,
+      "text": "暖灯火"
+    },
+    {
+      "id": 8,
+      "type": "AUTO_SHAPE",
+      "left": 0.5938,
+      "top": 6.0938,
+      "width": 5.625,
+      "height": 0.5,
+      "text": "光，成为空间的引导"
+    }
+  ],
+  "available_regions": [],
+  "images_used": [
+    "image3.png"
+  ]
+}

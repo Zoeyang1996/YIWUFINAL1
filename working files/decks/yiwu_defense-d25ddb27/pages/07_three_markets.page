@@ -1,0 +1,241 @@
+pageType: content
+background:
+  type: solid
+  color: $paper
+elements:
+- elementId: meta
+  elementType: text
+  bounds:
+  - 48
+  - 24
+  - 450
+  - 18
+  content:
+    text: 07  /  总体布局
+    fontSize: 10
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 1.5
+    wrap: false
+- elementId: brand
+  elementType: text
+  bounds:
+  - 690
+  - 24
+  - 222
+  - 18
+  content:
+    text: 义犹未尽 · 义乌三时市集
+    fontSize: 10
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - right
+    - top
+    lineHeight: 1.15
+    letterSpacing: 1.0
+    wrap: false
+- elementId: title
+  elementType: text
+  bounds:
+  - 48
+  - 58
+  - 680
+  - 58
+  content:
+    text: 三个时间，三种市声
+    fontSize: 44
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: stats
+  elementType: text
+  bounds:
+  - 50
+  - 124
+  - 600
+  - 28
+  content:
+    text: 3 个场景   ·   9 个摊位   ·   13 件商品
+    fontSize: 18
+    fontFamily: MiSans
+    color: $red
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: time-line
+  elementType: line
+  bounds:
+  - 66
+  - 340
+  - 816
+  - 2
+  viewBox:
+  - 1
+  - 1
+  points: 0,0 1,0
+  curve: sharp
+  border:
+    style: solid
+    width: 2
+    color: $line
+- elementId: morning
+  elementType: image
+  bounds:
+  - 28
+  - 170
+  - 302
+  - 226
+  src: media/market-morning.png
+  fit:
+    mode: contain
+- elementId: noon
+  elementType: image
+  bounds:
+  - 328
+  - 158
+  - 316
+  - 236
+  src: media/market-noon.png
+  fit:
+    mode: contain
+- elementId: night
+  elementType: image
+  bounds:
+  - 654
+  - 170
+  - 282
+  - 226
+  src: media/market-night.png
+  fit:
+    mode: contain
+- elementId: m
+  elementType: text
+  bounds:
+  - 52
+  - 406
+  - 250
+  - 34
+  content:
+    text: 早市 · 卯时
+    fontSize: 26
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: n
+  elementType: text
+  bounds:
+  - 356
+  - 406
+  - 250
+  - 34
+  content:
+    text: 午市 · 午时
+    fontSize: 26
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: ng
+  elementType: text
+  bounds:
+  - 678
+  - 406
+  - 230
+  - 34
+  content:
+    text: 夜市 · 戌时
+    fontSize: 26
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: m-s
+  elementType: text
+  bounds:
+  - 52
+  - 450
+  - 250
+  - 24
+  content:
+    text: 蒸汽先醒
+    fontSize: 16
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: n-s
+  elementType: text
+  bounds:
+  - 356
+  - 450
+  - 250
+  - 24
+  content:
+    text: 市声最盛
+    fontSize: 16
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: ng-s
+  elementType: text
+  bounds:
+  - 678
+  - 450
+  - 230
+  - 24
+  content:
+    text: 灯火初上
+    fontSize: 16
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false

@@ -1,0 +1,290 @@
+pageType: content
+background:
+  type: solid
+  color: $paper
+elements:
+- elementId: meta
+  elementType: text
+  bounds:
+  - 48
+  - 24
+  - 450
+  - 18
+  content:
+    text: 12  /  产品展示
+    fontSize: 10
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 1.5
+    wrap: false
+- elementId: brand
+  elementType: text
+  bounds:
+  - 690
+  - 24
+  - 222
+  - 18
+  content:
+    text: 义犹未尽 · 义乌三时市集
+    fontSize: 10
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - right
+    - top
+    lineHeight: 1.15
+    letterSpacing: 1.0
+    wrap: false
+- elementId: title
+  elementType: text
+  bounds:
+  - 48
+  - 58
+  - 640
+  - 58
+  content:
+    text: 一摊一物，各有性格
+    fontSize: 44
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: sub
+  elementType: text
+  bounds:
+  - 50
+  - 124
+  - 620
+  - 28
+  content:
+    text: 13 件三维商品，按三时市集与 9 个摊位编组。
+    fontSize: 17
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: gallery-rule
+  elementType: line
+  bounds:
+  - 48
+  - 174
+  - 864
+  - 2
+  viewBox:
+  - 1
+  - 1
+  points: 0,0 1,0
+  curve: sharp
+  border:
+    style: solid
+    width: 2
+    color: $ink
+- elementId: cup
+  elementType: image
+  bounds:
+  - 38
+  - 188
+  - 168
+  - 164
+  src: media/product-milkCupMorning.png
+  fit:
+    mode: contain
+- elementId: cup-t
+  elementType: text
+  bounds:
+  - 58
+  - 360
+  - 128
+  - 28
+  content:
+    text: 陶瓷杯
+    fontSize: 20
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - center
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: toast
+  elementType: image
+  bounds:
+  - 204
+  - 212
+  - 142
+  - 142
+  src: media/product-toastFigure.png
+  fit:
+    mode: contain
+- elementId: toast-t
+  elementType: text
+  bounds:
+  - 210
+  - 360
+  - 132
+  - 28
+  content:
+    text: 面包碟
+    fontSize: 20
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - center
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: fan
+  elementType: image
+  bounds:
+  - 350
+  - 184
+  - 190
+  - 174
+  src: media/product-noonFan.png
+  fit:
+    mode: contain
+- elementId: fan-t
+  elementType: text
+  bounds:
+  - 360
+  - 360
+  - 170
+  - 28
+  content:
+    text: 清风红扇
+    fontSize: 20
+    fontFamily: MiSans
+    color: $red
+    bold: true
+    align:
+    - center
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: cat
+  elementType: image
+  bounds:
+  - 544
+  - 206
+  - 136
+  - 148
+  src: media/product-catJar.png
+  fit:
+    mode: contain
+- elementId: cat-t
+  elementType: text
+  bounds:
+  - 544
+  - 360
+  - 140
+  - 28
+  content:
+    text: 小猫陶罐
+    fontSize: 20
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - center
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: clock
+  elementType: image
+  bounds:
+  - 682
+  - 186
+  - 150
+  - 166
+  src: media/product-hundredClocks.png
+  fit:
+    mode: contain
+- elementId: clock-t
+  elementType: text
+  bounds:
+  - 688
+  - 360
+  - 140
+  - 28
+  content:
+    text: 百珍时钟
+    fontSize: 20
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - center
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: goblet
+  elementType: image
+  bounds:
+  - 824
+  - 178
+  - 92
+  - 178
+  src: media/product-starGoblet.png
+  fit:
+    mode: contain
+- elementId: goblet-t
+  elementType: text
+  bounds:
+  - 802
+  - 360
+  - 130
+  - 28
+  content:
+    text: 沧海星杯
+    fontSize: 20
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - center
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: bottom
+  elementType: text
+  bounds:
+  - 48
+  - 442
+  - 780
+  - 40
+  content:
+    text: 器物不只被陈列，也成为进入摊位故事的线索。
+    fontSize: 25
+    fontFamily: MiSans
+    color: $red
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false

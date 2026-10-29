@@ -1,0 +1,259 @@
+pageType: content
+background:
+  type: solid
+  color: $night
+elements:
+- elementId: bg
+  elementType: shape
+  bounds:
+  - 0
+  - 0
+  - 960
+  - 540
+  shapeName: rect
+  fill:
+    type: solid
+    color: $night
+- elementId: meta
+  elementType: text
+  bounds:
+  - 48
+  - 26
+  - 240
+  - 18
+  content:
+    text: 17  /  技术实现
+    fontSize: 10
+    fontFamily: MiSans
+    color: $cream
+    bold: false
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 1.5
+    wrap: false
+- elementId: title
+  elementType: text
+  bounds:
+  - 48
+  - 70
+  - 560
+  - 62
+  content:
+    text: 轻量，也能完整
+    fontSize: 46
+    fontFamily: MiSans
+    color: $cream
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: lead
+  elementType: text
+  bounds:
+  - 52
+  - 146
+  - 650
+  - 30
+  content:
+    text: AIGC 辅助资产生产，Three.js 完成网页交互。
+    fontSize: 19
+    fontFamily: MiSans
+    color: $gold
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: top
+  elementType: line
+  bounds:
+  - 52
+  - 204
+  - 856
+  - 2
+  viewBox:
+  - 1
+  - 1
+  points: 0,0 1,0
+  curve: sharp
+  border:
+    style: solid
+    width: 2
+    color: $gold
+- elementId: three
+  elementType: text
+  bounds:
+  - 52
+  - 238
+  - 300
+  - 48
+  content:
+    text: Three.js
+    fontSize: 38
+    fontFamily: MiSans
+    color: $cream
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: three-s
+  elementType: text
+  bounds:
+  - 52
+  - 296
+  - 360
+  - 54
+  content:
+    text: 三维总览 / 角色漫游 / 摊位与商品交互
+    fontSize: 16
+    fontFamily: MiSans
+    color: $cream
+    bold: false
+    align:
+    - left
+    - top
+    lineHeight: 1.5
+    letterSpacing: 0
+    wrap: true
+- elementId: blender
+  elementType: text
+  bounds:
+  - 448
+  - 238
+  - 240
+  - 48
+  content:
+    text: Blender
+    fontSize: 38
+    fontFamily: MiSans
+    color: $cream
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: blender-s
+  elementType: text
+  bounds:
+  - 448
+  - 296
+  - 300
+  - 54
+  content:
+    text: 模型制作 / 场景搭建 / 材质灯光
+    fontSize: 16
+    fontFamily: MiSans
+    color: $cream
+    bold: false
+    align:
+    - left
+    - top
+    lineHeight: 1.5
+    letterSpacing: 0
+    wrap: true
+- elementId: aigc
+  elementType: text
+  bounds:
+  - 726
+  - 238
+  - 186
+  - 48
+  content:
+    text: AIGC + GLB
+    fontSize: 32
+    fontFamily: MiSans
+    color: $gold
+    bold: true
+    align:
+    - right
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: aigc-s
+  elementType: text
+  bounds:
+  - 704
+  - 296
+  - 208
+  - 54
+  content:
+    text: '角色与商品辅助生成
+
+      网页三维资产流转'
+    fontSize: 16
+    fontFamily: MiSans
+    color: $cream
+    bold: false
+    align:
+    - right
+    - top
+    lineHeight: 1.5
+    letterSpacing: 0
+    wrap: true
+- elementId: bottom
+  elementType: line
+  bounds:
+  - 52
+  - 394
+  - 856
+  - 2
+  viewBox:
+  - 1
+  - 1
+  points: 0,0 1,0
+  curve: sharp
+  border:
+    style: solid
+    width: 2
+    color: $night2
+- elementId: value
+  elementType: text
+  bounds:
+  - 52
+  - 430
+  - 856
+  - 40
+  content:
+    text: 浏览器进入   ·   无需 VR 设备   ·   便于分享
+    fontSize: 25
+    fontFamily: MiSans
+    color: $cream
+    bold: true
+    align:
+    - center
+    - middle
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: foot
+  elementType: text
+  bounds:
+  - 52
+  - 488
+  - 856
+  - 20
+  content:
+    text: 空间叙事 / 互动体验 / 品牌传播
+    fontSize: 13
+    fontFamily: MiSans
+    color: $gold
+    bold: false
+    align:
+    - center
+    - top
+    lineHeight: 1.15
+    letterSpacing: 2
+    wrap: false

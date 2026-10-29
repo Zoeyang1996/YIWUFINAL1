@@ -1,0 +1,49 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0" id="pYp">
+    <style>
+      <fill id="fYp">
+        <fillColor color="rgba(242, 235, 221, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="825" height="24" topLeftX="36" topLeftY="24" type="rect" id="bbO">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="14.25" fontFamily="Aptos" bold="false" italic="false" strikethrough="false" underline="false">05   /   空间组织</span></p>
+        </content>
+      </shape>
+      <shape width="45" height="22.5" topLeftX="879" topLeftY="495.75" type="rect" id="bmm">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="13.5" fontFamily="Aptos" bold="false" italic="false" strikethrough="false" underline="false">06</span></p>
+        </content>
+      </shape>
+      <shape width="862.5" height="78.75" topLeftX="36" topLeftY="71.25" type="rect" id="bbW">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><strong><span color="rgba(36, 35, 31, 1)" fontSize="57" fontFamily="Aptos" italic="false" strikethrough="false" underline="false">入市 · 逛街 · 停留</span></strong></p>
+        </content>
+      </shape>
+      <img id="bbx" src="GbMEbIg87oANwPxb8zBc9XGZnYf" width="555" height="303.75" topLeftX="360" topLeftY="174">
+        <crop type="rect" leftOffset="0" rightOffset="0" topOffset="21.561643522748" bottomOffset="21.561643522748057"/>
+      </img>
+      <shape width="300" height="60" topLeftX="42" topLeftY="192.75" type="rect" id="bbN">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(174, 61, 46, 1)" fontSize="40.5" fontFamily="Aptos" bold="false" italic="false" strikethrough="false" underline="false">入口</span></p>
+        </content>
+      </shape>
+      <shape width="300" height="60" topLeftX="42" topLeftY="275.25" type="rect" id="bmb">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(36, 35, 31, 1)" fontSize="40.5" fontFamily="Aptos" bold="false" italic="false" strikethrough="false" underline="false">街巷</span></p>
+        </content>
+      </shape>
+      <shape width="300" height="60" topLeftX="42" topLeftY="357.75" type="rect" id="bmS">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(36, 35, 31, 1)" fontSize="40.5" fontFamily="Aptos" bold="false" italic="false" strikethrough="false" underline="false">摊位</span></p>
+        </content>
+      </shape>
+    </data>
+    <note id="bbe">
+      <content>
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(0, 0, 0, 1)" fontSize="12" bold="false" italic="false" strikethrough="false" underline="false">用三个空间尺度讲述参观过程：从总览选择时段，进入街巷操控角色，在摊位停留并观察商品。本页为实际漫游截图，不代替精确平面动线图。</span></p>
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(0, 0, 0, 1)" fontSize="12" bold="false" italic="false" strikethrough="false" underline="false">依据：本项目 index.html、设计框架.md、js/data/phases.js、js/data/products.js、assets/markets/README.md。图片来自网页实际三维资产或网页截图。设计解读不代表已完成用户调研或商业落地。</span></p>
+      </content>
+    </note>
+  </slide>
+  

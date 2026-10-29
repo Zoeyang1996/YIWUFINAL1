@@ -1,0 +1,123 @@
+{
+  "slide_num": 5,
+  "role": "content",
+  "slide_id": "pYN",
+  "local_xml_path": "source-slides/slide-05.xml",
+  "shell_shapes": [],
+  "content_shapes": [
+    {
+      "id": 2,
+      "type": "AUTO_SHAPE",
+      "left": 0.5,
+      "top": 0.3333,
+      "width": 11.4583,
+      "height": 0.3333,
+      "text": "04   /   时间叙事"
+    },
+    {
+      "id": 3,
+      "type": "AUTO_SHAPE",
+      "left": 12.2083,
+      "top": 6.8854,
+      "width": 0.625,
+      "height": 0.3125,
+      "text": "05"
+    },
+    {
+      "id": 4,
+      "type": "AUTO_SHAPE",
+      "left": 0.5,
+      "top": 0.9688,
+      "width": 11.4583,
+      "height": 1.1979,
+      "text": "一日三市"
+    },
+    {
+      "id": 5,
+      "type": "PICTURE",
+      "left": 0.0,
+      "top": 2.4492,
+      "width": 4.8958,
+      "height": 3.0599,
+      "text": ""
+    },
+    {
+      "id": 6,
+      "type": "AUTO_SHAPE",
+      "left": 0.6042,
+      "top": 5.4896,
+      "width": 3.5417,
+      "height": 0.8333,
+      "text": "晨起"
+    },
+    {
+      "id": 7,
+      "type": "AUTO_SHAPE",
+      "left": 0.6458,
+      "top": 6.3958,
+      "width": 3.4375,
+      "height": 0.4167,
+      "text": "茶与早点"
+    },
+    {
+      "id": 8,
+      "type": "PICTURE",
+      "left": 4.2708,
+      "top": 2.4492,
+      "width": 4.8958,
+      "height": 3.0599,
+      "text": ""
+    },
+    {
+      "id": 9,
+      "type": "AUTO_SHAPE",
+      "left": 4.875,
+      "top": 5.4896,
+      "width": 3.5417,
+      "height": 0.8333,
+      "text": "午游"
+    },
+    {
+      "id": 10,
+      "type": "AUTO_SHAPE",
+      "left": 4.9167,
+      "top": 6.3958,
+      "width": 3.4375,
+      "height": 0.4167,
+      "text": "扇与杂货"
+    },
+    {
+      "id": 11,
+      "type": "PICTURE",
+      "left": 8.5417,
+      "top": 2.4492,
+      "width": 4.8958,
+      "height": 3.0599,
+      "text": ""
+    },
+    {
+      "id": 12,
+      "type": "AUTO_SHAPE",
+      "left": 9.1458,
+      "top": 5.4896,
+      "width": 3.5417,
+      "height": 0.8333,
+      "text": "夜赏"
+    },
+    {
+      "id": 13,
+      "type": "AUTO_SHAPE",
+      "left": 9.1875,
+      "top": 6.3958,
+      "width": 3.4375,
+      "height": 0.4167,
+      "text": "灯与器物"
+    }
+  ],
+  "available_regions": [],
+  "images_used": [
+    "image3.png",
+    "image2.png",
+    "image1.png"
+  ]
+}

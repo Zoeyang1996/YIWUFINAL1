@@ -1,0 +1,76 @@
+{
+  "slide_num": 4,
+  "role": "content",
+  "slide_id": "pYn",
+  "local_xml_path": "source-slides/slide-04.xml",
+  "shell_shapes": [],
+  "content_shapes": [
+    {
+      "id": 2,
+      "type": "AUTO_SHAPE",
+      "left": 0.5,
+      "top": 0.3333,
+      "width": 11.4583,
+      "height": 0.3333,
+      "text": "03   /   灵感与转译"
+    },
+    {
+      "id": 3,
+      "type": "AUTO_SHAPE",
+      "left": 12.2083,
+      "top": 6.8854,
+      "width": 0.625,
+      "height": 0.3125,
+      "text": "04"
+    },
+    {
+      "id": 4,
+      "type": "PICTURE",
+      "left": 4.4792,
+      "top": 1.25,
+      "width": 8.75,
+      "height": 5.4688,
+      "text": ""
+    },
+    {
+      "id": 5,
+      "type": "AUTO_SHAPE",
+      "left": 0.5417,
+      "top": 1.0833,
+      "width": 4.5833,
+      "height": 1.1458,
+      "text": "市井"
+    },
+    {
+      "id": 6,
+      "type": "AUTO_SHAPE",
+      "left": 0.5417,
+      "top": 2.2917,
+      "width": 4.5833,
+      "height": 1.1458,
+      "text": "烟火"
+    },
+    {
+      "id": 7,
+      "type": "AUTO_SHAPE",
+      "left": 0.6042,
+      "top": 4.4896,
+      "width": 5.2083,
+      "height": 0.5729,
+      "text": "瓦檐   布幌   摊铺"
+    },
+    {
+      "id": 8,
+      "type": "AUTO_SHAPE",
+      "left": 0.6042,
+      "top": 5.9896,
+      "width": 6.7708,
+      "height": 0.4688,
+      "text": "日常器物，进入街巷叙事"
+    }
+  ],
+  "available_regions": [],
+  "images_used": [
+    "image2.png"
+  ]
+}

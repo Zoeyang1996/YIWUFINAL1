@@ -1,0 +1,243 @@
+{
+  "meta": {
+    "deck": "义乌市集·义犹未尽 AIGC三维国风市集线上展陈",
+    "style": "brand-storytelling (F1 纸墨东方)",
+    "is_manuscript_apply": true,
+    "manuscript_source": "义乌市集ppt大纲ppt.docx",
+    "manuscript_total_chars": 389,
+    "note": "全部 text_findings 仅来自原稿大纲真实文字与 page-plan，未联网、未补外部数据。原稿极精简（约390字），多处仅给章节标题；无内容处如实标 manuscript_silent。"
+  },
+  "pages": {
+    "P1": {
+      "status": "ready",
+      "manuscript_silent": true,
+      "text_findings": [
+        {
+          "topic": "竞赛归属口径",
+          "value": "浙江省数智创意竞赛 / 文创产品设计·展陈设计组",
+          "source": "page-plan"
+        },
+        {
+          "topic": "可作封面箴言的品牌金句",
+          "value": "让观众……体验一座市集的一日生活（出自作品概览段，可截取竖排副标题）",
+          "source": "作品概览"
+        }
+      ]
+    },
+    "P2": {
+      "status": "ready",
+      "text_findings": [
+        {
+          "topic": "叙事结构口诀",
+          "value": "以早市、午市、夜市为叙事结构",
+          "source": "作品概览"
+        },
+        {
+          "topic": "观众三种参与动作（可做三小图注脚）",
+          "value": "角色漫游、摊位互动与商品观察",
+          "source": "作品概览"
+        },
+        {
+          "topic": "作品立意金句",
+          "value": "将义乌小商品融入三维国风市集，体验一座市集的一日生活",
+          "source": "作品概览"
+        }
+      ]
+    },
+    "P3": {
+      "status": "ready",
+      "manuscript_silent": true,
+      "text_findings": [
+        {
+          "topic": "章节定位",
+          "value": "命题理解与项目切入点（原稿即以该句为章节名展开）",
+          "source": "命题理解与项目切入点"
+        },
+        {
+          "topic": "切入点落点",
+          "value": "现代义乌国潮小商品是切入点的一极（另一极为古代市集）",
+          "source": "核心概念"
+        }
+      ]
+    },
+    "P4": {
+      "status": "ready",
+      "text_findings": [
+        {
+          "topic": "设计目标原文",
+          "value": "依托如今AIGC的发展，做创新型的沉浸式线上展陈方式",
+          "source": "设计目标"
+        },
+        {
+          "topic": "差异对比的两个对标对象",
+          "value": "轻量化——相比于VR体验、实际的游戏",
+          "source": "设计目标·差异"
+        },
+        {
+          "topic": "网页载体的核心优势",
+          "value": "网页是一个更轻量化、更易于传播的载体（「易传播/可分享」是与VR、游戏划界的关键卖点）",
+          "source": "设计目标·差异"
+        }
+      ]
+    },
+    "P5": {
+      "status": "ready",
+      "text_findings": [
+        {
+          "topic": "三概念公式",
+          "value": "古代市集 + 现代义乌国潮小商品 + 轻量化可分享的网页",
+          "source": "核心概念"
+        },
+        {
+          "topic": "配图方法学（原稿附注）",
+          "value": "原稿注明「每一个点一个配图」——三概念各配独立小图的依据",
+          "source": "核心概念"
+        }
+      ]
+    },
+    "P6": {
+      "status": "ready",
+      "text_findings": [
+        {
+          "topic": "考据三来源（原稿原话）",
+          "value": "找一些古代的文字记载、古代市集的历史、关于古代市集的绘画",
+          "source": "设计灵感与文化线索"
+        },
+        {
+          "topic": "文化出处具体作品",
+          "value": "《东京梦华录》（宋·孟元老笔记）、《清明上河图》、《江南春日图》；夜市线索＝鬼市",
+          "source": "page-plan"
+        },
+        {
+          "topic": "匠心考据感注脚",
+          "value": "灵感不是凭空想象，而是「从宋画与笔记中取市井」的考据路径",
+          "source": "设计灵感与文化线索"
+        }
+      ]
+    },
+    "P7": {
+      "status": "ready",
+      "text_findings": [
+        {
+          "topic": "空间结构口诀",
+          "value": "三个时间、三个市集、三个场所",
+          "source": "总体布局与空间"
+        },
+        {
+          "topic": "三市的可游玩属性",
+          "value": "（三张游玩地图）——原稿明确每张地图都是「游玩地图」",
+          "source": "总体布局与空间"
+        }
+      ]
+    },
+    "P8": {
+      "status": "ready",
+      "text_findings": [
+        {
+          "topic": "地图数量口径",
+          "value": "三张游玩地图 = 早/午/夜各一张可漫游地图",
+          "source": "总体布局与空间"
+        },
+        {
+          "topic": "空间组织原则",
+          "value": "以「时间」串联「场所」：同一市集随晨昏昼夜变换面貌",
+          "source": "总体布局与空间"
+        }
+      ]
+    },
+    "P9": {
+      "status": "ready",
+      "manuscript_silent": true,
+      "text_findings": [
+        {
+          "topic": "原稿相关原话",
+          "value": "不同的商铺——不同的商品之间的联系（原稿仅以商铺组织动线，未细分入口/街巷/停留）",
+          "source": "产品的展示"
+        }
+      ]
+    },
+    "P10": {
+      "status": "ready",
+      "text_findings": [
+        {
+          "topic": "陈列逻辑",
+          "value": "不同的商铺——不同的商品之间的联系：以商铺为单位组织商品，强调商铺与商品、商品与商品之间的关系网，而非孤立器物陈列",
+          "source": "产品的展示"
+        }
+      ]
+    },
+    "P11": {
+      "status": "ready",
+      "manuscript_silent": true,
+      "text_findings": [
+        {
+          "topic": "制作章节定位",
+          "value": "制作流程与落地：先「逻辑框架梳理」，再「整体流程」推进",
+          "source": "制作流程与落地"
+        },
+        {
+          "topic": "方法学关键词",
+          "value": "原稿强调先搭「逻辑框架」再动手——构思—建模—布光—交互的顺序依据",
+          "source": "逻辑框架梳理"
+        }
+      ]
+    },
+    "P12": {
+      "status": "ready",
+      "text_findings": [
+        {
+          "topic": "路线一全链路（原稿逐环节）",
+          "value": "美术风格确立——三维资产制作——三维场景搭建——人物NPC制作（以美术/场景为主线，终点是人物NPC）",
+          "source": "整体流程·路线一"
+        },
+        {
+          "topic": "路线二全链路（原稿逐环节）",
+          "value": "商品调研——搜集图片——三维资产化——交互逻辑思考（以商品为主线，终点是交互逻辑）",
+          "source": "整体流程·路线二"
+        },
+        {
+          "topic": "双路线关系",
+          "value": "两条路线并行推进：一条造「人、场」，一条造「货、交互」，在场景中合流",
+          "source": "整体流程"
+        }
+      ]
+    },
+    "P13": {
+      "status": "ready",
+      "text_findings": [
+        {
+          "topic": "技术栈口径",
+          "value": "Blender 5.0.1 + Tripo3D（Blender女孩NPC、Tripo老人NPC为分工佐证）",
+          "source": "page-plan"
+        },
+        {
+          "topic": "原稿技术章节定位",
+          "value": "技术实现（使用了哪些软件去完成）——原稿只点名「用软件完成」，未列具体版本",
+          "source": "技术实现"
+        }
+      ]
+    },
+    "P14": {
+      "status": "ready",
+      "manuscript_silent": true,
+      "text_findings": [
+        {
+          "topic": "原稿无对应专节",
+          "value": "原稿未对「场景×材质×器物」过程页单独着墨；可依据路线一/路线二的三维资产化环节做过程拼贴",
+          "source": "整体流程"
+        }
+      ]
+    },
+    "P15": {
+      "status": "ready",
+      "manuscript_silent": true,
+      "text_findings": [
+        {
+          "topic": "收尾呼应金句",
+          "value": "让观众……体验一座市集的一日生活（与封面金句首尾呼应）",
+          "source": "作品概览"
+        }
+      ]
+    }
+  }
+}

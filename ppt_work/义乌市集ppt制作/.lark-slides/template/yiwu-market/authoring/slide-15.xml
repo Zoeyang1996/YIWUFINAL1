@@ -1,0 +1,43 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0" id="pYf">
+    <style>
+      <fill id="fYf">
+        <fillColor color="rgba(242, 235, 221, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="825" height="24" topLeftX="36" topLeftY="24" type="rect" id="bSY">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="14.25" fontFamily="Inter" bold="false" italic="false" strikethrough="false" underline="false">义犹未尽   /   义乌三时市集</span></p>
+        </content>
+      </shape>
+      <shape width="45" height="22.5" topLeftX="879" topLeftY="495.75" type="rect" id="bSC">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="13.5" fontFamily="Inter" bold="false" italic="false" strikethrough="false" underline="false">15</span></p>
+        </content>
+      </shape>
+      <shape width="750" height="105" topLeftX="36" topLeftY="78.75" type="rect" id="bSX">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><strong><span color="rgba(36, 35, 31, 1)" fontSize="90" fontFamily="Inter" italic="false" strikethrough="false" underline="false">一日三市</span></strong></p>
+        </content>
+      </shape>
+      <shape width="750" height="105" topLeftX="36" topLeftY="193.5" type="rect" id="bSD">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><strong><span color="rgba(174, 61, 46, 1)" fontSize="90" fontFamily="Inter" italic="false" strikethrough="false" underline="false">义犹未尽</span></strong></p>
+        </content>
+      </shape>
+      <img id="bSk" src="UB2kbLta2oVteLx3HrVc6LCUn7e" width="420" height="262.5" topLeftX="506.25" topLeftY="249">
+        <crop leftOffset="0" rightOffset="0" topOffset="0" bottomOffset="0"/>
+      </img>
+      <shape width="450" height="60" topLeftX="42.75" topLeftY="429.75" type="rect" id="bSF">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(36, 35, 31, 1)" fontSize="36" fontFamily="Inter" bold="false" italic="false" strikethrough="false" underline="false">谢谢观看</span></p>
+        </content>
+      </shape>
+    </data>
+    <note id="bSR">
+      <content>
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(0, 0, 0, 1)" fontSize="12" bold="false" italic="false" strikethrough="false" underline="false">结束页。可在答辩时返回空间、商品和制作素材页面回应问题。</span></p>
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(0, 0, 0, 1)" fontSize="12" bold="false" italic="false" strikethrough="false" underline="false">依据：本项目 index.html、设计框架.md、js/data/phases.js、js/data/products.js、assets/markets/README.md。图片来自网页实际三维资产或网页截图。设计解读不代表已完成用户调研或商业落地。</span></p>
+      </content>
+    </note>
+  </slide>

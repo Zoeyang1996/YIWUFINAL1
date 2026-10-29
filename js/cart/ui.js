@@ -1,3 +1,4 @@
+import { sound } from '../core/audio.js';
 import { formatPrice } from '../data/products.js';
 import {
   cartCount,
@@ -85,11 +86,14 @@ export function mountCart() {
   const totalEl = root.querySelector('.cart-total b');
 
   const open = () => {
+    sound.play('open'); sound.setFocus(true);
     drawer.classList.add('is-open');
     scrim.classList.add('is-open');
     drawer.setAttribute('aria-hidden', 'false');
   };
   const close = () => {
+    if (drawer.classList.contains('is-open')) sound.play('close');
+    sound.setFocus(Boolean(document.body.classList.contains('is-focused')));
     drawer.classList.remove('is-open');
     scrim.classList.remove('is-open');
     drawer.setAttribute('aria-hidden', 'true');
@@ -99,7 +103,7 @@ export function mountCart() {
   root.addEventListener('click', (event) => {
     const action = event.target.closest('[data-act]')?.dataset.act;
     if (action === 'close') close();
-    if (action === 'checkout') showToast('已 下 单 · 摊 主 马 上 备 货');
+    if (action === 'checkout') { sound.play('success'); showToast('已 下 单 · 摊 主 马 上 备 货'); }
   });
 
   listEl.addEventListener('click', (event) => {

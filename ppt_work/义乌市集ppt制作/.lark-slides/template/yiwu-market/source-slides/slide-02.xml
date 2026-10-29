@@ -1,0 +1,60 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0" id="pYT">
+    <style>
+      <fill id="fYT">
+        <fillColor color="rgba(242, 235, 221, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="825" height="24" topLeftX="36" topLeftY="24" type="rect" id="bbY">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="14.25" fontFamily="Aptos" bold="false" italic="false" strikethrough="false" underline="false">01   /   作品概览</span></p>
+        </content>
+      </shape>
+      <shape width="45" height="22.5" topLeftX="879" topLeftY="495.75" type="rect" id="bbn">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="13.5" fontFamily="Aptos" bold="false" italic="false" strikethrough="false" underline="false">02</span></p>
+        </content>
+      </shape>
+      <shape width="885" height="78.75" topLeftX="36" topLeftY="73.5" type="rect" id="bbI">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><strong><span color="rgba(36, 35, 31, 1)" fontSize="60" fontFamily="Aptos" italic="false" strikethrough="false" underline="false">把市集，搬进屏幕</span></strong></p>
+        </content>
+      </shape>
+      <img id="bbc" src="ZknobsjtEoeVA0xrX7Ocp7jKnNe" width="352.5" height="220.31251968503938" topLeftX="-13.5" topLeftY="182.34377952755906">
+        <crop leftOffset="0" rightOffset="0" topOffset="0" bottomOffset="0"/>
+      </img>
+      <shape width="105" height="75" topLeftX="56.25" topLeftY="405" type="rect" id="bbX">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><strong><span color="rgba(174, 61, 46, 1)" fontSize="51" fontFamily="Aptos" italic="false" strikethrough="false" underline="false">早</span></strong></p>
+        </content>
+      </shape>
+      <img id="bbF" src="HKt4b9T11oWDLOxdzZ4cZfuXnbb" width="352.5" height="220.31251968503938" topLeftX="297.75" topLeftY="182.34377952755906">
+        <crop leftOffset="0" rightOffset="0" topOffset="0" bottomOffset="0"/>
+      </img>
+      <shape width="105" height="75" topLeftX="367.5" topLeftY="405" type="rect" id="bbD">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><strong><span color="rgba(174, 61, 46, 1)" fontSize="51" fontFamily="Aptos" italic="false" strikethrough="false" underline="false">午</span></strong></p>
+        </content>
+      </shape>
+      <img id="bbh" src="UB2kbLta2oVteLx3HrVc6LCUn7e" width="352.5" height="220.31251968503938" topLeftX="609" topLeftY="182.34377952755906">
+        <crop leftOffset="0" rightOffset="0" topOffset="0" bottomOffset="0"/>
+      </img>
+      <shape width="105" height="75" topLeftX="678.75" topLeftY="405" type="rect" id="bbt">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><strong><span color="rgba(174, 61, 46, 1)" fontSize="51" fontFamily="Aptos" italic="false" strikethrough="false" underline="false">夜</span></strong></p>
+        </content>
+      </shape>
+      <shape width="750" height="31.5" topLeftX="45" topLeftY="484.5" type="rect" id="bbp">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="19.5" fontFamily="Aptos" bold="false" italic="false" strikethrough="false" underline="false">3 个时段    9 处摊位    13 件展品</span></p>
+        </content>
+      </shape>
+    </data>
+    <note id="bbR">
+      <content>
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(0, 0, 0, 1)" fontSize="12" bold="false" italic="false" strikethrough="false" underline="false">本页概览内容规模。数值来自当前项目配置，展示了时间、空间与商品的组织方式。</span></p>
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(0, 0, 0, 1)" fontSize="12" bold="false" italic="false" strikethrough="false" underline="false">依据：本项目 index.html、设计框架.md、js/data/phases.js、js/data/products.js、assets/markets/README.md。图片来自网页实际三维资产或网页截图。设计解读不代表已完成用户调研或商业落地。</span></p>
+      </content>
+    </note>
+  </slide>
+  

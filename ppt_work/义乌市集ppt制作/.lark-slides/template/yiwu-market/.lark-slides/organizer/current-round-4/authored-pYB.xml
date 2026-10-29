@@ -1,0 +1,51 @@
+<slide id="pYb">
+  <style>
+    <fill id="fYb">
+      <fillColor color="rgba(242, 235, 221, 1)"/>
+    </fill>
+  </style>
+  <data>
+    <shape width="825" height="24" topLeftX="36" topLeftY="24" presetHandlers="0" type="rect" id="bKb">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="14.25" fontFamily="Inter" color="rgba(120, 111, 97, 1)" bold="false" lineSpacing="multiple:1.2" textAlign="left" defaultTabSize="72">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="14.25" fontFamily="Inter" bold="false">04 / 制作流程与落地</span></p>
+      </content>
+    </shape>
+    <shape width="45" height="22.5" topLeftX="879" topLeftY="495.75" presetHandlers="0" type="rect" id="bKS">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="13.5" fontFamily="Inter" color="rgba(120, 111, 97, 1)" bold="false" lineSpacing="multiple:1.2" textAlign="left" defaultTabSize="72">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="13.5" fontFamily="Inter" bold="false">13</span></p>
+      </content>
+    </shape>
+    <shape width="700" height="56" topLeftX="39" topLeftY="60" presetHandlers="0" type="rect" id="bqE">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="40" fontFamily="思源黑体" color="rgba(31, 35, 31, 1)" bold="true" lineSpacing="multiple:1.15" textAlign="left" defaultTabSize="72">
+        <p textAlign="left" lineSpacing="multiple:1.15" defaultTabSize="72"><strong><span color="rgba(36, 35, 31, 1)" fontSize="40" fontFamily="思源黑体">技术实现，</span></strong><strong><span color="rgba(174, 61, 46, 1)" fontSize="40" fontFamily="思源黑体">AIGC 工作流</span></strong></p>
+      </content>
+    </shape>
+    <img id="bqx" src="LNWZbztBVoIuCqxqGljcgiQ6nad" width="390" height="220" topLeftX="50" topLeftY="150">
+      <crop type="rect" leftOffset="0" rightOffset="0" topOffset="0" bottomOffset="23.692848769050414"/>
+    </img>
+    <img id="bqO" src="ImULbWnpFowjEPxENDecF5nXnqe" width="390" height="220" topLeftX="520" topLeftY="150">
+      <crop type="rect" leftOffset="0" rightOffset="0" topOffset="0" bottomOffset="24.265569917743846"/>
+    </img>
+    <shape width="390" height="30" topLeftX="50" topLeftY="382" presetHandlers="0" type="rect" id="bKm">
+      <content verticalAlign="top" paddingLeft="4" fontSize="15" fontFamily="思源黑体" color="rgba(36, 35, 31, 1)" bold="true" textAlign="left">
+        <p textAlign="left"><strong><span color="rgba(36, 35, 31, 1)" fontSize="17" fontFamily="思源黑体">Blender 5.0.1</span></strong><strong><span color="rgba(90, 84, 74, 1)" fontSize="14" fontFamily="思源黑体">　场景 · 布光 · 骨骼绑定</span></strong></p>
+      </content>
+    </shape>
+    <shape width="390" height="30" topLeftX="520" topLeftY="382" presetHandlers="0" type="rect" id="bqW">
+      <content verticalAlign="top" paddingLeft="4" fontSize="15" fontFamily="思源黑体" color="rgba(36, 35, 31, 1)" bold="true" textAlign="left">
+        <p textAlign="left"><strong><span color="rgba(36, 35, 31, 1)" fontSize="17" fontFamily="思源黑体">Tripo3D</span></strong><strong><span color="rgba(90, 84, 74, 1)" fontSize="14" fontFamily="思源黑体">　一张图 → 三维资产</span></strong></p>
+      </content>
+    </shape>
+    <shape width="860" height="40" topLeftX="50" topLeftY="425" presetHandlers="0" type="rect" id="bqe">
+      <content verticalAlign="top" paddingLeft="4" fontSize="14" fontFamily="思源黑体" color="rgba(90, 84, 74, 1)" lineSpacing="multiple:1.4" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.4"><span color="rgba(90, 84, 74, 1)" fontSize="14" fontFamily="思源黑体">Blender 负责场景搭建、光影与 NPC 绑定；Tripo3D 把商品照片快速生成三维模型，二者组合成 AIGC 生产线。</span></p>
+      </content>
+    </shape>
+  </data>
+  <note id="bqN">
+    <content>
+      <p>技术栈很轻：Blender 做三维场景和人物，Tripo3D 这个 AI 工具把一张商品照片直接转成三维模型。</p>
+      <p>左图是在 Blender 里给汉服女孩 NPC 做骨骼绑定，右图是 Tripo3D 根据参考生成的老年摊主，体现了 AI 生成三维的效率。</p>
+    </content>
+  </note>
+</slide>

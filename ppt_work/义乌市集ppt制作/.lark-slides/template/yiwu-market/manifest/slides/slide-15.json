@@ -1,0 +1,68 @@
+{
+  "slide_num": 15,
+  "role": "ending",
+  "slide_id": "pYf",
+  "local_xml_path": "source-slides/slide-15.xml",
+  "shell_shapes": [
+    {
+      "id": 6,
+      "type": "PICTURE",
+      "left": 7.0312,
+      "top": 3.4583,
+      "width": 5.8333,
+      "height": 3.6458,
+      "text": ""
+    }
+  ],
+  "content_shapes": [
+    {
+      "id": 2,
+      "type": "AUTO_SHAPE",
+      "left": 0.5,
+      "top": 0.3333,
+      "width": 11.4583,
+      "height": 0.3333,
+      "text": "义犹未尽   /   义乌三时市集"
+    },
+    {
+      "id": 3,
+      "type": "AUTO_SHAPE",
+      "left": 12.2083,
+      "top": 6.8854,
+      "width": 0.625,
+      "height": 0.3125,
+      "text": "15"
+    },
+    {
+      "id": 4,
+      "type": "AUTO_SHAPE",
+      "left": 0.5,
+      "top": 1.0938,
+      "width": 10.4167,
+      "height": 1.4583,
+      "text": "一日三市"
+    },
+    {
+      "id": 5,
+      "type": "AUTO_SHAPE",
+      "left": 0.5,
+      "top": 2.6875,
+      "width": 10.4167,
+      "height": 1.4583,
+      "text": "义犹未尽"
+    },
+    {
+      "id": 7,
+      "type": "AUTO_SHAPE",
+      "left": 0.5938,
+      "top": 5.9688,
+      "width": 6.25,
+      "height": 0.8333,
+      "text": "谢谢观看"
+    }
+  ],
+  "available_regions": [],
+  "images_used": [
+    "image1.png"
+  ]
+}

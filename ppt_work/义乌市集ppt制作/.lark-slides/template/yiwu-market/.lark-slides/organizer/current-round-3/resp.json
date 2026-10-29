@@ -1,0 +1,55 @@
+{
+  "ok": true,
+  "identity": "user",
+  "data": {
+    "content_saved": true,
+    "issues": {
+      "document": {
+        "errors": [],
+        "infos": [],
+        "warnings": []
+      },
+      "file": null,
+      "schema_version": "2.0",
+      "slide_size": {
+        "height": 540,
+        "width": 960
+      },
+      "slides": [
+        {
+          "element_count": 6,
+          "errors": [],
+          "infos": [],
+          "issues": [],
+          "slide_number": 1,
+          "status": "passed",
+          "warnings": []
+        },
+        {
+          "element_count": 11,
+          "errors": [],
+          "infos": [],
+          "issues": [],
+          "slide_number": 2,
+          "status": "passed",
+          "warnings": []
+        }
+      ],
+      "summary": {
+        "error_count": 0,
+        "info_count": 0,
+        "release_ready": true,
+        "screenshot_review_required": false,
+        "slide_count": 2,
+        "status": "passed",
+        "warning_count": 0
+      },
+      "tool": "xml_lint"
+    },
+    "path": "/Users/yangzhe/Downloads/义乌市集ppt制作/.lark-slides/template/yiwu-market/.lark-slides/organizer/current-round-3/full.xml",
+    "revision_id": 21,
+    "scope": "presentation",
+    "size": 11354,
+    "xml_presentation_id": "BsXPsxj5hl3nJzdoQI7cNqblnyh"
+  }
+}

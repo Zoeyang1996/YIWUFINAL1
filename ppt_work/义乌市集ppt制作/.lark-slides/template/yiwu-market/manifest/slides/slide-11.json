@@ -1,0 +1,76 @@
+{
+  "slide_num": 11,
+  "role": "content",
+  "slide_id": "pYW",
+  "local_xml_path": "source-slides/slide-11.xml",
+  "shell_shapes": [],
+  "content_shapes": [
+    {
+      "id": 2,
+      "type": "AUTO_SHAPE",
+      "left": 0.5,
+      "top": 0.3333,
+      "width": 11.4583,
+      "height": 0.3333,
+      "text": "10   /   视觉系统"
+    },
+    {
+      "id": 3,
+      "type": "AUTO_SHAPE",
+      "left": 12.2083,
+      "top": 6.8854,
+      "width": 0.625,
+      "height": 0.3125,
+      "text": "11"
+    },
+    {
+      "id": 4,
+      "type": "PICTURE",
+      "left": 6.1562,
+      "top": 1.7188,
+      "width": 6.75,
+      "height": 4.2188,
+      "text": ""
+    },
+    {
+      "id": 5,
+      "type": "AUTO_SHAPE",
+      "left": 0.5,
+      "top": 1.0729,
+      "width": 5.7292,
+      "height": 1.1458,
+      "text": "纸感"
+    },
+    {
+      "id": 6,
+      "type": "AUTO_SHAPE",
+      "left": 0.5,
+      "top": 2.3229,
+      "width": 5.7292,
+      "height": 1.1458,
+      "text": "墨字"
+    },
+    {
+      "id": 7,
+      "type": "AUTO_SHAPE",
+      "left": 0.5,
+      "top": 3.5729,
+      "width": 5.7292,
+      "height": 1.1458,
+      "text": "朱红"
+    },
+    {
+      "id": 8,
+      "type": "AUTO_SHAPE",
+      "left": 0.5938,
+      "top": 6.0938,
+      "width": 11.4583,
+      "height": 0.6042,
+      "text": "少一点界面，多一点场景"
+    }
+  ],
+  "available_regions": [],
+  "images_used": [
+    "image1.png"
+  ]
+}

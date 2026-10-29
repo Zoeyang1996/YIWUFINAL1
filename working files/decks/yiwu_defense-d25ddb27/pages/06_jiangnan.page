@@ -1,0 +1,199 @@
+pageType: content
+background:
+  type: solid
+  color: $paper
+elements:
+- elementId: meta
+  elementType: text
+  bounds:
+  - 48
+  - 24
+  - 450
+  - 18
+  content:
+    text: 06  /  设计灵感
+    fontSize: 10
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 1.5
+    wrap: false
+- elementId: brand
+  elementType: text
+  bounds:
+  - 690
+  - 24
+  - 222
+  - 18
+  content:
+    text: 义犹未尽 · 义乌三时市集
+    fontSize: 10
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - right
+    - top
+    lineHeight: 1.15
+    letterSpacing: 1.0
+    wrap: false
+- elementId: title
+  elementType: text
+  bounds:
+  - 48
+  - 64
+  - 560
+  - 58
+  content:
+    text: 古画构图，现代上色
+    fontSize: 44
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: game
+  elementType: image
+  bounds:
+  - 48
+  - 148
+  - 520
+  - 292
+  src: media/jiangnan.jpg
+  fit:
+    mode: cover
+- elementId: game-cap
+  elementType: text
+  bounds:
+  - 48
+  - 450
+  - 520
+  - 18
+  content:
+    text: 《江南百景图》游戏画面（灵感参考）
+    fontSize: 10
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: gusu
+  elementType: image
+  bounds:
+  - 624
+  - 84
+  - 288
+  - 128
+  src: media/gusu.jpg
+  fit:
+    mode: cover
+- elementId: gusu-cap
+  elementType: text
+  bounds:
+  - 624
+  - 220
+  - 288
+  - 18
+  content:
+    text: 《姑苏繁华图》局部
+    fontSize: 10
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: words
+  elementType: text
+  bounds:
+  - 624
+  - 264
+  - 288
+  - 130
+  content:
+    text: '清逸色彩
+
+      微缩街巷
+
+      人物日常'
+    fontSize: 29
+    fontFamily: MiSans
+    color: $red
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.42
+    letterSpacing: 0
+    wrap: true
+- elementId: right-rule
+  elementType: line
+  bounds:
+  - 624
+  - 416
+  - 240
+  - 2
+  viewBox:
+  - 1
+  - 1
+  points: 0,0 1,0
+  curve: sharp
+  border:
+    style: solid
+    width: 2
+    color: $ink
+- elementId: body
+  elementType: text
+  bounds:
+  - 624
+  - 438
+  - 288
+  - 52
+  content:
+    text: '参考其“古画构图＋现代色彩”的方法，
+
+      进一步转为可漫游的三维市集。'
+    fontSize: 15
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - left
+    - top
+    lineHeight: 1.45
+    letterSpacing: 0
+    wrap: true
+- elementId: source
+  elementType: text
+  bounds:
+  - 48
+  - 506
+  - 840
+  - 14
+  content:
+    text: 资料：<a href="http://www.ce.cn/culture/gd/202009/09/t20200909_35704672.shtml">中国经济网《手机游戏的文化传播》</a>；<a href="https://www.chinanews.com.cn/cul/2014/10-10/6662411.shtml">中新网《姑苏繁华图》</a>。
+    fontSize: 9
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false

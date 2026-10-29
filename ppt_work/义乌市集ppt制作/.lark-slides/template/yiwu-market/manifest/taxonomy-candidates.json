@@ -1,0 +1,368 @@
+{
+  "brand_assets": [
+    {
+      "type": "img",
+      "file_token": "ZknobsjtEoeVA0xrX7Ocp7jKnNe",
+      "used_in_pages": [
+        1,
+        2,
+        5,
+        11,
+        13,
+        15
+      ],
+      "bbox": {
+        "x": 339.0,
+        "y": 142.5,
+        "w": 612.0,
+        "h": 382.5
+      },
+      "area_ratio": 0.452,
+      "confidence": "high",
+      "note": "多页复用图 → Logo/水印/页脚候选"
+    },
+    {
+      "type": "img",
+      "file_token": "HKt4b9T11oWDLOxdzZ4cZfuXnbb",
+      "used_in_pages": [
+        2,
+        4,
+        5,
+        12
+      ],
+      "bbox": {
+        "x": 297.75,
+        "y": 182.34,
+        "w": 352.5,
+        "h": 220.31
+      },
+      "area_ratio": 0.15,
+      "confidence": "high",
+      "note": "多页复用图 → Logo/水印/页脚候选"
+    },
+    {
+      "type": "img",
+      "file_token": "UB2kbLta2oVteLx3HrVc6LCUn7e",
+      "used_in_pages": [
+        2,
+        5,
+        7,
+        14
+      ],
+      "bbox": {
+        "x": 609.0,
+        "y": 182.34,
+        "w": 352.5,
+        "h": 220.31
+      },
+      "area_ratio": 0.15,
+      "confidence": "high",
+      "note": "多页复用图 → Logo/水印/页脚候选"
+    },
+    {
+      "type": "shape",
+      "shape_signature": "rect|fill=|w=825|h=24",
+      "shape_type": "rect",
+      "fill": "",
+      "bbox_sample": {
+        "x": 36.0,
+        "y": 24.0,
+        "w": 825.0,
+        "h": 24.0
+      },
+      "used_in_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "confidence": "high",
+      "note": "15 页出现同 signature → 品牌骨架 shape 候选（页眉/页脚条/角标）"
+    },
+    {
+      "type": "shape",
+      "shape_signature": "rect|fill=|w=45|h=22",
+      "shape_type": "rect",
+      "fill": "",
+      "bbox_sample": {
+        "x": 879.0,
+        "y": 495.75,
+        "w": 45.0,
+        "h": 22.5
+      },
+      "used_in_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "confidence": "high",
+      "note": "15 页出现同 signature → 品牌骨架 shape 候选（页眉/页脚条/角标）"
+    },
+    {
+      "type": "shape",
+      "shape_signature": "rect|fill=|w=825|h=86",
+      "shape_type": "rect",
+      "fill": "",
+      "bbox_sample": {
+        "x": 36.0,
+        "y": 69.75,
+        "w": 825.0,
+        "h": 86.25
+      },
+      "used_in_pages": [
+        5,
+        7,
+        8
+      ],
+      "confidence": "medium",
+      "note": "3 页出现同 signature → 品牌骨架 shape 候选（页眉/页脚条/角标）"
+    }
+  ],
+  "visual_language": {
+    "primary_colors": [
+      "rgba(31, 35, 41, 1)",
+      "rgba(242, 235, 221, 1)",
+      "rgba(20, 33, 39, 1)"
+    ],
+    "primary_colors_with_count": [
+      {
+        "color": "rgba(31, 35, 41, 1)",
+        "count": 94
+      },
+      {
+        "color": "rgba(242, 235, 221, 1)",
+        "count": 13
+      },
+      {
+        "color": "rgba(20, 33, 39, 1)",
+        "count": 2
+      }
+    ],
+    "fonts": [
+      {
+        "name": "Aptos",
+        "count": 95
+      },
+      {
+        "name": "思源黑体",
+        "count": 94
+      }
+    ],
+    "shape_type_distribution": [
+      {
+        "type": "rect",
+        "count": 94
+      },
+      {
+        "type": "line",
+        "count": 0
+      }
+    ],
+    "decorative_shape_types": [
+      {
+        "type": "rect",
+        "count": 94
+      }
+    ]
+  },
+  "layout_skeleton": {
+    "by_role": {
+      "cover": {
+        "sample_slide_num": 1,
+        "slides": [
+          1
+        ],
+        "shell_shape_count": 1,
+        "content_shape_count": 5,
+        "wide_bars_hint": [
+          {
+            "id": 2,
+            "type": "AUTO_SHAPE",
+            "bbox": {
+              "x": 0.5,
+              "y": 0.3333,
+              "w": 11.4583,
+              "h": 0.3333
+            },
+            "position_hint": "top"
+          }
+        ],
+        "note": "role=cover 共 1 页；MainAgent 需 Read source-slides/slide-01.xml 印证骨架"
+      },
+      "content": {
+        "sample_slide_num": 2,
+        "slides": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "shell_shape_count": 0,
+        "content_shape_count": 10,
+        "wide_bars_hint": [
+          {
+            "id": 2,
+            "type": "AUTO_SHAPE",
+            "bbox": {
+              "x": 0.5,
+              "y": 0.3333,
+              "w": 11.4583,
+              "h": 0.3333
+            },
+            "position_hint": "top"
+          },
+          {
+            "id": 4,
+            "type": "AUTO_SHAPE",
+            "bbox": {
+              "x": 0.5,
+              "y": 1.0208,
+              "w": 12.2917,
+              "h": 1.0938
+            },
+            "position_hint": "top"
+          },
+          {
+            "id": 11,
+            "type": "AUTO_SHAPE",
+            "bbox": {
+              "x": 0.625,
+              "y": 6.7292,
+              "w": 10.4167,
+              "h": 0.4375
+            },
+            "position_hint": "bottom"
+          }
+        ],
+        "note": "role=content 共 13 页；MainAgent 需 Read source-slides/slide-02.xml 印证骨架"
+      },
+      "ending": {
+        "sample_slide_num": 15,
+        "slides": [
+          15
+        ],
+        "shell_shape_count": 1,
+        "content_shape_count": 5,
+        "wide_bars_hint": [
+          {
+            "id": 2,
+            "type": "AUTO_SHAPE",
+            "bbox": {
+              "x": 0.5,
+              "y": 0.3333,
+              "w": 11.4583,
+              "h": 0.3333
+            },
+            "position_hint": "top"
+          },
+          {
+            "id": 4,
+            "type": "AUTO_SHAPE",
+            "bbox": {
+              "x": 0.5,
+              "y": 1.0938,
+              "w": 10.4167,
+              "h": 1.4583
+            },
+            "position_hint": "top"
+          },
+          {
+            "id": 5,
+            "type": "AUTO_SHAPE",
+            "bbox": {
+              "x": 0.5,
+              "y": 2.6875,
+              "w": 10.4167,
+              "h": 1.4583
+            },
+            "position_hint": "middle"
+          }
+        ],
+        "note": "role=ending 共 1 页；MainAgent 需 Read source-slides/slide-15.xml 印证骨架"
+      }
+    }
+  },
+  "placeholder_images_candidates": [
+    {
+      "slide_num": 6,
+      "file_token": "GbMEbIg87oANwPxb8zBc9XGZnYf",
+      "bbox": {
+        "x": 360.0,
+        "y": 174.0,
+        "w": 555.0,
+        "h": 303.75
+      },
+      "area_ratio": 0.325,
+      "note": "single-page use + 面积 > 20%，很可能是内容示意图（切题就换、不切题删）"
+    },
+    {
+      "slide_num": 9,
+      "file_token": "VwrQbyLTBoFOUFx3WvdcjyaHnxh",
+      "bbox": {
+        "x": 36.0,
+        "y": 177.0,
+        "w": 585.0,
+        "h": 315.0
+      },
+      "area_ratio": 0.355,
+      "note": "single-page use + 面积 > 20%，很可能是内容示意图（切题就换、不切题删）"
+    },
+    {
+      "slide_num": 10,
+      "file_token": "CXuMb492Qocpt9x0PTGc7clCnXd",
+      "bbox": {
+        "x": 463.13,
+        "y": 60.0,
+        "w": 431.25,
+        "h": 431.25
+      },
+      "area_ratio": 0.359,
+      "note": "single-page use + 面积 > 20%，很可能是内容示意图（切题就换、不切题删）"
+    }
+  ],
+  "sample_texts_hits": [],
+  "meta": {
+    "note": "启发式初步候选。MainAgent Step 2 需要 Read source-slides + thumbs/overview.jpg 补充与订正，最终产物落到 manifest/template-taxonomy.md。",
+    "canvas_inch": {
+      "w": 13.3333,
+      "h": 7.5
+    },
+    "canvas_sxsd_pt": {
+      "w": 960.0,
+      "h": 540.0
+    },
+    "scanned_slides": 15
+  }
+}

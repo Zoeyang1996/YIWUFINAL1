@@ -32,6 +32,8 @@ const { PHASES } = await import(await mirror('js/data/phases.js'));
 const { PRODUCTS } = await import(await mirror('js/data/products.js'));
 const { loadMarketMap } = await import(await mirror('js/market/map.js'));
 const { createCameraRig } = await import(await mirror('js/market/camera-rig.js'));
+const { createPlayer } = await import(await mirror('js/market/player.js'));
+const { PLAYER_HEIGHT } = await import(await mirror('js/data/player.js'));
 const nativeFetch = globalThis.fetch;
 globalThis.self = globalThis;
 globalThis.ProgressEvent ??= class { constructor(type, fields) { Object.assign(this, fields); } };
@@ -69,6 +71,45 @@ for (const product of Object.values(PRODUCTS)) {
 const results = [];
 const cameraAudit = {};
 try {
+  const player = createPlayer();
+  await player.load();
+  const playerBounds = () => {
+    player.object.updateMatrixWorld(true);
+    player.object.traverse(n => { if (n.isSkinnedMesh) n.computeBoundingBox(); });
+    return new THREE.Box3().setFromObject(player.object);
+  };
+  let box = playerBounds();
+  assert.ok(Math.abs(box.getSize(new THREE.Vector3()).y - PLAYER_HEIGHT) < .001, 'player height');
+  assert.ok(Math.abs(box.min.y) < .001, 'player grounded');
+  const spawn = new THREE.Vector3(0, 1.3, 0);
+  player.setMap({ sample: () => spawn.y, move: (from, x, z) => ({ x, y: from.y, z }) }, spawn);
+  const hip = player.object.getObjectByName('Hip'), leg = player.object.getObjectByName('L_Thigh');
+  const idleLeg = leg.quaternion.clone();
+  let maxLegMotion = 0, maxOffset = 0;
+  for (let i = 0; i < 600; i++) {
+    player.update(1 / 60, { x: 0, y: 1 }, 0);
+    assert.ok(Math.abs(hip.position.x) < .001 && Math.abs(hip.position.y) < .001, 'clip root motion removed');
+    maxLegMotion = Math.max(maxLegMotion, leg.quaternion.angleTo(idleLeg));
+    if (i % 10 === 0) {
+      box = playerBounds();
+      const center = box.getCenter(new THREE.Vector3());
+      maxOffset = Math.max(maxOffset, Math.hypot(center.x - player.position.x, center.z - player.position.z));
+      assert.ok(Math.abs(box.min.y - spawn.y) < .15, 'feet stay near ground throughout walk loops');
+    }
+  }
+  assert.ok(maxLegMotion > .1, 'authored walk animates legs');
+  assert.ok(maxOffset < .4, 'mesh stays with navigation across multiple walk loops');
+  assert.ok(player.position.z > 20, 'player moves through navigation');
+  // A held movement key against a wall must settle into idle, with no root drift.
+  const stopped = player.position.clone();
+  player.setMap({ sample: () => stopped.y, move: from => from }, stopped);
+  for (let i = 0; i < 180; i++) player.update(1 / 60, { x: 0, y: 1 }, 0);
+  assert.ok(player.position.distanceTo(stopped) < .001, 'blocked player stays still');
+  for (let i = 0; i < 30; i++) player.update(1 / 60, { x: 0, y: 1 }, 0);
+  const sourceIdle = (await globalThis.__marketTestLoad('assets/character.glb')).animations.find(clip => clip.name === 'wait.001');
+  const idleTrack = sourceIdle.tracks.find(track => track.name === 'L_Thigh.quaternion');
+  const expectedIdle = new THREE.Quaternion().fromArray(idleTrack.createInterpolant().evaluate(13.5 % sourceIdle.duration));
+  assert.ok(leg.quaternion.angleTo(expectedIdle) < .001, 'blocked player returns to authored idle');
   for (const phase of Object.values(PHASES)) {
     assert.equal(JSON.stringify(phase.stalls.map(s => s.name).sort()), JSON.stringify(Object.keys(expected[phase.id]).sort()));
     for (const stall of phase.stalls) {
@@ -107,13 +148,27 @@ try {
         assert.equal(blocked.length, 0, `${phase.id}/${entry.stall.id}, aspect ${aspect}: blocked keeper`);
         market.updateOcclusion(rig.camera, entry.focusTarget, .2, entry);
       }
-      const hand = []; entry.keeper.traverse(b => { if (b.isBone && (b.userData.name ?? b.name) === 'R_Hand') hand.push(b); });
-      assert.equal(hand.length, 1, `${entry.stall.id}: independent skeleton`);
-      const before = hand[0].getWorldPosition(new THREE.Vector3());
-      market.greet(entry.stall.id);
-      for (let i = 0; i < 90; i++) market.update(1 / 60);
+      const bones = new Map(); entry.keeper.traverse(b => { if (b.isBone) bones.set(b.userData.name ?? b.name, b); });
+      const hands = ['L_Hand', 'R_Hand'].map(name => bones.get(name));
+      assert.ok(hands.every(Boolean), `${entry.stall.id}: independent skeleton`);
+      const head = bones.get('Head');
+      market.focus(entry.stall.id);
+      market.update(3);
       world.updateMatrixWorld(true);
-      assert.ok(before.distanceTo(hand[0].getWorldPosition(new THREE.Vector3())) > .1, `${entry.stall.id}: greeting moves hand`);
+      const before = hands.map(hand => hand.getWorldPosition(new THREE.Vector3()));
+      const headBefore = head.quaternion.clone();
+      market.greet(entry.stall.id);
+      let maxNod = 0;
+      for (let i = 0; i < 180; i++) {
+        market.update(1 / 60);
+        world.updateMatrixWorld(true);
+        hands.forEach((hand, index) => assert.ok(before[index].distanceTo(hand.getWorldPosition(new THREE.Vector3())) < .005,
+          `${entry.stall.id}: greeting keeps hands still`));
+        maxNod = Math.max(maxNod, head.quaternion.angleTo(headBefore));
+      }
+      assert.ok(maxNod > .04 && maxNod < .08, `${entry.stall.id}: restrained nod`);
+      assert.ok(head.quaternion.angleTo(headBefore) < .001, `${entry.stall.id}: nod returns to rest`);
+      market.focus(null);
     }
     for (let i = 0; i < 600; i++) market.update(1 / 60);
     world.updateMatrixWorld(true);
@@ -122,7 +177,7 @@ try {
   }
   await fs.writeFile(path.join(root, '.preview-check/verification.json'), JSON.stringify({ products: productFiles.length, results }, null, 2));
   await fs.writeFile(path.join(root, '.preview-check/cameras.json'), JSON.stringify(cameraAudit, null, 2));
-  console.log(JSON.stringify({ products: productFiles.length, results }, null, 2));
+  console.log(JSON.stringify({ player: { height: PLAYER_HEIGHT, maxLegMotion, maxOffset, movementAndIdle: 'pass' }, products: productFiles.length, results }, null, 2));
 } finally {
   globalThis.fetch = nativeFetch;
   delete globalThis.__marketTestLoad;

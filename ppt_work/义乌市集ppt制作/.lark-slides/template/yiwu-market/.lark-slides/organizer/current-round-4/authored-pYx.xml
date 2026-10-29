@@ -1,0 +1,48 @@
+<slide id="pYx">
+  <style>
+    <fill id="fYx">
+      <fillColor color="rgba(242, 235, 221, 1)"/>
+    </fill>
+  </style>
+  <data>
+    <shape width="825" height="24" topLeftX="36" topLeftY="24" presetHandlers="0" type="rect" id="bvA">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="14.25" fontFamily="Inter" color="rgba(120, 111, 97, 1)" bold="false" lineSpacing="multiple:1.2" textAlign="left" defaultTabSize="72">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="14.25" fontFamily="Inter" bold="false">03 / 总体布局与空间</span></p>
+      </content>
+    </shape>
+    <shape width="45" height="22.5" topLeftX="879" topLeftY="495.75" presetHandlers="0" type="rect" id="bvf">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="13.5" fontFamily="Inter" color="rgba(120, 111, 97, 1)" bold="false" lineSpacing="multiple:1.2" textAlign="left" defaultTabSize="72">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="13.5" fontFamily="Inter" bold="false">08</span></p>
+      </content>
+    </shape>
+    <shape width="380" height="90" topLeftX="39" topLeftY="95" presetHandlers="0" type="rect" id="bvj">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="52" fontFamily="思源黑体" color="rgba(36, 35, 31, 1)" bold="true" lineSpacing="multiple:1.15" textAlign="left" defaultTabSize="72">
+        <p textAlign="left" lineSpacing="multiple:1.15" defaultTabSize="72"><strong><span color="rgba(36, 35, 31, 1)" fontSize="52" fontFamily="思源黑体">三个场所</span></strong></p>
+      </content>
+    </shape>
+    <shape width="380" height="90" topLeftX="39" topLeftY="185" presetHandlers="0" type="rect" id="bvZ">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="52" fontFamily="思源黑体" color="rgba(174, 61, 46, 1)" bold="true" lineSpacing="multiple:1.15" textAlign="left" defaultTabSize="72">
+        <p textAlign="left" lineSpacing="multiple:1.15" defaultTabSize="72"><strong><span color="rgba(174, 61, 46, 1)" fontSize="52" fontFamily="思源黑体">三张地图</span></strong></p>
+      </content>
+    </shape>
+    <shape width="380" height="90" topLeftX="42.75" topLeftY="300" presetHandlers="0" type="rect" id="bvQ">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(90, 84, 74, 1)" textAlign="left" defaultTabSize="72">
+        <p textAlign="left" defaultTabSize="72"><span color="rgba(90, 84, 74, 1)" fontSize="16" fontFamily="思源黑体">早、午、夜各做一张可漫游的游玩地图，角色沿街巷穿行，摊位沿路展开。</span></p>
+      </content>
+    </shape>
+    <img id="bvy" src="PbgRbw8E1oBocRxZZObce29tnUe" width="500" height="281" topLeftX="420" topLeftY="120">
+      <crop leftOffset="0" rightOffset="0" topOffset="0" bottomOffset="0"/>
+    </img>
+    <shape width="500" height="24" topLeftX="420" topLeftY="408" presetHandlers="0" type="rect" id="bvH">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="12" fontFamily="思源黑体" color="rgba(120, 111, 97, 1)" lineSpacing="multiple:1.2" textAlign="left" defaultTabSize="72">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="12" fontFamily="思源黑体">图 · 市集顶视白模（Blender 场景俯瞰）</span></p>
+      </content>
+    </shape>
+  </data>
+  <note id="bvM">
+    <content>
+      <p>每个时段是一张独立的游玩地图：环形街巷、沿路摊位、可通行的道路，像游戏关卡一样设计动线。</p>
+      <p>右图是团队在 Blender 里做的场景顶视白模，能看到整个市集的布局、道路走向和摊位排布。</p>
+    </content>
+  </note>
+</slide>

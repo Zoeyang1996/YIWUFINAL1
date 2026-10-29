@@ -1,0 +1,55 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0" id="pYa">
+    <style>
+      <fill id="fYa">
+        <fillColor color="rgba(242, 235, 221, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="825" height="24" topLeftX="36" topLeftY="24" type="rect" id="bmZ">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="14.25" fontFamily="Aptos" bold="false" italic="false" strikethrough="false" underline="false">07   /   展品设计</span></p>
+        </content>
+      </shape>
+      <shape width="45" height="22.5" topLeftX="879" topLeftY="495.75" type="rect" id="bmQ">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="13.5" fontFamily="Aptos" bold="false" italic="false" strikethrough="false" underline="false">08</span></p>
+        </content>
+      </shape>
+      <shape width="825" height="86.25" topLeftX="36" topLeftY="69.75" type="rect" id="bmy">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><strong><span color="rgba(36, 35, 31, 1)" fontSize="72" fontFamily="Aptos" italic="false" strikethrough="false" underline="false">器物有趣</span></strong></p>
+        </content>
+      </shape>
+      <img id="bmH" src="Tg0rb82dNoMGgVx85TzcWtrlnze" width="270" height="270" topLeftX="26.25" topLeftY="176.25">
+        <crop leftOffset="0" rightOffset="0" topOffset="0" bottomOffset="0"/>
+      </img>
+      <img id="bmG" src="B4Shb0Vc9oH9okxsDCvc1CPYnLb" width="285" height="285" topLeftX="337.5" topLeftY="168.75">
+        <crop leftOffset="0" rightOffset="0" topOffset="0" bottomOffset="0"/>
+      </img>
+      <img id="bmM" src="KNBeb2pthoV86WxSRvAcbPttnQg" width="270" height="270" topLeftX="656.25" topLeftY="176.25">
+        <crop leftOffset="0" rightOffset="0" topOffset="0" bottomOffset="0"/>
+      </img>
+      <shape width="225" height="45" topLeftX="78.75" topLeftY="450" type="rect" id="bmA">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(36, 35, 31, 1)" fontSize="27" fontFamily="Aptos" bold="false" italic="false" strikethrough="false" underline="false">陶瓷杯</span></p>
+        </content>
+      </shape>
+      <shape width="262.5" height="45" topLeftX="382.5" topLeftY="450" type="rect" id="bmf">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(174, 61, 46, 1)" fontSize="27" fontFamily="Aptos" bold="false" italic="false" strikethrough="false" underline="false">清风红扇</span></p>
+        </content>
+      </shape>
+      <shape width="255" height="45" topLeftX="693.75" topLeftY="450" type="rect" id="bmj">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(36, 35, 31, 1)" fontSize="27" fontFamily="Aptos" bold="false" italic="false" strikethrough="false" underline="false">百珍时钟</span></p>
+        </content>
+      </shape>
+    </data>
+    <note id="bmU">
+      <content>
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(0, 0, 0, 1)" fontSize="12" bold="false" italic="false" strikethrough="false" underline="false">选取三件现有商品展示器物造型与展陈联系。商品素材自制、改造或引用的具体归属需要团队核实后补充，不在此声称全部原创。</span></p>
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(0, 0, 0, 1)" fontSize="12" bold="false" italic="false" strikethrough="false" underline="false">依据：本项目 index.html、设计框架.md、js/data/phases.js、js/data/products.js、assets/markets/README.md。图片来自网页实际三维资产或网页截图。设计解读不代表已完成用户调研或商业落地。</span></p>
+      </content>
+    </note>
+  </slide>
+  

@@ -1,0 +1,46 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill><fillColor color="rgba(242, 235, 221, 1)"/></fill>
+  </style>
+  <data>
+    <shape width="825" height="24" topLeftX="36" topLeftY="24" type="rect">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="14.25" fontFamily="Inter" bold="false">02   /   命题理解与切入点</span></p>
+      </content>
+    </shape>
+    <shape width="45" height="22.5" topLeftX="879" topLeftY="495.75" type="rect">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="13.5" fontFamily="Inter" bold="false">06</span></p>
+      </content>
+    </shape>
+    <shape width="440" height="100" topLeftX="39" topLeftY="90" type="rect">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><strong><span color="rgba(36, 35, 31, 1)" fontSize="76" fontFamily="思源黑体">灵感</span></strong></p>
+      </content>
+    </shape>
+    <shape width="440" height="100" topLeftX="39" topLeftY="196" type="rect">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><strong><span color="rgba(174, 61, 46, 1)" fontSize="76" fontFamily="思源黑体">溯源</span></strong></p>
+      </content>
+    </shape>
+    <img src="MU53bkaGyoazWBx5eCbcLKO2nXd" width="300" height="380" topLeftX="560" topLeftY="80">
+      <crop anchor="top"/>
+    </img>
+    <shape width="440" height="42" topLeftX="42.75" topLeftY="356" type="rect">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.3" defaultTabSize="72"><span color="rgba(36, 35, 31, 1)" fontSize="19" fontFamily="思源黑体">《东京梦华录》《清明上河图》《江南春日图》</span></p>
+      </content>
+    </shape>
+    <shape width="460" height="60" topLeftX="42.75" topLeftY="408" type="rect">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.4" defaultTabSize="72"><span color="rgba(90, 84, 74, 1)" fontSize="15" fontFamily="思源黑体">取宋画街巷之意，夜市取古时「鬼市」的灯火与月色。</span></p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content>
+      <p>设计灵感来自古代文字记载与市井绘画：宋《东京梦华录》里的街市、《清明上河图》《江南春日图》里的生活气息。</p>
+      <p>夜市部分参考古时鬼市的夜晚氛围，用暖灯和暗环境营造另一番市集景象。右侧是团队手绘的 NPC 角色草稿。</p>
+    </content>
+  </note>
+</slide>

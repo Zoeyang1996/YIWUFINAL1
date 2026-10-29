@@ -1,0 +1,48 @@
+<slide id="pYi">
+  <style>
+    <fill id="fYi">
+      <fillColor color="rgba(242, 235, 221, 1)"/>
+    </fill>
+  </style>
+  <data>
+    <shape width="825" height="24" topLeftX="36" topLeftY="24" presetHandlers="0" type="rect" id="bqG">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="14.25" fontFamily="Inter" color="rgba(120, 111, 97, 1)" bold="false" lineSpacing="multiple:1.2" textAlign="left" defaultTabSize="72">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="14.25" fontFamily="Inter" bold="false">04 / 制作流程与落地</span></p>
+      </content>
+    </shape>
+    <shape width="45" height="22.5" topLeftX="879" topLeftY="495.75" presetHandlers="0" type="rect" id="bqM">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="13.5" fontFamily="Inter" color="rgba(120, 111, 97, 1)" bold="false" lineSpacing="multiple:1.2" textAlign="left" defaultTabSize="72">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="13.5" fontFamily="Inter" bold="false">11</span></p>
+      </content>
+    </shape>
+    <shape width="440" height="90" topLeftX="39" topLeftY="85" presetHandlers="0" type="rect" id="bqa">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="60" fontFamily="思源黑体" color="rgba(36, 35, 31, 1)" bold="true" lineSpacing="multiple:1.15" textAlign="left" defaultTabSize="72">
+        <p textAlign="left" lineSpacing="multiple:1.15" defaultTabSize="72"><strong><span color="rgba(36, 35, 31, 1)" fontSize="60" fontFamily="思源黑体">把想法</span></strong></p>
+      </content>
+    </shape>
+    <shape width="440" height="90" topLeftX="39" topLeftY="175" presetHandlers="0" type="rect" id="bqU">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="60" fontFamily="思源黑体" color="rgba(174, 61, 46, 1)" bold="true" lineSpacing="multiple:1.15" textAlign="left" defaultTabSize="72">
+        <p textAlign="left" lineSpacing="multiple:1.15" defaultTabSize="72"><strong><span color="rgba(174, 61, 46, 1)" fontSize="60" fontFamily="思源黑体">搭成市集</span></strong></p>
+      </content>
+    </shape>
+    <shape width="440" height="40" topLeftX="39" topLeftY="290" presetHandlers="0" type="rect" id="bqZ">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="20" fontFamily="思源黑体" color="rgba(36, 35, 31, 1)" lineSpacing="multiple:1.2" textAlign="left" defaultTabSize="72">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(36, 35, 31, 1)" fontSize="20" fontFamily="思源黑体">构思　→　建模　→　布光　→　交互</span></p>
+      </content>
+    </shape>
+    <shape width="445" height="90" topLeftX="42.75" topLeftY="345" presetHandlers="0" type="rect" id="bqQ">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="15" fontFamily="思源黑体" color="rgba(90, 84, 74, 1)" lineSpacing="multiple:1.6" textAlign="left" defaultTabSize="72">
+        <p textAlign="left" lineSpacing="multiple:1.6" defaultTabSize="72"><span color="rgba(90, 84, 74, 1)" fontSize="15" fontFamily="思源黑体">从一张草图开始，经三维建模与场景搭建，到光影调试与网页交互，一步步把虚拟市集变成可逛的成品。</span></p>
+      </content>
+    </shape>
+    <img id="bqA" src="ZknobsjtEoeVA0xrX7Ocp7jKnNe" width="380" height="380" topLeftX="510" topLeftY="80">
+      <crop type="rect" leftOffset="114" rightOffset="114" topOffset="0" bottomOffset="0"/>
+    </img>
+  </data>
+  <note id="bqr">
+    <content>
+      <p>这是整个项目的制作逻辑框架：先构思空间与故事，再建三维资产，搭场景、打光，最后接上网页交互。</p>
+      <p>后面两页会拆开讲两条并行的制作路线，以及用到的工具。</p>
+    </content>
+  </note>
+</slide>

@@ -1,0 +1,9 @@
+/* A small ink-and-paper control, below the basket and clear of movement controls. */
+.sound-controls{position:fixed;top:76px;right:26px;z-index:65;display:flex;align-items:center;gap:0;font:12px var(--font-kai);letter-spacing:.12em;color:var(--panel-text);background:var(--panel);border:1px solid var(--panel-line);border-radius:3px;backdrop-filter:blur(8px)}
+.sound-toggle,.sound-settings>summary{min-height:36px;padding:9px 12px;cursor:pointer;list-style:none;white-space:nowrap}
+.sound-settings>summary::-webkit-details-marker{display:none}.sound-settings>summary{border-left:1px solid var(--panel-line)}
+.sound-controls :focus-visible{outline:2px solid #d9ad71;outline-offset:3px}
+.sound-panel{position:absolute;right:0;top:calc(100% + 9px);width:232px;padding:20px;background:#f3e8d7;color:#513d2b;border:1px solid #b79b76;border-radius:4px;box-shadow:0 12px 35px #251a1830;letter-spacing:.06em}
+.sound-heading{font-size:15px;margin-bottom:18px}.sound-panel label{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:13px 0}.sound-panel input{width:116px;accent-color:#986b42;cursor:pointer}.sound-status{font-size:11px;line-height:1.7;letter-spacing:0;color:#816d59;margin-top:15px}
+@media(max-width:600px){.sound-controls{right:14px;top:68px;font-size:11px}.sound-toggle,.sound-settings>summary{padding:8px;min-height:36px}.sound-panel{width:218px;padding:16px}}
+@media(max-height:560px){.sound-panel{max-height:calc(100dvh - 125px);overflow:auto}}

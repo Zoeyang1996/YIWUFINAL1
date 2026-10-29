@@ -1,0 +1,70 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0" id="pYN">
+    <style>
+      <fill id="fYN">
+        <fillColor color="rgba(242, 235, 221, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="825" height="24" topLeftX="36" topLeftY="24" type="rect" id="bbE">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="14.25" fontFamily="Aptos" bold="false" italic="false" strikethrough="false" underline="false">04   /   时间叙事</span></p>
+        </content>
+      </shape>
+      <shape width="45" height="22.5" topLeftX="879" topLeftY="495.75" type="rect" id="bbl">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="13.5" fontFamily="Aptos" bold="false" italic="false" strikethrough="false" underline="false">05</span></p>
+        </content>
+      </shape>
+      <shape width="825" height="86.25" topLeftX="36" topLeftY="69.75" type="rect" id="bbV">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><strong><span color="rgba(36, 35, 31, 1)" fontSize="70.5" fontFamily="Aptos" italic="false" strikethrough="false" underline="false">一日三市</span></strong></p>
+        </content>
+      </shape>
+      <img id="bbw" src="ZknobsjtEoeVA0xrX7Ocp7jKnNe" width="352.5" height="220.31251968503938" topLeftX="0" topLeftY="176.34377952755906">
+        <crop leftOffset="0" rightOffset="0" topOffset="0" bottomOffset="0"/>
+      </img>
+      <shape width="255" height="60" topLeftX="43.5" topLeftY="395.25" type="rect" id="bbs">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><strong><span color="rgba(36, 35, 31, 1)" fontSize="45" fontFamily="Aptos" italic="false" strikethrough="false" underline="false">晨起</span></strong></p>
+        </content>
+      </shape>
+      <shape width="247.5" height="30" topLeftX="46.5" topLeftY="460.5" type="rect" id="bbz">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(36, 35, 31, 1)" fontSize="21" fontFamily="Aptos" bold="false" italic="false" strikethrough="false" underline="false">茶与早点</span></p>
+        </content>
+      </shape>
+      <img id="bbT" src="HKt4b9T11oWDLOxdzZ4cZfuXnbb" width="352.5" height="220.31251968503938" topLeftX="307.5" topLeftY="176.34377952755906">
+        <crop leftOffset="0" rightOffset="0" topOffset="0" bottomOffset="0"/>
+      </img>
+      <shape width="255" height="60" topLeftX="351" topLeftY="395.25" type="rect" id="bbB">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><strong><span color="rgba(36, 35, 31, 1)" fontSize="45" fontFamily="Aptos" italic="false" strikethrough="false" underline="false">午游</span></strong></p>
+        </content>
+      </shape>
+      <shape width="247.5" height="30" topLeftX="354" topLeftY="460.5" type="rect" id="bbi">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(36, 35, 31, 1)" fontSize="21" fontFamily="Aptos" bold="false" italic="false" strikethrough="false" underline="false">扇与杂货</span></p>
+        </content>
+      </shape>
+      <img id="bbP" src="UB2kbLta2oVteLx3HrVc6LCUn7e" width="352.5" height="220.31251968503938" topLeftX="615" topLeftY="176.34377952755906">
+        <crop leftOffset="0" rightOffset="0" topOffset="0" bottomOffset="0"/>
+      </img>
+      <shape width="255" height="60" topLeftX="658.5" topLeftY="395.25" type="rect" id="bbu">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><strong><span color="rgba(174, 61, 46, 1)" fontSize="45" fontFamily="Aptos" italic="false" strikethrough="false" underline="false">夜赏</span></strong></p>
+        </content>
+      </shape>
+      <shape width="247.5" height="30" topLeftX="661.5" topLeftY="460.5" type="rect" id="bbJ">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(36, 35, 31, 1)" fontSize="21" fontFamily="Aptos" bold="false" italic="false" strikethrough="false" underline="false">灯与器物</span></p>
+        </content>
+      </shape>
+    </data>
+    <note id="bbo">
+      <content>
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(0, 0, 0, 1)" fontSize="12" bold="false" italic="false" strikethrough="false" underline="false">时间叙事组织场景与展品。早市对应茶水、木铃、早餐；午市对应扇子、杂货、香囊；夜市对应古董、花灯、酿酒。</span></p>
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(0, 0, 0, 1)" fontSize="12" bold="false" italic="false" strikethrough="false" underline="false">依据：本项目 index.html、设计框架.md、js/data/phases.js、js/data/products.js、assets/markets/README.md。图片来自网页实际三维资产或网页截图。设计解读不代表已完成用户调研或商业落地。</span></p>
+      </content>
+    </note>
+  </slide>
+  

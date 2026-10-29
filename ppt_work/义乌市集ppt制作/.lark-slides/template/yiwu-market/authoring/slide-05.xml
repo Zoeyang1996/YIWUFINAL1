@@ -1,0 +1,67 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill><fillColor color="rgba(242, 235, 221, 1)"/></fill>
+  </style>
+  <data>
+    <shape width="825" height="24" topLeftX="36" topLeftY="24" type="rect">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="14.25" fontFamily="Inter" bold="false">02   /   命题理解与切入点</span></p>
+      </content>
+    </shape>
+    <shape width="45" height="22.5" topLeftX="879" topLeftY="495.75" type="rect">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="13.5" fontFamily="Inter" bold="false">05</span></p>
+      </content>
+    </shape>
+    <shape width="600" height="66" topLeftX="36" topLeftY="60" type="rect">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><strong><span color="rgba(36, 35, 31, 1)" fontSize="48" fontFamily="思源黑体">核心概念</span><span color="rgba(174, 61, 46, 1)" fontSize="48" fontFamily="思源黑体">，三句讲清</span></strong></p>
+      </content>
+    </shape>
+    <img src="HKt4b9T11oWDLOxdzZ4cZfuXnbb" width="270" height="169" topLeftX="36" topLeftY="150">
+      <crop leftOffset="0" rightOffset="0" topOffset="0" bottomOffset="0"/>
+    </img>
+    <img src="Tg0rb82dNoMGgVx85TzcWtrlnze" width="270" height="169" topLeftX="345" topLeftY="150">
+      <crop leftOffset="0" rightOffset="0" topOffset="0" bottomOffset="0"/>
+    </img>
+    <img src="UB2kbLta2oVteLx3HrVc6LCUn7e" width="270" height="169" topLeftX="654" topLeftY="150">
+      <crop leftOffset="0" rightOffset="0" topOffset="0" bottomOffset="0"/>
+    </img>
+    <shape width="270" height="34" topLeftX="36" topLeftY="335" type="rect">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 31, 1)" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><strong><span color="rgba(36, 35, 31, 1)" fontSize="22" fontFamily="思源黑体">古代市集</span></strong></p>
+      </content>
+    </shape>
+    <shape width="270" height="34" topLeftX="345" topLeftY="335" type="rect">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 31, 1)" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><strong><span color="rgba(36, 35, 31, 1)" fontSize="22" fontFamily="思源黑体">国潮小商品</span></strong></p>
+      </content>
+    </shape>
+    <shape width="270" height="34" topLeftX="654" topLeftY="335" type="rect">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 31, 1)" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><strong><span color="rgba(36, 35, 31, 1)" fontSize="22" fontFamily="思源黑体">可分享网页</span></strong></p>
+      </content>
+    </shape>
+    <shape width="270" height="80" topLeftX="36" topLeftY="372" type="rect">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 31, 1)" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.4" defaultTabSize="72"><span color="rgba(90, 84, 74, 1)" fontSize="14" fontFamily="思源黑体">从宋画里走来的街巷与烟火气</span></p>
+      </content>
+    </shape>
+    <shape width="270" height="80" topLeftX="345" topLeftY="372" type="rect">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 31, 1)" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.4" defaultTabSize="72"><span color="rgba(90, 84, 74, 1)" fontSize="14" fontFamily="思源黑体">把义乌小物摆进古代摊位</span></p>
+      </content>
+    </shape>
+    <shape width="270" height="80" topLeftX="654" topLeftY="372" type="rect">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 31, 1)" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.4" defaultTabSize="72"><span color="rgba(90, 84, 74, 1)" fontSize="14" fontFamily="思源黑体">一个链接，随时逛、随时分享</span></p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content>
+      <p>核心概念由三点构成：古代市集的空间、现代义乌国潮小商品的内容、轻量化可分享网页的载体。</p>
+      <p>三者叠加，才是这个项目区别于普通古风场景的地方——它是给义乌小商品做的一座可漫游的线上市。</p>
+    </content>
+  </note>
+</slide>

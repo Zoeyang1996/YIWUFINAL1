@@ -1,0 +1,105 @@
+{
+  "slide_num": 2,
+  "role": "content",
+  "slide_id": "pYT",
+  "local_xml_path": "source-slides/slide-02.xml",
+  "shell_shapes": [],
+  "content_shapes": [
+    {
+      "id": 2,
+      "type": "AUTO_SHAPE",
+      "left": 0.5,
+      "top": 0.3333,
+      "width": 11.4583,
+      "height": 0.3333,
+      "text": "01   /   作品概览"
+    },
+    {
+      "id": 3,
+      "type": "AUTO_SHAPE",
+      "left": 12.2083,
+      "top": 6.8854,
+      "width": 0.625,
+      "height": 0.3125,
+      "text": "02"
+    },
+    {
+      "id": 4,
+      "type": "AUTO_SHAPE",
+      "left": 0.5,
+      "top": 1.0208,
+      "width": 12.2917,
+      "height": 1.0938,
+      "text": "把市集，搬进屏幕"
+    },
+    {
+      "id": 5,
+      "type": "PICTURE",
+      "left": -0.1875,
+      "top": 2.5326,
+      "width": 4.8958,
+      "height": 3.0599,
+      "text": ""
+    },
+    {
+      "id": 6,
+      "type": "AUTO_SHAPE",
+      "left": 0.7812,
+      "top": 5.625,
+      "width": 1.4583,
+      "height": 1.0417,
+      "text": "早"
+    },
+    {
+      "id": 7,
+      "type": "PICTURE",
+      "left": 4.1354,
+      "top": 2.5326,
+      "width": 4.8958,
+      "height": 3.0599,
+      "text": ""
+    },
+    {
+      "id": 8,
+      "type": "AUTO_SHAPE",
+      "left": 5.1042,
+      "top": 5.625,
+      "width": 1.4583,
+      "height": 1.0417,
+      "text": "午"
+    },
+    {
+      "id": 9,
+      "type": "PICTURE",
+      "left": 8.4583,
+      "top": 2.5326,
+      "width": 4.8958,
+      "height": 3.0599,
+      "text": ""
+    },
+    {
+      "id": 10,
+      "type": "AUTO_SHAPE",
+      "left": 9.4271,
+      "top": 5.625,
+      "width": 1.4583,
+      "height": 1.0417,
+      "text": "夜"
+    },
+    {
+      "id": 11,
+      "type": "AUTO_SHAPE",
+      "left": 0.625,
+      "top": 6.7292,
+      "width": 10.4167,
+      "height": 0.4375,
+      "text": "3 个时段    9 处摊位    13 件展品"
+    }
+  ],
+  "available_regions": [],
+  "images_used": [
+    "image3.png",
+    "image2.png",
+    "image1.png"
+  ]
+}

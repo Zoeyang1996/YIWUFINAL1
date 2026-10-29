@@ -1,0 +1,443 @@
+{
+  "ok": true,
+  "pptx": "/Users/yangzhe/Downloads/义乌市集ppt制作/义犹未尽-答辩视觉初稿.pptx",
+  "canvas": {
+    "width_inch": 13.3333,
+    "height_inch": 7.5
+  },
+  "total_slides": 15,
+  "capability_level": "degraded",
+  "capabilities": {
+    "python_pptx": true,
+    "pypdfium2": true,
+    "pil": true,
+    "lxml": true,
+    "soffice": false
+  },
+  "overview": {
+    "ok": true,
+    "reason": "ok_via_screenshot",
+    "path": "thumbs/overview.jpg",
+    "paths": [
+      "thumbs/overview.jpg"
+    ],
+    "sharded": false,
+    "shard_count": 1
+  },
+  "lark": {
+    "template_imported": true,
+    "deck": {
+      "xml_presentation_id": "BsXPsxj5hl3nJzdoQI7cNqblnyh",
+      "url": "https://my.feishu.cn/slides/BsXPsxj5hl3nJzdoQI7cNqblnyh",
+      "first_page_slide_id": "pYh",
+      "first_page_state": "blank"
+    }
+  },
+  "visual_language": {
+    "primary_colors": [
+      "rgba(31, 35, 41, 1)",
+      "rgba(242, 235, 221, 1)",
+      "rgba(20, 33, 39, 1)"
+    ],
+    "fonts_declared": {
+      "major_latin": "Aptos",
+      "minor_latin": "Aptos",
+      "major_ea": null,
+      "minor_ea": null
+    },
+    "fonts_used": [
+      {
+        "name": "Aptos",
+        "count": 95
+      },
+      {
+        "name": "思源黑体",
+        "count": 94
+      }
+    ]
+  },
+  "assets_local_files": [
+    {
+      "filename": "image1.png",
+      "size_bytes": 970261,
+      "local_path": "assets/image1.png"
+    },
+    {
+      "filename": "image10.png",
+      "size_bytes": 90073,
+      "local_path": "assets/image10.png"
+    },
+    {
+      "filename": "image11.png",
+      "size_bytes": 95739,
+      "local_path": "assets/image11.png"
+    },
+    {
+      "filename": "image2.png",
+      "size_bytes": 679270,
+      "local_path": "assets/image2.png"
+    },
+    {
+      "filename": "image3.png",
+      "size_bytes": 647700,
+      "local_path": "assets/image3.png"
+    },
+    {
+      "filename": "image4.png",
+      "size_bytes": 92341,
+      "local_path": "assets/image4.png"
+    },
+    {
+      "filename": "image5.png",
+      "size_bytes": 1005896,
+      "local_path": "assets/image5.png"
+    },
+    {
+      "filename": "image6.png",
+      "size_bytes": 79689,
+      "local_path": "assets/image6.png"
+    },
+    {
+      "filename": "image7.png",
+      "size_bytes": 116247,
+      "local_path": "assets/image7.png"
+    },
+    {
+      "filename": "image8.png",
+      "size_bytes": 1649255,
+      "local_path": "assets/image8.png"
+    },
+    {
+      "filename": "image9.png",
+      "size_bytes": 79589,
+      "local_path": "assets/image9.png"
+    }
+  ],
+  "assets_with_tokens": [
+    {
+      "file_token": "ZknobsjtEoeVA0xrX7Ocp7jKnNe",
+      "used_in_slide_num": [
+        1,
+        2,
+        5,
+        11,
+        13,
+        15
+      ],
+      "source": "template"
+    },
+    {
+      "file_token": "HKt4b9T11oWDLOxdzZ4cZfuXnbb",
+      "used_in_slide_num": [
+        2,
+        4,
+        5,
+        12
+      ],
+      "source": "template"
+    },
+    {
+      "file_token": "UB2kbLta2oVteLx3HrVc6LCUn7e",
+      "used_in_slide_num": [
+        2,
+        5,
+        7,
+        14
+      ],
+      "source": "template"
+    },
+    {
+      "file_token": "B4Shb0Vc9oH9okxsDCvc1CPYnLb",
+      "used_in_slide_num": [
+        3,
+        8
+      ],
+      "source": "template"
+    },
+    {
+      "file_token": "GbMEbIg87oANwPxb8zBc9XGZnYf",
+      "used_in_slide_num": [
+        6
+      ],
+      "source": "template"
+    },
+    {
+      "file_token": "Tg0rb82dNoMGgVx85TzcWtrlnze",
+      "used_in_slide_num": [
+        8
+      ],
+      "source": "template"
+    },
+    {
+      "file_token": "KNBeb2pthoV86WxSRvAcbPttnQg",
+      "used_in_slide_num": [
+        8
+      ],
+      "source": "template"
+    },
+    {
+      "file_token": "VwrQbyLTBoFOUFx3WvdcjyaHnxh",
+      "used_in_slide_num": [
+        9
+      ],
+      "source": "template"
+    },
+    {
+      "file_token": "CXuMb492Qocpt9x0PTGc7clCnXd",
+      "used_in_slide_num": [
+        10
+      ],
+      "source": "template"
+    },
+    {
+      "file_token": "Tal7bCPqWoSW5cxnSWFc7HiInUb",
+      "used_in_slide_num": [
+        13
+      ],
+      "source": "template"
+    },
+    {
+      "file_token": "NXQrbMxvVohHxMxG0sTcpm40nne",
+      "used_in_slide_num": [
+        13
+      ],
+      "source": "template"
+    }
+  ],
+  "sample_placeholders": [],
+  "slides": [
+    {
+      "slide_num": 1,
+      "role": "cover",
+      "slide_id": "pYh",
+      "local_xml_path": "source-slides/slide-01.xml",
+      "preview_text": "浙江省数智创意竞赛   /   文创产品设计·展陈设计组 / 01 / 义犹未尽 / 义乌三时市集 / 一日三市\n一场可漫游的国潮展陈",
+      "images_used": [
+        "image1.png"
+      ],
+      "shape_count": {
+        "shell": 1,
+        "content": 5
+      },
+      "content_skeleton_path": null
+    },
+    {
+      "slide_num": 2,
+      "role": "content",
+      "slide_id": "pYT",
+      "local_xml_path": "source-slides/slide-02.xml",
+      "preview_text": "01   /   作品概览 / 02 / 把市集，搬进屏幕 / 早 / 午 / 夜 / 3 个时段    9 处摊位    13 件展品",
+      "images_used": [
+        "image3.png",
+        "image2.png",
+        "image1.png"
+      ],
+      "shape_count": {
+        "shell": 0,
+        "content": 10
+      },
+      "content_skeleton_path": null
+    },
+    {
+      "slide_num": 3,
+      "role": "content",
+      "slide_id": "pYI",
+      "local_xml_path": "source-slides/slide-03.xml",
+      "preview_text": "02   /   设计命题 / 03 / 小商品 / 大场景 / 义乌小商品 × 国潮文化 / 用空间建立语境，用互动留下记忆",
+      "images_used": [
+        "image4.png"
+      ],
+      "shape_count": {
+        "shell": 0,
+        "content": 7
+      },
+      "content_skeleton_path": "manifest/content-skeletons/slide-03.content-skeleton.xml"
+    },
+    {
+      "slide_num": 4,
+      "role": "content",
+      "slide_id": "pYn",
+      "local_xml_path": "source-slides/slide-04.xml",
+      "preview_text": "03   /   灵感与转译 / 04 / 市井 / 烟火 / 瓦檐   布幌   摊铺 / 日常器物，进入街巷叙事",
+      "images_used": [
+        "image2.png"
+      ],
+      "shape_count": {
+        "shell": 0,
+        "content": 7
+      },
+      "content_skeleton_path": "manifest/content-skeletons/slide-04.content-skeleton.xml"
+    },
+    {
+      "slide_num": 5,
+      "role": "content",
+      "slide_id": "pYN",
+      "local_xml_path": "source-slides/slide-05.xml",
+      "preview_text": "04   /   时间叙事 / 05 / 一日三市 / 晨起 / 茶与早点 / 午游 / 扇与杂货 / 夜赏 / 灯与器物",
+      "images_used": [
+        "image3.png",
+        "image2.png",
+        "image1.png"
+      ],
+      "shape_count": {
+        "shell": 0,
+        "content": 12
+      },
+      "content_skeleton_path": "manifest/content-skeletons/slide-05.content-skeleton.xml"
+    },
+    {
+      "slide_num": 6,
+      "role": "content",
+      "slide_id": "pYp",
+      "local_xml_path": "source-slides/slide-06.xml",
+      "preview_text": "05   /   空间组织 / 06 / 入市 · 逛街 · 停留 / 入口 / 街巷 / 摊位",
+      "images_used": [
+        "image5.png"
+      ],
+      "shape_count": {
+        "shell": 0,
+        "content": 7
+      },
+      "content_skeleton_path": "manifest/content-skeletons/slide-06.content-skeleton.xml"
+    },
+    {
+      "slide_num": 7,
+      "role": "content",
+      "slide_id": "pYZ",
+      "local_xml_path": "source-slides/slide-07.xml",
+      "preview_text": "06   /   灯光氛围 / 07 / 灯火入夜 / 冷环境 / 暖灯火 / 光，成为空间的引导",
+      "images_used": [
+        "image3.png"
+      ],
+      "shape_count": {
+        "shell": 1,
+        "content": 6
+      },
+      "content_skeleton_path": "manifest/content-skeletons/slide-07.content-skeleton.xml"
+    },
+    {
+      "slide_num": 8,
+      "role": "content",
+      "slide_id": "pYa",
+      "local_xml_path": "source-slides/slide-08.xml",
+      "preview_text": "07   /   展品设计 / 08 / 器物有趣 / 陶瓷杯 / 清风红扇 / 百珍时钟",
+      "images_used": [
+        "image7.png",
+        "image4.png",
+        "image6.png"
+      ],
+      "shape_count": {
+        "shell": 0,
+        "content": 9
+      },
+      "content_skeleton_path": "manifest/content-skeletons/slide-08.content-skeleton.xml"
+    },
+    {
+      "slide_num": 9,
+      "role": "content",
+      "slide_id": "pYY",
+      "local_xml_path": "source-slides/slide-09.xml",
+      "preview_text": "08   /   观展交互 / 09 / 走近，才有回应 / 漫游 / 停留 / 探索",
+      "images_used": [
+        "image8.png"
+      ],
+      "shape_count": {
+        "shell": 0,
+        "content": 7
+      },
+      "content_skeleton_path": "manifest/content-skeletons/slide-09.content-skeleton.xml"
+    },
+    {
+      "slide_num": 10,
+      "role": "content",
+      "slide_id": "pYJ",
+      "local_xml_path": "source-slides/slide-10.xml",
+      "preview_text": "09   /   商品细节 / 10 / 拿近 / 细看 / 旋转   缩放   查看 / 让小商品，拥有完整的观看尺度",
+      "images_used": [
+        "image9.png"
+      ],
+      "shape_count": {
+        "shell": 0,
+        "content": 7
+      },
+      "content_skeleton_path": "manifest/content-skeletons/slide-10.content-skeleton.xml"
+    },
+    {
+      "slide_num": 11,
+      "role": "content",
+      "slide_id": "pYW",
+      "local_xml_path": "source-slides/slide-11.xml",
+      "preview_text": "10   /   视觉系统 / 11 / 纸感 / 墨字 / 朱红 / 少一点界面，多一点场景",
+      "images_used": [
+        "image1.png"
+      ],
+      "shape_count": {
+        "shell": 0,
+        "content": 7
+      },
+      "content_skeleton_path": "manifest/content-skeletons/slide-11.content-skeleton.xml"
+    },
+    {
+      "slide_num": 12,
+      "role": "content",
+      "slide_id": "pYt",
+      "local_xml_path": "source-slides/slide-12.xml",
+      "preview_text": "11   /   制作流程 / 12 / 把想法，搭成市集 / 构思 / 建模 / 布光 / 交互",
+      "images_used": [
+        "image2.png"
+      ],
+      "shape_count": {
+        "shell": 0,
+        "content": 8
+      },
+      "content_skeleton_path": "manifest/content-skeletons/slide-12.content-skeleton.xml"
+    },
+    {
+      "slide_num": 13,
+      "role": "content",
+      "slide_id": "pYE",
+      "local_xml_path": "source-slides/slide-13.xml",
+      "preview_text": "12   /   制作素材 / 13 / 场景 × 材质 × 器物 / 模型资产 / 材质与贴图 / 网页呈现",
+      "images_used": [
+        "image11.png",
+        "image10.png",
+        "image1.png"
+      ],
+      "shape_count": {
+        "shell": 0,
+        "content": 9
+      },
+      "content_skeleton_path": "manifest/content-skeletons/slide-13.content-skeleton.xml"
+    },
+    {
+      "slide_num": 14,
+      "role": "content",
+      "slide_id": "pYo",
+      "local_xml_path": "source-slides/slide-14.xml",
+      "preview_text": "13   /   展示价值与应用 / 14 / 让人愿意，多逛一会 / 时间叙事 / 空间探索 / 器物细看 / 网页原型   /   线上展陈与展会导览设想",
+      "images_used": [
+        "image3.png"
+      ],
+      "shape_count": {
+        "shell": 0,
+        "content": 8
+      },
+      "content_skeleton_path": "manifest/content-skeletons/slide-14.content-skeleton.xml"
+    },
+    {
+      "slide_num": 15,
+      "role": "ending",
+      "slide_id": "pYf",
+      "local_xml_path": "source-slides/slide-15.xml",
+      "preview_text": "义犹未尽   /   义乌三时市集 / 15 / 一日三市 / 义犹未尽 / 谢谢观看",
+      "images_used": [
+        "image1.png"
+      ],
+      "shape_count": {
+        "shell": 1,
+        "content": 5
+      },
+      "content_skeleton_path": null
+    }
+  ]
+}

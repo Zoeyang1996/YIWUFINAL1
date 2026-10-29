@@ -1,0 +1,133 @@
+pageType: content
+background:
+  type: solid
+  color: $night
+elements:
+- elementId: night-bg
+  elementType: shape
+  bounds:
+  - 0
+  - 0
+  - 960
+  - 540
+  shapeName: rect
+  fill:
+    type: solid
+    color: $night
+- elementId: meta
+  elementType: text
+  bounds:
+  - 48
+  - 26
+  - 200
+  - 18
+  content:
+    text: 10  /  夜市
+    fontSize: 10
+    fontFamily: MiSans
+    color: $cream
+    bold: false
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 1.5
+    wrap: false
+- elementId: glyph
+  elementType: text
+  bounds:
+  - 54
+  - 66
+  - 250
+  - 190
+  content:
+    text: 夜
+    fontSize: 142
+    fontFamily: MiSans
+    color: $gold
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: hour
+  elementType: text
+  bounds:
+  - 60
+  - 260
+  - 300
+  - 28
+  content:
+    text: 戌时 / NIGHT
+    fontSize: 16
+    fontFamily: MiSans
+    color: $cream
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 1.2
+    wrap: false
+- elementId: title
+  elementType: text
+  bounds:
+  - 54
+  - 320
+  - 360
+  - 112
+  content:
+    text: '灯火初上
+
+      人影渐长'
+    fontSize: 44
+    fontFamily: MiSans
+    color: $cream
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: true
+- elementId: shops
+  elementType: text
+  bounds:
+  - 58
+  - 460
+  - 400
+  - 26
+  content:
+    text: 古董摊  ·  花灯摊  ·  酿酒摊
+    fontSize: 17
+    fontFamily: MiSans
+    color: $gold
+    bold: false
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: market
+  elementType: image
+  bounds:
+  - 336
+  - 52
+  - 600
+  - 434
+  src: media/market-night.png
+  fit:
+    mode: contain
+- elementId: lamp
+  elementType: image
+  bounds:
+  - 758
+  - 342
+  - 110
+  - 128
+  src: media/product-hatLamp.png
+  fit:
+    mode: contain

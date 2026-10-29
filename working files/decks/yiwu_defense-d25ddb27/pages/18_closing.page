@@ -1,0 +1,120 @@
+pageType: final
+background:
+  type: solid
+  color: $paper
+elements:
+- elementId: red-band
+  elementType: shape
+  bounds:
+  - 0
+  - 0
+  - 14
+  - 540
+  shapeName: rect
+  fill:
+    type: solid
+    color: $red
+- elementId: title
+  elementType: text
+  bounds:
+  - 50
+  - 88
+  - 470
+  - 168
+  content:
+    text: '一日三市
+
+      义犹未尽'
+    fontSize: 62
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.05
+    letterSpacing: 0
+    wrap: true
+- elementId: sub
+  elementType: text
+  bounds:
+  - 54
+  - 296
+  - 500
+  - 64
+  content:
+    text: 让义乌小商品，在可漫游的国风市集中被看见。
+    fontSize: 23
+    fontFamily: MiSans
+    color: $red
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.4
+    letterSpacing: 0
+    wrap: true
+- elementId: rule
+  elementType: line
+  bounds:
+  - 54
+  - 400
+  - 320
+  - 2
+  viewBox:
+  - 1
+  - 1
+  points: 0,0 1,0
+  curve: sharp
+  border:
+    style: solid
+    width: 2
+    color: $ink
+- elementId: thanks
+  elementType: text
+  bounds:
+  - 54
+  - 430
+  - 380
+  - 30
+  content:
+    text: 谢谢观看  /  敬请指正
+    fontSize: 18
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: market
+  elementType: image
+  bounds:
+  - 464
+  - 46
+  - 470
+  - 434
+  src: media/market-night.png
+  fit:
+    mode: contain
+- elementId: seal
+  elementType: text
+  bounds:
+  - 846
+  - 454
+  - 48
+  - 48
+  content:
+    text: 义
+    fontSize: 28
+    fontFamily: MiSans
+    color: $red
+    bold: true
+    align:
+    - center
+    - middle
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false

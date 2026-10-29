@@ -1,0 +1,144 @@
+pageType: content
+background:
+  type: solid
+  color: '#F2E7D1'
+elements:
+- elementId: wash
+  elementType: shape
+  bounds:
+  - 0
+  - 0
+  - 960
+  - 540
+  shapeName: rect
+  fill:
+    type: solid
+    color: '#F2E7D1'
+- elementId: market
+  elementType: image
+  bounds:
+  - 28
+  - 40
+  - 580
+  - 428
+  src: media/market-noon.png
+  fit:
+    mode: contain
+- elementId: vertical-red
+  elementType: shape
+  bounds:
+  - 614
+  - 0
+  - 8
+  - 540
+  shapeName: rect
+  fill:
+    type: solid
+    color: $red
+- elementId: glyph
+  elementType: text
+  bounds:
+  - 666
+  - 34
+  - 220
+  - 176
+  content:
+    text: 午
+    fontSize: 136
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - center
+    - middle
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: hour
+  elementType: text
+  bounds:
+  - 664
+  - 226
+  - 240
+  - 26
+  content:
+    text: 午时 / NOON
+    fontSize: 16
+    fontFamily: MiSans
+    color: $red
+    bold: true
+    align:
+    - center
+    - top
+    lineHeight: 1.15
+    letterSpacing: 1.2
+    wrap: false
+- elementId: title
+  elementType: text
+  bounds:
+  - 650
+  - 286
+  - 270
+  - 104
+  content:
+    text: '日正当中
+
+      市声最盛'
+    fontSize: 40
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - center
+    - top
+    lineHeight: 1.2
+    letterSpacing: 0
+    wrap: true
+- elementId: shops
+  elementType: text
+  bounds:
+  - 654
+  - 426
+  - 260
+  - 26
+  content:
+    text: 扇子 / 杂货 / 香囊
+    fontSize: 17
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - center
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: fan
+  elementType: image
+  bounds:
+  - 480
+  - 332
+  - 132
+  - 132
+  src: media/product-noonFan.png
+  fit:
+    mode: contain
+- elementId: num
+  elementType: text
+  bounds:
+  - 28
+  - 26
+  - 48
+  - 24
+  content:
+    text: 09
+    fontSize: 12
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false

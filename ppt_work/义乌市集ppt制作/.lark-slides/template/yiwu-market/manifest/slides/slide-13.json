@@ -1,0 +1,96 @@
+{
+  "slide_num": 13,
+  "role": "content",
+  "slide_id": "pYE",
+  "local_xml_path": "source-slides/slide-13.xml",
+  "shell_shapes": [],
+  "content_shapes": [
+    {
+      "id": 2,
+      "type": "AUTO_SHAPE",
+      "left": 0.5,
+      "top": 0.3333,
+      "width": 11.4583,
+      "height": 0.3333,
+      "text": "12   /   制作素材"
+    },
+    {
+      "id": 3,
+      "type": "AUTO_SHAPE",
+      "left": 12.2083,
+      "top": 6.8854,
+      "width": 0.625,
+      "height": 0.3125,
+      "text": "13"
+    },
+    {
+      "id": 4,
+      "type": "AUTO_SHAPE",
+      "left": 0.5,
+      "top": 0.9896,
+      "width": 12.2917,
+      "height": 1.1458,
+      "text": "场景 × 材质 × 器物"
+    },
+    {
+      "id": 5,
+      "type": "PICTURE",
+      "left": -0.0521,
+      "top": 2.5521,
+      "width": 6.25,
+      "height": 3.9062,
+      "text": ""
+    },
+    {
+      "id": 6,
+      "type": "PICTURE",
+      "left": 5.9375,
+      "top": 2.9167,
+      "width": 3.3333,
+      "height": 3.3333,
+      "text": ""
+    },
+    {
+      "id": 7,
+      "type": "PICTURE",
+      "left": 9.1667,
+      "top": 2.8125,
+      "width": 3.5417,
+      "height": 3.5417,
+      "text": ""
+    },
+    {
+      "id": 8,
+      "type": "AUTO_SHAPE",
+      "left": 0.625,
+      "top": 6.2708,
+      "width": 4.1667,
+      "height": 0.625,
+      "text": "模型资产"
+    },
+    {
+      "id": 9,
+      "type": "AUTO_SHAPE",
+      "left": 5.3125,
+      "top": 6.2708,
+      "width": 4.4792,
+      "height": 0.625,
+      "text": "材质与贴图"
+    },
+    {
+      "id": 10,
+      "type": "AUTO_SHAPE",
+      "left": 10.2083,
+      "top": 6.2708,
+      "width": 3.125,
+      "height": 0.625,
+      "text": "网页呈现"
+    }
+  ],
+  "available_regions": [],
+  "images_used": [
+    "image11.png",
+    "image10.png",
+    "image1.png"
+  ]
+}

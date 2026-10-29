@@ -1,0 +1,96 @@
+{
+  "slide_num": 8,
+  "role": "content",
+  "slide_id": "pYa",
+  "local_xml_path": "source-slides/slide-08.xml",
+  "shell_shapes": [],
+  "content_shapes": [
+    {
+      "id": 2,
+      "type": "AUTO_SHAPE",
+      "left": 0.5,
+      "top": 0.3333,
+      "width": 11.4583,
+      "height": 0.3333,
+      "text": "07   /   展品设计"
+    },
+    {
+      "id": 3,
+      "type": "AUTO_SHAPE",
+      "left": 12.2083,
+      "top": 6.8854,
+      "width": 0.625,
+      "height": 0.3125,
+      "text": "08"
+    },
+    {
+      "id": 4,
+      "type": "AUTO_SHAPE",
+      "left": 0.5,
+      "top": 0.9688,
+      "width": 11.4583,
+      "height": 1.1979,
+      "text": "器物有趣"
+    },
+    {
+      "id": 5,
+      "type": "PICTURE",
+      "left": 0.3646,
+      "top": 2.4479,
+      "width": 3.75,
+      "height": 3.75,
+      "text": ""
+    },
+    {
+      "id": 6,
+      "type": "PICTURE",
+      "left": 4.6875,
+      "top": 2.3438,
+      "width": 3.9583,
+      "height": 3.9583,
+      "text": ""
+    },
+    {
+      "id": 7,
+      "type": "PICTURE",
+      "left": 9.1146,
+      "top": 2.4479,
+      "width": 3.75,
+      "height": 3.75,
+      "text": ""
+    },
+    {
+      "id": 8,
+      "type": "AUTO_SHAPE",
+      "left": 1.0938,
+      "top": 6.25,
+      "width": 3.125,
+      "height": 0.625,
+      "text": "陶瓷杯"
+    },
+    {
+      "id": 9,
+      "type": "AUTO_SHAPE",
+      "left": 5.3125,
+      "top": 6.25,
+      "width": 3.6458,
+      "height": 0.625,
+      "text": "清风红扇"
+    },
+    {
+      "id": 10,
+      "type": "AUTO_SHAPE",
+      "left": 9.6354,
+      "top": 6.25,
+      "width": 3.5417,
+      "height": 0.625,
+      "text": "百珍时钟"
+    }
+  ],
+  "available_regions": [],
+  "images_used": [
+    "image7.png",
+    "image4.png",
+    "image6.png"
+  ]
+}

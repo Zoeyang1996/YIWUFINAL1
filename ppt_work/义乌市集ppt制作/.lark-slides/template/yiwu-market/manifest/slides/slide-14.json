@@ -1,0 +1,85 @@
+{
+  "slide_num": 14,
+  "role": "content",
+  "slide_id": "pYo",
+  "local_xml_path": "source-slides/slide-14.xml",
+  "shell_shapes": [],
+  "content_shapes": [
+    {
+      "id": 2,
+      "type": "AUTO_SHAPE",
+      "left": 0.5,
+      "top": 0.3333,
+      "width": 11.4583,
+      "height": 0.3333,
+      "text": "13   /   展示价值与应用"
+    },
+    {
+      "id": 3,
+      "type": "AUTO_SHAPE",
+      "left": 12.2083,
+      "top": 6.8854,
+      "width": 0.625,
+      "height": 0.3125,
+      "text": "14"
+    },
+    {
+      "id": 4,
+      "type": "AUTO_SHAPE",
+      "left": 0.5,
+      "top": 0.9792,
+      "width": 12.2917,
+      "height": 1.1458,
+      "text": "让人愿意，多逛一会"
+    },
+    {
+      "id": 5,
+      "type": "PICTURE",
+      "left": 5.3646,
+      "top": 2.3958,
+      "width": 7.5,
+      "height": 4.6875,
+      "text": ""
+    },
+    {
+      "id": 6,
+      "type": "AUTO_SHAPE",
+      "left": 0.5729,
+      "top": 2.8646,
+      "width": 5.4167,
+      "height": 0.7292,
+      "text": "时间叙事"
+    },
+    {
+      "id": 7,
+      "type": "AUTO_SHAPE",
+      "left": 0.5729,
+      "top": 3.8854,
+      "width": 5.4167,
+      "height": 0.7292,
+      "text": "空间探索"
+    },
+    {
+      "id": 8,
+      "type": "AUTO_SHAPE",
+      "left": 0.5729,
+      "top": 4.9062,
+      "width": 5.4167,
+      "height": 0.7292,
+      "text": "器物细看"
+    },
+    {
+      "id": 9,
+      "type": "AUTO_SHAPE",
+      "left": 0.5729,
+      "top": 6.4271,
+      "width": 11.5625,
+      "height": 0.4375,
+      "text": "网页原型   /   线上展陈与展会导览设想"
+    }
+  ],
+  "available_regions": [],
+  "images_used": [
+    "image3.png"
+  ]
+}

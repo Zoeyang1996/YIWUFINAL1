@@ -1,0 +1,143 @@
+pageType: content
+background:
+  type: solid
+  color: '#EFE5D4'
+elements:
+- elementId: wash
+  elementType: shape
+  bounds:
+  - 0
+  - 0
+  - 960
+  - 540
+  shapeName: rect
+  fill:
+    type: solid
+    color: '#EFE5D4'
+- elementId: glyph
+  elementType: text
+  bounds:
+  - 48
+  - 40
+  - 250
+  - 190
+  content:
+    text: 早
+    fontSize: 142
+    fontFamily: MiSans
+    color: $red
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: hour
+  elementType: text
+  bounds:
+  - 58
+  - 232
+  - 300
+  - 28
+  content:
+    text: 卯时 / MORNING
+    fontSize: 16
+    fontFamily: MiSans
+    color: $muted
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 1.2
+    wrap: false
+- elementId: title
+  elementType: text
+  bounds:
+  - 52
+  - 292
+  - 360
+  - 112
+  content:
+    text: '天光初开
+
+      蒸汽先醒'
+    fontSize: 44
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: true
+- elementId: shops
+  elementType: text
+  bounds:
+  - 54
+  - 440
+  - 380
+  - 26
+  content:
+    text: 茶水摊  ·  木铃摊  ·  早餐摊
+    fontSize: 17
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: market
+  elementType: image
+  bounds:
+  - 350
+  - 48
+  - 580
+  - 430
+  src: media/market-morning.png
+  fit:
+    mode: contain
+- elementId: p1
+  elementType: image
+  bounds:
+  - 712
+  - 354
+  - 86
+  - 100
+  src: media/product-milkCupMorning.png
+  fit:
+    mode: contain
+- elementId: p2
+  elementType: image
+  bounds:
+  - 804
+  - 346
+  - 70
+  - 110
+  src: media/product-woodBell.png
+  fit:
+    mode: contain
+- elementId: num
+  elementType: text
+  bounds:
+  - 868
+  - 26
+  - 48
+  - 24
+  content:
+    text: 08
+    fontSize: 12
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - right
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false

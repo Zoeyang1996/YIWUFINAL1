@@ -1,0 +1,279 @@
+pageType: content
+background:
+  type: solid
+  color: $paper
+elements:
+- elementId: meta
+  elementType: text
+  bounds:
+  - 48
+  - 24
+  - 450
+  - 18
+  content:
+    text: 04  /  核心概念
+    fontSize: 10
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 1.5
+    wrap: false
+- elementId: brand
+  elementType: text
+  bounds:
+  - 690
+  - 24
+  - 222
+  - 18
+  content:
+    text: 义犹未尽 · 义乌三时市集
+    fontSize: 10
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - right
+    - top
+    lineHeight: 1.15
+    letterSpacing: 1.0
+    wrap: false
+- elementId: title
+  elementType: text
+  bounds:
+  - 48
+  - 62
+  - 640
+  - 58
+  content:
+    text: 三种元素，一次汇合
+    fontSize: 44
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: ancient
+  elementType: image
+  bounds:
+  - 48
+  - 150
+  - 280
+  - 116
+  src: media/qingming.jpg
+  fit:
+    mode: cover
+- elementId: ancient-t
+  elementType: text
+  bounds:
+  - 48
+  - 286
+  - 280
+  - 42
+  content:
+    text: 古代市集
+    fontSize: 30
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: ancient-s
+  elementType: text
+  bounds:
+  - 48
+  - 334
+  - 280
+  - 24
+  content:
+    text: 时间 / 街巷 / 日常
+    fontSize: 15
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: x1
+  elementType: text
+  bounds:
+  - 338
+  - 220
+  - 50
+  - 60
+  content:
+    text: ×
+    fontSize: 44
+    fontFamily: MiSans
+    color: $red
+    bold: true
+    align:
+    - center
+    - middle
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: product
+  elementType: image
+  bounds:
+  - 395
+  - 132
+  - 210
+  - 178
+  src: media/product-noonFan.png
+  fit:
+    mode: contain
+- elementId: product-t
+  elementType: text
+  bounds:
+  - 395
+  - 286
+  - 220
+  - 42
+  content:
+    text: 国潮商品
+    fontSize: 30
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: product-s
+  elementType: text
+  bounds:
+  - 395
+  - 334
+  - 220
+  - 24
+  content:
+    text: 可看 / 可转 / 可选
+    fontSize: 15
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: x2
+  elementType: text
+  bounds:
+  - 616
+  - 220
+  - 50
+  - 60
+  content:
+    text: ×
+    fontSize: 44
+    fontFamily: MiSans
+    color: $red
+    bold: true
+    align:
+    - center
+    - middle
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: web
+  elementType: image
+  bounds:
+  - 658
+  - 126
+  - 254
+  - 184
+  src: media/market-morning.png
+  fit:
+    mode: contain
+- elementId: web-t
+  elementType: text
+  bounds:
+  - 658
+  - 286
+  - 254
+  - 42
+  content:
+    text: 轻量网页
+    fontSize: 30
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: web-s
+  elementType: text
+  bounds:
+  - 658
+  - 334
+  - 254
+  - 24
+  content:
+    text: 易进入 / 易传播 / 易分享
+    fontSize: 15
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: bottom-rule
+  elementType: line
+  bounds:
+  - 48
+  - 402
+  - 864
+  - 2
+  viewBox:
+  - 1
+  - 1
+  points: 0,0 1,0
+  curve: sharp
+  border:
+    style: solid
+    width: 2
+    color: $ink
+- elementId: bottom
+  elementType: text
+  bounds:
+  - 48
+  - 430
+  - 720
+  - 48
+  content:
+    text: 从观看一个场景，到进入一段市集日常。
+    fontSize: 27
+    fontFamily: MiSans
+    color: $red
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false

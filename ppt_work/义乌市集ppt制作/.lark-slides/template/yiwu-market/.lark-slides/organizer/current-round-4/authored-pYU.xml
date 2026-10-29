@@ -1,0 +1,68 @@
+<slide id="pYu">
+  <style>
+    <fill id="fYu">
+      <fillColor color="rgba(242, 235, 221, 1)"/>
+    </fill>
+  </style>
+  <data>
+    <shape width="825" height="24" topLeftX="36" topLeftY="24" presetHandlers="0" type="rect" id="bqP">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="14.25" fontFamily="Inter" color="rgba(120, 111, 97, 1)" bold="false" lineSpacing="multiple:1.2" textAlign="left" defaultTabSize="72">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="14.25" fontFamily="Inter" bold="false">04 / 制作流程与落地</span></p>
+      </content>
+    </shape>
+    <shape width="45" height="22.5" topLeftX="879" topLeftY="495.75" presetHandlers="0" type="rect" id="bqs">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="13.5" fontFamily="Inter" color="rgba(120, 111, 97, 1)" bold="false" lineSpacing="multiple:1.2" textAlign="left" defaultTabSize="72">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="13.5" fontFamily="Inter" bold="false">12</span></p>
+      </content>
+    </shape>
+    <shape width="700" height="56" topLeftX="39" topLeftY="60" presetHandlers="0" type="rect" id="bqz">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="40" fontFamily="思源黑体" color="rgba(36, 35, 31, 1)" bold="true" lineSpacing="multiple:1.15" textAlign="left" defaultTabSize="72">
+        <p textAlign="left" lineSpacing="multiple:1.15" defaultTabSize="72"><strong><span color="rgba(36, 35, 31, 1)" fontSize="40" fontFamily="思源黑体">两条路线，并行推进</span></strong></p>
+      </content>
+    </shape>
+    <line id="bqo" startX="36" startY="140" endX="924.0005630628846" endY="140">
+      <border color="rgba(120, 111, 97, 0.4)" width="1"/>
+    </line>
+    <shape width="420" height="30" topLeftX="36" topLeftY="158" presetHandlers="0" type="rect" id="bqB">
+      <content verticalAlign="top" paddingLeft="4" fontSize="16" fontFamily="思源黑体" color="rgba(174, 61, 46, 1)" bold="true" textAlign="left">
+        <p textAlign="left"><strong><span color="rgba(174, 61, 46, 1)" fontSize="16" fontFamily="思源黑体">路线一 · 美术风格线</span></strong></p>
+      </content>
+    </shape>
+    <shape width="420" height="120" topLeftX="36" topLeftY="196" presetHandlers="0" type="rect" id="bqV">
+      <content verticalAlign="top" paddingLeft="4" fontSize="16" fontFamily="思源黑体" color="rgba(36, 35, 31, 1)" lineSpacing="multiple:1.6" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.6"><span color="rgba(36, 35, 31, 1)" fontSize="16" fontFamily="思源黑体">定美术风格　→　建三维资产</span></p>
+        <p textAlign="left" lineSpacing="multiple:1.6"><span color="rgba(36, 35, 31, 1)" fontSize="16" fontFamily="思源黑体">搭整体场景　→　做 NPC 角色</span></p>
+      </content>
+    </shape>
+    <shape width="420" height="60" topLeftX="36" topLeftY="330" presetHandlers="0" type="rect" id="bqu">
+      <content verticalAlign="top" paddingLeft="4" fontSize="14" fontFamily="思源黑体" color="rgba(90, 84, 74, 1)" textAlign="left">
+        <p textAlign="left"><span color="rgba(90, 84, 74, 1)" fontSize="14" fontFamily="思源黑体">先定调，再搭空间与人物，撑起整座市集的气质。</span></p>
+      </content>
+    </shape>
+    <shape width="420" height="30" topLeftX="500" topLeftY="158" presetHandlers="0" type="rect" id="bqJ">
+      <content verticalAlign="top" paddingLeft="4" fontSize="16" fontFamily="思源黑体" color="rgba(174, 61, 46, 1)" bold="true" textAlign="left">
+        <p textAlign="left"><strong><span color="rgba(174, 61, 46, 1)" fontSize="16" fontFamily="思源黑体">路线二 · 商品调研线</span></strong></p>
+      </content>
+    </shape>
+    <shape width="420" height="120" topLeftX="500" topLeftY="196" presetHandlers="0" type="rect" id="bqT">
+      <content verticalAlign="top" paddingLeft="4" fontSize="16" fontFamily="思源黑体" color="rgba(36, 35, 31, 1)" lineSpacing="multiple:1.6" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.6"><span color="rgba(36, 35, 31, 1)" fontSize="16" fontFamily="思源黑体">调研选品　→　拍摄图片</span></p>
+        <p textAlign="left" lineSpacing="multiple:1.6"><span color="rgba(36, 35, 31, 1)" fontSize="16" fontFamily="思源黑体">AI 生成三维　→　接网页交互</span></p>
+      </content>
+    </shape>
+    <img id="bql" src="DGPfbo8WBobpXVxYHdxcbLnOnSW" width="200" height="133" topLeftX="500" topLeftY="332">
+      <crop type="rect" leftOffset="0" rightOffset="-2.842170943040401e-14" topOffset="0" bottomOffset="16.9707088459285"/>
+    </img>
+    <shape width="220" height="133" topLeftX="712" topLeftY="332" presetHandlers="0" type="rect" id="bqw">
+      <content verticalAlign="top" paddingLeft="8" fontSize="13" fontFamily="思源黑体" color="rgba(90, 84, 74, 1)" textAlign="left">
+        <p textAlign="left"><span color="rgba(90, 84, 74, 1)" fontSize="13" fontFamily="思源黑体">选真实义乌小商品，拍图后用 AI 快速转成可陈列的三维模型。</span></p>
+      </content>
+    </shape>
+  </data>
+  <note id="bqi">
+    <content>
+      <p>制作上两条线并行：一条从美术风格出发，搭场景和 NPC；一条从真实商品出发，选品、拍图、AI 转三维、接交互。</p>
+      <p>右图是团队最初手写的思路大纲，记录了这两条路线的雏形。</p>
+    </content>
+  </note>
+</slide>

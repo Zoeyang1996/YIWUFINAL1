@@ -1,3 +1,4 @@
+import { sound } from '../core/audio.js';
 import * as THREE from 'three';
 import { ProductControls } from './product-controls.js';
 import { loadGltf } from '../core/loader.js';
@@ -79,6 +80,7 @@ export function createProductViewer() {
   }
   function close({ restoreFocus = true } = {}) {
     if (!isOpen) return;
+    sound.play('close');
     isOpen = false; ++request; root.hidden = true;
     renderer?.setAnimationLoop(null);
     document.body.classList.remove('is-product-open');
@@ -86,6 +88,7 @@ export function createProductViewer() {
     if (restoreFocus && returnFocus?.isConnected) returnFocus.focus({ preventScroll: true });
   }
   async function open(product, opener = document.activeElement) {
+    sound.play('open');
     current = product; returnFocus = opener; isOpen = true;
     const token = ++request;
     root.hidden = false; document.body.classList.add('is-product-open');
@@ -129,6 +132,7 @@ export function createProductViewer() {
     if (flying || !model || !current) return;
     const product = current;
     try { addToCart(product.id); } catch { showToast('购物车暂时无法保存，请重试'); return; }
+    sound.play('success');
     flying = true; buy.disabled = true;
     let ghost;
     const target = document.querySelector('.cart-trigger');

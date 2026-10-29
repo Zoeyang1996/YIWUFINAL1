@@ -1,0 +1,46 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill><fillColor color="rgba(242, 235, 221, 1)"/></fill>
+  </style>
+  <data>
+    <shape width="825" height="24" topLeftX="36" topLeftY="24" type="rect">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="14.25" fontFamily="Inter" bold="false">02   /   命题理解与切入点</span></p>
+      </content>
+    </shape>
+    <shape width="45" height="22.5" topLeftX="879" topLeftY="495.75" type="rect">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="13.5" fontFamily="Inter" bold="false">04</span></p>
+      </content>
+    </shape>
+    <shape width="440" height="100" topLeftX="39" topLeftY="90" type="rect">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><strong><span color="rgba(36, 35, 31, 1)" fontSize="76" fontFamily="思源黑体">沉浸</span></strong></p>
+      </content>
+    </shape>
+    <shape width="440" height="100" topLeftX="39" topLeftY="196" type="rect">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><strong><span color="rgba(174, 61, 46, 1)" fontSize="76" fontFamily="思源黑体">轻量化</span></strong></p>
+      </content>
+    </shape>
+    <img src="HKt4b9T11oWDLOxdzZ4cZfuXnbb" width="380" height="380" topLeftX="510" topLeftY="80">
+      <crop leftOffset="0" rightOffset="0" topOffset="0" bottomOffset="0"/>
+    </img>
+    <shape width="440" height="42" topLeftX="42.75" topLeftY="360" type="rect">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(36, 35, 31, 1)" fontSize="22" fontFamily="思源黑体">依托 AIGC，做创新型线上展陈</span></p>
+      </content>
+    </shape>
+    <shape width="445" height="60" topLeftX="42.75" topLeftY="412" type="rect">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.4" defaultTabSize="72"><span color="rgba(90, 84, 74, 1)" fontSize="16" fontFamily="思源黑体">相比 VR 与游戏，网页更轻量、即点即开，更易分享与传播。</span></p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content>
+      <p>设计目标：借助 AIGC 工具快速生成三维资产，做一种沉浸式的线上展陈方式。</p>
+      <p>差异化在于轻量化：不做需要下载安装的 VR 或游戏，而是网页打开即漫游，一部手机、一个链接就能分享给任何人。</p>
+    </content>
+  </note>
+</slide>

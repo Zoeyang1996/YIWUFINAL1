@@ -1,0 +1,40 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill><fillColor color="rgba(242, 235, 221, 1)"/></fill>
+  </style>
+  <data>
+    <shape width="825" height="24" topLeftX="36" topLeftY="24" type="rect">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="14.25" fontFamily="Inter" bold="false">04   /   制作流程与落地</span></p>
+      </content>
+    </shape>
+    <shape width="45" height="22.5" topLeftX="879" topLeftY="495.75" type="rect">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="13.5" fontFamily="Inter" bold="false">14</span></p>
+      </content>
+    </shape>
+    <shape width="700" height="56" topLeftX="39" topLeftY="60" type="rect">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 31, 1)" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.15" defaultTabSize="72"><strong><span color="rgba(36, 35, 31, 1)" fontSize="40" fontFamily="思源黑体">从一张稿，</span><span color="rgba(174, 61, 46, 1)" fontSize="40" fontFamily="思源黑体">到一件物</span></strong></p>
+      </content>
+    </shape>
+    <img src="KCXMbTtHeocl0SxEm1ecTXNYnH8" width="210" height="280" topLeftX="40" topLeftY="150"><crop anchor="top"/></img>
+    <img src="UEenbM66Ooq43Kxhf5ac6Ca7nPh" width="220" height="220" topLeftX="290" topLeftY="180"><crop/></img>
+    <img src="EfBEbidv3omlKIx8UUDciUiOnIc" width="390" height="230" topLeftX="540" topLeftY="165"><crop anchor="top"/></img>
+    <shape width="210" height="24" topLeftX="40" topLeftY="438" type="rect">
+      <content verticalAlign="top" paddingLeft="4" fontSize="12" fontFamily="思源黑体" color="rgba(120,111,97,1)" textAlign="left"><p textAlign="left"><span fontSize="12" fontFamily="思源黑体" color="rgba(120,111,97,1)">① 手绘构思稿</span></p></content>
+    </shape>
+    <shape width="220" height="24" topLeftX="290" topLeftY="410" type="rect">
+      <content verticalAlign="top" paddingLeft="4" fontSize="12" fontFamily="思源黑体" color="rgba(120,111,97,1)" textAlign="left"><p textAlign="left"><span fontSize="12" fontFamily="思源黑体" color="rgba(120,111,97,1)">② AI 生成三维器物</span></p></content>
+    </shape>
+    <shape width="390" height="24" topLeftX="540" topLeftY="402" type="rect">
+      <content verticalAlign="top" paddingLeft="4" fontSize="12" fontFamily="思源黑体" color="rgba(120,111,97,1)" textAlign="left"><p textAlign="left"><span fontSize="12" fontFamily="思源黑体" color="rgba(120,111,97,1)">③ 摆进场景，沿街巷陈列</span></p></content>
+    </shape>
+  </data>
+  <note>
+    <content>
+      <p>以一件商品为例的完整链路：先手绘构思它长什么样，再用 AI 生成三维模型，最后摆进市集场景沿街巷陈列。</p>
+      <p>从左到右，就是团队真实走过的一遍制作过程。</p>
+    </content>
+  </note>
+</slide>

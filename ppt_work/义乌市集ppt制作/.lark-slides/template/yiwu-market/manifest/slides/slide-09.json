@@ -1,0 +1,76 @@
+{
+  "slide_num": 9,
+  "role": "content",
+  "slide_id": "pYY",
+  "local_xml_path": "source-slides/slide-09.xml",
+  "shell_shapes": [],
+  "content_shapes": [
+    {
+      "id": 2,
+      "type": "AUTO_SHAPE",
+      "left": 0.5,
+      "top": 0.3333,
+      "width": 11.4583,
+      "height": 0.3333,
+      "text": "08   /   观展交互"
+    },
+    {
+      "id": 3,
+      "type": "AUTO_SHAPE",
+      "left": 12.2083,
+      "top": 6.8854,
+      "width": 0.625,
+      "height": 0.3125,
+      "text": "09"
+    },
+    {
+      "id": 4,
+      "type": "AUTO_SHAPE",
+      "left": 0.5,
+      "top": 0.9896,
+      "width": 12.2917,
+      "height": 1.1979,
+      "text": "走近，才有回应"
+    },
+    {
+      "id": 5,
+      "type": "PICTURE",
+      "left": 0.5,
+      "top": 2.4583,
+      "width": 8.125,
+      "height": 4.375,
+      "text": ""
+    },
+    {
+      "id": 6,
+      "type": "AUTO_SHAPE",
+      "left": 9.4271,
+      "top": 2.7083,
+      "width": 3.125,
+      "height": 0.7812,
+      "text": "漫游"
+    },
+    {
+      "id": 7,
+      "type": "AUTO_SHAPE",
+      "left": 9.4271,
+      "top": 3.9583,
+      "width": 3.125,
+      "height": 0.7812,
+      "text": "停留"
+    },
+    {
+      "id": 8,
+      "type": "AUTO_SHAPE",
+      "left": 9.4271,
+      "top": 5.2083,
+      "width": 3.125,
+      "height": 0.7812,
+      "text": "探索"
+    }
+  ],
+  "available_regions": [],
+  "images_used": [
+    "image8.png"
+  ]
+}

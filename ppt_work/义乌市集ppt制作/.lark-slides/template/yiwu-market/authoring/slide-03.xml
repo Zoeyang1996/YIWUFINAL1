@@ -1,0 +1,46 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill><fillColor color="rgba(242, 235, 221, 1)"/></fill>
+  </style>
+  <data>
+    <shape width="825" height="24" topLeftX="36" topLeftY="24" type="rect">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="14.25" fontFamily="Inter" bold="false">02   /   命题理解与切入点</span></p>
+      </content>
+    </shape>
+    <shape width="45" height="22.5" topLeftX="879" topLeftY="495.75" type="rect">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="13.5" fontFamily="Inter" bold="false">03</span></p>
+      </content>
+    </shape>
+    <shape width="440" height="100" topLeftX="39" topLeftY="90" type="rect">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><strong><span color="rgba(36, 35, 31, 1)" fontSize="76" fontFamily="思源黑体">小商品</span></strong></p>
+      </content>
+    </shape>
+    <shape width="440" height="100" topLeftX="39" topLeftY="196" type="rect">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><strong><span color="rgba(174, 61, 46, 1)" fontSize="76" fontFamily="思源黑体">大场景</span></strong></p>
+      </content>
+    </shape>
+    <img src="B4Shb0Vc9oH9okxsDCvc1CPYnLb" width="380" height="380" topLeftX="510" topLeftY="80">
+      <crop leftOffset="0" rightOffset="0" topOffset="0" bottomOffset="0"/>
+    </img>
+    <shape width="440" height="42" topLeftX="42.75" topLeftY="360" type="rect">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(36, 35, 31, 1)" fontSize="26" fontFamily="思源黑体">义乌小商品 × 国潮文化</span></p>
+      </content>
+    </shape>
+    <shape width="440" height="33" topLeftX="42.75" topLeftY="412" type="rect">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(90, 84, 74, 1)" fontSize="17" fontFamily="思源黑体">用空间建立语境，用互动留下记忆</span></p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content>
+      <p>命题理解：义乌小商品本身体量小、信息弱，单独陈列难以打动人。</p>
+      <p>我们把它放进古代市集的街巷场景里，用摊位、人物和烟火气为商品建立语境，让小物件有了故事。</p>
+    </content>
+  </note>
+</slide>

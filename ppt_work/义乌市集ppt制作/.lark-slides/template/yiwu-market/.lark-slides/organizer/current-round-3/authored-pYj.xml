@@ -1,0 +1,79 @@
+<slide id="pYj">
+  <style>
+    <fill id="fYj">
+      <fillColor color="rgba(242, 235, 221, 1)"/>
+    </fill>
+  </style>
+  <data>
+    <shape width="825" height="24" topLeftX="36" topLeftY="24" presetHandlers="0" type="rect" id="bSu">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="14.25" fontFamily="Inter" color="rgba(120, 111, 97, 1)" bold="false" lineSpacing="multiple:1.2" textAlign="left" defaultTabSize="72">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="14.25" fontFamily="Inter" bold="false">01 / 作品概览</span></p>
+      </content>
+    </shape>
+    <shape width="45" height="22.5" topLeftX="879" topLeftY="495.75" presetHandlers="0" type="rect" id="bSJ">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="13.5" fontFamily="Inter" color="rgba(120, 111, 97, 1)" bold="false" lineSpacing="multiple:1.2" textAlign="left" defaultTabSize="72">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="13.5" fontFamily="Inter" bold="false">02</span></p>
+      </content>
+    </shape>
+    <shape width="885" height="84" topLeftX="36" topLeftY="66" presetHandlers="0" type="rect" id="bST">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="52" fontFamily="思源黑体" color="rgba(36, 35, 31, 1)" bold="true" lineSpacing="multiple:1.2" textAlign="left" defaultTabSize="72">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><strong><span color="rgba(36, 35, 31, 1)" fontSize="52" fontFamily="思源黑体">把市集，搬进屏幕</span></strong></p>
+      </content>
+    </shape>
+    <shape width="820" height="26" topLeftX="39" topLeftY="160" presetHandlers="0" type="rect" id="bSB">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(90, 84, 74, 1)" lineSpacing="multiple:1.2" textAlign="left" defaultTabSize="72">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(90, 84, 74, 1)" fontSize="16" fontFamily="思源黑体">以早市、午市、夜市为叙事结构，把义乌小商品融入可漫游的三维国风市集。</span></p>
+      </content>
+    </shape>
+    <img id="bSi" src="ZknobsjtEoeVA0xrX7Ocp7jKnNe" width="320" height="192" topLeftX="0" topLeftY="190">
+      <crop leftOffset="0" rightOffset="0" topOffset="0" bottomOffset="0"/>
+    </img>
+    <img id="bSw" src="HKt4b9T11oWDLOxdzZ4cZfuXnbb" width="320" height="192" topLeftX="320" topLeftY="190">
+      <crop leftOffset="0" rightOffset="0" topOffset="0" bottomOffset="0"/>
+    </img>
+    <img id="bSs" src="UB2kbLta2oVteLx3HrVc6LCUn7e" width="320" height="192" topLeftX="640" topLeftY="190">
+      <crop leftOffset="0" rightOffset="0" topOffset="0" bottomOffset="0"/>
+    </img>
+    <shape width="120" height="64" topLeftX="100" topLeftY="390" presetHandlers="0" type="rect" id="bSz">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="38" fontFamily="思源黑体" color="rgba(174, 61, 46, 1)" bold="true" lineSpacing="multiple:1.2" defaultTabSize="72">
+        <p textAlign="center" lineSpacing="multiple:1.2" defaultTabSize="72"><strong><span color="rgba(174, 61, 46, 1)" fontSize="38" fontFamily="思源黑体">早</span></strong></p>
+      </content>
+    </shape>
+    <shape width="120" height="64" topLeftX="420" topLeftY="390" presetHandlers="0" type="rect" id="bSo">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="38" fontFamily="思源黑体" color="rgba(174, 61, 46, 1)" bold="true" lineSpacing="multiple:1.2" defaultTabSize="72">
+        <p textAlign="center" lineSpacing="multiple:1.2" defaultTabSize="72"><strong><span color="rgba(174, 61, 46, 1)" fontSize="38" fontFamily="思源黑体">午</span></strong></p>
+      </content>
+    </shape>
+    <shape width="120" height="64" topLeftX="740" topLeftY="390" presetHandlers="0" type="rect" id="bSl">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="38" fontFamily="思源黑体" color="rgba(174, 61, 46, 1)" bold="true" lineSpacing="multiple:1.2" defaultTabSize="72">
+        <p textAlign="center" lineSpacing="multiple:1.2" defaultTabSize="72"><strong><span color="rgba(174, 61, 46, 1)" fontSize="38" fontFamily="思源黑体">夜</span></strong></p>
+      </content>
+    </shape>
+    <shape width="120" height="22" topLeftX="100" topLeftY="458" presetHandlers="0" type="rect" id="bSW">
+      <content verticalAlign="top" paddingTop="0" paddingBottom="0" paddingLeft="3.6" paddingRight="3.6" fontSize="13" fontFamily="思源黑体" color="rgba(120, 111, 97, 1)" lineSpacing="multiple:1.2" defaultTabSize="72">
+        <p textAlign="center" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="13" fontFamily="思源黑体">角色漫游</span></p>
+      </content>
+    </shape>
+    <shape width="120" height="22" topLeftX="420" topLeftY="458" presetHandlers="0" type="rect" id="bSx">
+      <content verticalAlign="top" paddingTop="0" paddingBottom="0" paddingLeft="3.6" paddingRight="3.6" fontSize="13" fontFamily="思源黑体" color="rgba(120, 111, 97, 1)" lineSpacing="multiple:1.2" defaultTabSize="72">
+        <p textAlign="center" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="13" fontFamily="思源黑体">摊位互动</span></p>
+      </content>
+    </shape>
+    <shape width="120" height="22" topLeftX="740" topLeftY="458" presetHandlers="0" type="rect" id="bSE">
+      <content verticalAlign="top" paddingTop="0" paddingBottom="0" paddingLeft="3.6" paddingRight="3.6" fontSize="13" fontFamily="思源黑体" color="rgba(120, 111, 97, 1)" lineSpacing="multiple:1.2" defaultTabSize="72">
+        <p textAlign="center" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="13" fontFamily="思源黑体">商品观察</span></p>
+      </content>
+    </shape>
+    <shape width="750" height="28" topLeftX="45" topLeftY="490" presetHandlers="0" type="rect" id="bSV">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="15" fontFamily="Inter" color="rgba(120, 111, 97, 1)" lineSpacing="multiple:1.2" textAlign="left" defaultTabSize="72">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="15" fontFamily="Inter">3 个时段 9 处摊位 13 件展品</span></p>
+      </content>
+    </shape>
+  </data>
+  <note id="bSP">
+    <content>
+      <p>开场概览：作品以早、午、夜三个时间组织一座虚拟国风市集，把义乌小商品放进可漫游的三维空间。</p>
+      <p>观众以角色视角进入市集，逛街巷、停摊位、近距离观察商品，像逛真实市集一样完成一次线上观展。</p>
+    </content>
+  </note>
+</slide>

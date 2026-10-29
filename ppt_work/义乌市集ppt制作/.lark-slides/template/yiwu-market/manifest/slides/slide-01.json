@@ -1,0 +1,68 @@
+{
+  "slide_num": 1,
+  "role": "cover",
+  "slide_id": "pYh",
+  "local_xml_path": "source-slides/slide-01.xml",
+  "shell_shapes": [
+    {
+      "id": 5,
+      "type": "PICTURE",
+      "left": 4.7083,
+      "top": 1.9792,
+      "width": 8.5,
+      "height": 5.3125,
+      "text": ""
+    }
+  ],
+  "content_shapes": [
+    {
+      "id": 2,
+      "type": "AUTO_SHAPE",
+      "left": 0.5,
+      "top": 0.3333,
+      "width": 11.4583,
+      "height": 0.3333,
+      "text": "浙江省数智创意竞赛   /   文创产品设计·展陈设计组"
+    },
+    {
+      "id": 3,
+      "type": "AUTO_SHAPE",
+      "left": 12.2083,
+      "top": 6.8854,
+      "width": 0.625,
+      "height": 0.3125,
+      "text": "01"
+    },
+    {
+      "id": 4,
+      "type": "AUTO_SHAPE",
+      "left": 0.4688,
+      "top": 1.1458,
+      "width": 8.2292,
+      "height": 1.6146,
+      "text": "义犹未尽"
+    },
+    {
+      "id": 6,
+      "type": "AUTO_SHAPE",
+      "left": 0.5312,
+      "top": 3.125,
+      "width": 5.4167,
+      "height": 0.6771,
+      "text": "义乌三时市集"
+    },
+    {
+      "id": 7,
+      "type": "AUTO_SHAPE",
+      "left": 0.5521,
+      "top": 4.9792,
+      "width": 5.0,
+      "height": 1.1979,
+      "text": "一日三市\n一场可漫游的国潮展陈"
+    }
+  ],
+  "available_regions": [],
+  "images_used": [
+    "image1.png"
+  ]
+}

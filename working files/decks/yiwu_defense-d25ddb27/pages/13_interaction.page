@@ -1,0 +1,162 @@
+pageType: content
+background:
+  type: solid
+  color: $paper
+elements:
+- elementId: meta
+  elementType: text
+  bounds:
+  - 48
+  - 24
+  - 450
+  - 18
+  content:
+    text: 13  /  互动体验
+    fontSize: 10
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 1.5
+    wrap: false
+- elementId: brand
+  elementType: text
+  bounds:
+  - 690
+  - 24
+  - 222
+  - 18
+  content:
+    text: 义犹未尽 · 义乌三时市集
+    fontSize: 10
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - right
+    - top
+    lineHeight: 1.15
+    letterSpacing: 1.0
+    wrap: false
+- elementId: title
+  elementType: text
+  bounds:
+  - 48
+  - 58
+  - 520
+  - 58
+  content:
+    text: 逛，停，看，选
+    fontSize: 46
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: stall
+  elementType: image
+  bounds:
+  - 48
+  - 142
+  - 528
+  - 320
+  src: media/fan-stall.png
+  fit:
+    mode: cover
+- elementId: product
+  elementType: image
+  bounds:
+  - 552
+  - 188
+  - 360
+  - 240
+  src: media/fan-product.png
+  fit:
+    mode: cover
+  border:
+    style: solid
+    width: 6
+    color: $paper
+- elementId: step1
+  elementType: text
+  bounds:
+  - 54
+  - 478
+  - 220
+  - 26
+  content:
+    text: 01  靠近摊位
+    fontSize: 18
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: step2
+  elementType: text
+  bounds:
+  - 286
+  - 478
+  - 220
+  - 26
+  content:
+    text: 02  镜头切换
+    fontSize: 18
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: step3
+  elementType: text
+  bounds:
+  - 518
+  - 478
+  - 190
+  - 26
+  content:
+    text: 03  商品细看
+    fontSize: 18
+    fontFamily: MiSans
+    color: $red
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: step4
+  elementType: text
+  bounds:
+  - 714
+  - 478
+  - 198
+  - 26
+  content:
+    text: 04  加入购物车
+    fontSize: 18
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - right
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false

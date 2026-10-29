@@ -1,0 +1,1164 @@
+{
+  "by_slide": {
+    "1": [
+      {
+        "shape_id": "bbv",
+        "type": "rect",
+        "bbox": {
+          "x": 36.0,
+          "y": 24.0,
+          "w": 825.0,
+          "h": 24.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=825|h=24"
+      },
+      {
+        "shape_id": "bbK",
+        "type": "rect",
+        "bbox": {
+          "x": 879.0,
+          "y": 495.75,
+          "w": 45.0,
+          "h": 22.5
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=45|h=22"
+      },
+      {
+        "shape_id": "bbb",
+        "type": "rect",
+        "bbox": {
+          "x": 33.75,
+          "y": 82.5,
+          "w": 592.5,
+          "h": 116.25
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=592|h=116"
+      },
+      {
+        "shape_id": "bbq",
+        "type": "rect",
+        "bbox": {
+          "x": 38.25,
+          "y": 225.0,
+          "w": 390.0,
+          "h": 48.75
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=390|h=48"
+      },
+      {
+        "shape_id": "bbg",
+        "type": "rect",
+        "bbox": {
+          "x": 39.75,
+          "y": 358.5,
+          "w": 360.0,
+          "h": 86.25
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=360|h=86"
+      }
+    ],
+    "2": [
+      {
+        "shape_id": "bbY",
+        "type": "rect",
+        "bbox": {
+          "x": 36.0,
+          "y": 24.0,
+          "w": 825.0,
+          "h": 24.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=825|h=24"
+      },
+      {
+        "shape_id": "bbn",
+        "type": "rect",
+        "bbox": {
+          "x": 879.0,
+          "y": 495.75,
+          "w": 45.0,
+          "h": 22.5
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=45|h=22"
+      },
+      {
+        "shape_id": "bbI",
+        "type": "rect",
+        "bbox": {
+          "x": 36.0,
+          "y": 73.5,
+          "w": 885.0,
+          "h": 78.75
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=885|h=78"
+      },
+      {
+        "shape_id": "bbX",
+        "type": "rect",
+        "bbox": {
+          "x": 56.25,
+          "y": 405.0,
+          "w": 105.0,
+          "h": 75.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=105|h=75"
+      },
+      {
+        "shape_id": "bbD",
+        "type": "rect",
+        "bbox": {
+          "x": 367.5,
+          "y": 405.0,
+          "w": 105.0,
+          "h": 75.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=105|h=75"
+      },
+      {
+        "shape_id": "bbt",
+        "type": "rect",
+        "bbox": {
+          "x": 678.75,
+          "y": 405.0,
+          "w": 105.0,
+          "h": 75.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=105|h=75"
+      },
+      {
+        "shape_id": "bbp",
+        "type": "rect",
+        "bbox": {
+          "x": 45.0,
+          "y": 484.5,
+          "w": 750.0,
+          "h": 31.5
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=750|h=31"
+      }
+    ],
+    "3": [
+      {
+        "shape_id": "bbZ",
+        "type": "rect",
+        "bbox": {
+          "x": 36.0,
+          "y": 24.0,
+          "w": 825.0,
+          "h": 24.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=825|h=24"
+      },
+      {
+        "shape_id": "bbL",
+        "type": "rect",
+        "bbox": {
+          "x": 879.0,
+          "y": 495.75,
+          "w": 45.0,
+          "h": 22.5
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=45|h=22"
+      },
+      {
+        "shape_id": "bba",
+        "type": "rect",
+        "bbox": {
+          "x": 39.0,
+          "y": 82.5,
+          "w": 495.0,
+          "h": 105.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=495|h=105"
+      },
+      {
+        "shape_id": "bbG",
+        "type": "rect",
+        "bbox": {
+          "x": 39.0,
+          "y": 198.75,
+          "w": 495.0,
+          "h": 105.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=495|h=105"
+      },
+      {
+        "shape_id": "bbd",
+        "type": "rect",
+        "bbox": {
+          "x": 42.75,
+          "y": 382.5,
+          "w": 525.0,
+          "h": 45.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=525|h=45"
+      },
+      {
+        "shape_id": "bbr",
+        "type": "rect",
+        "bbox": {
+          "x": 42.75,
+          "y": 443.25,
+          "w": 637.5,
+          "h": 33.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=637|h=33"
+      }
+    ],
+    "4": [
+      {
+        "shape_id": "bbH",
+        "type": "rect",
+        "bbox": {
+          "x": 36.0,
+          "y": 24.0,
+          "w": 825.0,
+          "h": 24.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=825|h=24"
+      },
+      {
+        "shape_id": "bbC",
+        "type": "rect",
+        "bbox": {
+          "x": 879.0,
+          "y": 495.75,
+          "w": 45.0,
+          "h": 22.5
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=45|h=22"
+      },
+      {
+        "shape_id": "bbf",
+        "type": "rect",
+        "bbox": {
+          "x": 39.0,
+          "y": 78.0,
+          "w": 330.0,
+          "h": 82.5
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=330|h=82"
+      },
+      {
+        "shape_id": "bbj",
+        "type": "rect",
+        "bbox": {
+          "x": 39.0,
+          "y": 165.0,
+          "w": 330.0,
+          "h": 82.5
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=330|h=82"
+      },
+      {
+        "shape_id": "bbk",
+        "type": "rect",
+        "bbox": {
+          "x": 43.5,
+          "y": 323.25,
+          "w": 375.0,
+          "h": 41.25
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=375|h=41"
+      },
+      {
+        "shape_id": "bbA",
+        "type": "rect",
+        "bbox": {
+          "x": 43.5,
+          "y": 431.25,
+          "w": 487.5,
+          "h": 33.75
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=487|h=33"
+      }
+    ],
+    "5": [
+      {
+        "shape_id": "bbE",
+        "type": "rect",
+        "bbox": {
+          "x": 36.0,
+          "y": 24.0,
+          "w": 825.0,
+          "h": 24.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=825|h=24"
+      },
+      {
+        "shape_id": "bbl",
+        "type": "rect",
+        "bbox": {
+          "x": 879.0,
+          "y": 495.75,
+          "w": 45.0,
+          "h": 22.5
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=45|h=22"
+      },
+      {
+        "shape_id": "bbV",
+        "type": "rect",
+        "bbox": {
+          "x": 36.0,
+          "y": 69.75,
+          "w": 825.0,
+          "h": 86.25
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=825|h=86"
+      },
+      {
+        "shape_id": "bbs",
+        "type": "rect",
+        "bbox": {
+          "x": 43.5,
+          "y": 395.25,
+          "w": 255.0,
+          "h": 60.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=255|h=60"
+      },
+      {
+        "shape_id": "bbz",
+        "type": "rect",
+        "bbox": {
+          "x": 46.5,
+          "y": 460.5,
+          "w": 247.5,
+          "h": 30.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=247|h=30"
+      },
+      {
+        "shape_id": "bbB",
+        "type": "rect",
+        "bbox": {
+          "x": 351.0,
+          "y": 395.25,
+          "w": 255.0,
+          "h": 60.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=255|h=60"
+      },
+      {
+        "shape_id": "bbi",
+        "type": "rect",
+        "bbox": {
+          "x": 354.0,
+          "y": 460.5,
+          "w": 247.5,
+          "h": 30.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=247|h=30"
+      },
+      {
+        "shape_id": "bbu",
+        "type": "rect",
+        "bbox": {
+          "x": 658.5,
+          "y": 395.25,
+          "w": 255.0,
+          "h": 60.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=255|h=60"
+      },
+      {
+        "shape_id": "bbJ",
+        "type": "rect",
+        "bbox": {
+          "x": 661.5,
+          "y": 460.5,
+          "w": 247.5,
+          "h": 30.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=247|h=30"
+      }
+    ],
+    "6": [
+      {
+        "shape_id": "bbO",
+        "type": "rect",
+        "bbox": {
+          "x": 36.0,
+          "y": 24.0,
+          "w": 825.0,
+          "h": 24.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=825|h=24"
+      },
+      {
+        "shape_id": "bmm",
+        "type": "rect",
+        "bbox": {
+          "x": 879.0,
+          "y": 495.75,
+          "w": 45.0,
+          "h": 22.5
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=45|h=22"
+      },
+      {
+        "shape_id": "bbW",
+        "type": "rect",
+        "bbox": {
+          "x": 36.0,
+          "y": 71.25,
+          "w": 862.5,
+          "h": 78.75
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=862|h=78"
+      },
+      {
+        "shape_id": "bbN",
+        "type": "rect",
+        "bbox": {
+          "x": 42.0,
+          "y": 192.75,
+          "w": 300.0,
+          "h": 60.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=300|h=60"
+      },
+      {
+        "shape_id": "bmb",
+        "type": "rect",
+        "bbox": {
+          "x": 42.0,
+          "y": 275.25,
+          "w": 300.0,
+          "h": 60.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=300|h=60"
+      },
+      {
+        "shape_id": "bmS",
+        "type": "rect",
+        "bbox": {
+          "x": 42.0,
+          "y": 357.75,
+          "w": 300.0,
+          "h": 60.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=300|h=60"
+      }
+    ],
+    "7": [
+      {
+        "shape_id": "bmq",
+        "type": "rect",
+        "bbox": {
+          "x": 36.0,
+          "y": 24.0,
+          "w": 825.0,
+          "h": 24.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=825|h=24"
+      },
+      {
+        "shape_id": "bmg",
+        "type": "rect",
+        "bbox": {
+          "x": 879.0,
+          "y": 495.75,
+          "w": 45.0,
+          "h": 22.5
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=45|h=22"
+      },
+      {
+        "shape_id": "bmd",
+        "type": "rect",
+        "bbox": {
+          "x": 36.0,
+          "y": 71.25,
+          "w": 825.0,
+          "h": 86.25
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=825|h=86"
+      },
+      {
+        "shape_id": "bmK",
+        "type": "rect",
+        "bbox": {
+          "x": 41.25,
+          "y": 236.25,
+          "w": 345.0,
+          "h": 60.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=345|h=60"
+      },
+      {
+        "shape_id": "bmL",
+        "type": "rect",
+        "bbox": {
+          "x": 41.25,
+          "y": 310.5,
+          "w": 345.0,
+          "h": 60.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=345|h=60"
+      },
+      {
+        "shape_id": "bma",
+        "type": "rect",
+        "bbox": {
+          "x": 42.75,
+          "y": 438.75,
+          "w": 405.0,
+          "h": 36.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=405|h=36"
+      }
+    ],
+    "8": [
+      {
+        "shape_id": "bmZ",
+        "type": "rect",
+        "bbox": {
+          "x": 36.0,
+          "y": 24.0,
+          "w": 825.0,
+          "h": 24.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=825|h=24"
+      },
+      {
+        "shape_id": "bmQ",
+        "type": "rect",
+        "bbox": {
+          "x": 879.0,
+          "y": 495.75,
+          "w": 45.0,
+          "h": 22.5
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=45|h=22"
+      },
+      {
+        "shape_id": "bmy",
+        "type": "rect",
+        "bbox": {
+          "x": 36.0,
+          "y": 69.75,
+          "w": 825.0,
+          "h": 86.25
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=825|h=86"
+      },
+      {
+        "shape_id": "bmA",
+        "type": "rect",
+        "bbox": {
+          "x": 78.75,
+          "y": 450.0,
+          "w": 225.0,
+          "h": 45.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=225|h=45"
+      },
+      {
+        "shape_id": "bmf",
+        "type": "rect",
+        "bbox": {
+          "x": 382.5,
+          "y": 450.0,
+          "w": 262.5,
+          "h": 45.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=262|h=45"
+      },
+      {
+        "shape_id": "bmj",
+        "type": "rect",
+        "bbox": {
+          "x": 693.75,
+          "y": 450.0,
+          "w": 255.0,
+          "h": 45.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=255|h=45"
+      }
+    ],
+    "9": [
+      {
+        "shape_id": "bmD",
+        "type": "rect",
+        "bbox": {
+          "x": 36.0,
+          "y": 24.0,
+          "w": 825.0,
+          "h": 24.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=825|h=24"
+      },
+      {
+        "shape_id": "bmC",
+        "type": "rect",
+        "bbox": {
+          "x": 879.0,
+          "y": 495.75,
+          "w": 45.0,
+          "h": 22.5
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=45|h=22"
+      },
+      {
+        "shape_id": "bmX",
+        "type": "rect",
+        "bbox": {
+          "x": 36.0,
+          "y": 71.25,
+          "w": 885.0,
+          "h": 86.25
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=885|h=86"
+      },
+      {
+        "shape_id": "bmn",
+        "type": "rect",
+        "bbox": {
+          "x": 678.75,
+          "y": 195.0,
+          "w": 225.0,
+          "h": 56.25
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=225|h=56"
+      },
+      {
+        "shape_id": "bmk",
+        "type": "rect",
+        "bbox": {
+          "x": 678.75,
+          "y": 285.0,
+          "w": 225.0,
+          "h": 56.25
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=225|h=56"
+      },
+      {
+        "shape_id": "bmR",
+        "type": "rect",
+        "bbox": {
+          "x": 678.75,
+          "y": 375.0,
+          "w": 225.0,
+          "h": 56.25
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=225|h=56"
+      }
+    ],
+    "10": [
+      {
+        "shape_id": "bmB",
+        "type": "rect",
+        "bbox": {
+          "x": 36.0,
+          "y": 24.0,
+          "w": 825.0,
+          "h": 24.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=825|h=24"
+      },
+      {
+        "shape_id": "bmh",
+        "type": "rect",
+        "bbox": {
+          "x": 879.0,
+          "y": 495.75,
+          "w": 45.0,
+          "h": 22.5
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=45|h=22"
+      },
+      {
+        "shape_id": "bml",
+        "type": "rect",
+        "bbox": {
+          "x": 37.5,
+          "y": 82.5,
+          "w": 450.0,
+          "h": 108.75
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=450|h=108"
+      },
+      {
+        "shape_id": "bmV",
+        "type": "rect",
+        "bbox": {
+          "x": 37.5,
+          "y": 202.5,
+          "w": 450.0,
+          "h": 108.75
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=450|h=108"
+      },
+      {
+        "shape_id": "bmI",
+        "type": "rect",
+        "bbox": {
+          "x": 42.75,
+          "y": 386.25,
+          "w": 487.5,
+          "h": 45.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=487|h=45"
+      },
+      {
+        "shape_id": "bmc",
+        "type": "rect",
+        "bbox": {
+          "x": 42.75,
+          "y": 453.0,
+          "w": 675.0,
+          "h": 33.75
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=675|h=33"
+      }
+    ],
+    "11": [
+      {
+        "shape_id": "bms",
+        "type": "rect",
+        "bbox": {
+          "x": 36.0,
+          "y": 24.0,
+          "w": 825.0,
+          "h": 24.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=825|h=24"
+      },
+      {
+        "shape_id": "bmz",
+        "type": "rect",
+        "bbox": {
+          "x": 879.0,
+          "y": 495.75,
+          "w": 45.0,
+          "h": 22.5
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=45|h=22"
+      },
+      {
+        "shape_id": "bmP",
+        "type": "rect",
+        "bbox": {
+          "x": 36.0,
+          "y": 77.25,
+          "w": 412.5,
+          "h": 82.5
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=412|h=82"
+      },
+      {
+        "shape_id": "bmu",
+        "type": "rect",
+        "bbox": {
+          "x": 36.0,
+          "y": 167.25,
+          "w": 412.5,
+          "h": 82.5
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=412|h=82"
+      },
+      {
+        "shape_id": "bmJ",
+        "type": "rect",
+        "bbox": {
+          "x": 36.0,
+          "y": 257.25,
+          "w": 412.5,
+          "h": 82.5
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=412|h=82"
+      },
+      {
+        "shape_id": "bmo",
+        "type": "rect",
+        "bbox": {
+          "x": 42.75,
+          "y": 438.75,
+          "w": 825.0,
+          "h": 43.5
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=825|h=43"
+      }
+    ],
+    "12": [
+      {
+        "shape_id": "bmT",
+        "type": "rect",
+        "bbox": {
+          "x": 36.0,
+          "y": 24.0,
+          "w": 825.0,
+          "h": 24.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=825|h=24"
+      },
+      {
+        "shape_id": "bmW",
+        "type": "rect",
+        "bbox": {
+          "x": 879.0,
+          "y": 495.75,
+          "w": 45.0,
+          "h": 22.5
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=45|h=22"
+      },
+      {
+        "shape_id": "bme",
+        "type": "rect",
+        "bbox": {
+          "x": 36.0,
+          "y": 72.0,
+          "w": 885.0,
+          "h": 84.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=885|h=84"
+      },
+      {
+        "shape_id": "bmE",
+        "type": "rect",
+        "bbox": {
+          "x": 42.0,
+          "y": 192.75,
+          "w": 262.5,
+          "h": 48.75
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=262|h=48"
+      },
+      {
+        "shape_id": "bmx",
+        "type": "rect",
+        "bbox": {
+          "x": 42.0,
+          "y": 262.5,
+          "w": 262.5,
+          "h": 48.75
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=262|h=48"
+      },
+      {
+        "shape_id": "bmN",
+        "type": "rect",
+        "bbox": {
+          "x": 42.0,
+          "y": 332.25,
+          "w": 262.5,
+          "h": 48.75
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=262|h=48"
+      },
+      {
+        "shape_id": "bSb",
+        "type": "rect",
+        "bbox": {
+          "x": 42.0,
+          "y": 402.0,
+          "w": 262.5,
+          "h": 48.75
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=262|h=48"
+      }
+    ],
+    "13": [
+      {
+        "shape_id": "bSq",
+        "type": "rect",
+        "bbox": {
+          "x": 36.0,
+          "y": 24.0,
+          "w": 825.0,
+          "h": 24.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=825|h=24"
+      },
+      {
+        "shape_id": "bSg",
+        "type": "rect",
+        "bbox": {
+          "x": 879.0,
+          "y": 495.75,
+          "w": 45.0,
+          "h": 22.5
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=45|h=22"
+      },
+      {
+        "shape_id": "bSa",
+        "type": "rect",
+        "bbox": {
+          "x": 36.0,
+          "y": 71.25,
+          "w": 885.0,
+          "h": 82.5
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=885|h=82"
+      },
+      {
+        "shape_id": "bSL",
+        "type": "rect",
+        "bbox": {
+          "x": 45.0,
+          "y": 451.5,
+          "w": 300.0,
+          "h": 45.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=300|h=45"
+      },
+      {
+        "shape_id": "bSd",
+        "type": "rect",
+        "bbox": {
+          "x": 382.5,
+          "y": 451.5,
+          "w": 322.5,
+          "h": 45.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=322|h=45"
+      },
+      {
+        "shape_id": "bSr",
+        "type": "rect",
+        "bbox": {
+          "x": 735.0,
+          "y": 451.5,
+          "w": 225.0,
+          "h": 45.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=225|h=45"
+      }
+    ],
+    "14": [
+      {
+        "shape_id": "bSQ",
+        "type": "rect",
+        "bbox": {
+          "x": 36.0,
+          "y": 24.0,
+          "w": 825.0,
+          "h": 24.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=825|h=24"
+      },
+      {
+        "shape_id": "bSA",
+        "type": "rect",
+        "bbox": {
+          "x": 879.0,
+          "y": 495.75,
+          "w": 45.0,
+          "h": 22.5
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=45|h=22"
+      },
+      {
+        "shape_id": "bSf",
+        "type": "rect",
+        "bbox": {
+          "x": 36.0,
+          "y": 70.5,
+          "w": 885.0,
+          "h": 82.5
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=885|h=82"
+      },
+      {
+        "shape_id": "bSG",
+        "type": "rect",
+        "bbox": {
+          "x": 41.25,
+          "y": 206.25,
+          "w": 390.0,
+          "h": 52.5
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=390|h=52"
+      },
+      {
+        "shape_id": "bSM",
+        "type": "rect",
+        "bbox": {
+          "x": 41.25,
+          "y": 279.75,
+          "w": 390.0,
+          "h": 52.5
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=390|h=52"
+      },
+      {
+        "shape_id": "bSy",
+        "type": "rect",
+        "bbox": {
+          "x": 41.25,
+          "y": 353.25,
+          "w": 390.0,
+          "h": 52.5
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=390|h=52"
+      },
+      {
+        "shape_id": "bSH",
+        "type": "rect",
+        "bbox": {
+          "x": 41.25,
+          "y": 462.75,
+          "w": 832.5,
+          "h": 31.5
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=832|h=31"
+      }
+    ],
+    "15": [
+      {
+        "shape_id": "bSY",
+        "type": "rect",
+        "bbox": {
+          "x": 36.0,
+          "y": 24.0,
+          "w": 825.0,
+          "h": 24.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=825|h=24"
+      },
+      {
+        "shape_id": "bSC",
+        "type": "rect",
+        "bbox": {
+          "x": 879.0,
+          "y": 495.75,
+          "w": 45.0,
+          "h": 22.5
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=45|h=22"
+      },
+      {
+        "shape_id": "bSX",
+        "type": "rect",
+        "bbox": {
+          "x": 36.0,
+          "y": 78.75,
+          "w": 750.0,
+          "h": 105.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=750|h=105"
+      },
+      {
+        "shape_id": "bSD",
+        "type": "rect",
+        "bbox": {
+          "x": 36.0,
+          "y": 193.5,
+          "w": 750.0,
+          "h": 105.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=750|h=105"
+      },
+      {
+        "shape_id": "bSF",
+        "type": "rect",
+        "bbox": {
+          "x": 42.75,
+          "y": 429.75,
+          "w": 450.0,
+          "h": 60.0
+        },
+        "fill": "",
+        "signature": "rect|fill=|w=450|h=60"
+      }
+    ]
+  },
+  "total_decorations": 94,
+  "scanned_slides": 15
+}

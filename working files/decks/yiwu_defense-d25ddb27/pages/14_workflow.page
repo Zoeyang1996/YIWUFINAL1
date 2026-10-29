@@ -1,0 +1,238 @@
+pageType: content
+background:
+  type: solid
+  color: $paper
+elements:
+- elementId: meta
+  elementType: text
+  bounds:
+  - 48
+  - 24
+  - 450
+  - 18
+  content:
+    text: 14  /  制作流程
+    fontSize: 10
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 1.5
+    wrap: false
+- elementId: brand
+  elementType: text
+  bounds:
+  - 690
+  - 24
+  - 222
+  - 18
+  content:
+    text: 义犹未尽 · 义乌三时市集
+    fontSize: 10
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - right
+    - top
+    lineHeight: 1.15
+    letterSpacing: 1.0
+    wrap: false
+- elementId: title
+  elementType: text
+  bounds:
+  - 48
+  - 58
+  - 620
+  - 58
+  content:
+    text: 两条路线，同步落地
+    fontSize: 44
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: outline
+  elementType: image
+  bounds:
+  - 682
+  - 52
+  - 230
+  - 164
+  src: media/outline-hand.jpg
+  fit:
+    mode: cover
+  rotation: 2
+- elementId: r1
+  elementType: text
+  bounds:
+  - 52
+  - 152
+  - 120
+  - 28
+  content:
+    text: 路线 A
+    fontSize: 16
+    fontFamily: MiSans
+    color: $red
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 1.2
+    wrap: false
+- elementId: a1
+  elementType: text
+  bounds:
+  - 52
+  - 202
+  - 180
+  - 34
+  content:
+    text: 美术风格确立
+    fontSize: 24
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: a2
+  elementType: text
+  bounds:
+  - 236
+  - 252
+  - 180
+  - 34
+  content:
+    text: 三维资产制作
+    fontSize: 24
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: a3
+  elementType: text
+  bounds:
+  - 420
+  - 302
+  - 180
+  - 34
+  content:
+    text: 三维场景搭建
+    fontSize: 24
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: a4
+  elementType: text
+  bounds:
+  - 604
+  - 352
+  - 210
+  - 34
+  content:
+    text: 人物 NPC 制作
+    fontSize: 24
+    fontFamily: MiSans
+    color: $red
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: route-a
+  elementType: line
+  bounds:
+  - 62
+  - 236
+  - 710
+  - 154
+  viewBox:
+  - 1
+  - 1
+  points: 0,0 1,1
+  curve: sharp
+  border:
+    style: solid
+    width: 2
+    color: $line
+- elementId: split
+  elementType: line
+  bounds:
+  - 52
+  - 420
+  - 860
+  - 2
+  viewBox:
+  - 1
+  - 1
+  points: 0,0 1,0
+  curve: sharp
+  border:
+    style: solid
+    width: 2
+    color: $ink
+- elementId: r2
+  elementType: text
+  bounds:
+  - 52
+  - 444
+  - 120
+  - 28
+  content:
+    text: 路线 B
+    fontSize: 16
+    fontFamily: MiSans
+    color: $red
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 1.2
+    wrap: false
+- elementId: b
+  elementType: text
+  bounds:
+  - 186
+  - 438
+  - 726
+  - 40
+  content:
+    text: 商品调研  →  图片搜集  →  三维资产化  →  交互逻辑
+    fontSize: 24
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - right
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false

@@ -1,0 +1,49 @@
+version: v2
+title: 一日三市·义犹未尽——项目答辩
+size:
+- 960
+- 540
+theme:
+  colors:
+    paper: '#F4F0E6'
+    paper2: '#E9E1D2'
+    ink: '#191A17'
+    muted: '#6E6A61'
+    red: '#A6412D'
+    line: '#C8BFAF'
+    night: '#0B1520'
+    night2: '#132638'
+    cream: '#F4E8CF'
+    gold: '#D99A52'
+    white: '#FFFFFF'
+    morning: '#B87345'
+  textStyles:
+    title:
+      fontSize: 44
+      fontFamily: MiSans
+      color: $ink
+      bold: true
+    body:
+      fontSize: 18
+      fontFamily: MiSans
+      color: $muted
+      lineHeight: 1.5
+pages:
+- pages/01_cover.page
+- pages/02_brief.page
+- pages/03_overview.page
+- pages/04_concept.page
+- pages/05_history.page
+- pages/06_jiangnan.page
+- pages/07_three_markets.page
+- pages/08_morning.page
+- pages/09_noon.page
+- pages/10_night.page
+- pages/11_route.page
+- pages/12_products.page
+- pages/13_interaction.page
+- pages/14_workflow.page
+- pages/15_team.page
+- pages/16_production.page
+- pages/17_tech.page
+- pages/18_closing.page

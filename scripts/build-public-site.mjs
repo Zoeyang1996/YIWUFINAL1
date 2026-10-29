@@ -5,6 +5,8 @@ import { gzipSync, gunzipSync } from 'node:zlib';
 import { createHash } from 'node:crypto';
 import { PHASES } from '../js/data/phases.js';
 import { PRODUCTS } from '../js/data/products.js';
+import { PLAYER_MODEL } from '../js/data/player.js';
+import { AMBIENCES } from '../js/data/soundscape.js';
 import { downloadModel } from '../js/core/model-download.js';
 
 const root = path.resolve(fileURLToPath(new URL('..', import.meta.url)));
@@ -15,8 +17,9 @@ await fs.mkdir(output, { recursive: true });
 for (const name of ['index.html', 'market.html', 'shop.html', 'favicon.svg', 'css', 'js', 'vendor']) {
   await fs.cp(path.join(root, name), path.join(output, name), { recursive: true });
 }
-const models = new Set();
-const files = new Set(['assets/markets/morning-metadata.json']);
+const models = new Set([PLAYER_MODEL]);
+const files = new Set(['assets/markets/morning-metadata.json', 'assets/audio/market-stroll.wav']);
+for (const audio of Object.values(AMBIENCES)) files.add(audio.file);
 for (const phase of Object.values(PHASES)) {
   models.add(phase.overviewModel.split('?')[0]);
   models.add(`assets/markets/${phase.id}.glb`);

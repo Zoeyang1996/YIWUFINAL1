@@ -1,0 +1,202 @@
+pageType: content
+background:
+  type: solid
+  color: $paper
+elements:
+- elementId: meta
+  elementType: text
+  bounds:
+  - 48
+  - 24
+  - 450
+  - 18
+  content:
+    text: 11  /  空间与游线
+    fontSize: 10
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 1.5
+    wrap: false
+- elementId: brand
+  elementType: text
+  bounds:
+  - 690
+  - 24
+  - 222
+  - 18
+  content:
+    text: 义犹未尽 · 义乌三时市集
+    fontSize: 10
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - right
+    - top
+    lineHeight: 1.15
+    letterSpacing: 1.0
+    wrap: false
+- elementId: title
+  elementType: text
+  bounds:
+  - 48
+  - 62
+  - 620
+  - 58
+  content:
+    text: 从总览，到一件商品
+    fontSize: 44
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: map
+  elementType: image
+  bounds:
+  - 42
+  - 138
+  - 548
+  - 330
+  src: media/map-top.png
+  fit:
+    mode: cover
+- elementId: map-cap
+  elementType: text
+  bounds:
+  - 48
+  - 478
+  - 520
+  - 18
+  content:
+    text: 场景俯视图 / 空间布局推演
+    fontSize: 10
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: route
+  elementType: line
+  bounds:
+  - 654
+  - 154
+  - 2
+  - 260
+  viewBox:
+  - 1
+  - 1
+  points: 0,0 1,0
+  curve: sharp
+  border:
+    style: solid
+    width: 3
+    color: $red
+- elementId: r1
+  elementType: text
+  bounds:
+  - 636
+  - 142
+  - 276
+  - 38
+  content:
+    text: 01  总览换时
+    fontSize: 25
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: r2
+  elementType: text
+  bounds:
+  - 676
+  - 222
+  - 236
+  - 38
+  content:
+    text: 02  角色入市
+    fontSize: 25
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: r3
+  elementType: text
+  bounds:
+  - 636
+  - 302
+  - 276
+  - 38
+  content:
+    text: 03  驻摊互动
+    fontSize: 25
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: r4
+  elementType: text
+  bounds:
+  - 676
+  - 382
+  - 236
+  - 38
+  content:
+    text: 04  近看商品
+    fontSize: 25
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: side
+  elementType: text
+  bounds:
+  - 636
+  - 458
+  - 276
+  - 22
+  content:
+    text: 滚轮 / WASD / 长按 E / 点击
+    fontSize: 14
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - right
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false

@@ -1,0 +1,48 @@
+<slide id="pYP">
+  <style>
+    <fill id="fYP">
+      <fillColor color="rgba(242, 235, 221, 1)"/>
+    </fill>
+  </style>
+  <data>
+    <shape width="825" height="24" topLeftX="36" topLeftY="24" presetHandlers="0" type="rect" id="bqL">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="14.25" fontFamily="Inter" color="rgba(120, 111, 97, 1)" bold="false" lineSpacing="multiple:1.2" textAlign="left" defaultTabSize="72">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="14.25" fontFamily="Inter" bold="false">03 / 总体布局与空间</span></p>
+      </content>
+    </shape>
+    <shape width="45" height="22.5" topLeftX="879" topLeftY="495.75" presetHandlers="0" type="rect" id="bqm">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="13.5" fontFamily="Inter" color="rgba(120, 111, 97, 1)" bold="false" lineSpacing="multiple:1.2" textAlign="left" defaultTabSize="72">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="13.5" fontFamily="Inter" bold="false">09</span></p>
+      </content>
+    </shape>
+    <shape width="380" height="118" topLeftX="39" topLeftY="95" presetHandlers="0" type="rect" id="bqv">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="46" fontFamily="思源黑体" color="rgba(36, 35, 31, 1)" bold="true" lineSpacing="multiple:1.15" textAlign="left" defaultTabSize="72">
+        <p textAlign="left" lineSpacing="multiple:1.15" defaultTabSize="72"><strong><span color="rgba(36, 35, 31, 1)" fontSize="46" fontFamily="思源黑体">入市 · 逛街<br/>停留</span></strong></p>
+      </content>
+    </shape>
+    <shape width="360" height="40" topLeftX="39" topLeftY="228" presetHandlers="0" type="rect" id="bqg">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="20" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" bold="true" lineSpacing="multiple:1.4" textAlign="left" defaultTabSize="72">
+        <p textAlign="left" lineSpacing="multiple:1.4" defaultTabSize="72"><strong><span color="rgba(174, 61, 46, 1)" fontSize="20" fontFamily="思源黑体">入口</span></strong><strong><span color="rgba(36, 35, 31, 1)" fontSize="20" fontFamily="思源黑体"> 街巷 </span></strong><strong><span color="rgba(174, 61, 46, 1)" fontSize="20" fontFamily="思源黑体">摊位</span></strong></p>
+      </content>
+    </shape>
+    <shape width="380" height="110" topLeftX="42.75" topLeftY="288" presetHandlers="0" type="rect" id="bqd">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="15" fontFamily="思源黑体" color="rgba(90, 84, 74, 1)" lineSpacing="multiple:1.6" textAlign="left" defaultTabSize="72">
+        <p textAlign="left" lineSpacing="multiple:1.6" defaultTabSize="72"><span color="rgba(90, 84, 74, 1)" fontSize="15" fontFamily="思源黑体">从牌坊进入市集，沿街巷缓步漫游，被感兴趣的摊位吸引停下，走近商品、与摊主互动——空间动线即观展节奏。</span></p>
+      </content>
+    </shape>
+    <img id="bqS" src="Bn17b8N2FohvQAxhjN9cqX4WnJh" width="500" height="281" topLeftX="420" topLeftY="120">
+      <crop leftOffset="0" rightOffset="0" topOffset="0" bottomOffset="0"/>
+    </img>
+    <shape width="500" height="24" topLeftX="420" topLeftY="408" presetHandlers="0" type="rect" id="bqq">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="12" fontFamily="思源黑体" color="rgba(120, 111, 97, 1)" lineSpacing="multiple:1.2" textAlign="left" defaultTabSize="72">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="12" fontFamily="思源黑体">图 · 「义乌市集」牌坊与主街正面</span></p>
+      </content>
+    </shape>
+  </data>
+  <note id="bqK">
+    <content>
+      <p>空间组织按真实逛街的动线设计：入口牌坊定调，街巷展开视野，摊位提供停留点。</p>
+      <p>观众不是在看展板，而是像走进一条街，由远及近、由动到静地完成观展节奏。</p>
+    </content>
+  </note>
+</slide>

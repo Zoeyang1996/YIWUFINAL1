@@ -1,0 +1,59 @@
+<slide id="pYQ">
+  <style>
+    <fill id="fYQ">
+      <fillColor color="rgba(242, 235, 221, 1)"/>
+    </fill>
+  </style>
+  <data>
+    <shape width="825" height="24" topLeftX="36" topLeftY="24" presetHandlers="0" type="rect" id="bvW">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="14.25" fontFamily="Inter" color="rgba(120, 111, 97, 1)" bold="false" lineSpacing="multiple:1.2" textAlign="left" defaultTabSize="72">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="14.25" fontFamily="Inter" bold="false">03 / 总体布局与空间</span></p>
+      </content>
+    </shape>
+    <shape width="45" height="22.5" topLeftX="879" topLeftY="495.75" presetHandlers="0" type="rect" id="bve">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="13.5" fontFamily="Inter" color="rgba(120, 111, 97, 1)" bold="false" lineSpacing="multiple:1.2" textAlign="left" defaultTabSize="72">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="13.5" fontFamily="Inter" bold="false">07</span></p>
+      </content>
+    </shape>
+    <shape width="885" height="66" topLeftX="36" topLeftY="66" presetHandlers="0" type="rect" id="bvO">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="52" fontFamily="思源黑体" color="rgba(36, 35, 31, 1)" bold="true" lineSpacing="multiple:1.2" textAlign="left" defaultTabSize="72">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><strong><span color="rgba(36, 35, 31, 1)" fontSize="52" fontFamily="思源黑体">一日三市，各有气质</span></strong></p>
+      </content>
+    </shape>
+    <img id="bvJ" src="ZknobsjtEoeVA0xrX7Ocp7jKnNe" width="320" height="200" topLeftX="0" topLeftY="150">
+      <crop leftOffset="0" rightOffset="0" topOffset="0" bottomOffset="0"/>
+    </img>
+    <img id="bvo" src="HKt4b9T11oWDLOxdzZ4cZfuXnbb" width="320" height="200" topLeftX="320" topLeftY="150">
+      <crop leftOffset="0" rightOffset="0" topOffset="0" bottomOffset="0"/>
+    </img>
+    <img id="bvE" src="UB2kbLta2oVteLx3HrVc6LCUn7e" width="320" height="200" topLeftX="640" topLeftY="150">
+      <crop leftOffset="0" rightOffset="0" topOffset="0" bottomOffset="0"/>
+    </img>
+    <shape width="300" height="34" topLeftX="36" topLeftY="368" presetHandlers="0" type="rect" id="bvx">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 31, 1)" bold="true" lineSpacing="multiple:1.2" textAlign="left" defaultTabSize="72">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><strong><span color="rgba(174, 61, 46, 1)" fontSize="20" fontFamily="思源黑体">晨起</span></strong><strong><span color="rgba(36, 35, 31, 1)" fontSize="16" fontFamily="思源黑体"> 茶与早点</span></strong></p>
+      </content>
+    </shape>
+    <shape width="300" height="34" topLeftX="340" topLeftY="368" presetHandlers="0" type="rect" id="bvN">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 31, 1)" bold="true" lineSpacing="multiple:1.2" textAlign="left" defaultTabSize="72">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><strong><span color="rgba(174, 61, 46, 1)" fontSize="20" fontFamily="思源黑体">午游</span></strong><strong><span color="rgba(36, 35, 31, 1)" fontSize="16" fontFamily="思源黑体"> 扇与杂货</span></strong></p>
+      </content>
+    </shape>
+    <shape width="300" height="34" topLeftX="650" topLeftY="368" presetHandlers="0" type="rect" id="bqb">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 31, 1)" bold="true" lineSpacing="multiple:1.2" textAlign="left" defaultTabSize="72">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><strong><span color="rgba(174, 61, 46, 1)" fontSize="20" fontFamily="思源黑体">夜赏</span></strong><strong><span color="rgba(36, 35, 31, 1)" fontSize="16" fontFamily="思源黑体"> 灯与器物</span></strong></p>
+      </content>
+    </shape>
+    <shape width="820" height="50" topLeftX="39" topLeftY="420" presetHandlers="0" type="rect" id="bvz">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="15" fontFamily="思源黑体" color="rgba(90, 84, 74, 1)" textAlign="left" defaultTabSize="72">
+        <p textAlign="left" defaultTabSize="72"><span color="rgba(90, 84, 74, 1)" fontSize="15" fontFamily="思源黑体">三个时间、三个市集、三个场所，各配一套摊位、商品与光影，像真实市集随天色变化。</span></p>
+      </content>
+    </shape>
+  </data>
+  <note id="bvT">
+    <content>
+      <p>总体布局的核心是&quot;一日三市&quot;：早市、午市、夜市是三个独立又连续的场所。</p>
+      <p>每个时段有自己的配色、摊位组合和主推商品——早市卖茶点，午市卖扇与杂货，夜市在灯火下展示器物，逛一天像逛了三个地方。</p>
+    </content>
+  </note>
+</slide>

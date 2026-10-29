@@ -1,0 +1,191 @@
+{
+  "ok": true,
+  "authored": "/Users/yangzhe/Downloads/义乌市集ppt制作/.lark-slides/template/yiwu-market/authoring/slide-10.xml",
+  "status": "ready_to_write",
+  "block_reasons": [],
+  "placeholder_warnings": 0,
+  "wrapping_warnings": 0,
+  "summary": {
+    "xml_lint_errors": 0,
+    "contrast_blocking": false,
+    "placeholder_warn_count": 0,
+    "overflow_covers_below_fail_count": 0,
+    "unexpected_wrapping_warn_count": 0,
+    "sparsity_fail_count": 0,
+    "page_role": "active_rebuild",
+    "total_elements": 16,
+    "text_elements": 0,
+    "visual_elements": 16,
+    "long_paragraph_count": 0,
+    "long_paragraph_char_ratio": 0,
+    "total_text_chars": 0,
+    "max_font_size": 0,
+    "refine_triggers": {
+      "applicable": true,
+      "should_refine": true,
+      "hit_count": 2,
+      "triggered": [
+        {
+          "signal": "total_elements",
+          "value": 16,
+          "operator": "<",
+          "threshold": 20,
+          "note": "元素太少 · 范本页型骨架至少 20 个 shape"
+        },
+        {
+          "signal": "total_text_chars",
+          "value": 0,
+          "operator": "<",
+          "threshold": 30,
+          "note": "漏填 / 内容太少（仅 <data> 里的文字 · 不含演讲者备注 <note>）"
+        }
+      ],
+      "passed": [
+        {
+          "signal": "visual_elements",
+          "value": 16,
+          "operator": "≤",
+          "threshold": 12,
+          "note": "装饰/图表偏少 · 大概率是纯文字空稿"
+        },
+        {
+          "signal": "long_paragraph_char_ratio",
+          "value": 0.0,
+          "operator": ">",
+          "threshold": 0.6,
+          "note": "单长段占据全页文字主导（页眉页脚 + 一大段典型模式）"
+        },
+        {
+          "signal": "text_ratio",
+          "value": 0.0,
+          "operator": ">",
+          "threshold": 0.8,
+          "note": "几乎全是文字块 · 装饰不足"
+        }
+      ],
+      "summary": "命中 2/5 个 refine 启动信号 · 应该 refine"
+    }
+  },
+  "checks": {
+    "xml_lint": {
+      "status": "passed",
+      "error_count": 0,
+      "warning_count": 0,
+      "raw": {
+        "schema_version": "2.0",
+        "tool": "xml_lint",
+        "file": "/Users/yangzhe/Downloads/义乌市集ppt制作/.lark-slides/template/yiwu-market/authoring/slide-10.xml",
+        "slide_size": {
+          "width": 960,
+          "height": 540
+        },
+        "summary": {
+          "slide_count": 1,
+          "error_count": 0,
+          "warning_count": 0,
+          "info_count": 0,
+          "status": "passed",
+          "release_ready": true,
+          "screenshot_review_required": false
+        },
+        "document": {
+          "errors": [],
+          "warnings": [],
+          "infos": []
+        },
+        "slides": [
+          {
+            "slide_number": 1,
+            "status": "passed",
+            "element_count": 16,
+            "errors": [],
+            "warnings": [],
+            "infos": [],
+            "issues": []
+          }
+        ]
+      }
+    },
+    "color_contrast": {
+      "has_blocking": false,
+      "issue_count": 0,
+      "raw": {
+        "summary": {
+          "has_issues": false,
+          "has_blocking_issues": false,
+          "issue_count": 0,
+          "warning_count": 0,
+          "fix_pages": [],
+          "review_pages": []
+        },
+        "issues": []
+      }
+    },
+    "placeholder_diff": {
+      "checked": true,
+      "warning_count": 0,
+      "info_count": 0,
+      "issues": [],
+      "note": "warn = source-slides 和 authoring 中都出现且未修改的文本，可能是漏改的占位内容。如果确实是模板骨架 label（如'目录'、'CONTENTS'），可忽略；否则 MainAgent 必须去 Edit authoring 改掉。"
+    },
+    "overflow_covers_below": {
+      "checked": true,
+      "fail_count": 0,
+      "issues": [],
+      "note": "text_overflow_covers_below = 文本 A 因为 estimated_height > declared_height 溢出容器，溢出部分向下覆盖到同页其他独立 shape B。特别处理 rect 类型塞正文的场景（xml_lint 的 text_overflows_container 不覆盖这种）。命中即 FAIL，必须修复才能写入。"
+    },
+    "unexpected_wrapping": {
+      "checked": true,
+      "warning_count": 0,
+      "issues": [],
+      "note": "unexpected_wrapping = type=text shape 的正文估算宽度 > 可用宽度（考虑 padding/margin/indent/bullet），渲染时会强制换行——通常模板设计是单行 label，MainAgent 复用时新文本长了 1-2 个字就掉行。启发式估算 ±15% 误差，因此是 warn 不阻断；MainAgent 收到 warn 后看 reason 里的 estimated vs avail 数字判断是否需要改。"
+    },
+    "sparsity": {
+      "checked": true,
+      "page_role": "active_rebuild",
+      "authored": {
+        "text": 0,
+        "visual_shape": 10,
+        "visual_other": 6,
+        "total": 16,
+        "text_char_lengths": [],
+        "max_font_size": 0,
+        "long_paragraph_count": 0,
+        "long_paragraph_chars": 0,
+        "total_text_chars": 0,
+        "text_ratio": 0.0,
+        "long_paragraph_char_ratio": 0
+      },
+      "thresholds": {
+        "min_total": 3,
+        "max_text_ratio": 0.9,
+        "min_density_ratio": 0.6,
+        "long_paragraph_char_threshold": 80,
+        "min_long_paragraphs_for_dominated": 1,
+        "max_long_paragraph_char_ratio": 0.7
+      },
+      "issues": [],
+      "source": {
+        "text": 0,
+        "visual_shape": 6,
+        "visual_other": 1,
+        "total": 7,
+        "text_char_lengths": [],
+        "max_font_size": 0,
+        "long_paragraph_count": 0,
+        "long_paragraph_chars": 0,
+        "total_text_chars": 0
+      },
+      "density_ratio": 2.286,
+      "fail_count": 0,
+      "info_count": 0,
+      "status": "ok"
+    },
+    "template_copy_overfit": {
+      "checked": true,
+      "fail_count": 0,
+      "issues": [],
+      "reason": "authored 页无 shape id，跳过"
+    }
+  }
+}

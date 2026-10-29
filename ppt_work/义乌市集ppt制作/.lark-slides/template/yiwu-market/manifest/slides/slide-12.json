@@ -1,0 +1,85 @@
+{
+  "slide_num": 12,
+  "role": "content",
+  "slide_id": "pYt",
+  "local_xml_path": "source-slides/slide-12.xml",
+  "shell_shapes": [],
+  "content_shapes": [
+    {
+      "id": 2,
+      "type": "AUTO_SHAPE",
+      "left": 0.5,
+      "top": 0.3333,
+      "width": 11.4583,
+      "height": 0.3333,
+      "text": "11   /   制作流程"
+    },
+    {
+      "id": 3,
+      "type": "AUTO_SHAPE",
+      "left": 12.2083,
+      "top": 6.8854,
+      "width": 0.625,
+      "height": 0.3125,
+      "text": "12"
+    },
+    {
+      "id": 4,
+      "type": "AUTO_SHAPE",
+      "left": 0.5,
+      "top": 1.0,
+      "width": 12.2917,
+      "height": 1.1667,
+      "text": "把想法，搭成市集"
+    },
+    {
+      "id": 5,
+      "type": "PICTURE",
+      "left": 4.9479,
+      "top": 1.9792,
+      "width": 7.9167,
+      "height": 4.9479,
+      "text": ""
+    },
+    {
+      "id": 6,
+      "type": "AUTO_SHAPE",
+      "left": 0.5833,
+      "top": 2.6771,
+      "width": 3.6458,
+      "height": 0.6771,
+      "text": "构思"
+    },
+    {
+      "id": 7,
+      "type": "AUTO_SHAPE",
+      "left": 0.5833,
+      "top": 3.6458,
+      "width": 3.6458,
+      "height": 0.6771,
+      "text": "建模"
+    },
+    {
+      "id": 8,
+      "type": "AUTO_SHAPE",
+      "left": 0.5833,
+      "top": 4.6146,
+      "width": 3.6458,
+      "height": 0.6771,
+      "text": "布光"
+    },
+    {
+      "id": 9,
+      "type": "AUTO_SHAPE",
+      "left": 0.5833,
+      "top": 5.5833,
+      "width": 3.6458,
+      "height": 0.6771,
+      "text": "交互"
+    }
+  ],
+  "available_regions": [],
+  "images_used": [
+    "image2.png"
+  ]
+}

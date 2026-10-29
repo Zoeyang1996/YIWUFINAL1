@@ -1,3 +1,4 @@
+import { sound } from '../core/audio.js';
 import { mountCart } from '../cart/ui.js';
 import { PHASES, PHASE_ORDER } from '../data/phases.js';
 import { withShare } from '../core/nav.js';
@@ -22,6 +23,7 @@ let captionTimer = 0;
 let leaving = false;
 
 mountCart();
+sound.mount();
 
 function buildButtons() {
   buttonsEl.innerHTML = PHASE_ORDER.map(
@@ -60,6 +62,7 @@ function paintActive() {
 
 async function goTo(nextIndex) {
   index = (nextIndex + PHASE_ORDER.length) % PHASE_ORDER.length;
+  sound.setPhase(PHASE_ORDER[index]); sound.play('select');
   paintActive();
   paintCaption();
   wheelLockedUntil = performance.now() + WHEEL_LOCK_MS;
@@ -68,7 +71,7 @@ async function goTo(nextIndex) {
 
 function leaveToMarket(phaseId) {
   if (leaving) return;
-  leaving = true;
+  leaving = true; sound.play('enter');
   hintEl.classList.add('is-entering');
   hintEl.textContent = '入 市';
   wipeEl.classList.add('is-active');
@@ -97,6 +100,7 @@ stage.setPhase(PHASE_ORDER[0]).catch(showLoadError);
 window.addEventListener(
   'wheel',
   (event) => {
+    if (event.target.closest?.('.sound-controls,.cart-root')) return;
     event.preventDefault();
     if (leaving || Math.abs(event.deltaY) < WHEEL_THRESHOLD) return;
     const now = performance.now();
@@ -109,9 +113,10 @@ window.addEventListener(
 // ---- 触屏上下滑 ----
 let touchStartY = 0;
 window.addEventListener('touchstart', (event) => {
-  touchStartY = event.touches[0]?.clientY ?? 0;
+  touchStartY = event.target.closest?.('.sound-controls,.cart-root') ? null : event.touches[0]?.clientY ?? 0;
 }, { passive: true });
 window.addEventListener('touchend', (event) => {
+  if (touchStartY === null) return;
   const endY = event.changedTouches[0]?.clientY ?? touchStartY;
   const delta = touchStartY - endY;
   if (Math.abs(delta) < 46 || leaving) return;
@@ -120,7 +125,9 @@ window.addEventListener('touchend', (event) => {
 
 // ---- 键盘 ----
 window.addEventListener('keydown', (event) => {
-  if (leaving) return;
+  if (leaving || event.repeat || event.ctrlKey || event.altKey || event.metaKey || event.isComposing
+    || event.target.closest?.('button,a,summary,input,textarea,select,.sound-controls,[contenteditable]')
+    || document.querySelector('.cart-drawer.is-open')) return;
   if (event.key === 'ArrowRight' || event.key === 'ArrowDown') goTo(index + 1);
   if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') goTo(index - 1);
   if (event.key === 'Enter' || event.key === ' ') {

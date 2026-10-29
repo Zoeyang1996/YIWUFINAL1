@@ -1,0 +1,480 @@
+{
+  "ok": true,
+  "identity": "user",
+  "data": {
+    "content_saved": true,
+    "issues": {
+      "document": {
+        "errors": [],
+        "infos": [],
+        "warnings": []
+      },
+      "file": null,
+      "schema_version": "2.0",
+      "slide_size": {
+        "height": 540,
+        "width": 960
+      },
+      "slides": [
+        {
+          "element_count": 6,
+          "errors": [],
+          "infos": [],
+          "issues": [],
+          "slide_number": 1,
+          "status": "passed",
+          "warnings": []
+        },
+        {
+          "element_count": 14,
+          "errors": [],
+          "infos": [],
+          "issues": [],
+          "slide_number": 2,
+          "status": "passed",
+          "warnings": []
+        },
+        {
+          "element_count": 7,
+          "errors": [],
+          "infos": [],
+          "issues": [],
+          "slide_number": 3,
+          "status": "passed",
+          "warnings": []
+        },
+        {
+          "element_count": 7,
+          "errors": [],
+          "infos": [],
+          "issues": [],
+          "slide_number": 4,
+          "status": "passed",
+          "warnings": []
+        },
+        {
+          "element_count": 12,
+          "errors": [],
+          "infos": [],
+          "issues": [
+            {
+              "code": "sparse_container_content",
+              "element_ids": [
+                "bvs"
+              ],
+              "elements": [
+                "bvs"
+              ],
+              "hint": "Locate via related_objects[].xml_path. Review the rendered screenshot; add or enlarge meaningful content if the whitespace is not intentional.",
+              "level": "warning",
+              "measurement": {
+                "container_area": 21600,
+                "content_coverage_ratio": 0.142,
+                "content_element_count": 1,
+                "visible_content_area": 3057.6
+              },
+              "message": "large card bvs content coverage 14.2% is below 15.0%",
+              "related_objects": [
+                {
+                  "bbox": {
+                    "height": 80,
+                    "width": 270,
+                    "x": 36,
+                    "y": 372
+                  },
+                  "element_id": "bvs",
+                  "kind": "shape",
+                  "type": "rect",
+                  "xml_path": "slide[5]/data/shape[7]"
+                }
+              ],
+              "rule": {
+                "comparison": "content_coverage_ratio \u003c threshold",
+                "id": "sparse_container_content",
+                "name": "large_container_visible_content_coverage",
+                "threshold": 0.15
+              },
+              "schema_version": "2.0",
+              "target": {
+                "bbox": {
+                  "height": 80,
+                  "width": 270,
+                  "x": 36,
+                  "y": 372
+                },
+                "container_id": "bvs",
+                "container_type": "rect",
+                "container_xml_path": "slide[5]/data/shape[7]",
+                "slide_number": 5
+              }
+            },
+            {
+              "code": "sparse_container_content",
+              "element_ids": [
+                "bvI"
+              ],
+              "elements": [
+                "bvI"
+              ],
+              "hint": "Locate via related_objects[].xml_path. Review the rendered screenshot; add or enlarge meaningful content if the whitespace is not intentional.",
+              "level": "warning",
+              "measurement": {
+                "container_area": 21600,
+                "content_coverage_ratio": 0.12,
+                "content_element_count": 1,
+                "visible_content_area": 2587.2
+              },
+              "message": "large card bvI content coverage 12.0% is below 15.0%",
+              "related_objects": [
+                {
+                  "bbox": {
+                    "height": 80,
+                    "width": 270,
+                    "x": 345,
+                    "y": 372
+                  },
+                  "element_id": "bvI",
+                  "kind": "shape",
+                  "type": "rect",
+                  "xml_path": "slide[5]/data/shape[8]"
+                }
+              ],
+              "rule": {
+                "comparison": "content_coverage_ratio \u003c threshold",
+                "id": "sparse_container_content",
+                "name": "large_container_visible_content_coverage",
+                "threshold": 0.15
+              },
+              "schema_version": "2.0",
+              "target": {
+                "bbox": {
+                  "height": 80,
+                  "width": 270,
+                  "x": 345,
+                  "y": 372
+                },
+                "container_id": "bvI",
+                "container_type": "rect",
+                "container_xml_path": "slide[5]/data/shape[8]",
+                "slide_number": 5
+              }
+            },
+            {
+              "code": "sparse_container_content",
+              "element_ids": [
+                "bvc"
+              ],
+              "elements": [
+                "bvc"
+              ],
+              "hint": "Locate via related_objects[].xml_path. Review the rendered screenshot; add or enlarge meaningful content if the whitespace is not intentional.",
+              "level": "warning",
+              "measurement": {
+                "container_area": 21600,
+                "content_coverage_ratio": 0.142,
+                "content_element_count": 1,
+                "visible_content_area": 3057.6
+              },
+              "message": "large card bvc content coverage 14.2% is below 15.0%",
+              "related_objects": [
+                {
+                  "bbox": {
+                    "height": 80,
+                    "width": 270,
+                    "x": 654,
+                    "y": 372
+                  },
+                  "element_id": "bvc",
+                  "kind": "shape",
+                  "type": "rect",
+                  "xml_path": "slide[5]/data/shape[9]"
+                }
+              ],
+              "rule": {
+                "comparison": "content_coverage_ratio \u003c threshold",
+                "id": "sparse_container_content",
+                "name": "large_container_visible_content_coverage",
+                "threshold": 0.15
+              },
+              "schema_version": "2.0",
+              "target": {
+                "bbox": {
+                  "height": 80,
+                  "width": 270,
+                  "x": 654,
+                  "y": 372
+                },
+                "container_id": "bvc",
+                "container_type": "rect",
+                "container_xml_path": "slide[5]/data/shape[9]",
+                "slide_number": 5
+              }
+            }
+          ],
+          "slide_number": 5,
+          "status": "needs_screenshot_review",
+          "warnings": [
+            {
+              "code": "sparse_container_content",
+              "element_ids": [
+                "bvs"
+              ],
+              "elements": [
+                "bvs"
+              ],
+              "hint": "Locate via related_objects[].xml_path. Review the rendered screenshot; add or enlarge meaningful content if the whitespace is not intentional.",
+              "level": "warning",
+              "measurement": {
+                "container_area": 21600,
+                "content_coverage_ratio": 0.142,
+                "content_element_count": 1,
+                "visible_content_area": 3057.6
+              },
+              "message": "large card bvs content coverage 14.2% is below 15.0%",
+              "related_objects": [
+                {
+                  "bbox": {
+                    "height": 80,
+                    "width": 270,
+                    "x": 36,
+                    "y": 372
+                  },
+                  "element_id": "bvs",
+                  "kind": "shape",
+                  "type": "rect",
+                  "xml_path": "slide[5]/data/shape[7]"
+                }
+              ],
+              "rule": {
+                "comparison": "content_coverage_ratio \u003c threshold",
+                "id": "sparse_container_content",
+                "name": "large_container_visible_content_coverage",
+                "threshold": 0.15
+              },
+              "schema_version": "2.0",
+              "target": {
+                "bbox": {
+                  "height": 80,
+                  "width": 270,
+                  "x": 36,
+                  "y": 372
+                },
+                "container_id": "bvs",
+                "container_type": "rect",
+                "container_xml_path": "slide[5]/data/shape[7]",
+                "slide_number": 5
+              }
+            },
+            {
+              "code": "sparse_container_content",
+              "element_ids": [
+                "bvI"
+              ],
+              "elements": [
+                "bvI"
+              ],
+              "hint": "Locate via related_objects[].xml_path. Review the rendered screenshot; add or enlarge meaningful content if the whitespace is not intentional.",
+              "level": "warning",
+              "measurement": {
+                "container_area": 21600,
+                "content_coverage_ratio": 0.12,
+                "content_element_count": 1,
+                "visible_content_area": 2587.2
+              },
+              "message": "large card bvI content coverage 12.0% is below 15.0%",
+              "related_objects": [
+                {
+                  "bbox": {
+                    "height": 80,
+                    "width": 270,
+                    "x": 345,
+                    "y": 372
+                  },
+                  "element_id": "bvI",
+                  "kind": "shape",
+                  "type": "rect",
+                  "xml_path": "slide[5]/data/shape[8]"
+                }
+              ],
+              "rule": {
+                "comparison": "content_coverage_ratio \u003c threshold",
+                "id": "sparse_container_content",
+                "name": "large_container_visible_content_coverage",
+                "threshold": 0.15
+              },
+              "schema_version": "2.0",
+              "target": {
+                "bbox": {
+                  "height": 80,
+                  "width": 270,
+                  "x": 345,
+                  "y": 372
+                },
+                "container_id": "bvI",
+                "container_type": "rect",
+                "container_xml_path": "slide[5]/data/shape[8]",
+                "slide_number": 5
+              }
+            },
+            {
+              "code": "sparse_container_content",
+              "element_ids": [
+                "bvc"
+              ],
+              "elements": [
+                "bvc"
+              ],
+              "hint": "Locate via related_objects[].xml_path. Review the rendered screenshot; add or enlarge meaningful content if the whitespace is not intentional.",
+              "level": "warning",
+              "measurement": {
+                "container_area": 21600,
+                "content_coverage_ratio": 0.142,
+                "content_element_count": 1,
+                "visible_content_area": 3057.6
+              },
+              "message": "large card bvc content coverage 14.2% is below 15.0%",
+              "related_objects": [
+                {
+                  "bbox": {
+                    "height": 80,
+                    "width": 270,
+                    "x": 654,
+                    "y": 372
+                  },
+                  "element_id": "bvc",
+                  "kind": "shape",
+                  "type": "rect",
+                  "xml_path": "slide[5]/data/shape[9]"
+                }
+              ],
+              "rule": {
+                "comparison": "content_coverage_ratio \u003c threshold",
+                "id": "sparse_container_content",
+                "name": "large_container_visible_content_coverage",
+                "threshold": 0.15
+              },
+              "schema_version": "2.0",
+              "target": {
+                "bbox": {
+                  "height": 80,
+                  "width": 270,
+                  "x": 654,
+                  "y": 372
+                },
+                "container_id": "bvc",
+                "container_type": "rect",
+                "container_xml_path": "slide[5]/data/shape[9]",
+                "slide_number": 5
+              }
+            }
+          ]
+        },
+        {
+          "element_count": 7,
+          "errors": [],
+          "infos": [],
+          "issues": [],
+          "slide_number": 6,
+          "status": "passed",
+          "warnings": []
+        },
+        {
+          "element_count": 10,
+          "errors": [],
+          "infos": [],
+          "issues": [],
+          "slide_number": 7,
+          "status": "passed",
+          "warnings": []
+        },
+        {
+          "element_count": 7,
+          "errors": [],
+          "infos": [],
+          "issues": [],
+          "slide_number": 8,
+          "status": "passed",
+          "warnings": []
+        },
+        {
+          "element_count": 7,
+          "errors": [],
+          "infos": [],
+          "issues": [],
+          "slide_number": 9,
+          "status": "passed",
+          "warnings": []
+        },
+        {
+          "element_count": 16,
+          "errors": [],
+          "infos": [],
+          "issues": [],
+          "slide_number": 10,
+          "status": "passed",
+          "warnings": []
+        },
+        {
+          "element_count": 7,
+          "errors": [],
+          "infos": [],
+          "issues": [],
+          "slide_number": 11,
+          "status": "passed",
+          "warnings": []
+        },
+        {
+          "element_count": 11,
+          "errors": [],
+          "infos": [],
+          "issues": [],
+          "slide_number": 12,
+          "status": "passed",
+          "warnings": []
+        },
+        {
+          "element_count": 8,
+          "errors": [],
+          "infos": [],
+          "issues": [],
+          "slide_number": 13,
+          "status": "passed",
+          "warnings": []
+        },
+        {
+          "element_count": 9,
+          "errors": [],
+          "infos": [],
+          "issues": [],
+          "slide_number": 14,
+          "status": "passed",
+          "warnings": []
+        },
+        {
+          "element_count": 6,
+          "errors": [],
+          "infos": [],
+          "issues": [],
+          "slide_number": 15,
+          "status": "passed",
+          "warnings": []
+        }
+      ],
+      "summary": {
+        "error_count": 0,
+        "info_count": 0,
+        "release_ready": true,
+        "screenshot_review_required": true,
+        "slide_count": 15,
+        "status": "needs_screenshot_review",
+        "warning_count": 3
+      },
+      "tool": "xml_lint"
+    },
+    "path": "/Users/yangzhe/Downloads/义乌市集ppt制作/.lark-slides/template/yiwu-market/.lark-slides/organizer/current-round-4/full.xml",
+    "revision_id": 35,
+    "scope": "presentation",
+    "size": 77168,
+    "xml_presentation_id": "BsXPsxj5hl3nJzdoQI7cNqblnyh"
+  }
+}

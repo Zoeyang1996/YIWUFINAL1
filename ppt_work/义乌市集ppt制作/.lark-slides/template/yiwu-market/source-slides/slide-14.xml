@@ -1,0 +1,54 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0" id="pYo">
+    <style>
+      <fill id="fYo">
+        <fillColor color="rgba(20, 33, 39, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="825" height="24" topLeftX="36" topLeftY="24" type="rect" id="bSQ">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(216, 198, 167, 1)" fontSize="14.25" fontFamily="Aptos" bold="false" italic="false" strikethrough="false" underline="false">13   /   展示价值与应用</span></p>
+        </content>
+      </shape>
+      <shape width="45" height="22.5" topLeftX="879" topLeftY="495.75" type="rect" id="bSA">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(216, 198, 167, 1)" fontSize="13.5" fontFamily="Aptos" bold="false" italic="false" strikethrough="false" underline="false">14</span></p>
+        </content>
+      </shape>
+      <shape width="885" height="82.5" topLeftX="36" topLeftY="70.5" type="rect" id="bSf">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><strong><span color="rgba(242, 235, 221, 1)" fontSize="57" fontFamily="Aptos" italic="false" strikethrough="false" underline="false">让人愿意，多逛一会</span></strong></p>
+        </content>
+      </shape>
+      <img id="bSj" src="UB2kbLta2oVteLx3HrVc6LCUn7e" width="540" height="337.5" topLeftX="386.25" topLeftY="172.5">
+        <crop leftOffset="0" rightOffset="0" topOffset="0" bottomOffset="0"/>
+      </img>
+      <shape width="390" height="52.5" topLeftX="41.25" topLeftY="206.25" type="rect" id="bSG">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(231, 164, 93, 1)" fontSize="36.75" fontFamily="Aptos" bold="false" italic="false" strikethrough="false" underline="false">时间叙事</span></p>
+        </content>
+      </shape>
+      <shape width="390" height="52.5" topLeftX="41.25" topLeftY="279.75" type="rect" id="bSM">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(242, 235, 221, 1)" fontSize="36.75" fontFamily="Aptos" bold="false" italic="false" strikethrough="false" underline="false">空间探索</span></p>
+        </content>
+      </shape>
+      <shape width="390" height="52.5" topLeftX="41.25" topLeftY="353.25" type="rect" id="bSy">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(242, 235, 221, 1)" fontSize="36.75" fontFamily="Aptos" bold="false" italic="false" strikethrough="false" underline="false">器物细看</span></p>
+        </content>
+      </shape>
+      <shape width="832.5" height="31.5" topLeftX="41.25" topLeftY="462.75" type="rect" id="bSH">
+        <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+          <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(216, 198, 167, 1)" fontSize="19.5" fontFamily="Aptos" bold="false" italic="false" strikethrough="false" underline="false">网页原型   /   线上展陈与展会导览设想</span></p>
+        </content>
+      </shape>
+    </data>
+    <note id="bSZ">
+      <content>
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(0, 0, 0, 1)" fontSize="12" bold="false" italic="false" strikethrough="false" underline="false">目前是可访问的网页原型。线上专题展、展会触摸屏导览为应用设想，仍需设备适配、内容授权与运行验证，不声称已经部署到真实展会。</span></p>
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(0, 0, 0, 1)" fontSize="12" bold="false" italic="false" strikethrough="false" underline="false">依据：本项目 index.html、设计框架.md、js/data/phases.js、js/data/products.js、assets/markets/README.md。图片来自网页实际三维资产或网页截图。设计解读不代表已完成用户调研或商业落地。</span></p>
+      </content>
+    </note>
+  </slide>
+  

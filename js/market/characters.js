@@ -69,14 +69,17 @@ export function animateCharacter(root, seed = 0) {
         }
       }
       if (!reduced) {
-        const head = bones.get('Head'), spine = bones.get('Spine02');
-        if (head) head.quaternion.multiply(deltaQ.setFromAxisAngle(new THREE.Vector3(1, 0, 0), .035 * Math.sin(time * 1.7)));
-        if (spine) spine.quaternion.multiply(deltaQ.setFromAxisAngle(new THREE.Vector3(0, 0, 1), .012 * Math.sin(time * 1.4)));
+        const head = bones.get('Head');
         const age = time - greeting;
-        const blend = THREE.MathUtils.smoothstep(age, 0, .65) * (1 - THREE.MathUtils.smoothstep(age, 2.7, 3.6));
-        if (blend > 0) {
-          point('R_Upperarm', 'R_Forearm', direction(.65, .2, .32), blend);
-          point('R_Forearm', 'R_Hand', direction(.25 + .28 * Math.sin(age * 8), 1, .15), blend);
+        // One slow, shallow nod (4 degrees); hands and torso stay at rest.
+        // These meshes have no facial controls: preserve their authored expression.
+        const nod = age >= 0 && age < 2.4 ? .07 * Math.sin(Math.PI * age / 2.4) ** 2 : 0;
+        if (head && nod > 0) {
+          head.getWorldQuaternion(worldQ);
+          deltaQ.setFromAxisAngle(side.clone().negate(), nod);
+          worldQ.premultiply(deltaQ);
+          head.parent.getWorldQuaternion(parentQ).invert();
+          head.quaternion.copy(worldQ.premultiply(parentQ));
         }
       }
     },

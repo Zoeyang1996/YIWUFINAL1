@@ -1,0 +1,145 @@
+pageType: content
+background:
+  type: solid
+  color: $paper
+elements:
+- elementId: scroll
+  elementType: image
+  bounds:
+  - 0
+  - 0
+  - 960
+  - 226
+  src: media/qingming.jpg
+  fit:
+    mode: cover
+- elementId: paper-block
+  elementType: shape
+  bounds:
+  - 0
+  - 226
+  - 960
+  - 314
+  shapeName: rect
+  fill:
+    type: solid
+    color: $paper
+- elementId: num
+  elementType: text
+  bounds:
+  - 48
+  - 250
+  - 94
+  - 54
+  content:
+    text: '01'
+    fontSize: 44
+    fontFamily: MiSans
+    color: $red
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: title
+  elementType: text
+  bounds:
+  - 144
+  - 250
+  - 650
+  - 58
+  content:
+    text: 从长卷，走进市井
+    fontSize: 44
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: keys
+  elementType: text
+  bounds:
+  - 52
+  - 340
+  - 240
+  - 132
+  content:
+    text: '散点透视
+
+      连环叙事
+
+      摊贩日常'
+    fontSize: 29
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.45
+    letterSpacing: 0
+    wrap: true
+- elementId: v-rule
+  elementType: line
+  bounds:
+  - 330
+  - 342
+  - 2
+  - 120
+  viewBox:
+  - 1
+  - 1
+  points: 0,0 1,0
+  curve: sharp
+  border:
+    style: solid
+    width: 3
+    color: $red
+- elementId: body
+  elementType: text
+  bounds:
+  - 364
+  - 340
+  - 500
+  - 112
+  content:
+    text: '《清明上河图》以长卷组织城市生活；
+
+      《东京梦华录》写下早市与夜市的接续。
+
+      本项目提取「时间换场、沿街展开、停留看物」。'
+    fontSize: 18
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - left
+    - top
+    lineHeight: 1.6
+    letterSpacing: 0
+    wrap: true
+- elementId: source
+  elementType: text
+  bounds:
+  - 48
+  - 500
+  - 860
+  - 16
+  content:
+    text: 图像：<a href="https://commons.wikimedia.org/wiki/File:Qingming_Festival_2.jpg">张择端《清明上河图》局部（公有领域）</a>；文字参考：<a href="http://hrczh.cass.cn/lszg/lszg_sgwx/202502/t20250218_5847003.shtml">中国社科院《宋代的桥市》</a>。
+    fontSize: 9
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false

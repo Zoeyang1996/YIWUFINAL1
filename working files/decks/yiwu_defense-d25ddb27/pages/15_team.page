@@ -1,0 +1,150 @@
+pageType: content
+background:
+  type: solid
+  color: '#E8E1D5'
+elements:
+- elementId: bg
+  elementType: shape
+  bounds:
+  - 0
+  - 0
+  - 960
+  - 540
+  shapeName: rect
+  fill:
+    type: solid
+    color: '#E8E1D5'
+- elementId: title
+  elementType: text
+  bounds:
+  - 48
+  - 40
+  - 520
+  - 58
+  content:
+    text: 从讨论，到手绘
+    fontSize: 44
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: label
+  elementType: text
+  bounds:
+  - 52
+  - 108
+  - 580
+  - 22
+  content:
+    text: 团队日常 / 命题拆解 / 角色与商品草图
+    fontSize: 14
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: discuss1
+  elementType: image
+  bounds:
+  - 48
+  - 154
+  - 268
+  - 156
+  src: media/team-discuss-1.jpg
+  fit:
+    mode: cover
+  rotation: -2
+- elementId: discuss2
+  elementType: image
+  bounds:
+  - 330
+  - 142
+  - 236
+  - 166
+  src: media/team-discuss-2.jpg
+  fit:
+    mode: cover
+  rotation: 2
+- elementId: discuss3
+  elementType: image
+  bounds:
+  - 582
+  - 154
+  - 330
+  - 156
+  src: media/team-discuss-3.jpg
+  fit:
+    mode: cover
+  rotation: -1
+- elementId: sketch1
+  elementType: image
+  bounds:
+  - 66
+  - 334
+  - 170
+  - 154
+  src: media/team-sketch-3.jpg
+  fit:
+    mode: cover
+  rotation: 2
+- elementId: sketch2
+  elementType: image
+  bounds:
+  - 256
+  - 326
+  - 188
+  - 162
+  src: media/team-sketch-1.jpg
+  fit:
+    mode: cover
+  rotation: -2
+- elementId: sketch3
+  elementType: image
+  bounds:
+  - 466
+  - 340
+  - 208
+  - 148
+  src: media/team-sketch-4.jpg
+  fit:
+    mode: cover
+  rotation: 1
+- elementId: sketch4
+  elementType: image
+  bounds:
+  - 696
+  - 326
+  - 196
+  - 162
+  src: media/team-outline.jpg
+  fit:
+    mode: cover
+  rotation: -2
+- elementId: caption
+  elementType: text
+  bounds:
+  - 52
+  - 504
+  - 760
+  - 22
+  content:
+    text: 想法先被说出来，再被画下来，最后进入三维场景。
+    fontSize: 16
+    fontFamily: MiSans
+    color: $red
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false

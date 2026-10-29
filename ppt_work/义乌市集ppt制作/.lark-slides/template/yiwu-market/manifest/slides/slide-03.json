@@ -1,0 +1,76 @@
+{
+  "slide_num": 3,
+  "role": "content",
+  "slide_id": "pYI",
+  "local_xml_path": "source-slides/slide-03.xml",
+  "shell_shapes": [],
+  "content_shapes": [
+    {
+      "id": 2,
+      "type": "AUTO_SHAPE",
+      "left": 0.5,
+      "top": 0.3333,
+      "width": 11.4583,
+      "height": 0.3333,
+      "text": "02   /   设计命题"
+    },
+    {
+      "id": 3,
+      "type": "AUTO_SHAPE",
+      "left": 12.2083,
+      "top": 6.8854,
+      "width": 0.625,
+      "height": 0.3125,
+      "text": "03"
+    },
+    {
+      "id": 4,
+      "type": "AUTO_SHAPE",
+      "left": 0.5417,
+      "top": 1.1458,
+      "width": 6.875,
+      "height": 1.4583,
+      "text": "小商品"
+    },
+    {
+      "id": 5,
+      "type": "AUTO_SHAPE",
+      "left": 0.5417,
+      "top": 2.7604,
+      "width": 6.875,
+      "height": 1.4583,
+      "text": "大场景"
+    },
+    {
+      "id": 6,
+      "type": "PICTURE",
+      "left": 6.7708,
+      "top": 0.9375,
+      "width": 5.9375,
+      "height": 5.9375,
+      "text": ""
+    },
+    {
+      "id": 7,
+      "type": "AUTO_SHAPE",
+      "left": 0.5938,
+      "top": 5.3125,
+      "width": 7.2917,
+      "height": 0.625,
+      "text": "义乌小商品 × 国潮文化"
+    },
+    {
+      "id": 8,
+      "type": "AUTO_SHAPE",
+      "left": 0.5938,
+      "top": 6.1562,
+      "width": 8.8542,
+      "height": 0.4583,
+      "text": "用空间建立语境，用互动留下记忆"
+    }
+  ],
+  "available_regions": [],
+  "images_used": [
+    "image4.png"
+  ]
+}

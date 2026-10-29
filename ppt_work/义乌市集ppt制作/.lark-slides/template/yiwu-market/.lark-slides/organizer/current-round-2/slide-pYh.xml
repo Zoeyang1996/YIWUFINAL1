@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "source_file": "/Users/yangzhe/Downloads/义乌市集ppt制作/.lark-slides/template/yiwu-market/.lark-slides/organizer/current-round-2/full.xml",
+  "mode": "raw",
+  "selection": {
+    "slide_numbers": [],
+    "slide_ids": [
+      "pYh"
+    ],
+    "block_ids": [],
+    "raw_xml": true,
+    "output_slide_count": 1
+  },
+  "presentation": {
+    "root": "presentation",
+    "namespace": "https://www.larkoffice.com/sml/2.0",
+    "presentation_id": "BsXPsxj5hl3nJzdoQI7cNqblnyh",
+    "revision_id": null,
+    "title": null,
+    "width": "960",
+    "height": "540",
+    "slide_count": 1,
+    "slide_ids": [
+      "pYh"
+    ]
+  },
+  "slides": [
+    {
+      "index": 1,
+      "slide_id": "pYh",
+      "raw_xml": "<slide xmlns=\"https://www.larkoffice.com/sml/2.0\" id=\"pYh\">\n    <style>\n      <fill id=\"fYh\">\n        <fillColor color=\"rgba(242, 235, 221, 1)\"/>\n      </fill>\n    </style>\n    <data>\n      <shape width=\"825\" height=\"24\" topLeftX=\"36\" topLeftY=\"24\" presetHandlers=\"0\" type=\"rect\" id=\"bSn\">\n        <content verticalAlign=\"top\" paddingTop=\"3.6\" paddingBottom=\"3.6\" paddingLeft=\"7.2\" paddingRight=\"7.2\" fontSize=\"14.25\" fontFamily=\"思源黑体\" color=\"rgba(120, 111, 97, 1)\" bold=\"false\" italic=\"false\" underline=\"false\" strikethrough=\"false\" lineSpacing=\"multiple:1.2\" textAlign=\"left\" defaultTabSize=\"72\">\n          <p textAlign=\"left\" lineSpacing=\"multiple:1.2\" defaultTabSize=\"72\"><span color=\"rgba(120, 111, 97, 1)\" fontSize=\"14.25\" fontFamily=\"思源黑体\" bold=\"false\" italic=\"false\" strikethrough=\"false\" underline=\"false\">浙江省数智创意竞赛 / 文创产品设计·展陈设计组</span></p>\n        </content>\n      </shape>\n      <shape width=\"45\" height=\"22.5\" topLeftX=\"879\" topLeftY=\"495.75\" presetHandlers=\"0\" type=\"rect\" id=\"bSh\">\n        <content verticalAlign=\"top\" paddingTop=\"3.6\" paddingBottom=\"3.6\" paddingLeft=\"7.2\" paddingRight=\"7.2\" fontSize=\"13.5\" fontFamily=\"Inter\" color=\"rgba(120, 111, 97, 1)\" bold=\"false\" italic=\"false\" underline=\"false\" strikethrough=\"false\" lineSpacing=\"multiple:1.2\" textAlign=\"left\" defaultTabSize=\"72\">\n          <p textAlign=\"left\" lineSpacing=\"multiple:1.2\" defaultTabSize=\"72\"><span color=\"rgba(120, 111, 97, 1)\" fontSize=\"13.5\" fontFamily=\"Inter\" bold=\"false\" italic=\"false\" strikethrough=\"false\" underline=\"false\">01</span></p>\n        </content>\n      </shape>\n      <shape width=\"592.5\" height=\"116.25\" topLeftX=\"33.75\" topLeftY=\"82.5\" presetHandlers=\"0\" type=\"rect\" id=\"bSI\">\n        <content verticalAlign=\"top\" paddingTop=\"3.6\" paddingBottom=\"3.6\" paddingLeft=\"7.2\" paddingRight=\"7.2\" fontSize=\"103.5\" fontFamily=\"思源黑体\" color=\"rgba(36, 35, 31, 1)\" bold=\"true\" italic=\"false\" underline=\"false\" strikethrough=\"false\" lineSpacing=\"multiple:1.2\" textAlign=\"left\" defaultTabSize=\"72\">\n          <p textAlign=\"left\" lineSpacing=\"multiple:1.2\" defaultTabSize=\"72\"><strong><span color=\"rgba(36, 35, 31, 1)\" fontSize=\"103.5\" fontFamily=\"思源黑体\" italic=\"false\" strikethrough=\"false\" underline=\"false\">义犹未尽</span></strong></p>\n        </content>\n      </shape>\n      <img id=\"bSt\" src=\"ZknobsjtEoeVA0xrX7Ocp7jKnNe\" width=\"612\" height=\"382.5\" topLeftX=\"339\" topLeftY=\"142.5\">\n        <crop leftOffset=\"0\" rightOffset=\"0\" topOffset=\"0\" bottomOffset=\"0\"/>\n      </img>\n      <shape width=\"390\" height=\"48.75\" topLeftX=\"38.25\" topLeftY=\"225\" presetHandlers=\"0\" type=\"rect\" id=\"bSc\">\n        <content verticalAlign=\"top\" paddingTop=\"3.6\" paddingBottom=\"3.6\" paddingLeft=\"7.2\" paddingRight=\"7.2\" fontSize=\"35.25\" fontFamily=\"思源黑体\" color=\"rgba(36, 35, 31, 1)\" bold=\"false\" italic=\"false\" underline=\"false\" strikethrough=\"false\" lineSpacing=\"multiple:1.2\" textAlign=\"left\" defaultTabSize=\"72\">\n          <p textAlign=\"left\" lineSpacing=\"multiple:1.2\" defaultTabSize=\"72\"><span color=\"rgba(36, 35, 31, 1)\" fontSize=\"35.25\" fontFamily=\"思源黑体\" bold=\"false\" italic=\"false\" strikethrough=\"false\" underline=\"false\">义乌三时市集</span></p>\n        </content>\n      </shape>\n      <shape width=\"360\" height=\"86.25\" topLeftX=\"39.75\" topLeftY=\"358.5\" presetHandlers=\"0\" type=\"rect\" id=\"bSp\">\n        <content verticalAlign=\"top\" paddingTop=\"3.6\" paddingBottom=\"3.6\" paddingLeft=\"7.2\" paddingRight=\"7.2\" fontSize=\"24\" fontFamily=\"思源黑体\" color=\"rgba(36, 35, 31, 1)\" bold=\"false\" italic=\"false\" underline=\"false\" strikethrough=\"false\" lineSpacing=\"multiple:1.2\" textAlign=\"left\" defaultTabSize=\"72\">\n          <p textAlign=\"left\" lineSpacing=\"multiple:1.2\" defaultTabSize=\"72\"><span color=\"rgba(36, 35, 31, 1)\" fontSize=\"24\" fontFamily=\"思源黑体\" bold=\"false\" italic=\"false\" strikethrough=\"false\" underline=\"false\">一日三市</span></p>\n          <p textAlign=\"left\" lineSpacing=\"multiple:1.2\" defaultTabSize=\"72\"><span color=\"rgba(36, 35, 31, 1)\" fontSize=\"24\" fontFamily=\"思源黑体\" bold=\"false\" italic=\"false\" strikethrough=\"false\" underline=\"false\">一场可漫游的国潮展陈</span></p>\n        </content>\n      </shape>\n    </data>\n    <note id=\"bbm\">\n      <content>\n        <p textAlign=\"left\" lineSpacing=\"multiple:1.2\" defaultTabSize=\"72\"><span color=\"rgba(0, 0, 0, 1)\" fontSize=\"12\" bold=\"false\" italic=\"false\" strikethrough=\"false\" underline=\"false\">开场：本作品以早市、午市、夜市为叙事结构，把义乌小商品融入三维国风市集，让观众通过角色漫游、摊位互动与商品观察，体验一座市集的一日生活。</span></p>\n        <p textAlign=\"left\" lineSpacing=\"multiple:1.2\" defaultTabSize=\"72\"><span color=\"rgba(0, 0, 0, 1)\" fontSize=\"12\" bold=\"false\" italic=\"false\" strikethrough=\"false\" underline=\"false\">接下来将从命题理解、总体布局、制作流程三个部分展开介绍。</span></p>\n      </content>\n    </note>\n  </slide>\n"
+    }
+  ]
+}

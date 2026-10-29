@@ -1,0 +1,141 @@
+pageType: cover
+background:
+  type: solid
+  color: $paper
+elements:
+- elementId: red-band
+  elementType: shape
+  bounds:
+  - 0
+  - 0
+  - 14
+  - 540
+  shapeName: rect
+  fill:
+    type: solid
+    color: $red
+- elementId: kicker
+  elementType: text
+  bounds:
+  - 52
+  - 44
+  - 560
+  - 22
+  content:
+    text: THREE.JS  ·  IMMERSIVE WEB EXHIBITION
+    fontSize: 11
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 1.7
+    wrap: false
+- elementId: title
+  elementType: text
+  bounds:
+  - 50
+  - 104
+  - 500
+  - 190
+  content:
+    text: '一日三市
+
+      义犹未尽'
+    fontSize: 64
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 0.98
+    letterSpacing: 0
+    wrap: true
+- elementId: sub
+  elementType: text
+  bounds:
+  - 54
+  - 324
+  - 380
+  - 32
+  content:
+    text: 义乌三时市集 · 项目答辩
+    fontSize: 20
+    fontFamily: MiSans
+    color: $red
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: cover-line
+  elementType: line
+  bounds:
+  - 54
+  - 382
+  - 280
+  - 2
+  viewBox:
+  - 1
+  - 1
+  points: 0,0 1,0
+  curve: sharp
+  border:
+    style: solid
+    width: 2
+    color: $ink
+- elementId: desc
+  elementType: text
+  bounds:
+  - 54
+  - 404
+  - 390
+  - 62
+  content:
+    text: '早市 / 午市 / 夜市
+
+      可进入、可漫游、可选购的国风三维市集'
+    fontSize: 17
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - left
+    - top
+    lineHeight: 1.5
+    letterSpacing: 0
+    wrap: true
+- elementId: hero
+  elementType: image
+  bounds:
+  - 470
+  - 48
+  - 460
+  - 450
+  src: media/market-morning.png
+  fit:
+    mode: contain
+- elementId: seal
+  elementType: text
+  bounds:
+  - 846
+  - 454
+  - 48
+  - 48
+  content:
+    text: 义
+    fontSize: 28
+    fontFamily: MiSans
+    color: $red
+    bold: true
+    align:
+    - center
+    - middle
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false

@@ -1,0 +1,151 @@
+pageType: content
+background:
+  type: solid
+  color: $paper
+elements:
+- elementId: meta
+  elementType: text
+  bounds:
+  - 48
+  - 24
+  - 450
+  - 18
+  content:
+    text: 03  /  作品概览
+    fontSize: 10
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 1.5
+    wrap: false
+- elementId: brand
+  elementType: text
+  bounds:
+  - 690
+  - 24
+  - 222
+  - 18
+  content:
+    text: 义犹未尽 · 义乌三时市集
+    fontSize: 10
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - right
+    - top
+    lineHeight: 1.15
+    letterSpacing: 1.0
+    wrap: false
+- elementId: big
+  elementType: text
+  bounds:
+  - 48
+  - 62
+  - 620
+  - 64
+  content:
+    text: 一座市集的一日生活
+    fontSize: 44
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false
+- elementId: statement
+  elementType: text
+  bounds:
+  - 52
+  - 140
+  - 380
+  - 92
+  content:
+    text: '以早市、午市、夜市为叙事结构，将义乌小商品融入三维国风市集。
+
+      通过角色漫游、摊位互动与商品观察，完成一次轻量的线上展陈。'
+    fontSize: 19
+    fontFamily: MiSans
+    color: $muted
+    bold: false
+    align:
+    - left
+    - top
+    lineHeight: 1.55
+    letterSpacing: 0
+    wrap: true
+- elementId: left-rule
+  elementType: line
+  bounds:
+  - 52
+  - 268
+  - 3
+  - 154
+  viewBox:
+  - 1
+  - 1
+  points: 0,0 1,0
+  curve: sharp
+  border:
+    style: solid
+    width: 4
+    color: $red
+- elementId: tags
+  elementType: text
+  bounds:
+  - 74
+  - 278
+  - 180
+  - 140
+  content:
+    text: '角色漫游
+
+      摊位互动
+
+      商品观察'
+    fontSize: 26
+    fontFamily: MiSans
+    color: $ink
+    bold: true
+    align:
+    - left
+    - top
+    lineHeight: 1.55
+    letterSpacing: 0
+    wrap: true
+- elementId: market
+  elementType: image
+  bounds:
+  - 372
+  - 122
+  - 556
+  - 370
+  src: media/market-noon.png
+  fit:
+    mode: contain
+- elementId: num
+  elementType: text
+  bounds:
+  - 782
+  - 426
+  - 130
+  - 74
+  content:
+    text: '03'
+    fontSize: 64
+    fontFamily: MiSans
+    color: $red
+    bold: true
+    align:
+    - right
+    - middle
+    lineHeight: 1.15
+    letterSpacing: 0
+    wrap: false

@@ -1,0 +1,7 @@
+<!-- 内容页骨架 · 由 parse_template.py 自动生成 · 仅保留跨 3+ 页复用的 brand_assets。Step 5.2 应 cp 本文件到 authoring/slide-NN.xml, 然后 Write 填内容 shape。 -->
+<slide xmlns="https://www.larkoffice.com/sml/2.0" id="pYo"><style>
+      <fill id="fYo">
+        <fillColor color="rgba(20, 33, 39, 1)" />
+      </fill>
+    </style>
+    <data><!-- 内容区留空 · 按 refine-examples/<style>/<sub-type>.md 里的页型骨架从零填内容 shape。禁止 cp source-slides 保留内容占位符和装饰群(会触发 template_copy_overfit lint P0 阻断)。 --></data></slide>

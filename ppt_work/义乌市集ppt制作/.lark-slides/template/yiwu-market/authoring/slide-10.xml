@@ -1,0 +1,45 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill><fillColor color="rgba(242, 235, 221, 1)"/></fill>
+  </style>
+  <data>
+    <shape width="825" height="24" topLeftX="36" topLeftY="24" type="rect">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="14.25" fontFamily="Inter" bold="false">03   /   总体布局与空间</span></p>
+      </content>
+    </shape>
+    <shape width="45" height="22.5" topLeftX="879" topLeftY="495.75" type="rect">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(120, 111, 97, 1)" fontSize="13.5" fontFamily="Inter" bold="false">10</span></p>
+      </content>
+    </shape>
+    <shape width="600" height="60" topLeftX="39" topLeftY="70" type="rect">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 31, 1)" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.15" defaultTabSize="72"><strong><span color="rgba(36, 35, 31, 1)" fontSize="44" fontFamily="思源黑体">不同商铺，</span><span color="rgba(174, 61, 46, 1)" fontSize="44" fontFamily="思源黑体">不同商品</span></strong></p>
+      </content>
+    </shape>
+    <shape width="700" height="30" topLeftX="42" topLeftY="140" type="rect">
+      <content verticalAlign="top" paddingTop="3.6" paddingBottom="3.6" paddingLeft="7.2" paddingRight="7.2" fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 31, 1)" textAlign="left">
+        <p textAlign="left" lineSpacing="multiple:1.2" defaultTabSize="72"><span color="rgba(90, 84, 74, 1)" fontSize="16" fontFamily="思源黑体">不同的摊位陈列不同的义乌小物，商铺与商品彼此呼应，串起整条街。</span></p>
+      </content>
+    </shape>
+    <img src="Tg0rb82dNoMGgVx85TzcWtrlnze" width="130" height="130" topLeftX="30" topLeftY="210"><crop/></img>
+    <img src="B4Shb0Vc9oH9okxsDCvc1CPYnLb" width="130" height="130" topLeftX="184" topLeftY="210"><crop/></img>
+    <img src="KNBeb2pthoV86WxSRvAcbPttnQg" width="130" height="130" topLeftX="338" topLeftY="210"><crop/></img>
+    <img src="CXuMb492Qocpt9x0PTGc7clCnXd" width="130" height="130" topLeftX="492" topLeftY="210"><crop/></img>
+    <img src="Tal7bCPqWoSW5cxnSWFc7HiInUb" width="130" height="130" topLeftX="646" topLeftY="210"><crop/></img>
+    <img src="NXQrbMxvVohHxMxG0sTcpm40nne" width="130" height="130" topLeftX="800" topLeftY="210"><crop/></img>
+    <shape width="130" height="26" topLeftX="30" topLeftY="350" type="rect"><content verticalAlign="top" paddingLeft="4" fontSize="12" fontFamily="思源黑体" color="rgba(36,35,31,1)" textAlign="center"><p textAlign="center"><span fontSize="13" fontFamily="思源黑体" color="rgba(36,35,31,1)">陶瓷杯</span></p></content></shape>
+    <shape width="130" height="26" topLeftX="184" topLeftY="350" type="rect"><content verticalAlign="top" paddingLeft="4" fontSize="12" fontFamily="思源黑体" color="rgba(36,35,31,1)" textAlign="center"><p textAlign="center"><span fontSize="13" fontFamily="思源黑体" color="rgba(36,35,31,1)">清风红扇</span></p></content></shape>
+    <shape width="130" height="26" topLeftX="338" topLeftY="350" type="rect"><content verticalAlign="top" paddingLeft="4" fontSize="12" fontFamily="思源黑体" color="rgba(36,35,31,1)" textAlign="center"><p textAlign="center"><span fontSize="13" fontFamily="思源黑体" color="rgba(36,35,31,1)">百珍时钟</span></p></content></shape>
+    <shape width="130" height="26" topLeftX="492" topLeftY="350" type="rect"><content verticalAlign="top" paddingLeft="4" fontSize="12" fontFamily="思源黑体" color="rgba(36,35,31,1)" textAlign="center"><p textAlign="center"><span fontSize="13" fontFamily="思源黑体" color="rgba(36,35,31,1)">高脚杯</span></p></content></shape>
+    <shape width="130" height="26" topLeftX="646" topLeftY="350" type="rect"><content verticalAlign="top" paddingLeft="4" fontSize="12" fontFamily="思源黑体" color="rgba(36,35,31,1)" textAlign="center"><p textAlign="center"><span fontSize="13" fontFamily="思源黑体" color="rgba(36,35,31,1)">捣药罐</span></p></content></shape>
+    <shape width="130" height="26" topLeftX="800" topLeftY="350" type="rect"><content verticalAlign="top" paddingLeft="4" fontSize="12" fontFamily="思源黑体" color="rgba(36,35,31,1)" textAlign="center"><p textAlign="center"><span fontSize="13" fontFamily="思源黑体" color="rgba(36,35,31,1)">小香炉</span></p></content></shape>
+  </data>
+  <note>
+    <content>
+      <p>产品展示上，不同的商铺卖不同品类：茶器铺、扇铺、杂货铺、器物铺彼此关联又各有分工。</p>
+      <p>图中是团队已资产化的六件义乌小商品，逛市集时可以走近、旋转、缩放观看每一件的细节。</p>
+    </content>
+  </note>
+</slide>
