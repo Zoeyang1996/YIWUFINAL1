@@ -2,8 +2,9 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { MODEL_ASSETS } from '../data/asset-manifest.js';
 import { downloadModel } from './model-download.js';
+import { MeshoptDecoder } from '../../vendor/meshoptimizer/meshopt_decoder.mjs';
 
-const loader = new GLTFLoader();
+const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
 const cache = new Map();
 
 /** 载入 glb，同一地址只请求一次 */
@@ -23,7 +24,11 @@ export function loadGltf(url) {
 
 async function loadModel(url) {
   const absolute = new URL(url, document.baseURI);
-  const entry = MODEL_ASSETS[decodeURI(absolute.pathname).replace(/^\//, '')];
+  const base = new URL('.', document.baseURI);
+  // The published bundle may live at / or at a repository subpath (e.g. GitHub Pages).
+  const relativePath = absolute.origin === base.origin && absolute.pathname.startsWith(base.pathname)
+    ? decodeURI(absolute.pathname.slice(base.pathname.length)) : null;
+  const entry = relativePath === null ? null : MODEL_ASSETS[relativePath];
   if (!entry) return loader.loadAsync(url);
   const buffer = await downloadModel(entry, document.baseURI);
   return loader.parseAsync(buffer, new URL('.', absolute).href);
@@ -35,7 +40,7 @@ function prepareMaterials(root) {
     if (!node.isMesh) return;
     node.castShadow = true;
     node.receiveShadow = false;
-    node.frustumCulled = false;
+    node.frustumCulled = !node.isSkinnedMesh;
     const materials = Array.isArray(node.material) ? node.material : [node.material];
     for (const material of materials) {
       if (!material) continue;

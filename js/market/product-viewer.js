@@ -5,6 +5,7 @@ import { loadGltf } from '../core/loader.js';
 import { assetUrl, formatPrice } from '../data/products.js';
 import { addToCart } from '../cart/store.js';
 import { showToast } from '../cart/ui.js';
+import { renderPixelRatio } from '../core/render-quality.js';
 
 let sharedViewer;
 /** One reusable viewer: scene focus stays untouched while the fourth level is open. */
@@ -43,6 +44,7 @@ export function createProductViewer() {
   function resize() {
     if (!renderer || !isOpen) return;
     const { width, height } = mount.getBoundingClientRect();
+    renderer.setPixelRatio(renderPixelRatio(2, width, height));
     renderer.setSize(width, height, false);
     camera.aspect = width / Math.max(height, 1); camera.updateProjectionMatrix();
   }
@@ -57,7 +59,7 @@ export function createProductViewer() {
   function initialize() {
     if (renderer) return;
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
-    renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+    renderer.setPixelRatio(renderPixelRatio(2));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.25;
@@ -117,7 +119,7 @@ export function createProductViewer() {
       initialize();
       if (model) { scene.remove(model); model = null; }
       resize(); resetView();
-      renderer.setAnimationLoop(() => { controls.update(); renderer.render(scene, camera); });
+      renderer.setAnimationLoop(() => { if (!document.hidden) { controls.update(); renderer.render(scene, camera); } });
       const gltf = await loadGltf(assetUrl(product.model) + `?v=${product.assetRevision ?? '20261030'}`);
       if (!isOpen || token !== request) return;
       model = new THREE.Group();

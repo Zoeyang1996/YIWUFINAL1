@@ -5,6 +5,7 @@ import { loadPreparedModel } from '../core/loader.js';
 import { groundShadowTexture, inkRingTexture } from '../core/textures.js';
 import { createLightRig } from './lighting.js';
 import { tween, updateTweens, easeOutCubic, easeInOutQuart } from '../core/tween.js';
+import { renderPixelRatio } from '../core/render-quality.js';
 
 /** 每个时段模型的占位边长：高一点的模型收小些，画面留白才一致 */
 const MODEL_FOOTPRINT = {
@@ -41,7 +42,7 @@ export function createOverviewStage(container, { onEnter, onModelReady } = {}) {
   camera.lookAt(lookAt);
 
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.setPixelRatio(renderPixelRatio());
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.04;
@@ -331,6 +332,7 @@ export function createOverviewStage(container, { onEnter, onModelReady } = {}) {
     if (state.disposed) return;
     rafId = requestAnimationFrame(tick);
     const delta = Math.min(clock.getDelta(), 0.05);
+    if (document.hidden) return;
 
     updateTweens();
 
@@ -347,6 +349,7 @@ export function createOverviewStage(container, { onEnter, onModelReady } = {}) {
   function resize() {
     const width = container.clientWidth || window.innerWidth;
     const height = container.clientHeight || window.innerHeight;
+    renderer.setPixelRatio(renderPixelRatio(1.75, width, height));
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
     renderer.setSize(width, height, false);

@@ -16,6 +16,7 @@ import { bindCameraInput } from './camera-input.js';
 import { createProductViewer } from './product-viewer.js';
 import { createStallHold } from './stall-hold.js';
 import { createEndPrompt } from './end-prompt.js';
+import { renderPixelRatio } from '../core/render-quality.js';
 
 const phase = getPhase(phaseFromQuery());
 document.body.dataset.phase = phase.id;
@@ -36,7 +37,7 @@ const scene = new THREE.Scene();
 scene.background = new THREE.Color(phase.palette.sky);
 scene.fog = new THREE.Fog(phase.palette.fog, 42, 100);
 const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
-renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));
+renderer.setPixelRatio(renderPixelRatio());
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -166,11 +167,15 @@ bindCameraInput(renderer.domElement, rig, {
 });
 renderer.domElement.addEventListener('pointerleave', () => { hovered = null; });
 let marketNeedsRender = true;
-function resize() { renderer.setSize(stage.clientWidth, stage.clientHeight); marketNeedsRender = true; }
+function resize() {
+  renderer.setPixelRatio(renderPixelRatio(1.75, stage.clientWidth, stage.clientHeight));
+  renderer.setSize(stage.clientWidth, stage.clientHeight); marketNeedsRender = true;
+}
 window.addEventListener('resize', resize); resize();
 const clock = new THREE.Clock();
 renderer.setAnimationLoop(() => {
   const delta = Math.min(clock.getDelta(), 0.05);
+  if (document.hidden || !ready) return;
   // Keep the market's last frame behind the dialog; only the product needs to render.
   if (productViewer.isOpen) {
     sound.setFocus(true); sound.walk(0);

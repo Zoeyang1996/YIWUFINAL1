@@ -1,0 +1,255 @@
+[
+  {
+    "file": "assets/markets/morning.glb",
+    "settings": {
+      "file": "assets/markets/morning.glb",
+      "ratio": 0.5,
+      "error": 0.001,
+      "textureSize": 1024
+    },
+    "sourceSha256": "47350eba910eb8a4a95dc8ca0c3c9b34f341815f46d2761aa44a831549901836",
+    "outputSha256": "4dcd750844fc8f130bcf217badb60a7603daf63eff1f5867a8b824d5f77776b9",
+    "before": {
+      "bytes": 99120392,
+      "gzipBytes": 58901025,
+      "triangles": 986575,
+      "vertices": 1265271,
+      "texturePixels": 124780544,
+      "textures": 83,
+      "nodes": 535,
+      "skins": 5,
+      "animations": []
+    },
+    "after": {
+      "bytes": 23966936,
+      "gzipBytes": 15631970,
+      "triangles": 697357,
+      "vertices": 1030776,
+      "texturePixels": 87031808,
+      "textures": 83,
+      "nodes": 535,
+      "skins": 5,
+      "animations": []
+    }
+  },
+  {
+    "file": "assets/markets/noon.glb",
+    "settings": {
+      "file": "assets/markets/noon.glb",
+      "ratio": 0.5,
+      "error": 0.001,
+      "textureSize": 1024
+    },
+    "sourceSha256": "e4590de8adf9aad183bb941fa1152cc1c2f69aba3fa2a0de3a3cb26e16d35a4c",
+    "outputSha256": "c721c3e5f006608bb1e1ea3d0b202bea1399926a4bc46a42efcc2c5381d7e5aa",
+    "before": {
+      "bytes": 51049652,
+      "gzipBytes": 29496630,
+      "triangles": 812212,
+      "vertices": 924935,
+      "texturePixels": 55640064,
+      "textures": 66,
+      "nodes": 599,
+      "skins": 5,
+      "animations": []
+    },
+    "after": {
+      "bytes": 17627824,
+      "gzipBytes": 13477510,
+      "triangles": 586984,
+      "vertices": 680009,
+      "texturePixels": 39911424,
+      "textures": 66,
+      "nodes": 599,
+      "skins": 5,
+      "animations": []
+    }
+  },
+  {
+    "file": "assets/markets/night.glb",
+    "settings": {
+      "file": "assets/markets/night.glb",
+      "ratio": 0.5,
+      "error": 0.001,
+      "textureSize": 1024
+    },
+    "sourceSha256": "debb9aa8d79b1c35f88e95f4fa9d349b019d17a726a865a66cbbb4b1ceb345d4",
+    "outputSha256": "6cb97d41df32780a218d7ab9b214dbf2b2158022d8cc42ff6385ef3d361e9175",
+    "before": {
+      "bytes": 86342932,
+      "gzipBytes": 29445105,
+      "triangles": 1786685,
+      "vertices": 2400096,
+      "texturePixels": 43663360,
+      "textures": 58,
+      "nodes": 818,
+      "skins": 5,
+      "animations": [
+        "bow.001",
+        "look_around.001",
+        "walk.002",
+        "agree.001",
+        "look_around.002"
+      ]
+    },
+    "after": {
+      "bytes": 22697772,
+      "gzipBytes": 15799644,
+      "triangles": 1277547,
+      "vertices": 1833107,
+      "texturePixels": 27934720,
+      "textures": 58,
+      "nodes": 818,
+      "skins": 5,
+      "animations": [
+        "bow.001",
+        "look_around.001",
+        "walk.002",
+        "agree.001",
+        "look_around.002"
+      ]
+    }
+  },
+  {
+    "file": "assets/character.glb",
+    "settings": {
+      "file": "assets/character.glb",
+      "ratio": 0.75,
+      "error": 0.0005,
+      "textureSize": 1024
+    },
+    "sourceSha256": "bdec2414af388202e5414c6c49190dd88d3a65340919603610ea93614f2d61b5",
+    "outputSha256": "b8a24dcfcab1aad137e2484a68c81150732fca4733f49cc084572dfe77d99189",
+    "before": {
+      "bytes": 2018972,
+      "gzipBytes": 1360461,
+      "triangles": 18115,
+      "vertices": 18381,
+      "texturePixels": 4194304,
+      "textures": 1,
+      "nodes": 43,
+      "skins": 1,
+      "animations": [
+        "walk.001",
+        "wait.001",
+        "clap.001",
+        "agree.001"
+      ]
+    },
+    "after": {
+      "bytes": 939328,
+      "gzipBytes": 805614,
+      "triangles": 13585,
+      "vertices": 15444,
+      "texturePixels": 1048576,
+      "textures": 1,
+      "nodes": 43,
+      "skins": 1,
+      "animations": [
+        "walk.001",
+        "wait.001",
+        "clap.001",
+        "agree.001"
+      ]
+    }
+  },
+  {
+    "file": "资产包/首页/早/zao.glb",
+    "settings": {
+      "file": "资产包/首页/早/zao.glb",
+      "ratio": 1,
+      "error": 0,
+      "textureSize": 1024
+    },
+    "sourceSha256": "71a6e1d3c0000a43a72629b328bb1c341188322b8194b73b5fb747e5b7ddd451",
+    "outputSha256": "2d3ca7c23ded6bcc128f7f1dfa336cfe42f9aa18fc4ae4914a7d1448761dbb0f",
+    "before": {
+      "bytes": 2691556,
+      "gzipBytes": 2367118,
+      "triangles": 11801,
+      "vertices": 17616,
+      "texturePixels": 8388608,
+      "textures": 2,
+      "nodes": 2,
+      "skins": 0,
+      "animations": []
+    },
+    "after": {
+      "bytes": 532180,
+      "gzipBytes": 490736,
+      "triangles": 11801,
+      "vertices": 17616,
+      "texturePixels": 2097152,
+      "textures": 2,
+      "nodes": 2,
+      "skins": 0,
+      "animations": []
+    }
+  },
+  {
+    "file": "资产包/首页/午/noon.glb",
+    "settings": {
+      "file": "资产包/首页/午/noon.glb",
+      "ratio": 1,
+      "error": 0,
+      "textureSize": 1024
+    },
+    "sourceSha256": "b5f59195405ce12acd136d5495a38d8016fa63ffef334d2238eff086f8da8fc2",
+    "outputSha256": "fa00e7097e6f1b7420f32896223f11582a9cc991b38b61e2c78e1159a60066ff",
+    "before": {
+      "bytes": 1442164,
+      "gzipBytes": 1190698,
+      "triangles": 8648,
+      "vertices": 13971,
+      "texturePixels": 4194304,
+      "textures": 1,
+      "nodes": 1,
+      "skins": 0,
+      "animations": []
+    },
+    "after": {
+      "bytes": 323076,
+      "gzipBytes": 291793,
+      "triangles": 8648,
+      "vertices": 13971,
+      "texturePixels": 1048576,
+      "textures": 1,
+      "nodes": 1,
+      "skins": 0,
+      "animations": []
+    }
+  },
+  {
+    "file": "资产包/首页/夜/evening.glb",
+    "settings": {
+      "file": "资产包/首页/夜/evening.glb",
+      "ratio": 1,
+      "error": 0,
+      "textureSize": 1024
+    },
+    "sourceSha256": "1d2819352866b3a0e4939b714df44c46d75cd90dd1175a6aaefa91405871a056",
+    "outputSha256": "c020585148528496b7e9f9c2f07652155aa17361d13603ff4d0e2c8ce9ccce7e",
+    "before": {
+      "bytes": 1572672,
+      "gzipBytes": 1342203,
+      "triangles": 10202,
+      "vertices": 16657,
+      "texturePixels": 4194304,
+      "textures": 1,
+      "nodes": 1,
+      "skins": 0,
+      "animations": []
+    },
+    "after": {
+      "bytes": 368728,
+      "gzipBytes": 328518,
+      "triangles": 10202,
+      "vertices": 16598,
+      "texturePixels": 1048576,
+      "textures": 1,
+      "nodes": 1,
+      "skins": 0,
+      "animations": []
+    }
+  }
+]

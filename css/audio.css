@@ -1,5 +1,7 @@
 /* A small ink-and-paper control, below the basket and clear of movement controls. */
 .sound-controls{position:fixed;top:76px;right:26px;z-index:65;display:flex;align-items:center;gap:0;font:12px var(--font-kai);letter-spacing:.12em;color:var(--panel-text);background:var(--panel);border:1px solid var(--panel-line);border-radius:3px;backdrop-filter:blur(8px)}
+/* Background controls must not cover the product dialog's close button. */
+.is-product-open .sound-controls{visibility:hidden}
 .sound-toggle,.sound-settings>summary{min-height:36px;padding:9px 12px;cursor:pointer;list-style:none;white-space:nowrap}
 .sound-settings>summary::-webkit-details-marker{display:none}.sound-settings>summary{border-left:1px solid var(--panel-line)}
 .sound-controls :focus-visible{outline:2px solid #d9ad71;outline-offset:3px}

@@ -1,4 +1,5 @@
 ﻿import * as THREE from 'three';
+import { isConstrainedDisplay } from '../core/render-quality.js';
 
 /**
  * Authored Blender lighting: moon, sky and every warm lamp the scene uses.
@@ -25,7 +26,8 @@ export function createAuthoredLighting(scene, renderer, lighting) {
     sun.target.position.set(-3, 1.3, 0);
     sun.position.copy(sun.target.position).addScaledVector(new THREE.Vector3(...source.direction), -40);
     sun.castShadow = true;
-    sun.shadow.mapSize.set(2048, 2048);
+    const shadowSize = isConstrainedDisplay() ? 1024 : 2048;
+    sun.shadow.mapSize.set(shadowSize, shadowSize);
     Object.assign(sun.shadow.camera, { left: -34, right: 34, top: 34, bottom: -34, near: 0.5, far: 110 });
     sun.shadow.bias = -0.00015;
     sun.shadow.normalBias = 0.025;

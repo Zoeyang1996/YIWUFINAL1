@@ -28,6 +28,7 @@ async function mirror(relative) {
 }
 const THREE = await import(await mirror('vendor/three/three.module.js'));
 const { GLTFLoader } = await import(await mirror('vendor/three/addons/loaders/GLTFLoader.js'));
+const { MeshoptDecoder } = await import('../vendor/meshoptimizer/meshopt_decoder.mjs');
 const { PHASES } = await import(await mirror('js/data/phases.js'));
 const { PRODUCTS } = await import(await mirror('js/data/products.js'));
 const { loadMarketMap } = await import(await mirror('js/market/map.js'));
@@ -43,12 +44,12 @@ globalThis.__marketTestLoad = async url => {
   if (!cache.has(name)) cache.set(name, (async () => {
     const buffer = await fs.readFile(path.join(root, name));
     assert.equal(buffer.toString('ascii', 0, 4), 'glTF', name);
-    const length = buffer.readUInt32LE(12);
-    const json = JSON.parse(buffer.toString('utf8', 20, 20 + length));
-    json.buffers[0].uri = `data:application/octet-stream;base64,${buffer.subarray(28 + length).toString('base64')}`;
-    const loader = new GLTFLoader();
+    const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
+    // Replace the WebP plugin in this geometry-only test; actual decoding is browser-tested.
+    loader.register(() => ({ name: 'EXT_texture_webp', loadTexture: async () => new THREE.Texture() }));
     loader.register(() => ({ name: 'test-textures', loadTexture: async () => new THREE.Texture() }));
-    return loader.parseAsync(JSON.stringify(json), '');
+    // Use the real GLB container, including meshopt's compressed/fallback buffers.
+    return loader.parseAsync(buffer.buffer.slice(buffer.byteOffset, buffer.byteOffset + buffer.byteLength), '');
   })());
   return cache.get(name);
 };
